@@ -1,0 +1,34 @@
+{
+  "experiment": "E06: NUC skeleton-robot coupling motivation gate",
+  "registered_run": true,
+  "branch": "exp/nuc-robot-coupling-v1",
+  "code_commit": "78876d52d5313c0e99978700ff3cb7de02e2d0a5",
+  "config_hash": "800217b19a3f0dc54ab2271b884962ac8fbe2f9fd25158be9aea8f8f6c452726",
+  "candidate_executions": 120,
+  "scenes": 6,
+  "elapsed_seconds": 870.2864242643118,
+  "frozen_contract": {
+    "coverage_samples_per_face": 48,
+    "coverage_path_sample_spacing_m": 0.002,
+    "q_interpolation_step_rad": 0.05,
+    "characteristic_length_m": 0.1,
+    "sigma_safe": 0.07237417172157597,
+    "delta_eval": 0.014896370666132419,
+    "delta_NUC": 0.029792741332264838,
+    "timing_enabled": false
+  },
+  "gate": {
+    "scenes_with_at_least_10pct_spread": 0,
+    "required_scenes": 4,
+    "median_paired_L_q_reduction": 0.003985156958267955,
+    "required_median_reduction": 0.1,
+    "condition_A": false,
+    "condition_B": false,
+    "decision": "NO-GO"
+  },
+  "failure_counts": {
+    "coverage_nuc": 3,
+    "continuous_lift_not_found_under_budget": 40
+  },
+  "interpretation": "Optimum only over the finite numerical candidate/continuation graph; no continuous C-space global-optimality claim."
+}

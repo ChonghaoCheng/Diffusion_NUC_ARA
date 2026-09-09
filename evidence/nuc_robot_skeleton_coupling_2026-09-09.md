@@ -5,6 +5,7 @@
 - Code commit: `78876d52d5313c0e99978700ff3cb7de02e2d0a5`
 - Branch: `exp/nuc-robot-coupling-v1`
 - Result directory: `results/nuc_robot_skeleton_coupling_v1/`
+- ARA result snapshot: `evidence/runs/nuc_robot_skeleton_coupling_v1/`
 - Main configuration: `configs/nuc_robot_coupling_v1.json`
 - Frozen placements: `configs/nuc_robot_coupling_v1_placements.json`
 - Experiment config hash: `800217b19a3f0dc54ab2271b884962ac8fbe2f9fd25158be9aea8f8f6c452726`

@@ -1,0 +1,29 @@
+{
+  "branch": "exp/nuc-robot-coupling-v1",
+  "code_commit": "84b3e9892d3a2736b070852b8d1680019c919174",
+  "result_directory": "results/nuc_robot_contract_calibration_v1",
+  "frozen_contract": {
+    "coverage_samples_per_face": 48,
+    "coverage_path_sample_spacing_m": 0.002,
+    "q_interpolation_step_rad": 0.05,
+    "characteristic_length_m": 0.1,
+    "sigma_safe": 0.07237417172157597,
+    "delta_eval": 0.014896370666132419,
+    "delta_NUC": 0.029792741332264838,
+    "timing_enabled": false
+  },
+  "task_metric_consistency": {
+    "position_finite_difference_max_error": 1.8117257694072464e-10,
+    "axis_finite_difference_max_error": 1.8378021326981298e-10,
+    "basis_rotation_singular_value_max_error": 1.7763568394002505e-15,
+    "unit_scaling_singular_value_max_error": 2.220446049250313e-16
+  },
+  "witness_roundtrip": {
+    "kind": "witness_roundtrip",
+    "float64": true,
+    "exact": true,
+    "samples": 7
+  },
+  "coverage_resolution_rows": 18,
+  "q_resolution_rows": 4
+}
