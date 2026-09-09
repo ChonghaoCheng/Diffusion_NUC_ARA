@@ -899,3 +899,36 @@ observations:
     promoted_to: "logic/solution/heuristics.md:H25"
     crystallized_via: artifact-commitment
     stale: false
+  - id: O68
+    timestamp: "2026-09-10T01:31:00+10:00"
+    provenance: ai-suggested
+    content: "Legal NUC expansion-order variants exchange and reorder a high-frequency local-transition vocabulary; strict variable-edge fraction can be large even when total witness-cost spread is small."
+    context: "E06-D D1/D2 transition-frequency and cost-cancellation diagnosis."
+    potential_type: claim
+    bound_to: [N126, N127]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+  - id: O69
+    timestamp: "2026-09-10T01:31:00+10:00"
+    provenance: ai-suggested
+    content: "The normalized 5D local task metric contains strong execution-ranking information, but the tested expansion-order family exposes too little metric spread to support optimization."
+    context: "E06-D D3 candidate and local correlations."
+    potential_type: claim
+    bound_to: [N128]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+  - id: O70
+    timestamp: "2026-09-10T01:31:00+10:00"
+    provenance: ai-suggested
+    content: "Hemisphere continuation failure is placement dependent: stronger finite search rescues some P_mid paths but does not move the tested P_hard bottlenecks."
+    context: "E06-D D4 default replay and preregistered strong-search sensitivity."
+    potential_type: claim
+    bound_to: [N129, N131]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false

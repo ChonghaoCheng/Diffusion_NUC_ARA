@@ -27,3 +27,10 @@ sessions:
     events_count: 16
     claims_touched: [A03, E06, E07, H25]
     open_threads: 4
+  - id: "2026-09-10_001"
+    date: "2026-09-10"
+    summary: "Completed E06-D diagnosis, closed legal expansion-order selection, narrowed the local metric to diagnosis, and kept E07 blocked."
+    turn_count: 1
+    events_count: 11
+    claims_touched: [E06-D, E07]
+    open_threads: 3

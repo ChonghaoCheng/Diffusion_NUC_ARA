@@ -1,0 +1,107 @@
+session:
+  id: "2026-09-10_001"
+  date: "2026-09-10"
+  started: "2026-09-10T00:00:00+10:00"
+  last_turn: "2026-09-10T01:31:00+10:00"
+  turn_count: 1
+  summary: "Completed E06-D diagnosis, closed legal expansion-order selection, narrowed the local metric to diagnosis, and kept E07 blocked."
+
+events_logged:
+  - turn: 1
+    type: pivot
+    id: N125
+    routing: direct
+    provenance: user
+    summary: "Registered mechanism diagnosis without introducing a replacement planner."
+  - turn: 1
+    type: experiment
+    id: N126
+    routing: direct
+    provenance: ai-executed
+    summary: "Measured canonical skeleton structure and attributed all archived witness travel to transitions."
+  - turn: 1
+    type: dead_end
+    id: N127
+    routing: direct
+    provenance: ai-executed
+    summary: "Rejected small strict-variable cost fraction as the cause of the E06 spread failure."
+  - turn: 1
+    type: experiment
+    id: N128
+    routing: direct
+    provenance: ai-executed
+    summary: "Found a predictive normalized 5D metric but little candidate-level metric spread."
+  - turn: 1
+    type: experiment
+    id: N129
+    routing: direct
+    provenance: ai-executed
+    summary: "Reproduced and spatially localized all forty default hemisphere failures."
+  - turn: 1
+    type: decision
+    id: N130
+    routing: direct
+    provenance: ai-executed
+    summary: "Froze eight strong-search cases before sensitivity outcomes."
+  - turn: 1
+    type: experiment
+    id: N131
+    routing: direct
+    provenance: ai-executed
+    summary: "Recovered two P_mid cases but no P_hard cases under stronger search."
+  - turn: 1
+    type: decision
+    id: N132
+    routing: direct
+    provenance: ai-executed
+    summary: "Closed expansion-order selection, narrowed Riemannian geometry to diagnosis, and retained the E07 block."
+  - turn: 1
+    observation: O68
+    routing: staged
+    provenance: ai-suggested
+  - turn: 1
+    observation: O69
+    routing: staged
+    provenance: ai-suggested
+  - turn: 1
+    observation: O70
+    routing: staged
+    provenance: ai-suggested
+  - turn: 1
+    action: "Implemented D1-D4 diagnostics, generated raw tables and figures, ran 122 tests, and archived evidence on dedicated code and ARA branches."
+    provenance: ai-executed
+    files_changed:
+      - "src/diffusion_coverage/diagnostics/"
+      - "src/diffusion_coverage/nuc/robot_lift.py"
+      - "scripts/diagnose_nuc_skeleton_structure.py"
+      - "scripts/diagnose_nuc_joint_cost_decomposition.py"
+      - "scripts/diagnose_nuc_execution_metric.py"
+      - "scripts/diagnose_hemisphere_continuation.py"
+      - "scripts/summarize_nuc_coupling_diagnosis.py"
+      - "tests/test_nuc_coupling_diagnostics.py"
+
+claims_touched: [E06-D, E07]
+logic_revisions:
+  - turn: 1
+    target: "logic/experiments.md:E06-D"
+    from: "registered and active"
+    to: "resolved as Outcome 2 with mixed Outcome 4/5 hemisphere sensitivity"
+    trigger: "Completed D1-D4 analysis and strong-search sensitivity."
+  - turn: 1
+    target: "logic/experiments.md:E07"
+    from: "blocked pending E06"
+    to: "blocked after E06 NO-GO and not authorized by E06-D"
+    trigger: "Predictive metric but narrow candidate spread does not establish deformation benefit."
+
+key_context:
+  - turn: 1
+    excerpt: "E06-D diagnoses the failed mechanism. It does not search for a replacement mechanism."
+
+open_threads:
+  - "Register a continuation-search qualification experiment before changing hemisphere path design."
+  - "Determine why repeated P_hard transitions reject all propagated branches without claiming C-space disconnection."
+  - "Keep E07 and learned planning blocked."
+
+ai_suggestions_pending:
+  - "Treat normalized 5D geometry as a diagnostic until a broader path family exposes material metric variation."
+  - "Separate P_mid search sensitivity from P_hard persistent continuation bottlenecks."

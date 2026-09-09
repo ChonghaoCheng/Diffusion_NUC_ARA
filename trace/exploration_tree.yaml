@@ -1765,3 +1765,80 @@ tree:
     evidence: ["git commits 78876d5 and 789975f"]
     status: resolved
     also_depends_on: [N121, N123]
+  - id: N125
+    type: pivot
+    title: "Diagnose the failed E06 mechanism without replacing it"
+    provenance: user
+    timestamp: "2026-09-10T01:31:00+10:00"
+    from: "Search for a useful legal NUC expansion-order selector"
+    to: "Measure skeleton structure, witness-cost attribution, local metric prediction, and continuation failure sensitivity"
+    trigger: "E06 failed its practical-significance gate and requires explanation before any new planning degree of freedom is introduced."
+    status: resolved
+    also_depends_on: [N121, N122, N123]
+  - id: N126
+    type: experiment
+    title: "Measure E06 skeleton structure and witness-cost attribution"
+    provenance: ai-executed
+    timestamp: "2026-09-10T01:31:00+10:00"
+    result: "The libraries contain distinct ordered paths but reuse a high-frequency local-transition vocabulary; strict variable-edge cost is substantial, while transitions present in at least half the library carry most witness travel."
+    evidence: ["evidence/nuc_robot_coupling_diagnosis_2026-09-10.md", "evidence/runs/nuc_robot_coupling_diagnosis_v1/d1_structure/", "evidence/runs/nuc_robot_coupling_diagnosis_v1/d2_cost_decomposition/"]
+    status: resolved
+    also_depends_on: [N125]
+  - id: N127
+    type: dead_end
+    title: "Reject a small variable-transition fraction as the E06 explanation"
+    provenance: ai-executed
+    timestamp: "2026-09-10T01:31:00+10:00"
+    hypothesis: "Only a few percent of witness travel lies on skeleton-variable transitions, intrinsically limiting total execution improvement."
+    failure_mode: "Strict variable transitions carried a large fraction of witness cost, while exchanges and reordered high-frequency transitions produced cancellation at total-plan level."
+    lesson: "Measure transition frequency and component-cost cancellation instead of equating strict set intersection with shared motion structure."
+    evidence: ["evidence/nuc_robot_coupling_diagnosis_2026-09-10.md"]
+    status: resolved
+    also_depends_on: [N126]
+  - id: N128
+    type: experiment
+    title: "Test normalized 5D local metric against actual witnesses"
+    provenance: ai-executed
+    timestamp: "2026-09-10T01:31:00+10:00"
+    result: "The induced metric strongly predicted candidate ranks and usually local increments, but metric and witness candidate spreads both remained small."
+    evidence: ["evidence/nuc_robot_coupling_diagnosis_2026-09-10.md", "evidence/runs/nuc_robot_coupling_diagnosis_v1/d3_execution_metric/"]
+    status: resolved
+    also_depends_on: [N126]
+  - id: N129
+    type: experiment
+    title: "Replay and localize all E06 hemisphere failures"
+    provenance: ai-executed
+    timestamp: "2026-09-10T01:31:00+10:00"
+    result: "Default replay reproduced all forty failures and localized most failures in each placement to one canonical transition with endpoint candidates still present."
+    evidence: ["evidence/nuc_robot_coupling_diagnosis_2026-09-10.md", "evidence/runs/nuc_robot_coupling_diagnosis_v1/d4_continuation/"]
+    status: resolved
+    also_depends_on: [N125]
+  - id: N130
+    type: decision
+    title: "Freeze E06-D strong-search subset before sensitivity replay"
+    provenance: ai-executed
+    timestamp: "2026-09-10T01:31:00+10:00"
+    choice: "Select geometry, earliest, lower-median, and latest default failures independently for P_mid and P_hard, with deterministic ID tie-breaking."
+    alternatives: ["Rerun all failures", "Select cases after observing strong-search outcomes"]
+    evidence: ["staging/e06d_nuc_skeleton_coupling_plan.md", "evidence/runs/nuc_robot_coupling_diagnosis_v1/d4_continuation/strong_search_selection.json"]
+    status: resolved
+    also_depends_on: [N129]
+  - id: N131
+    type: experiment
+    title: "Run preregistered hemisphere strong-search sensitivity"
+    provenance: ai-executed
+    timestamp: "2026-09-10T01:31:00+10:00"
+    result: "Strong search recovered two of four P_mid cases and delayed two others, while all four P_hard cases failed at unchanged progress; the failure mechanism is placement dependent."
+    evidence: ["evidence/nuc_robot_coupling_diagnosis_2026-09-10.md", "evidence/runs/nuc_robot_coupling_diagnosis_v1/d4_continuation/strong_comparison.csv"]
+    status: resolved
+    also_depends_on: [N129, N130]
+  - id: N132
+    type: decision
+    title: "Close expansion-order selection and narrow the Riemannian line"
+    provenance: ai-executed
+    timestamp: "2026-09-10T01:31:00+10:00"
+    choice: "Classify E06-D primarily as Outcome 2, retain the local metric only as a diagnostic, keep E07 blocked, and qualify hemisphere continuation before registering a new path-design freedom."
+    alternatives: ["Run E07", "Treat all hemisphere failures as disconnection", "Discard the local metric"]
+    evidence: ["evidence/nuc_robot_coupling_diagnosis_2026-09-10.md"]
+    status: resolved
+    also_depends_on: [N127, N128, N131]
