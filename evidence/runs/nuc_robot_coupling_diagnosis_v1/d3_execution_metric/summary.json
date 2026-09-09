@@ -1,0 +1,54 @@
+{
+  "hemisphere/P_easy": {
+    "candidate_count": 17,
+    "L_G_relative_spread": 0.009397881636505017,
+    "L_q_relative_spread": 0.01030600806321507,
+    "candidate_pearson": 0.9963177602914393,
+    "candidate_spearman": 0.9877450980392157,
+    "per_scene_normalized_pearson": 0.9963177602914385,
+    "local_pearson": 0.9865851835759755,
+    "local_spearman": 0.9835925692314341,
+    "residual_sigma_pearson": -0.7167713999655054,
+    "residual_margin_pearson": -0.4158787075939613,
+    "median_L_q_over_L_G": 1.085182103110777
+  },
+  "saddle/P_easy": {
+    "candidate_count": 20,
+    "L_G_relative_spread": 0.01564636521559611,
+    "L_q_relative_spread": 0.009691752860288618,
+    "candidate_pearson": 0.8984417804717701,
+    "candidate_spearman": 0.9834586466165413,
+    "per_scene_normalized_pearson": 0.8984417804717694,
+    "local_pearson": 0.9850794205679337,
+    "local_spearman": 0.9761965363123963,
+    "residual_sigma_pearson": -0.041515905079215314,
+    "residual_margin_pearson": -0.10978503382818464,
+    "median_L_q_over_L_G": 1.086422677484494
+  },
+  "saddle/P_hard": {
+    "candidate_count": 20,
+    "L_G_relative_spread": 0.007686023829032916,
+    "L_q_relative_spread": 0.0069064375115597204,
+    "candidate_pearson": 0.9732522558833049,
+    "candidate_spearman": 0.9338345864661652,
+    "per_scene_normalized_pearson": 0.9732522558833042,
+    "local_pearson": 0.9946161701497247,
+    "local_spearman": 0.9915685923563232,
+    "residual_sigma_pearson": -0.2314983400700804,
+    "residual_margin_pearson": -0.0777775406206845,
+    "median_L_q_over_L_G": 1.042008831445945
+  },
+  "saddle/P_mid": {
+    "candidate_count": 20,
+    "L_G_relative_spread": 0.008255627177680849,
+    "L_q_relative_spread": 0.0075405222231134965,
+    "candidate_pearson": 0.9998204538372231,
+    "candidate_spearman": 1.0,
+    "per_scene_normalized_pearson": 0.9998204538372228,
+    "local_pearson": 0.5688121755101124,
+    "local_spearman": 0.9823625542348081,
+    "residual_sigma_pearson": -0.07403388767817551,
+    "residual_margin_pearson": 0.04571551988108441,
+    "median_L_q_over_L_G": 1.0450746613724204
+  }
+}

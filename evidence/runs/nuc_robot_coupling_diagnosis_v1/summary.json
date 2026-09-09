@@ -1,0 +1,150 @@
+{
+  "experiment": "E06-D: NUC skeleton coupling mechanism diagnosis",
+  "parent_code_commit": "78876d52d5313c0e99978700ff3cb7de02e2d0a5",
+  "archived_E06_reproduced": true,
+  "D1": {
+    "saddle": {
+      "directed_transition_jaccard": {
+        "mean": 0.7240936537650066,
+        "median": 0.7408906882591093,
+        "min": 0.36507936507936506,
+        "max": 0.9282511210762332
+      },
+      "undirected_transition_jaccard": {
+        "mean": 0.7240936537650066,
+        "median": 0.7408906882591093,
+        "min": 0.36507936507936506,
+        "max": 0.9282511210762332
+      },
+      "tree_edge_jaccard": {
+        "mean": 0.782438099146957,
+        "median": 0.7974683544303798,
+        "min": 0.4791666666666667,
+        "max": 0.9452054794520548
+      },
+      "normalized_sequence_distance": {
+        "mean": 0.35338693957115,
+        "median": 0.33796296296296297,
+        "min": 0.05555555555555555,
+        "max": 0.75
+      },
+      "geometric_path_distance": {
+        "mean": 0.03847099251504061,
+        "median": 0.03878554211765581,
+        "min": 0.002466114211976512,
+        "max": 0.06844834243105258
+      },
+      "tangent_disagreement": {
+        "mean": 0.7378141664793774,
+        "median": 0.7516513202815422,
+        "min": 0.15485531752003556,
+        "max": 1.1505011952503996
+      }
+    },
+    "hemisphere": {
+      "directed_transition_jaccard": {
+        "mean": 0.744780273546265,
+        "median": 0.861671469740634,
+        "min": 0.38329764453961457,
+        "max": 0.9755351681957186
+      },
+      "undirected_transition_jaccard": {
+        "mean": 0.744780273546265,
+        "median": 0.861671469740634,
+        "min": 0.38329764453961457,
+        "max": 0.9755351681957186
+      },
+      "tree_edge_jaccard": {
+        "mean": 0.7729631564741429,
+        "median": 0.8938053097345132,
+        "min": 0.281437125748503,
+        "max": 0.9814814814814815
+      },
+      "normalized_sequence_distance": {
+        "mean": 0.3627842755035737,
+        "median": 0.15432098765432098,
+        "min": 0.018518518518518517,
+        "max": 0.9598765432098766
+      },
+      "geometric_path_distance": {
+        "mean": 0.04529517196308308,
+        "median": 0.022105341237068907,
+        "min": 0.0019532603313167965,
+        "max": 0.140135006116684
+      },
+      "tangent_disagreement": {
+        "mean": 0.8295196932603046,
+        "median": 0.5964646517472594,
+        "min": 0.11852397701432432,
+        "max": 1.598704066396782
+      }
+    }
+  },
+  "valid_scene_table": [
+    {
+      "surface": "saddle",
+      "placement": "P_easy",
+      "E06_L_q_spread": 0.009691752860288618,
+      "median_eta_var": 0.3921636985359096,
+      "median_eta_cross": 0.8022955090096563,
+      "L_G_spread": 0.01564636521559611,
+      "Pearson_L_G_L_q": 0.8984417804717701,
+      "Spearman_L_G_L_q": 0.9834586466165413
+    },
+    {
+      "surface": "saddle",
+      "placement": "P_mid",
+      "E06_L_q_spread": 0.0075405222231134965,
+      "median_eta_var": 0.46246392088664856,
+      "median_eta_cross": 0.7743338096055746,
+      "L_G_spread": 0.008255627177680849,
+      "Pearson_L_G_L_q": 0.9998204538372231,
+      "Spearman_L_G_L_q": 1.0
+    },
+    {
+      "surface": "saddle",
+      "placement": "P_hard",
+      "E06_L_q_spread": 0.0069064375115597204,
+      "median_eta_var": 0.4553896867577945,
+      "median_eta_cross": 0.7836525501793306,
+      "L_G_spread": 0.007686023829032916,
+      "Pearson_L_G_L_q": 0.9732522558833049,
+      "Spearman_L_G_L_q": 0.9338345864661652
+    },
+    {
+      "surface": "hemisphere",
+      "placement": "P_easy",
+      "E06_L_q_spread": 0.01030600806321507,
+      "median_eta_var": 0.7439988628424812,
+      "median_eta_cross": 0.7715672202643036,
+      "L_G_spread": 0.009397881636505017,
+      "Pearson_L_G_L_q": 0.9963177602914393,
+      "Spearman_L_G_L_q": 0.9877450980392157
+    }
+  ],
+  "D4": [
+    {
+      "placement": "P_mid",
+      "number_failed": 20,
+      "dominant_failure_category": "transition_graph_empty",
+      "median_first_failure_progress": 0.34674922600619196,
+      "strong_search_cases": 4,
+      "strong_search_recoveries": 2
+    },
+    {
+      "placement": "P_hard",
+      "number_failed": 20,
+      "dominant_failure_category": "transition_graph_empty",
+      "median_first_failure_progress": 0.0913312693498452,
+      "strong_search_cases": 4,
+      "strong_search_recoveries": 0
+    }
+  ],
+  "interpretation": {
+    "primary": "Outcome 2",
+    "hemisphere": "mixed Outcome 4/5",
+    "strong_recoveries": 2,
+    "strong_cases": 8,
+    "riemannian_line": "narrowed to a diagnostic; deformation remains blocked"
+  }
+}

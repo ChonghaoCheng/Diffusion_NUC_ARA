@@ -1,0 +1,52 @@
+{
+  "saddle": {
+    "common_directed_transitions": 115,
+    "variable_directed_transitions": 200,
+    "median_eta_var": 0.4553896867577945,
+    "median_eta_cross": 0.7851096545893856,
+    "max_archive_abs_error": 3.552713678800501e-15,
+    "median_C_0.50": 0.9122508784369632,
+    "median_C_0.75": 0.7646186451588781,
+    "median_C_0.90": 0.6726468877671612,
+    "median_C_1.00": 0.5446103132422055,
+    "scene_component_spreads": {
+      "P_easy": {
+        "L_q_total": 0.009691752860288618,
+        "L_q_common": 0.09062355936068882,
+        "L_q_variable": 0.15527611526406992,
+        "L_q_cross_parent": 0.06379857628003513
+      },
+      "P_hard": {
+        "L_q_total": 0.0069064375115597204,
+        "L_q_common": 0.0015312770958319482,
+        "L_q_variable": 0.013591294380180228,
+        "L_q_cross_parent": 0.04340799877076509
+      },
+      "P_mid": {
+        "L_q_total": 0.0075405222231134965,
+        "L_q_common": 7.549140788504781e-06,
+        "L_q_variable": 0.01636317824719398,
+        "L_q_cross_parent": 0.059318272143519736
+      }
+    }
+  },
+  "hemisphere": {
+    "common_directed_transitions": 83,
+    "variable_directed_transitions": 480,
+    "median_eta_var": 0.7440290539146599,
+    "median_eta_cross": 0.7725497795696491,
+    "max_archive_abs_error": 1.4210854715202004e-14,
+    "median_C_0.50": 0.9794795298564329,
+    "median_C_0.75": 0.9375480212247096,
+    "median_C_0.90": 0.778135708754433,
+    "median_C_1.00": 0.25597094608534016,
+    "scene_component_spreads": {
+      "P_easy": {
+        "L_q_total": 0.017478077230242584,
+        "L_q_common": 6.545136312851687e-05,
+        "L_q_variable": 0.023506902473724618,
+        "L_q_cross_parent": 0.026968791238983346
+      }
+    }
+  }
+}

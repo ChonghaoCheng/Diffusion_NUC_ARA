@@ -1,0 +1,9 @@
+cd /data/chocheng/Code/diffusion_coverage
+MPLCONFIGDIR=/data/chocheng/.cache/matplotlib /data/chocheng/.venvs/coverage-fm/bin/python scripts/diagnose_nuc_skeleton_structure.py
+MPLCONFIGDIR=/data/chocheng/.cache/matplotlib /data/chocheng/.venvs/coverage-fm/bin/python scripts/diagnose_nuc_joint_cost_decomposition.py
+MPLCONFIGDIR=/data/chocheng/.cache/matplotlib /data/chocheng/.venvs/coverage-fm/bin/python scripts/diagnose_nuc_execution_metric.py
+MPLCONFIGDIR=/data/chocheng/.cache/matplotlib /data/chocheng/.venvs/coverage-fm/bin/python scripts/diagnose_hemisphere_continuation.py --stage default
+# Freeze strong_search_selection.json IDs in the ARA and set ara_frozen=true before continuing.
+MPLCONFIGDIR=/data/chocheng/.cache/matplotlib /data/chocheng/.venvs/coverage-fm/bin/python scripts/diagnose_hemisphere_continuation.py --stage strong
+/data/chocheng/.venvs/coverage-fm/bin/python scripts/summarize_nuc_coupling_diagnosis.py
+/data/chocheng/.venvs/coverage-fm/bin/python -m pytest -q

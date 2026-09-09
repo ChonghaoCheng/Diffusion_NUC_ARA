@@ -75,8 +75,9 @@ surface perturbations, and normalized-5D robot-metric-guided perturbations at eq
 budget. Keep skeleton topology fixed and admit candidates lexicographically by strict robot
 feasibility, frozen NUC equivalence, positive task-singularity margin, then witness `L_q`.
 
-**Status (2026-09-09):** blocked pending E06. E07 must not run unless both preregistered E06
-mechanism gates pass.
+**Status (2026-09-10):** blocked after the E06 NO-GO and not run. E06-D did not authorize it:
+the local metric was predictive, but the tested skeleton degree of freedom had only sub-1.57%
+metric spread and strong continuation sensitivity was placement dependent.
 
 ## E06-D: NUC skeleton coupling mechanism diagnosis
 
@@ -91,3 +92,14 @@ search budget.
 
 **Status (2026-09-10):** registered and active. This is a diagnosis of the failed E06 mechanism,
 not a new planner or a revision of the E06 NO-GO. E07 remains blocked and must not run.
+
+**Result (2026-09-10):** resolved as **Outcome 2**, with a mixed Outcome 4/5 hemisphere
+diagnosis. Candidate-level normalized-5D metric correlations with witness `L_q` were high
+(Pearson `0.8984-0.9998`, Spearman `0.9338-1.0000`) while both metric and witness spreads stayed
+below `1.57%`. Strictly variable transitions carried substantial cost, but transitions appearing
+in at least half the library carried median `91.23%` (saddle) and `97.95%` (hemisphere) of `L_q`;
+candidate differences therefore mostly reorder a high-frequency local-motion vocabulary whose
+costs cancel at plan level. Default hemisphere replay reproduced all forty E06 failures. Strong
+search recovered two of four P_mid cases, delayed two others, and recovered zero of four P_hard
+cases. Legal expansion-order selection is closed as a useful optimization degree of freedom;
+the Riemannian line is retained only as a diagnostic. E07 remains blocked and was not run.

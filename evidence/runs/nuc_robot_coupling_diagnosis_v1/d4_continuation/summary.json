@@ -1,0 +1,14 @@
+{
+  "strong_cases": 8,
+  "strong_recoveries": 2,
+  "by_placement": {
+    "P_mid": {
+      "cases": 4,
+      "recoveries": 2
+    },
+    "P_hard": {
+      "cases": 4,
+      "recoveries": 0
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "selection_rule": "geometry baseline, earliest, lower-median, latest failure progress; ties by skeleton ID",
+  "selected_ids": {
+    "P_mid": [
+      "S15",
+      "S19",
+      "S08",
+      "S17"
+    ],
+    "P_hard": [
+      "S15",
+      "S17",
+      "S13",
+      "S16"
+    ]
+  },
+  "strong_budget": {
+    "random_restarts": 32,
+    "max_candidates": 24,
+    "orientation_cone_samples": 15,
+    "max_active_branches": 24,
+    "task_edge_samples": 15
+  },
+  "ara_frozen": true
+}
