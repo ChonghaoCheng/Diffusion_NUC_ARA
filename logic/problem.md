@@ -87,29 +87,49 @@ covered surface area. It is quantified through finite-footprint swept-area
 overlap efficiency, not through curve self-intersection. `rho` is initially an
 evaluation metric, not a hard constraint.
 
-## Core Research Question
+## Temporal NUC and Robot Execution Cost
 
-The main question is not whether Flow Matching can draw a surface path. It is
-whether direct conditional generation can amortize the expensive search for
-finite-footprint, segment-budgeted, continuously liftable coverage plans:
+The current experiment refines non-revisiting into a temporal action-episode count. For each
+area-weighted surface sample `x_i`, `nu_i` is the number of connected time/index intervals in
+which the active tool footprint contains `x_i`; separate active plan segments are separate
+episodes. The measured errors are
 
 \[
-p_\theta(\tilde\Pi\mid S,r,\tau,k,T_{\mathrm{base}},\mathcal R).
+E_{\mathrm{miss}}=\frac{\sum_i a_i\mathbf 1[\nu_i=0]}{\sum_i a_i},\qquad
+E_{\mathrm{rep}}=\frac{\sum_i a_i\max(\nu_i-1,0)}{\sum_i a_i},\qquad
+E_{\mathrm{NUC}}=E_{\mathrm{miss}}+E_{\mathrm{rep}}.
 \]
 
-The central comparison is workspace-first planning followed by post-hoc
-continuous IK versus direct configuration-space generation followed by the same
-hard projection, refinement, and checker.
+Robot execution quality is computed on the actual continuous numerical witness, without
+additional angle wrapping:
 
-## Primary Hypotheses
+\[
+L_q=\sum_j\|q_{j+1}-q_j\|_W,\qquad W=I\text{ initially}.
+\]
 
-1. Surface-efficient coverage paths and robot-realizable coverage plans are
-   different objects on sufficiently constrained 3D manipulator tasks.
-2. Direct configuration-space generation can improve continuous-lift success
-   while retaining competitive finite-footprint coverage quality.
-3. Best-of-M generation plus short refinement can provide a better feasible-cost
-   versus wall-clock tradeoff than equal-budget multi-start optimization.
+Task-singularity admission uses the weakest singular value of a dimensionless five-dimensional
+position-plus-tool-axis Jacobian, not the legacy full-6D manipulability determinant.
 
-The first pre-training motivation gate is whether classical workspace-first
-coverage paths exhibit a material continuous-lift failure rate on UR5e. If they
-do not, the robotics motivation is weakened regardless of FM sample quality.
+## Current Research Question
+
+Workspace-path IK failures and the limitations of the old coarse q-space labels are historical
+E01-E05 evidence, not the current question. Before introducing another learned generator, E06
+asks:
+
+> Given surface paths with comparable temporal NUC quality, does robot-aware NUC skeleton
+> selection expose a material reduction in actual continuous-witness joint travel while
+> retaining a positive normalized 5D task-singularity margin?
+
+Only if this mechanism exists does E07 ask whether fixed-topology local surface-joint
+deformation provides incremental benefit. Flow Matching, diffusion, and other learned proposal
+models are deferred until multiple useful paths exist, explicit search is measurably expensive,
+the representation is stable, and an equal-budget baseline is established.
+
+## Current Hypotheses
+
+1. Legal NUC expansion choices produce coverage-equivalent skeletons with materially different
+   robot witness cost under the same physical scene.
+2. The ranking of one surface's skeletons changes with rigid robot/workpiece placement, showing
+   genuine robot-skeleton coupling rather than a geometry-only ordering.
+3. If E06 passes, local tangential deformation can further reduce `L_q` while preserving the
+   frozen `E_NUC` equivalence and `sigma_min_5` safety constraints.

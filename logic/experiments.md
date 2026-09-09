@@ -49,3 +49,30 @@ surface/budget combinations. At `k=16`, missed coverage was `40.430%` on the cyl
 `8.798%` on the hemisphere, exposing strict cylinder fragmentation as the current bottleneck.
 The legacy 20-instance teacher corpus is not training data. Direct C-space FM remains
 unimplemented; the next gate is a calibrated strict teacher corpus.
+
+## E06: NUC skeleton-robot coupling motivation gate
+
+Hold finite-footprint coverage, remeshing, root condition, robot, placement, and numerical
+lifting budget fixed while varying only legal expansion choices in the upstream NUC skeleton
+construction. For saddle and hemisphere surfaces at three neutrally calibrated rigid
+placements, compare geometry-only skeleton selection against an execution-aware oracle over
+20 skeleton candidates. The oracle minimizes actual float64 continuation-witness joint length
+`L_q` subject to the frozen NUC-equivalence tolerance and normalized 5D task-singularity
+threshold.
+
+**Status (2026-09-09):** active. The evaluator/task/strict-checker calibration froze 48 surface
+samples per face, 0.002 m path spacing, 0.05 rad q interpolation, `L_c=0.1 m`,
+`sigma_safe=0.0723742`, and `delta_NUC=0.0297927` before the registered method run. The practical
+GO gate is at least 10% inter-candidate `L_q` spread in four of six scenes and at least 10%
+median paired reduction from NUC-Geometry to NUC-Execution-Oracle. This is a mechanism-scale
+finite numerical graph experiment, not a global continuous-C-space optimum claim.
+
+## E07: Incremental benefit of fixed-topology surface-joint deformation
+
+On a small subset of E06 scenes, compare fixed-surface robot refinement, isotropic tangential
+surface perturbations, and normalized-5D robot-metric-guided perturbations at equal proposal
+budget. Keep skeleton topology fixed and admit candidates lexicographically by strict robot
+feasibility, frozen NUC equivalence, positive task-singularity margin, then witness `L_q`.
+
+**Status (2026-09-09):** blocked pending E06. E07 must not run unless both preregistered E06
+mechanism gates pass.
