@@ -60,12 +60,13 @@ placements, compare geometry-only skeleton selection against an execution-aware 
 `L_q` subject to the frozen NUC-equivalence tolerance and normalized 5D task-singularity
 threshold.
 
-**Status (2026-09-09):** active. The evaluator/task/strict-checker calibration froze 48 surface
-samples per face, 0.002 m path spacing, 0.05 rad q interpolation, `L_c=0.1 m`,
-`sigma_safe=0.0723742`, and `delta_NUC=0.0297927` before the registered method run. The practical
-GO gate is at least 10% inter-candidate `L_q` spread in four of six scenes and at least 10%
-median paired reduction from NUC-Geometry to NUC-Execution-Oracle. This is a mechanism-scale
-finite numerical graph experiment, not a global continuous-C-space optimum claim.
+**Result (2026-09-09):** NO-GO. The registered 120-candidate run found zero of six scenes with
+at least 10% coverage-equivalent `L_q` spread, versus four required. The four scenes with a
+valid geometry baseline/oracle pair had only `0.3985%` median `L_q` reduction, versus 10%
+required. Saddle skeleton rankings changed substantially across placement but only within a
+roughly 1% cost band. Hemisphere P_mid/P_hard had no continuous lift found under the fixed
+numerical budget despite high neutral pose-wise reachability. E07 remains blocked; no learned
+model or deformation method was run.
 
 ## E07: Incremental benefit of fixed-topology surface-joint deformation
 
