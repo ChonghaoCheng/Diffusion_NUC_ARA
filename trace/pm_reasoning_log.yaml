@@ -136,3 +136,7 @@ entries:
       - "Recorded the user-selected code/ARA repository separation as direct decision N111."
       - "Recorded the tested code-only GitHub publication as experiment N112."
       - "Made no research logic revisions; repository packaging changes provenance and storage, not scientific conclusions."
+  - turn: "2026-09-09_001#4"
+    notes:
+      - "Recorded the user-selected ARA remote as direct decision N113 and its successful publication as experiment N114."
+      - "Made no research logic revisions because repository publication does not alter the scientific interpretation."

@@ -22,8 +22,8 @@ sessions:
     open_threads: 6
   - id: "2026-09-09_001"
     date: "2026-09-09"
-    summary: "Published the tested experiment code while retaining the ARA locally for a separate repository."
-    turn_count: 3
-    events_count: 4
+    summary: "Published separate tested code and Agent-Native Research Artifact repositories."
+    turn_count: 4
+    events_count: 6
     claims_touched: []
     open_threads: 4

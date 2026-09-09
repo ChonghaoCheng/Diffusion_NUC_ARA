@@ -1642,3 +1642,27 @@ tree:
       - "pytest -q terminal output, 2026-09-09"
     status: resolved
     also_depends_on: [N111]
+  - id: N113
+    type: decision
+    title: "Select the dedicated Diffusion_NUC_ARA remote"
+    provenance: user
+    timestamp: "2026-09-09T19:20:00+10:00"
+    choice: "Store the Agent-Native Research Artifact in ChonghaoCheng/Diffusion_NUC_ARA."
+    alternatives: []
+    evidence:
+      - "User directive in 2026-09-09_001#4"
+    status: resolved
+    also_depends_on: [N111, N112]
+  - id: N114
+    type: experiment
+    title: "Publish the dedicated ARA repository"
+    provenance: ai-executed
+    timestamp: "2026-09-09T19:20:00+10:00"
+    result: >
+      Validated all ARA YAML files, added a repository index, created commit 71ca0af,
+      and pushed the independent main branch to ChonghaoCheng/Diffusion_NUC_ARA.
+    evidence:
+      - "git commit 71ca0af"
+      - "git push origin main terminal output, 2026-09-09"
+    status: resolved
+    also_depends_on: [N113]

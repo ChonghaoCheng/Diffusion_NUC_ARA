@@ -2,9 +2,9 @@ session:
   id: "2026-09-09_001"
   date: "2026-09-09"
   started: "2026-09-09T18:11:00+10:00"
-  last_turn: "2026-09-09T19:05:00+10:00"
-  turn_count: 3
-  summary: "Published the tested experiment code while retaining the ARA locally for a separate repository."
+  last_turn: "2026-09-09T19:20:00+10:00"
+  turn_count: 4
+  summary: "Published separate tested code and Agent-Native Research Artifact repositories."
 
 events_logged:
   - turn: 1
@@ -50,6 +50,25 @@ events_logged:
       - "/data/chocheng/.ssh/diffusion_nuc_github"
       - "/data/chocheng/.ssh/diffusion_nuc_github.pub"
       - "/data/chocheng/.ssh/github_known_hosts"
+  - turn: 4
+    type: decision
+    id: N113
+    routing: direct
+    provenance: user
+    summary: "Selected ChonghaoCheng/Diffusion_NUC_ARA as the dedicated experiment-record remote."
+  - turn: 4
+    type: experiment
+    id: N114
+    routing: direct
+    provenance: ai-executed
+    summary: "Validated and published the independent ARA repository at commit 71ca0af."
+  - turn: 4
+    action: "Initialized the nested ARA Git repository, added its navigation README, and pushed main."
+    provenance: ai-executed
+    files_changed:
+      - "ara/.gitignore"
+      - "ara/README.md"
+      - "ara/.git/"
 
 claims_touched: []
 logic_revisions: []
@@ -61,6 +80,8 @@ key_context:
     excerpt: "Do not write anything outside /data."
   - turn: 3
     excerpt: "Put the experiment code in this repository; create a new repository for experiment records."
+  - turn: 4
+    excerpt: "Write the experiment records to git@github.com:ChonghaoCheng/Diffusion_NUC_ARA.git."
 
 open_threads:
   - "Calibrate strict cylinder continuation and placement before building the q-space teacher corpus."
