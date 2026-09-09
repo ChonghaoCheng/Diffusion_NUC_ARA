@@ -1666,3 +1666,102 @@ tree:
       - "git push origin main terminal output, 2026-09-09"
     status: resolved
     also_depends_on: [N113]
+  - id: N115
+    type: pivot
+    title: "Measure NUC skeleton-robot coupling before learned generation"
+    provenance: user
+    timestamp: "2026-09-09T23:55:00+10:00"
+    from: "Direct C-space Flow Matching after strict teacher calibration"
+    to: "Calibrated NUC skeleton selection gate, then optional fixed-topology deformation"
+    trigger: "The mechanism and available improvement space must be measured before adding algorithmic or learned complexity."
+    status: resolved
+    also_depends_on: [N108]
+  - id: N116
+    type: experiment
+    title: "Calibrate temporal NUC and normalized 5D robot contracts"
+    provenance: ai-executed
+    timestamp: "2026-09-09T23:55:00+10:00"
+    result: "Froze stable coverage/q resolutions, a positive normalized 5D singularity threshold, and an independently determined NUC-equivalence tolerance; finite-difference and float64 witness round-trip checks passed."
+    evidence: ["evidence/nuc_robot_contract_calibration_2026-09-09.md", "evidence/runs/nuc_robot_contract_calibration_v1/"]
+    status: resolved
+    also_depends_on: [N103, N115]
+  - id: N117
+    type: dead_end
+    title: "Reject independently sampled fixed IK endpoint layers"
+    provenance: ai-executed
+    timestamp: "2026-09-09T23:55:00+10:00"
+    hypothesis: "Independent IK samples at every NUC waypoint can serve as mandatory endpoints for all continuation witnesses."
+    failure_mode: "The finite layer created early false disconnections even when warm-started continuous branch propagation completed the same path."
+    lesson: "Propagate every admitted initial branch and optimize cumulative cost over the resulting witness graph; do not force continuation onto unrelated endpoint samples."
+    status: resolved
+    also_depends_on: [N116]
+  - id: N118
+    type: dead_end
+    title: "Reject mismatched chord and geodesic path backends"
+    provenance: ai-executed
+    timestamp: "2026-09-09T23:55:00+10:00"
+    hypothesis: "Projected Euclidean chord transitions are interchangeable with the temporal NUC evaluator's mesh-geodesic trace."
+    failure_mode: "The mismatch materially changed revisit counts despite small robot tracking errors."
+    lesson: "Construct robot transition targets with the identical mesh-geodesic path backend used by temporal coverage evaluation."
+    status: resolved
+    also_depends_on: [N116, N117]
+  - id: N119
+    type: dead_end
+    title: "Per-parent edge order cannot supply twenty hemisphere topologies"
+    provenance: ai-executed
+    timestamp: "2026-09-09T23:55:00+10:00"
+    hypothesis: "Seeded ordering of each parent's uncovered neighbour edges can generate twenty unique fixed-root hemisphere skeletons."
+    failure_mode: "The topology count saturated at sixteen over ten thousand tested seeds."
+    lesson: "Expose another legal upstream-implicit choice, the next facet selected from the expansion frontier, while preserving upstream_first exactly."
+    evidence: ["evidence/nuc_robot_skeleton_coupling_2026-09-09.md"]
+    status: resolved
+    also_depends_on: [N115]
+  - id: N120
+    type: decision
+    title: "Add seeded legal frontier-facet expansion"
+    provenance: ai-executed
+    timestamp: "2026-09-09T23:55:00+10:00"
+    choice: "Use frontier_random only after exhausting unique local edge-order variants; retain exact seeds and expansion decisions."
+    alternatives: ["Use duplicate skeletons", "Reduce the registered hemisphere candidate count"]
+    evidence: ["evidence/nuc_robot_skeleton_coupling_2026-09-09.md"]
+    status: resolved
+    also_depends_on: [N119]
+  - id: N121
+    type: experiment
+    title: "Run E06 NUC skeleton-robot coupling gate"
+    provenance: ai-executed
+    timestamp: "2026-09-09T23:55:00+10:00"
+    result: "The 120-candidate registered run found zero qualifying high-spread scenes and only a 0.3985-percent median paired execution-oracle reduction across four comparable scenes; the gate failed."
+    evidence: ["evidence/nuc_robot_skeleton_coupling_2026-09-09.md", "evidence/runs/nuc_robot_skeleton_coupling_v1/"]
+    status: resolved
+    also_depends_on: [N116, N118, N120]
+  - id: N122
+    type: dead_end
+    title: "Reject material benefit from current NUC skeleton selection space"
+    provenance: ai-executed
+    timestamp: "2026-09-09T23:55:00+10:00"
+    hypothesis: "Legal NUC skeleton choice provides at least ten-percent joint-witness spread in most tested scenes and at least ten-percent median geometry-to-execution-oracle improvement."
+    failure_mode: "Neither preregistered condition passed; rank changes existed only within a small execution-cost band, and two hemisphere placements had no complete lift found under budget."
+    lesson: "Do not build surface-joint deformation or a learned candidate generator on this mechanism without first changing the source of candidate variability or scene contract."
+    evidence: ["evidence/nuc_robot_skeleton_coupling_2026-09-09.md"]
+    status: resolved
+    also_depends_on: [N121]
+  - id: N123
+    type: decision
+    title: "Keep E07 blocked after E06 no-go"
+    provenance: ai-executed
+    timestamp: "2026-09-09T23:55:00+10:00"
+    choice: "Stop after E06; do not run joint deformation, Flow Matching, diffusion, or another learned planner."
+    alternatives: ["Proceed despite the failed mechanism gate"]
+    evidence: ["evidence/nuc_robot_skeleton_coupling_2026-09-09.md"]
+    status: resolved
+    also_depends_on: [N122]
+  - id: N124
+    type: experiment
+    title: "Publish E06 code and research record branches"
+    provenance: ai-executed
+    timestamp: "2026-09-09T23:55:00+10:00"
+    result: "Pushed matching exp/nuc-robot-coupling-v1 branches to Diffusion_NUC and Diffusion_NUC_ARA with raw tables, summaries, plots, and interpretation boundaries archived in the ARA."
+    evidence: ["git commits 78876d5 and 789975f"]
+    status: resolved
+    also_depends_on: [N121, N123]

@@ -2,9 +2,9 @@ session:
   id: "2026-09-09_001"
   date: "2026-09-09"
   started: "2026-09-09T18:11:00+10:00"
-  last_turn: "2026-09-09T19:20:00+10:00"
-  turn_count: 4
-  summary: "Published separate tested code and Agent-Native Research Artifact repositories."
+  last_turn: "2026-09-09T23:55:00+10:00"
+  turn_count: 5
+  summary: "Implemented and calibrated the E06 NUC skeleton-robot coupling gate, ran 120 candidate executions, and stopped at a preregistered no-go for E07."
 
 events_logged:
   - turn: 1
@@ -69,9 +69,94 @@ events_logged:
       - "ara/.gitignore"
       - "ara/README.md"
       - "ara/.git/"
+  - turn: 5
+    type: pivot
+    id: N115
+    routing: direct
+    provenance: user
+    summary: "Replaced the immediate learned-planner objective with a calibrated mechanism gate for robot-dependent NUC skeleton choice."
+  - turn: 5
+    type: experiment
+    id: N116
+    routing: direct
+    provenance: ai-executed
+    summary: "Calibrated temporal NUC resolution, q interpolation, normalized 5D task geometry, float64 witness serialization, sigma_safe, and delta_NUC before method evaluation."
+  - turn: 5
+    type: dead_end
+    id: N117
+    routing: direct
+    provenance: ai-executed
+    summary: "Rejected independently sampled mandatory IK endpoint layers after they produced false continuation failures."
+  - turn: 5
+    type: dead_end
+    id: N118
+    routing: direct
+    provenance: ai-executed
+    summary: "Rejected projected chord robot targets because they changed temporal NUC relative to the mesh-geodesic evaluator trace."
+  - turn: 5
+    type: dead_end
+    id: N119
+    routing: direct
+    provenance: ai-executed
+    summary: "Found that local neighbour-order randomization yields only sixteen unique fixed-root hemisphere skeletons."
+  - turn: 5
+    type: decision
+    id: N120
+    routing: direct
+    provenance: ai-executed
+    summary: "Added seeded legal frontier-facet choice to complete the fixed twenty-candidate design while preserving upstream_first."
+  - turn: 5
+    type: experiment
+    id: N121
+    routing: direct
+    provenance: ai-executed
+    summary: "Ran E06 over 120 candidate executions; zero scenes passed the spread criterion and median paired L_q reduction was 0.3985 percent."
+  - turn: 5
+    type: dead_end
+    id: N122
+    routing: direct
+    provenance: ai-executed
+    summary: "The tested skeleton family did not expose material robot execution-cost improvement under the frozen NUC equivalence contract."
+  - turn: 5
+    type: decision
+    id: N123
+    routing: direct
+    provenance: ai-executed
+    summary: "Applied the preregistered NO-GO and kept E07, Flow Matching, diffusion, and learned planners blocked."
+  - turn: 5
+    type: experiment
+    id: N124
+    routing: direct
+    provenance: ai-executed
+    summary: "Published code and ARA experiment branches with tests, raw tables, summaries, plots, and bounded evidence claims."
+  - turn: 5
+    action: "Implemented the temporal NUC evaluator, normalized 5D task metrics, unified strict checker, witness L_q, upstream NUC adapter, calibration scripts, placement freezing, graph lifting, E06 runner, checkpointing, and plots."
+    provenance: ai-executed
+    files_changed:
+      - "src/diffusion_coverage/coverage/nuc_evaluator.py"
+      - "src/diffusion_coverage/robot/task_kinematics.py"
+      - "src/diffusion_coverage/robot/execution_cost.py"
+      - "src/diffusion_coverage/robot/strict_execution.py"
+      - "src/diffusion_coverage/nuc/adapter.py"
+      - "src/diffusion_coverage/nuc/robot_lift.py"
+      - "scripts/calibrate_nuc_robot_contracts.py"
+      - "scripts/calibrate_nuc_robot_placements.py"
+      - "scripts/benchmark_nuc_robot_coupling.py"
+      - "configs/nuc_robot_coupling_v1.json"
+      - "configs/nuc_robot_coupling_v1_placements.json"
 
-claims_touched: []
-logic_revisions: []
+claims_touched: [A03, E06, E07, H25]
+logic_revisions:
+  - turn: 5
+    target: "logic/problem.md"
+    from: "Direct configuration-space generative planning was the next active objective."
+    to: "The active question is whether comparable NUC skeletons contain material robot-dependent execution-cost variation; learned generation remains downstream."
+    trigger: "User-defined E06 mechanism-first contract."
+  - turn: 5
+    target: "logic/experiments.md:E06,E07"
+    from: "E06 and E07 were not registered."
+    to: "E06 is resolved NO-GO; E07 is blocked pending a mechanism-positive replacement experiment."
+    trigger: "Registered 120-candidate E06 result failed both preregistered practical-significance criteria."
 
 key_context:
   - turn: 1
@@ -82,13 +167,15 @@ key_context:
     excerpt: "Put the experiment code in this repository; create a new repository for experiment records."
   - turn: 4
     excerpt: "Write the experiment records to git@github.com:ChonghaoCheng/Diffusion_NUC_ARA.git."
+  - turn: 5
+    excerpt: "Measure the mechanism before building the full method; do not add algorithmic complexity unless the previous experiment demonstrates the improvement source."
 
 open_threads:
-  - "Calibrate strict cylinder continuation and placement before building the q-space teacher corpus."
-  - "Build a hard-audited strict q-space teacher corpus after calibration."
-  - "Implement and train direct C-space Flow Matching only after teacher admission."
+  - "Diagnose why hemisphere P_mid and P_hard had no complete lift under the frozen numerical budget before using them in a revised mechanism test."
+  - "Identify a candidate-variability or scene mechanism capable of producing material L_q spread before reconsidering fixed-topology deformation."
+  - "Keep E07 and all learned-planner work blocked until a replacement mechanism gate passes."
   - "Add workpiece collision before physical-execution claims."
 
 ai_suggestions_pending:
-  - "Treat the old 40-instance coarse graph frontier and old 20-instance q-space corpus as diagnostic only."
-  - "Use the exact component frontier as a feasibility layer rather than a learned coarse target."
+  - "Treat E06 placement-dependent rank reversals as diagnostic because the absolute L_q spread was too small."
+  - "Do not interpret neutral pose-wise reachability as evidence of full-path liftability."

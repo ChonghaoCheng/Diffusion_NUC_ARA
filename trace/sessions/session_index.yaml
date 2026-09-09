@@ -22,8 +22,8 @@ sessions:
     open_threads: 6
   - id: "2026-09-09_001"
     date: "2026-09-09"
-    summary: "Published separate tested code and Agent-Native Research Artifact repositories."
-    turn_count: 4
-    events_count: 6
-    claims_touched: []
+    summary: "Implemented and calibrated E06, ran 120 candidate executions, and stopped at the preregistered no-go for E07."
+    turn_count: 5
+    events_count: 16
+    claims_touched: [A03, E06, E07, H25]
     open_threads: 4

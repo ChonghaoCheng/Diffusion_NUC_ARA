@@ -239,3 +239,11 @@
 - **Crystallized via**: artifact-commitment
 - **From staging**: O62
 - **Last revised**: 2026-08-30 (2026-08-30_001#7)
+## H25: Share the ordered surface-trace backend across planning and evaluation
+- **Rationale**: Temporal revisit counts depend on the ordered trace, not only endpoint geometry. Robot continuation targets and the NUC evaluator must therefore use the same projected mesh-geodesic path construction; otherwise a backend mismatch can look like a coverage-quality change even when robot tracking is accurate.
+- **Sources**: []
+- **Status**: active
+- **Provenance**: ai-suggested
+- **Sensitivity**: high
+- **Code ref**: [`src/diffusion_coverage/nuc/robot_lift.py`, `src/diffusion_coverage/coverage/nuc_evaluator.py`]
+- **Last revised**: 2026-09-09 (2026-09-09_001#5)
