@@ -1,0 +1,639 @@
+session:
+  id: "2026-08-24_001"
+  date: "2026-08-24"
+  started: "2026-08-24T00:00"
+  last_turn: "2026-08-24T23:20:00+10:00"
+  turn_count: 7
+  summary: "Implemented five-mode structured Flow Matching; best-of-8 recovered 74.8% of held-out modes, so stabilization precedes C-space expansion."
+
+events_logged:
+  - turn: 1
+    type: experiment
+    id: N08
+    routing: direct
+    provenance: ai-executed
+    summary: "Implemented the fixed-r, k=1 Flow Matching pipeline on 50 instances and passed 25 tests."
+  - turn: 1
+    type: dead_end
+    id: N09
+    routing: direct
+    provenance: ai-executed
+    summary: "Raw top-8 Flow Matching achieved 10 percent feasibility and failed the M2 gate."
+  - turn: 1
+    type: experiment
+    id: N10
+    routing: direct
+    provenance: ai-executed
+    summary: "Smooth base noise retained 10 percent raw feasibility; 12-step repair raised it to 60 percent."
+  - turn: 1
+    type: pivot
+    id: N11
+    routing: direct
+    provenance: ai-executed
+    summary: "Stopped expansion and returned to sequence alignment and closed-surface modes."
+  - turn: 1
+    type: observation
+    id: O08
+    routing: staged
+    provenance: ai-suggested
+    summary: "Fixed-index multimodal path supervision has unresolved correspondence ambiguity."
+  - turn: 1
+    type: observation
+    id: O09
+    routing: staged
+    provenance: ai-suggested
+    summary: "Smooth base noise reduces jaggedness but is insufficient for coverage."
+  - turn: 1
+    type: observation
+    id: O10
+    routing: staged
+    provenance: ai-suggested
+    summary: "Insertion repair is diagnostic and should not mask poor proposals."
+  - turn: 2
+    type: pivot
+    id: N12
+    routing: direct
+    provenance: user-revised
+    summary: "Made direct finite-footprint C-space generation and amortized liftable planning the paper's central problem."
+  - turn: 2
+    type: experiment
+    id: N13
+    routing: direct
+    provenance: ai-executed
+    summary: "A 200-path Stage 0 audit rejected fixed-control-point B-spline compression."
+  - turn: 2
+    type: decision
+    id: N14
+    routing: direct
+    provenance: user
+    summary: "Adopted canonical padded variable-token arclength paths."
+  - turn: 2
+    type: experiment
+    id: N15
+    routing: direct
+    provenance: ai-executed
+    summary: "A 200-plan UR5e audit measured 52 percent overall continuous-lift success with strong surface dependence."
+  - turn: 2
+    type: experiment
+    id: N16
+    routing: direct
+    provenance: ai-executed
+    summary: "Ten difficult fixed-placement cases remained non-liftable under denser sampling and stronger continuation search."
+  - turn: 2
+    type: observation
+    id: O11
+    routing: staged
+    provenance: ai-suggested
+    summary: "The observed workspace-first liftability gap is strongly surface-dependent."
+  - turn: 2
+    type: observation
+    id: O12
+    routing: staged
+    provenance: ai-suggested
+    summary: "Finite-beam continuation failures are not C-space topology certificates."
+  - turn: 3
+    type: dead_end
+    id: N17
+    routing: direct
+    provenance: ai-executed
+    summary: "Invalidated earlier Stage 1 evidence that reconstructed a different quadrature and used threshold-fragile float32 paths."
+  - turn: 3
+    type: decision
+    id: N18
+    routing: direct
+    provenance: ai-executed
+    summary: "Adopted exact quadrature restoration, float64 paths, robustness margin, and model-input roundtrip auditing."
+  - turn: 3
+    type: experiment
+    id: N19
+    routing: direct
+    provenance: ai-executed
+    summary: "The corrected 200-path audit still rejected fixed-control-point B-splines."
+  - turn: 3
+    type: dead_end
+    id: N20
+    routing: direct
+    provenance: ai-executed
+    summary: "Rejected global path resampling and repeated-token preservation in favor of segment-preserving resampling."
+  - turn: 3
+    type: experiment
+    id: N21
+    routing: direct
+    provenance: ai-executed
+    summary: "Corrected K=8 FM ablations reached at most 50 percent feasibility with 1.635 times teacher length."
+  - turn: 3
+    type: pivot
+    id: N22
+    routing: direct
+    provenance: ai-executed
+    summary: "Stopped before Stage 2 and C-space FM because the corrected Stage 1 gate failed."
+  - turn: 3
+    type: observation
+    id: O13
+    routing: crystallized
+    provenance: ai-suggested
+    summary: "The exact hard-checker quadrature and dtype contract must survive serialization."
+  - turn: 3
+    type: observation
+    id: O14
+    routing: crystallized
+    provenance: ai-suggested
+    summary: "Variable-token resampling must preserve source-segment boundaries."
+  - turn: 3
+    type: observation
+    id: O15
+    routing: staged
+    provenance: ai-suggested
+    summary: "Smoother base paths traded improved feasibility for excessive travel."
+  - turn: 4
+    type: dead_end
+    id: N23
+    routing: direct
+    provenance: ai-executed
+    summary: "Rejected missed-fraction-first ranking after it changed 152 of 200 targets and added 7.08 percent mean travel."
+  - turn: 4
+    type: decision
+    id: N24
+    routing: direct
+    provenance: user-revised
+    summary: "Adopted one constrained objective helper: hard feasibility first, then path length."
+  - turn: 4
+    type: experiment
+    id: N25
+    routing: direct
+    provenance: ai-executed
+    summary: "Objective-correct fresh and warm runs reached 32.5 and 72.5 percent K=8 feasibility, but remained at 1.614 and 1.772 times teacher length."
+  - turn: 4
+    type: pivot
+    id: N26
+    routing: direct
+    provenance: ai-executed
+    summary: "Retained the Stage 1 no-go and stopped before multimodality or C-space FM."
+  - turn: 4
+    type: observation
+    id: O16
+    routing: crystallized
+    provenance: user-revised
+    summary: "Coverage candidates must be ranked by constrained length rather than excess coverage."
+  - turn: 4
+    type: observation
+    id: O17
+    routing: staged
+    provenance: ai-suggested
+    summary: "The current vector field trades hard coverage against excessive travel and validation loss does not select the desired frontier."
+  - turn: 5
+    type: dead_end
+    id: N27
+    routing: direct
+    provenance: ai-executed
+    summary: "Rejected archive-only single-family admission after three of 37 validation targets failed the actual learning roundtrip."
+  - turn: 5
+    type: decision
+    id: N28
+    routing: direct
+    provenance: ai-executed
+    summary: "Adopted exact candidate-family filtering before splitting and complete learning-roundtrip hard admission."
+  - turn: 5
+    type: experiment
+    id: N29
+    routing: direct
+    provenance: ai-executed
+    summary: "Five single-family XYZ loss variants reached at most 74.3 percent feasibility and at best 1.348 times teacher length."
+  - turn: 5
+    type: dead_end
+    id: N30
+    routing: direct
+    provenance: ai-executed
+    summary: "Stopped scalar-loss scans because they moved the coverage-travel trade-off without resolving raw-XYZ ordering failures."
+  - turn: 5
+    type: pivot
+    id: N31
+    routing: direct
+    provenance: ai-executed
+    summary: "Moved Stage 1 generation from ambient XYZ plus projection to analytic surface coordinates plus exact mapping."
+  - turn: 5
+    type: experiment
+    id: N32
+    routing: direct
+    provenance: ai-executed
+    summary: "Trained the analytic-UV model for 5,000 steps; all 35 validation targets passed roundtrip, while K=8 generation remains unevaluated."
+  - turn: 5
+    type: observation
+    id: O18
+    routing: staged
+    provenance: ai-suggested
+    summary: "Single-family supervision reduces correspondence ambiguity but does not remove raw-XYZ failure."
+  - turn: 5
+    type: observation
+    id: O19
+    routing: staged
+    provenance: ai-suggested
+    summary: "Scalar objective losses do not reliably repair sweep ordering and connector topology."
+  - turn: 5
+    type: observation
+    id: O20
+    routing: crystallized
+    provenance: ai-suggested
+    summary: "Candidate-specific complete-roundtrip admission became heuristic H06 through tested artifact commitment."
+  - turn: 5
+    type: observation
+    id: O21
+    routing: staged
+    provenance: ai-suggested
+    summary: "Analytic UV removes off-surface output freedom, but its generated-plan quality is not yet established."
+  - turn: 6
+    type: experiment
+    id: N33
+    routing: direct
+    provenance: ai-executed
+    summary: "Dense analytic UV reached 77.1 percent feasibility and 1.536 times teacher length."
+  - turn: 6
+    type: dead_end
+    id: N34
+    routing: direct
+    provenance: ai-executed
+    summary: "UV length/tangent pressure reached 1.079 times teacher length but collapsed feasibility to 17.1 percent."
+  - turn: 6
+    type: dead_end
+    id: N35
+    routing: direct
+    provenance: ai-executed
+    summary: "Rejected extracting controls after mesh resampling because micro-turns prevented compression."
+  - turn: 6
+    type: decision
+    id: N36
+    routing: direct
+    provenance: ai-executed
+    summary: "Adopted geometry-derived alternating raster stroke controls with topology-aware decode."
+  - turn: 6
+    type: experiment
+    id: N37
+    routing: direct
+    provenance: ai-executed
+    summary: "All 163 unrepaired targets matched 10-32 derived controls and passed hard roundtrip."
+  - turn: 6
+    type: experiment
+    id: N38
+    routing: direct
+    provenance: ai-executed
+    summary: "Structured-control K=8 reached 31/33 feasibility and 0.927 times teacher length, passing the point-estimate gate."
+  - turn: 6
+    type: pivot
+    id: N39
+    routing: direct
+    provenance: ai-executed
+    summary: "Advanced to structured pattern-family and phase multimodality while retaining replication and scope caveats."
+  - turn: 6
+    type: observation
+    id: O22
+    routing: staged
+    provenance: ai-suggested
+    summary: "Dense paths entangle stroke count with geometry, so length loss can delete required coverage bands."
+  - turn: 6
+    type: observation
+    id: O23
+    routing: crystallized
+    provenance: ai-suggested
+    summary: "Topology-bearing stroke controls became heuristic H07 through tested artifact commitment."
+  - turn: 6
+    type: observation
+    id: O24
+    routing: staged
+    provenance: ai-suggested
+    summary: "The restricted point-estimate pass is not evidence of multimodal or general coverage generation."
+  - turn: 7
+    type: dead_end
+    id: N40
+    routing: direct
+    provenance: ai-executed
+    summary: "Found and fixed a null-selector bug that admitted 52 repaired candidates despite repair exclusion."
+  - turn: 7
+    type: decision
+    id: N41
+    routing: direct
+    provenance: ai-executed
+    summary: "Factored five discrete pattern modes from mode-conditioned continuous structured controls."
+  - turn: 7
+    type: experiment
+    id: N42
+    routing: direct
+    provenance: ai-executed
+    summary: "Built a 187-instance, 491-candidate hard-roundtrip-checked multimodal dataset."
+  - turn: 7
+    type: experiment
+    id: N43
+    routing: direct
+    provenance: ai-executed
+    summary: "Best-of-8 recovered 77/103 validation modes; per-sample feasibility was 32.4%."
+  - turn: 7
+    type: pivot
+    id: N44
+    routing: direct
+    provenance: ai-executed
+    summary: "Held C-space expansion pending mode stabilization, seed replication, and larger Stage 1 confirmation."
+  - turn: 7
+    type: observation
+    id: O25
+    routing: crystallized
+    provenance: ai-suggested
+    summary: "Discrete-mode/continuous-control factorization became heuristic H08 through artifact commitment."
+  - turn: 7
+    type: observation
+    id: O26
+    routing: staged
+    provenance: ai-suggested
+    summary: "Best-of-K gains coexist with low conditional sample stability."
+  - turn: 7
+    type: observation
+    id: O27
+    routing: staged
+    provenance: ai-suggested
+    summary: "Explicit mode enumeration does not establish a learned categorical prior."
+
+ai_actions:
+  - turn: 1
+    action: "Created an isolated V100-compatible environment and verified an sm_70 CUDA matrix operation."
+    provenance: ai-executed
+    files_changed: []
+  - turn: 1
+    action: "Implemented fixed-M resampling, learning datasets, PointNet conditional Flow Matching, Heun sampling, training/evaluation scripts, and coverage repair."
+    provenance: ai-executed
+    files_changed:
+      - "src/diffusion_coverage/learning/"
+      - "src/diffusion_coverage/models/"
+      - "src/diffusion_coverage/coverage/resampling.py"
+      - "src/diffusion_coverage/coverage/refinement.py"
+      - "scripts/train_flow_matching.py"
+      - "scripts/evaluate_flow_matching.py"
+      - "scripts/summarize_m2_go_no_go.py"
+      - "tests/test_learning_dataset.py"
+      - "tests/test_flow_matching.py"
+      - "tests/test_coverage_refinement.py"
+  - turn: 1
+    action: "Generated 50 teacher instances, trained two M2 ablations, evaluated held-out top-8 generation, and produced the no-go report and plots."
+    provenance: ai-executed
+    files_changed:
+      - "results/teacher_m2_fixed_r_k1_50/"
+      - "results/flow_matching_m2_fixed_r_k1_run1/"
+      - "results/flow_matching_m2_fixed_r_k1_run2_smooth_base/"
+      - "results/m2_go_no_go/"
+  - turn: 2
+    action: "Revised the formal problem, architecture, concepts, related work, and experiment ordering around finite-footprint robot liftability."
+    provenance: ai-executed
+    files_changed:
+      - "ara/logic/problem.md"
+      - "ara/logic/concepts.md"
+      - "ara/logic/solution/architecture.md"
+      - "ara/logic/experiments.md"
+      - "ara/logic/related_work.md"
+  - turn: 2
+    action: "Implemented and tested variable-token canonical paths and fixed-B-spline representation auditing."
+    provenance: ai-executed
+    files_changed:
+      - "src/diffusion_coverage/representation/"
+      - "src/diffusion_coverage/evaluation/representation_audit.py"
+      - "scripts/generate_stage0_experts.py"
+      - "scripts/benchmark_representation_stage0.py"
+      - "tests/test_representation.py"
+  - turn: 2
+    action: "Implemented the isolated MuJoCo UR5e IK continuation checker, formal benchmark, aggregation, plots, and fixed-transform sensitivity reruns."
+    provenance: ai-executed
+    files_changed:
+      - "src/diffusion_coverage/robot/ur5e_mujoco.py"
+      - "scripts/benchmark_ur5e_liftability.py"
+      - "scripts/summarize_ur5e_liftability.py"
+      - "tests/test_ur5e_kinematics.py"
+      - "results/ur5e_liftability_200/"
+      - "results/ur5e_liftability_sensitivity_10/"
+  - turn: 3
+    action: "Implemented exact archive quadrature restoration, robust teacher sanitization, segment-preserving variable-token paths, mask-aware FM, and a faster shared hard checker."
+    provenance: ai-executed
+    files_changed:
+      - "src/diffusion_coverage/coverage/dataset.py"
+      - "src/diffusion_coverage/coverage/evaluator.py"
+      - "src/diffusion_coverage/representation/variable_token.py"
+      - "src/diffusion_coverage/learning/teacher_dataset.py"
+      - "src/diffusion_coverage/models/"
+      - "scripts/sanitize_teacher_dataset.py"
+      - "scripts/audit_learning_targets.py"
+      - "scripts/train_flow_matching.py"
+      - "scripts/evaluate_flow_matching.py"
+  - turn: 3
+    action: "Sanitized 200 teacher instances, repeated Stage 0, trained corrected Stage 1 ablations, generated the no-go report and plot, and passed 39 tests."
+    provenance: ai-executed
+    files_changed:
+      - "results/stage1_robust_200/"
+      - "results/stage0_representation_audit_corrected/"
+      - "results/flow_matching_stage1_corrected_run3_segment_preserving/"
+      - "results/flow_matching_stage1_corrected_run4_long_train/"
+      - "results/flow_matching_stage1_corrected_run5_smooth_base/"
+      - "results/stage1_corrected_summary/"
+      - "tests/"
+  - turn: 4
+    action: "Implemented a shared constrained coverage objective and float64 task-frame denormalization, rebuilt 200 targets, and added regression tests."
+    provenance: ai-executed
+    files_changed:
+      - "src/diffusion_coverage/coverage/objective.py"
+      - "src/diffusion_coverage/learning/teacher_dataset.py"
+      - "scripts/sanitize_teacher_dataset.py"
+      - "scripts/evaluate_flow_matching.py"
+      - "scripts/audit_learning_targets.py"
+      - "tests/test_coverage_objective.py"
+      - "tests/test_learning_dataset.py"
+  - turn: 4
+    action: "Trained fresh and warm objective-corrected FM runs, reevaluated the old model on the corrected teacher, produced a report and plot, and passed 41 tests."
+    provenance: ai-executed
+    files_changed:
+      - "results/stage1_objective_correct_200/"
+      - "results/flow_matching_stage1_objective_correct_run1/"
+      - "results/flow_matching_stage1_objective_correct_run2_warm/"
+      - "results/stage1_objective_corrected_summary/"
+      - "scripts/summarize_stage1_objective_corrected.py"
+  - turn: 5
+    action: "Implemented exact candidate-family selection, complete model-input-roundtrip sanitization, and regression tests."
+    provenance: ai-executed
+    files_changed:
+      - "src/diffusion_coverage/learning/teacher_dataset.py"
+      - "scripts/sanitize_teacher_dataset.py"
+      - "scripts/train_flow_matching.py"
+      - "scripts/evaluate_flow_matching.py"
+      - "scripts/audit_learning_targets.py"
+      - "tests/test_learning_dataset.py"
+  - turn: 5
+    action: "Implemented objective-aware Flow Matching losses and evaluated five XYZ single-family ablations."
+    provenance: ai-executed
+    files_changed:
+      - "src/diffusion_coverage/models/flow_matching.py"
+      - "results/stage1_single_family_summary/"
+      - "scripts/summarize_stage1_single_family.py"
+      - "tests/test_flow_matching.py"
+  - turn: 5
+    action: "Implemented analytic surface coordinates and two-dimensional path generation, trained a 5,000-step UV model, audited 35 targets, and passed 12 targeted tests."
+    provenance: ai-executed
+    files_changed:
+      - "src/diffusion_coverage/coverage/patterns.py"
+      - "src/diffusion_coverage/models/path_vector_field.py"
+      - "src/diffusion_coverage/models/path_noise.py"
+      - "src/diffusion_coverage/models/sampling.py"
+      - "results/flow_matching_stage1_single_family_uv_run1/"
+      - "tests/test_surface_parameters.py"
+  - turn: 6
+    action: "Completed dense-UV evaluation, implemented hard-feasibility-preserving shortcutting, and evaluated a length/tangent UV ablation."
+    provenance: ai-executed
+    files_changed:
+      - "src/diffusion_coverage/coverage/refinement.py"
+      - "scripts/evaluate_flow_matching.py"
+      - "tests/test_coverage_refinement.py"
+      - "results/flow_matching_stage1_single_family_uv_run1/eval_k8/"
+      - "results/flow_matching_stage1_single_family_uv_length_tangent_run1/"
+  - turn: 6
+    action: "Implemented raster control extraction, geometry-derived token counts, stroke-aware decode, repaired-candidate exclusion, and regression tests."
+    provenance: ai-executed
+    files_changed:
+      - "src/diffusion_coverage/coverage/patterns.py"
+      - "src/diffusion_coverage/learning/teacher_dataset.py"
+      - "scripts/train_flow_matching.py"
+      - "scripts/evaluate_flow_matching.py"
+      - "scripts/audit_learning_targets.py"
+      - "tests/test_surface_parameters.py"
+      - "tests/test_learning_dataset.py"
+  - turn: 6
+    action: "Trained and evaluated structured-control Flow Matching, generated a unified report and plot, and passed all 48 tests."
+    provenance: ai-executed
+    files_changed:
+      - "results/flow_matching_stage1_raster_control_run1/"
+      - "results/stage1_structured_summary/"
+      - "scripts/summarize_stage1_structured.py"
+  - turn: 7
+    action: "Implemented five structured pattern modes, mode-conditioned datasets and models, inverse-frequency mode balancing, and repair-exclusion regression coverage."
+    provenance: ai-executed
+    files_changed:
+      - "src/diffusion_coverage/coverage/patterns.py"
+      - "src/diffusion_coverage/learning/teacher_dataset.py"
+      - "src/diffusion_coverage/models/path_vector_field.py"
+      - "scripts/train_flow_matching.py"
+      - "scripts/build_structured_multimodal_dataset.py"
+      - "tests/test_learning_dataset.py"
+      - "tests/test_flow_matching.py"
+  - turn: 7
+    action: "Trained the 5,000-step mode-conditioned model and evaluated 824 generated candidates with the unchanged hard checker; all 49 tests passed."
+    provenance: ai-executed
+    files_changed:
+      - "scripts/evaluate_stage2_multimodal.py"
+      - "results/stage2_structured_multimodal_200/"
+      - "results/flow_matching_stage2_mode_conditioned_run1/"
+      - "ara/evidence/stage2_structured_multimodality_2026-08-24.md"
+
+claims_touched: [A01, A02, E00, E01, E02, E03, H03, H04, H05, H06, H07, H08]
+logic_revisions:
+  - turn: 2
+    entry: "problem formulation"
+    provenance: user-revised
+    before: "Surface-only Flow Matching generation was treated as the main go/no-go question, and length and overlap efficiency were not cleanly separated."
+    after: "The main object is finite-footprint, segment-budgeted, robot-liftable C-space planning; ell-star(k, epsilon) is primary and rho-star is an independent metric."
+    signal: "verbal declaration and artifact commitment"
+  - turn: 2
+    entry: "A01/A02 and E00/E01"
+    provenance: user-revised
+    before: "The active model and dataset used one fixed waypoint count, and manipulator integration was deferred until after surface FM."
+    after: "Canonical variable-token paths are the default, and a pre-training UR5e workspace-first liftability audit precedes new FM training."
+    signal: "verbal declaration, empirical resolution, and artifact commitment"
+  - turn: 3
+    entry: "A02"
+    field: "Design and Interface"
+    before: "Determine waypoint count from known surface area and footprint scale, then pad and mask within a batch. Uniform arclength parameterization and deterministic endpoint/direction gauges remove representation ambiguity without merging homotopy, winding, pattern-family, or IK-component modes. Each segment stores points, mask, normalized arclength, total intrinsic length, and canonicalization metadata."
+    after: "Determine waypoint count from known surface area and footprint scale, retain every expert source-segment boundary, distribute additional samples within each segment by intrinsic length, then pad and mask. Store actual normalized intrinsic arclength, and determine inference token count only from known task geometry."
+    signal: "empirical-resolution and artifact-commitment"
+    provenance: ai-suggested
+  - turn: 3
+    entry: "E00"
+    field: "Result"
+    before: "On 200 expert paths, even 128-control-point splines missed the preregistered p95 thresholds: normalized geometric error 0.329, absolute missed-coverage change 0.0496, and absolute relative-length change 0.0405."
+    after: "After restoring archived quadrature, the 200-path audit measured p95 normalized geometry error 0.329126, missed-fraction change 0.025391, and relative-length change 0.038799 at 128 control points; fixed compression remains rejected."
+    signal: "empirical-resolution"
+    provenance: ai-suggested
+  - turn: 3
+    entry: "E02"
+    field: "Result"
+    before: "No contract-corrected Stage 1 result was recorded."
+    after: "Corrected K=8 FM reached 50.0 percent hard feasibility and 1.634870 times teacher length, failing the 90 percent and 1.10-times gate."
+    signal: "empirical-resolution"
+    provenance: ai-suggested
+  - turn: 4
+    entry: "E02"
+    field: "Result"
+    before: "The corrected K=8 Flow Matching run with a 10-percent-correlated base path reached 50.0 percent hard feasibility, mean missed fraction 0.050234, and mean path length 1.634870 times the teacher."
+    after: "After constrained-objective correction, the strongest K=8 run reached 72.5 percent hard feasibility and 1.771741 times corrected teacher length; fresh training reached 32.5 percent and 1.614422 times."
+    signal: "empirical-resolution and artifact-commitment"
+    provenance: ai-suggested
+  - turn: 5
+    entry: "E02"
+    field: "Result"
+    before: "Only mixed-family objective-corrected Stage 1 results were recorded."
+    after: "Added the restricted 35-instance single-family XYZ ablation and the completed analytic-UV target/training audit; UV K=8 generation remains pending and Stage 1 remains no-go."
+    signal: "empirical-resolution and artifact-commitment"
+    provenance: ai-suggested
+  - turn: 6
+    entry: "E02"
+    field: "Result"
+    before: "Stage 1 remained no-go after dense XYZ and analytic-UV training; formal UV generation was pending."
+    after: "Dense UV and length-pressure results were recorded, and structured raster controls passed the restricted point-estimate gate at 31/33 feasibility and 0.927 times teacher length; confidence and family scope caveats remain explicit."
+    signal: "empirical-resolution and artifact-commitment"
+    provenance: ai-suggested
+  - turn: 7
+    entry: "E03"
+    field: "Result"
+    before: "No structured multimodality result was recorded."
+    after: "Five-mode conditional generation recovered 74.76 percent of 103 held-out expert-supported modes at K=8, but only 44.74 percent of instances recovered every archived mode; E03 remains in progress."
+    signal: "empirical-resolution and artifact-commitment"
+    provenance: ai-suggested
+  - turn: 7
+    entry: "H08"
+    field: "creation"
+    before: "No discrete-mode/continuous-control heuristic existed."
+    after: "Factor known discrete pattern correspondence classes from continuous structured controls and balance explicit mode conditions during training."
+    signal: "artifact-commitment"
+    provenance: ai-suggested
+
+key_context:
+  - turn: 1
+    excerpt: "Continue implementing the supplied 3D coverage program sequentially, with M2 as the first go/no-go gate."
+  - turn: 2
+    excerpt: "The main question is whether FM can directly generate finite-footprint, robot-liftable, segment-budgeted 3D surface coverage plans and amortize expensive planning."
+  - turn: 3
+    excerpt: "The corrected Stage 1 implementation must pass both hard feasibility and path-quality gates before any multimodality or C-space expansion."
+  - turn: 4
+    excerpt: "Continue sequentially, but retain the registered Stage 1 stop condition before multimodality and direct C-space Flow Matching."
+  - turn: 5
+    excerpt: "Use research manager to summarize the current progress and experimental results; interrupted work must not be reported as complete."
+  - turn: 6
+    excerpt: "Continue sequentially: only advance after the registered Stage 1 feasibility and length conditions are verified by the unchanged hard checker."
+  - turn: 7
+    excerpt: "Continue sequentially through structured multimodality, preserve hard-checker evidence, and summarize current progress with Research Manager."
+
+open_threads:
+  - "Canonicalize or quotient path direction, phase, and pattern-family correspondence before another fixed-index CFM run."
+  - "Improve cylinder and torus closed-surface mode coverage before M3."
+  - "Replace mesh-edge Dijkstra before making coverage-length frontier claims."
+  - "Replace or strengthen the current surface-conditioned vector field so it can reproduce sweep spacing and connectors without over-travel."
+  - "Design a refinement method that jointly restores coverage and shortens/smooths paths; insertion-only repair is too expensive and weak on large misses."
+  - "Repeat the Stage 1 gate only after model or expert-coupling changes; do not proceed to E03-E05 under the current no-go."
+  - "Add explicit IK-sheet graph construction or a stronger certificate before calling continuation failures colour-component discontinuities."
+  - "Model workpiece collision and compare multiple controlled base-placement regimes."
+  - "Separate path-family correspondence from vector-field capacity with a canonical single-family target ablation before another full Stage 1 run."
+  - "Complete the formal analytic-UV K=8 hard-checker evaluation on the fixed 35-instance validation cohort."
+  - "If analytic UV still fails, test coupling or structured sweep representations rather than further raw-XYZ scalar-loss scans."
+  - "Replicate the structured raster-control result on a larger unrepaired cohort because the 31/33 Wilson lower bound remains below 90 percent."
+  - "Extend structured controls to explicit pattern-family, sweep-axis, direction, and phase modes for E03 multimodality."
+  - "Stabilize periodic phase-shifted spiral generation, which is the weakest Stage 2 mode."
+  - "Repeat Stage 2 across training and sampling seeds before treating the best-of-K trend as robust."
+  - "Add geometry-aware within-mode clustering; the current result measures requested-mode realization rather than autonomous mode discovery."
+  - "Replicate the restricted Stage 1 pass on a larger raw structured cohort before synthetic colours or direct C-space Flow Matching."
+
+ai_suggestions_pending:
+  - "Test a canonical single-family target ablation to separate correspondence ambiguity from model capacity."
+  - "Consider set/curve representations or alignment-aware losses instead of raw waypoint-index regression."
+  - "Use the 200-plan liftability result as a motivation gate, not as evidence that direct C-space FM already solves the gap."
+  - "Investigate optimal-transport or mode-aware Flow Matching couplings rather than independent straight Gaussian-to-path pairings."
+  - "Use hard constrained cost, rather than validation flow loss alone, for checkpoint selection or fine-tuning diagnostics."
+  - "Consider learning a categorical mode prior only after mode-conditioned continuous feasibility is stable."

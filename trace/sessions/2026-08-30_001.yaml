@@ -1,0 +1,857 @@
+session:
+  id: "2026-08-30_001"
+  date: "2026-08-30"
+  started: "2026-08-30T00:00:00+10:00"
+  last_turn: "2026-08-30T22:20:00+10:00"
+  turn_count: 7
+  summary: "Corrected the real q-space continuity contract, validated strict witness-based teachers, and identified cylinder fragmentation as the current bottleneck."
+
+events_logged:
+  - turn: 1
+    type: question
+    id: N45
+    routing: direct
+    provenance: ai-suggested
+    summary: "Opened a control-residual audit to separate genuine continuous multimodality from analytic template replay."
+  - turn: 2
+    type: experiment
+    id: N46
+    routing: direct
+    provenance: ai-executed
+    summary: "Measured negligible deviation from deterministic analytic templates."
+  - turn: 2
+    type: dead_end
+    id: N47
+    routing: direct
+    provenance: ai-executed
+    summary: "Withdrew the former Stage 2 multimodality interpretation."
+  - turn: 2
+    type: decision
+    id: N48
+    routing: direct
+    provenance: ai-executed
+    summary: "Adopted a hard-checked multi-start structured teacher."
+  - turn: 2
+    type: dead_end
+    id: N49
+    routing: direct
+    provenance: ai-executed
+    summary: "Rejected inverse recovery of optimized controls from dense paths."
+  - turn: 2
+    type: experiment
+    id: N50
+    routing: direct
+    provenance: ai-executed
+    summary: "Built the 503-candidate float32-contract v4 dataset."
+  - turn: 2
+    type: experiment
+    id: N51
+    routing: direct
+    provenance: ai-executed
+    summary: "Completed the corrected three-seed Stage 2 replication."
+  - turn: 2
+    type: pivot
+    id: N52
+    routing: direct
+    provenance: ai-executed
+    summary: "Stopped standard independent coupling at the corrected gate."
+  - turn: 2
+    type: decision
+    id: N53
+    routing: direct
+    provenance: user
+    summary: "Adopted parallel hypothesis-driven experiment execution."
+  - turn: 2
+    type: experiment
+    id: N54
+    routing: direct
+    provenance: ai-executed
+    summary: "Measured GPU throughput scaling and rejected dynamic compilation for this workload."
+  - turn: 2
+    type: dead_end
+    id: N55
+    routing: direct
+    provenance: ai-executed
+    summary: "Rejected replacing optimizer updates with a larger batch."
+  - turn: 2
+    type: experiment
+    id: N56
+    routing: direct
+    provenance: ai-executed
+    summary: "Tested and rejected the current grouped minibatch OT coupling."
+  - turn: 2
+    type: pivot
+    id: N57
+    routing: direct
+    provenance: ai-executed
+    summary: "Moved next experiments to raster-v, spiral, and free-form representation failures."
+  - turn: 2
+    type: observation
+    id: O28
+    routing: staged
+    provenance: ai-suggested
+    summary: "Separated genuine task freedom from the old teacher's lack of variation."
+  - turn: 2
+    type: observation
+    id: O29
+    routing: staged-promoted
+    provenance: ai-suggested
+    summary: "Committed the original-control and model-dtype archive contract as H09."
+  - turn: 2
+    type: observation
+    id: O30
+    routing: staged
+    provenance: ai-suggested
+    summary: "Staged the corrected independent-coupling no-go claim."
+  - turn: 2
+    type: observation
+    id: O31
+    routing: staged-promoted
+    provenance: ai-suggested
+    summary: "Committed parallel controlled GPU use as H10."
+  - turn: 2
+    type: observation
+    id: O32
+    routing: staged
+    provenance: ai-suggested
+    summary: "Staged the current grouped-OT underperformance claim."
+  - turn: 2
+    type: observation
+    id: O33
+    routing: staged
+    provenance: ai-suggested
+    summary: "Staged update-count sensitivity and mode-dependent failure."
+  - turn: 3
+    type: decision
+    id: N58
+    routing: direct
+    provenance: ai-executed
+    summary: "Adopted footprint-normalized structured-template residual coordinates."
+  - turn: 3
+    type: dead_end
+    id: N59
+    routing: direct
+    provenance: ai-executed
+    summary: "Rejected residual arithmetic that did not preserve the float32 hard-label contract."
+  - turn: 3
+    type: experiment
+    id: N60
+    routing: direct
+    provenance: ai-executed
+    summary: "Validated residual generation on the corrected 40-instance pilot."
+  - turn: 3
+    type: experiment
+    id: N61
+    routing: direct
+    provenance: ai-executed
+    summary: "Expanded the teacher cohort and audited every residual target."
+  - turn: 3
+    type: decision
+    id: N62
+    routing: direct
+    provenance: ai-executed
+    summary: "Filtered one fragile candidate while preserving its instance and remaining modes."
+  - turn: 3
+    type: experiment
+    id: N63
+    routing: direct
+    provenance: ai-executed
+    summary: "Compared equal-exposure batch 8/20k and batch 32/5k residual training."
+  - turn: 3
+    type: experiment
+    id: N64
+    routing: direct
+    provenance: ai-executed
+    summary: "Completed expanded three-seed hard evaluation with 93/93 K=8 recovery for every seed."
+  - turn: 3
+    type: experiment
+    id: N65
+    routing: direct
+    provenance: ai-executed
+    summary: "Calibrated generated diversity against finite-teacher leave-one-out coverage."
+  - turn: 3
+    type: pivot
+    id: N66
+    routing: direct
+    provenance: ai-executed
+    summary: "Advanced from the surface residual gate to synthetic 3D colour liftability."
+  - turn: 3
+    type: observation
+    id: O34
+    routing: staged-promoted
+    provenance: ai-suggested
+    summary: "Committed template-residual learning as H11."
+  - turn: 3
+    type: observation
+    id: O35
+    routing: staged
+    provenance: ai-suggested
+    summary: "Staged the scoped expanded-cohort reliability claim."
+  - turn: 3
+    type: observation
+    id: O36
+    routing: staged-promoted
+    provenance: ai-suggested
+    summary: "Committed candidate-granular full-roundtrip filtering as H12."
+  - turn: 3
+    type: observation
+    id: O37
+    routing: staged
+    provenance: ai-suggested
+    summary: "Staged the finite-teacher threshold-calibration constraint."
+  - turn: 3
+    type: observation
+    id: O38
+    routing: staged
+    provenance: ai-suggested
+    summary: "Staged the interpretation that K=8 compensates checkpoint-seed variance."
+  - turn: 4
+    type: decision
+    id: N67
+    routing: direct
+    provenance: ai-executed
+    summary: "Grounded synthetic colour availability in actual 3D surface charts."
+  - turn: 4
+    type: experiment
+    id: N68
+    routing: direct
+    provenance: ai-executed
+    summary: "Verified exact fixed-path colour completion against exhaustive enumeration."
+  - turn: 4
+    type: experiment
+    id: N69
+    routing: direct
+    provenance: ai-executed
+    summary: "Calibrated easy, medium, and hard fields to avoid trivial all-fail or all-pass regimes."
+  - turn: 4
+    type: experiment
+    id: N70
+    routing: direct
+    provenance: ai-executed
+    summary: "Measured full-scale workspace-first failure and finite-library colour-aware rescue."
+  - turn: 4
+    type: experiment
+    id: N71
+    routing: direct
+    provenance: ai-executed
+    summary: "Computed paired uncertainty by cluster-bootstrapping complete 3D instances."
+  - turn: 4
+    type: experiment
+    id: N72
+    routing: direct
+    provenance: ai-executed
+    summary: "Established exact segment-count agreement across three UV sampling resolutions."
+  - turn: 4
+    type: experiment
+    id: N73
+    routing: direct
+    provenance: ai-executed
+    summary: "Rendered a free-form 3D rescue caused by changing raster orientation."
+  - turn: 4
+    type: pivot
+    id: N74
+    routing: direct
+    provenance: ai-executed
+    summary: "Moved from finite-library selection to direct colour-aware multi-start optimization."
+  - turn: 4
+    type: observation
+    id: O39
+    routing: staged-promoted
+    provenance: ai-suggested
+    summary: "Committed geometry-grounded exact synthetic liftability as H13."
+  - turn: 4
+    type: observation
+    id: O40
+    routing: staged-promoted
+    provenance: ai-suggested
+    summary: "Committed instance-cluster bootstrap as H14."
+  - turn: 4
+    type: observation
+    id: O41
+    routing: staged
+    provenance: ai-suggested
+    summary: "Staged the workspace-efficient versus liftable-plan distinction."
+  - turn: 4
+    type: observation
+    id: O42
+    routing: staged
+    provenance: ai-suggested
+    summary: "Staged raster-orientation alignment as the observed rescue mechanism."
+  - turn: 4
+    type: observation
+    id: O43
+    routing: staged
+    provenance: ai-suggested
+    summary: "Staged the finite-library versus global-frontier interpretation boundary."
+
+  - turn: 6
+    type: decision
+    id: N88
+    routing: direct
+    provenance: ai-executed
+    summary: "Reused fixed UR5e transforms after exact mesh and metadata provenance checks."
+  - turn: 6
+    type: experiment
+    id: N89
+    routing: direct
+    provenance: ai-executed
+    summary: "Best-per-mode workspace selection rescued one of 80 difficult fixed-placement instances."
+  - turn: 6
+    type: experiment
+    id: N90
+    routing: direct
+    provenance: ai-executed
+    summary: "The all-candidate workspace oracle produced three apparent rescues from 1,339 evaluations."
+  - turn: 6
+    type: experiment
+    id: N91
+    routing: direct
+    provenance: ai-executed
+    summary: "A stronger continuation checker confirmed two of three apparent workspace rescues."
+  - turn: 6
+    type: pivot
+    id: N92
+    routing: direct
+    provenance: ai-executed
+    summary: "Advanced from workspace vocabulary to explicit real UR5e IK components."
+  - turn: 6
+    type: experiment
+    id: N93
+    routing: direct
+    provenance: ai-executed
+    summary: "Built and archived coarse fixed-placement surface IK-component graphs."
+  - turn: 6
+    type: dead_end
+    id: N94
+    routing: direct
+    provenance: ai-executed
+    summary: "Rejected center-axis stopping tolerance as an orientation-freedom experiment."
+  - turn: 6
+    type: decision
+    id: N95
+    routing: direct
+    provenance: ai-executed
+    summary: "Adopted nested orientation-cone enumeration for monotone tolerance comparisons."
+  - turn: 6
+    type: experiment
+    id: N96
+    routing: direct
+    provenance: ai-executed
+    summary: "Measured the forty-instance exact real-component segment frontier."
+  - turn: 6
+    type: dead_end
+    id: N97
+    routing: direct
+    provenance: ai-executed
+    summary: "Rejected learned coarse component selection after marginal greedy matched every held-out optimum."
+  - turn: 6
+    type: pivot
+    id: N98
+    routing: direct
+    provenance: ai-executed
+    summary: "Moved the learning target to continuous q-space coverage construction inside components."
+  - turn: 6
+    type: observation
+    id: O51
+    routing: staged
+    provenance: ai-suggested
+    summary: "Workspace vocabulary is not the dominant explanation for difficult fixed-placement lift failures."
+  - turn: 6
+    type: observation
+    id: O52
+    routing: crystallized
+    provenance: ai-suggested
+    summary: "H18 crystallized: pair stochastic IK comparisons by instance random stream."
+  - turn: 6
+    type: observation
+    id: O53
+    routing: crystallized
+    provenance: ai-suggested
+    summary: "H19 crystallized: cap nested numerical thread pools under process parallelism."
+  - turn: 6
+    type: observation
+    id: O54
+    routing: staged
+    provenance: ai-suggested
+    summary: "Wider orientation tolerance substantially improves the current numerical component frontier."
+  - turn: 6
+    type: observation
+    id: O55
+    routing: staged
+    provenance: ai-suggested
+    summary: "Finite sampled IK components are not topology certificates."
+  - turn: 6
+    type: observation
+    id: O56
+    routing: crystallized
+    provenance: ai-suggested
+    summary: "H20 crystallized: enumerate the feasible orientation cone."
+  - turn: 6
+    type: observation
+    id: O57
+    routing: crystallized
+    provenance: ai-suggested
+    summary: "H21 crystallized: nest candidate sets for tolerance monotonicity tests."
+  - turn: 6
+    type: observation
+    id: O58
+    routing: staged
+    provenance: ai-suggested
+    summary: "Move learning from easy component selection to continuous path construction."
+
+ai_actions:
+  - turn: 2
+    action: "Implemented deterministic-template freedom audit, multi-start structured teacher, parallel dataset builder, direct-control archive contract, seed control, and summary tooling."
+  - turn: 2
+    action: "Built and roundtrip-validated the v4 40-instance, 503-candidate corrected dataset."
+  - turn: 2
+    action: "Trained and hard-evaluated three fixed-split baseline seeds."
+  - turn: 2
+    action: "Added GPU training controls, minibatch OT coupling, regression tests, and generic ablation summaries."
+  - turn: 2
+    action: "Ran throughput, batch/update, learning-rate, and matched independent-versus-OT hard-checker ablations."
+  - turn: 3
+    action: "Implemented structured template-residual encoding and decoding with float32-contract regression tests."
+    provenance: ai-executed
+    files_changed: ["src/diffusion_coverage/coverage/patterns.py", "src/diffusion_coverage/learning/teacher_dataset.py", "scripts/train_flow_matching.py", "scripts/evaluate_stage2_multimodal.py"]
+  - turn: 3
+    action: "Built and fully audited the admitted 160-instance v6 corpus, then trained and hard-evaluated three residual seeds on two GPUs."
+    provenance: ai-executed
+    files_changed: ["results/stage2_multistart_structured_160_v6", "results/flow_matching_stage2_residual_160_v6_b32_5k_seed0", "results/flow_matching_stage2_residual_160_v6_b32_5k_seed1", "results/flow_matching_stage2_residual_160_v6_b32_5k_seed2"]
+  - turn: 3
+    action: "Added finite-teacher diversity calibration and expanded Stage 2 visualization."
+    provenance: ai-executed
+    files_changed: ["src/diffusion_coverage/evaluation/control_diversity.py", "scripts/analyze_control_diversity.py", "scripts/plot_expanded_stage2.py", "results/stage2_residual_160_v6_multiseed/expanded_stage2.png"]
+  - turn: 4
+    action: "Implemented geometry-grounded synthetic colour fields, exact fixed-path segment completion, and exhaustive-invariance regression tests."
+    provenance: ai-executed
+    files_changed: ["src/diffusion_coverage/liftability/synthetic_colours.py", "tests/test_synthetic_liftability.py"]
+  - turn: 4
+    action: "Ran calibrated pilot and full 160-instance synthetic liftability benchmarks with raw candidate and frontier records."
+    provenance: ai-executed
+    files_changed: ["scripts/benchmark_synthetic_liftability.py", "results/synthetic_liftability_160_v1"]
+  - turn: 4
+    action: "Added instance-cluster bootstrap, resolution audit, frontier plots, and a rescued 3D qualitative example."
+    provenance: ai-executed
+    files_changed: ["scripts/analyze_synthetic_liftability.py", "scripts/audit_liftability_resolution.py", "scripts/plot_synthetic_liftability_example.py"]
+
+  - turn: 5
+    type: decision
+    id: N75
+    routing: direct
+    provenance: ai-executed
+    summary: "Implemented lexicographic colour-aware structured search."
+  - turn: 5
+    type: experiment
+    id: N76
+    routing: direct
+    provenance: ai-executed
+    summary: "Matched-budget direct search shortened feasible plans but produced no feasibility rescue."
+  - turn: 5
+    type: experiment
+    id: N77
+    routing: direct
+    provenance: ai-executed
+    summary: "Stronger targeted search rescued three of four selected near-boundary failures."
+  - turn: 5
+    type: experiment
+    id: N78
+    routing: direct
+    provenance: ai-executed
+    summary: "Identified missing periodic cross-axis proposals as the dominant easy/medium gap."
+  - turn: 5
+    type: decision
+    id: N79
+    routing: direct
+    provenance: ai-executed
+    summary: "Expanded periodic proposal vocabulary before increasing local-search compute."
+  - turn: 5
+    type: dead_end
+    id: N80
+    routing: direct
+    provenance: ai-executed
+    summary: "Rejected v7 after appended proposal names were truncated."
+  - turn: 5
+    type: dead_end
+    id: N81
+    routing: direct
+    provenance: ai-executed
+    summary: "Rejected v8 after analytic hemisphere templates failed the float32 hard contract."
+  - turn: 5
+    type: decision
+    id: N82
+    routing: direct
+    provenance: ai-executed
+    summary: "Required unchanged hard admission for analytic templates."
+  - turn: 5
+    type: dead_end
+    id: N83
+    routing: direct
+    provenance: ai-executed
+    summary: "Rejected v9 for learning after nondeterministic hemisphere pole token shapes."
+  - turn: 5
+    type: experiment
+    id: N84
+    routing: direct
+    provenance: ai-executed
+    summary: "Built v10 with 2,455/2,455 hard-feasible residual targets and a complete Dataset-index pass."
+  - turn: 5
+    type: experiment
+    id: N85
+    routing: direct
+    provenance: ai-executed
+    summary: "Recomputed the synthetic frontier with canonical cross-axis modes and stronger paired rescue."
+  - turn: 5
+    type: experiment
+    id: N86
+    routing: direct
+    provenance: ai-executed
+    summary: "Completed three-seed GPU training and 109-mode K=8 hard evaluation."
+  - turn: 5
+    type: question
+    id: N87
+    routing: direct
+    provenance: ai-suggested
+    summary: "Opened a fixed-placement UR5e best-of-mode workspace control."
+  - turn: 5
+    type: observation
+    id: O45
+    routing: staged-promoted
+    provenance: ai-suggested
+    summary: "Committed discrete proposal-vocabulary audit as H15."
+  - turn: 5
+    type: observation
+    id: O46
+    routing: staged-promoted
+    provenance: ai-suggested
+    summary: "Committed analytic-template hard admission as H16."
+  - turn: 5
+    type: observation
+    id: O47
+    routing: staged-promoted
+    provenance: ai-suggested
+    summary: "Committed singular-chart gauge fixing as H17."
+  - turn: 5
+    type: observation
+    id: O44
+    routing: staged
+    provenance: ai-suggested
+    summary: "Staged the matched-budget versus targeted-search boundary-crossing claim."
+  - turn: 5
+    type: observation
+    id: O48
+    routing: staged
+    provenance: ai-suggested
+    summary: "Staged the v10 vocabulary-expansion learnability claim."
+  - turn: 5
+    type: observation
+    id: O49
+    routing: staged
+    provenance: ai-suggested
+    summary: "Staged the proposal-vocabulary sensitivity of the synthetic rescue effect."
+  - turn: 5
+    type: observation
+    id: O50
+    routing: staged
+    provenance: ai-suggested
+    summary: "Staged the fixed-placement UR5e workspace-vocabulary control requirement."
+
+  - turn: 6
+    action: "Implemented fixed-placement workspace-mode benchmarking, real surface IK graphs, exact component frontiers, nested cone enumeration, and a GPU component-prior falsification."
+    provenance: ai-executed
+    files_changed:
+      - "src/diffusion_coverage/robot/ur5e_mujoco.py"
+      - "src/diffusion_coverage/robot/surface_ik_graph.py"
+      - "src/diffusion_coverage/models/ik_component_mpnn.py"
+      - "scripts/benchmark_ur5e_workspace_modes.py"
+      - "scripts/analyze_ur5e_workspace_modes.py"
+      - "scripts/benchmark_ur5e_surface_ik_graph.py"
+      - "scripts/analyze_ur5e_component_frontier.py"
+      - "scripts/train_ur5e_component_gnn.py"
+      - "scripts/evaluate_ur5e_component_gnn.py"
+      - "results/ur5e_component_frontier_40_v1/"
+
+  - turn: 7
+    type: dead_end
+    id: N99
+    routing: direct
+    provenance: ai-executed
+    summary: "Downgraded the non-task-tracking coarse graph frontier to diagnostic evidence."
+  - turn: 7
+    type: decision
+    id: N100
+    routing: direct
+    provenance: ai-executed
+    summary: "Adopted task-space IK continuation with exact endpoint candidates."
+  - turn: 7
+    type: dead_end
+    id: N101
+    routing: direct
+    provenance: ai-executed
+    summary: "Dense interpolation rejected every formerly feasible old q-teacher label."
+  - turn: 7
+    type: decision
+    id: N102
+    routing: direct
+    provenance: ai-executed
+    summary: "Separated construction margin from dense final admission."
+  - turn: 7
+    type: decision
+    id: N103
+    routing: direct
+    provenance: ai-executed
+    summary: "Stored float64 continuation witnesses on compatible graph edges."
+  - turn: 7
+    type: experiment
+    id: N104
+    routing: direct
+    provenance: ai-executed
+    summary: "Passed the strict 5x5 witness roundtrip smoke test."
+  - turn: 7
+    type: experiment
+    id: N105
+    routing: direct
+    provenance: ai-executed
+    summary: "Passed all six strict 24x8 teacher variants and exposed cylinder fragmentation."
+  - turn: 7
+    type: experiment
+    id: N106
+    routing: direct
+    provenance: ai-executed
+    summary: "Validated hard-audited adaptive q-token compression."
+  - turn: 7
+    type: experiment
+    id: N107
+    routing: direct
+    provenance: ai-executed
+    summary: "Measured ample six-DoF GPU batch headroom without training a C-space model."
+  - turn: 7
+    type: pivot
+    id: N108
+    routing: direct
+    provenance: ai-executed
+    summary: "Deferred corpus training until strict cylinder continuation is calibrated."
+  - turn: 7
+    type: observation
+    id: O59
+    routing: staged
+    provenance: ai-suggested
+    summary: "Staged the surface-dependent strict coverage interpretation."
+  - turn: 7
+    type: observation
+    id: O60
+    routing: staged-promoted
+    provenance: ai-suggested
+    summary: "Committed exact continuation witnesses as H22."
+  - turn: 7
+    type: observation
+    id: O61
+    routing: staged-promoted
+    provenance: ai-suggested
+    summary: "Committed construction-margin and dense-admission separation as H23."
+  - turn: 7
+    type: observation
+    id: O62
+    routing: staged-promoted
+    provenance: ai-suggested
+    summary: "Committed hard-audited adaptive q tokens as H24."
+  - turn: 7
+    type: observation
+    id: O63
+    routing: staged
+    provenance: ai-suggested
+    summary: "Staged the GPU capacity observation without claiming trained performance."
+  - turn: 7
+    type: observation
+    id: O64
+    routing: staged
+    provenance: ai-suggested
+    summary: "Staged the legacy-corpus exclusion constraint."
+  - turn: 7
+    action: "Corrected the q-space graph and checker contract, ran strict teacher and representation pilots, and measured GPU capacity."
+    provenance: ai-executed
+    files_changed:
+      - "src/diffusion_coverage/robot/surface_ik_graph.py"
+      - "src/diffusion_coverage/robot/qspace_teacher.py"
+      - "scripts/audit_qspace_teacher_representation.py"
+      - "scripts/benchmark_qspace_flow_gpu.py"
+      - "results/ur5e_qspace_teacher_witness_step01_24x8_pilot_v1/"
+
+claims_touched: [E03, E04, E05, H09, H10, H11, H12, H13, H14, H15, H16, H17, H18, H19, H20, H21, H22, H23, H24]
+
+logic_revisions:
+  - turn: 2
+    entry: E03
+    before: "Initial analytic-template experiment was interpreted as conditional multimodal proposal signal."
+    after: "Template replay was invalidated; corrected multi-start, multi-seed, batch/update, and OT evidence establishes a current no-go and representation-specific next step."
+  - turn: 2
+    entry: H09
+    before: null
+    after: "Archive original model-space controls and hard-check after model dtype conversion."
+  - turn: 2
+    entry: H10
+    before: null
+    after: "Use multiple GPUs for parallel controlled runs before enlarging batch size."
+  - turn: 3
+    entry: E03
+    field: result
+    before: "Corrected absolute-UV multi-start evidence remained a no-go and deferred direct C-space expansion."
+    after: "Template residuals pass the admitted structured-family K=8 surface gate across three expanded-cohort seeds; E04 advances while autonomous mode discovery and single-sample reliability remain open."
+    signal: artifact-commitment
+    provenance: ai-suggested
+  - turn: 4
+    entry: E04
+    field: result
+    before: "Synthetic 3D colour benchmark was planned but unimplemented."
+    after: "Finite-library go/no-go passes with exact fixed-path completion and statistically resolved paired rescue; E04 remains active for direct colour-aware multi-start search."
+    signal: artifact-commitment
+    provenance: ai-suggested
+  - turn: 4
+    entry: H13
+    field: Rationale
+    before: null
+    after: "Ground synthetic colours in 3D surface position and use exact fixed-path completion."
+    signal: artifact-commitment
+    provenance: ai-suggested
+  - turn: 4
+    entry: H14
+    field: Rationale
+    before: null
+    after: "Resample repeated colour-field evaluations at the independent surface-instance level."
+    signal: artifact-commitment
+    provenance: ai-suggested
+  - turn: 5
+    entry: E03
+    field: result
+    before: "Conditioned residual learning was verified on 93 held-out instance-mode tasks."
+    after: "Canonical cross-axis expansion preserves near-complete K=8 recovery on 109 held-out instance-mode tasks across three seeds."
+    signal: artifact-commitment
+    provenance: ai-suggested
+  - turn: 5
+    entry: E04
+    field: result
+    before: "Finite-library paired rescue was established but remained proposal-vocabulary limited."
+    after: "Canonical cross-axis modes substantially strengthen easy and medium rescue; matched local search mainly improves length, while targeted high-budget search can cross selected segment boundaries."
+    signal: artifact-commitment
+    provenance: ai-suggested
+  - turn: 5
+    entry: E05
+    field: next-control
+    before: "Direct C-space comparison followed the existing UR5e motivation gate."
+    after: "First hold UR5e placement and checker fixed and measure best-of-mode workspace rescue before crediting direct C-space generation."
+    signal: empirical-resolution
+    provenance: ai-suggested
+  - turn: 5
+    entry: H15
+    before: null
+    after: "Audit missing discrete proposal families before enlarging local continuous search."
+    signal: artifact-commitment
+    provenance: ai-suggested
+  - turn: 5
+    entry: H16
+    before: null
+    after: "Apply the unchanged hard admission boundary to analytic templates."
+    signal: artifact-commitment
+    provenance: ai-suggested
+  - turn: 5
+    entry: H17
+    before: null
+    after: "Fix singular chart gauges deterministically before defining structured token topology."
+    signal: artifact-commitment
+    provenance: ai-suggested
+  - turn: 3
+    entry: H11
+    field: Rationale
+    before: null
+    after: "Learn footprint-normalized physical residuals around deterministic structured templates."
+    signal: artifact-commitment
+    provenance: ai-suggested
+  - turn: 3
+    entry: H12
+    field: Rationale
+    before: null
+    after: "Apply complete-roundtrip audit failures at candidate granularity and re-audit before training."
+    signal: artifact-commitment
+    provenance: ai-suggested
+  - turn: 6
+    entry: E05
+    field: result
+    before: "The fixed-placement workspace-vocabulary control was registered but incomplete."
+    after: "The control is complete; real nested-cone component frontiers support direct C-space motivation, while learned coarse component selection is rejected."
+    signal: empirical-resolution
+    provenance: ai-suggested
+  - turn: 7
+    entry: E05
+    field: result
+    before: "Coarse endpoint-transition components supported the current real-component frontier."
+    after: "Coarse components are diagnostic only; strict witness-based teachers pass a two-surface pilot and expose cylinder fragmentation."
+    signal: empirical-resolution
+    provenance: ai-suggested
+  - turn: 7
+    entry: H22
+    before: null
+    after: "Carry exact continuation witnesses on compatibility edges."
+    signal: artifact-commitment
+    provenance: ai-suggested
+  - turn: 7
+    entry: H23
+    before: null
+    after: "Separate construction tolerance from dense final admission."
+    signal: artifact-commitment
+    provenance: ai-suggested
+  - turn: 7
+    entry: H24
+    before: null
+    after: "Hard-audit adaptive variable-token q plans."
+    signal: artifact-commitment
+    provenance: ai-suggested
+  - turn: 6
+    entry: H18
+    before: null
+    after: "Pair stochastic IK comparisons by instance-level random stream."
+    signal: artifact-commitment
+    provenance: ai-suggested
+  - turn: 6
+    entry: H19
+    before: null
+    after: "Cap nested numerical thread pools under process parallelism."
+    signal: artifact-commitment
+    provenance: ai-suggested
+  - turn: 6
+    entry: H20
+    before: null
+    after: "Enumerate the feasible orientation cone rather than only changing IK stopping tolerance."
+    signal: artifact-commitment
+    provenance: ai-suggested
+  - turn: 6
+    entry: H21
+    before: null
+    after: "Nest finite candidate sets when testing tolerance monotonicity."
+    signal: artifact-commitment
+    provenance: ai-suggested
+
+key_context:
+  - turn: 1
+    excerpt: "Summarize the current experimental setup and progress while preserving the distinction between verified results and unfinished C-space work."
+  - turn: 2
+    excerpt: "Do not execute experiments strictly sequentially; form hypotheses, run validations concurrently, and reason about the next hypotheses while runs continue."
+  - turn: 3
+    excerpt: "Use the GPUs more aggressively and overlap hypothesis formation, experiments, and next-step reasoning instead of waiting serially."
+  - turn: 4
+    excerpt: "Continue the registered experiment sequence; establish synthetic colour liftability before direct robot C-space generation."
+  - turn: 5
+    excerpt: "Do not wait serially for experiments; overlap hypothesis formation, validation, GPU runs, and next-step reasoning."
+  - turn: 6
+    excerpt: "Use GPU capacity aggressively, but continue overlapping hypothesis formation, falsification baselines, and experiment execution."
+
+open_threads:
+  - "Calibrate strict cylinder continuation and placement before building the q-space teacher corpus."
+  - "Build a hard-audited strict q-space teacher corpus after calibration."
+  - "Add path ordering, joint travel, manipulability, and hard continuation costs to the real-component teacher."
+  - "Audit grid and candidate-resolution sensitivity before interpreting numerical components topologically."
+  - "Model workpiece collision before physical-execution claims."
+  - "Retain top-K curves because single-sample residual feasibility remains seed-sensitive."
+
+ai_suggestions_pending:
+  - "Use the exact component frontier as a conditioning and feasibility layer, not as the learned planning target."
+  - "Batch and cache exact targets before GPU training so validation does not repeatedly invoke the oracle."

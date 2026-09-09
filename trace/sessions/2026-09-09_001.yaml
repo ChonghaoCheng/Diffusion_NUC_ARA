@@ -1,0 +1,73 @@
+session:
+  id: "2026-09-09_001"
+  date: "2026-09-09"
+  started: "2026-09-09T18:11:00+10:00"
+  last_turn: "2026-09-09T19:05:00+10:00"
+  turn_count: 3
+  summary: "Published the tested experiment code while retaining the ARA locally for a separate repository."
+
+events_logged:
+  - turn: 1
+    type: experiment
+    id: N109
+    routing: direct
+    provenance: ai-executed
+    summary: "Revalidated all 84 tests and confirmed that no experiment process is currently active."
+  - turn: 1
+    action: "Inspected solver, surface, Flow Matching, liftability, UR5e graph, and q-space teacher modules plus current result artifacts."
+    provenance: ai-executed
+    files_changed: []
+  - turn: 2
+    type: decision
+    id: N110
+    routing: direct
+    provenance: user
+    summary: "Restricted all subsequent project and support-file writes to /data."
+  - turn: 2
+    action: "Deleted /tmp/github_codex_known_hosts and verified its absence."
+    provenance: ai-executed
+    files_changed:
+      - "/tmp/github_codex_known_hosts (deleted)"
+  - turn: 3
+    type: decision
+    id: N111
+    routing: direct
+    provenance: user
+    summary: "Separated the experiment-code repository from the future ARA repository."
+  - turn: 3
+    type: experiment
+    id: N112
+    routing: direct
+    provenance: ai-executed
+    summary: "Published commit bd860e3 to Diffusion_NUC main after 84 tests passed."
+  - turn: 3
+    action: "Configured a /data-local SSH identity, rebuilt the initial commit without ara/ or results/, and pushed main."
+    provenance: ai-executed
+    files_changed:
+      - ".gitignore"
+      - "README.md"
+      - ".git/"
+      - "/data/chocheng/.ssh/diffusion_nuc_github"
+      - "/data/chocheng/.ssh/diffusion_nuc_github.pub"
+      - "/data/chocheng/.ssh/github_known_hosts"
+
+claims_touched: []
+logic_revisions: []
+
+key_context:
+  - turn: 1
+    excerpt: "Summarize the current code implementation and experimental progress."
+  - turn: 2
+    excerpt: "Do not write anything outside /data."
+  - turn: 3
+    excerpt: "Put the experiment code in this repository; create a new repository for experiment records."
+
+open_threads:
+  - "Calibrate strict cylinder continuation and placement before building the q-space teacher corpus."
+  - "Build a hard-audited strict q-space teacher corpus after calibration."
+  - "Implement and train direct C-space Flow Matching only after teacher admission."
+  - "Add workpiece collision before physical-execution claims."
+
+ai_suggestions_pending:
+  - "Treat the old 40-instance coarse graph frontier and old 20-instance q-space corpus as diagnostic only."
+  - "Use the exact component frontier as a feasibility layer rather than a learned coarse target."

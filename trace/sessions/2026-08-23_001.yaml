@@ -1,0 +1,158 @@
+session:
+  id: "2026-08-23_001"
+  date: "2026-08-23"
+  started: "2026-08-23T23:12"
+  last_turn: "2026-08-23T23:45"
+  turn_count: 3
+  summary: "Completed M1 with feasible five-surface teacher data and advanced to M2."
+
+events_logged:
+  - turn: 1
+    type: decision
+    id: N01
+    routing: direct
+    provenance: user
+    summary: "Use 3D surfaces from the outset; M2 fixed-r, k=1 is the first go/no-go gate."
+  - turn: 1
+    type: experiment
+    id: N02
+    routing: direct
+    provenance: ai-executed
+    summary: "Hardware is sufficient, but current torch wheel cannot execute on V100 and geometry dependencies are absent."
+  - turn: 1
+    type: observation
+    id: O01
+    routing: staged
+    provenance: ai-suggested
+    summary: "Separate continuous surface planning from exact discrete IK-sheet completion."
+  - turn: 1
+    type: observation
+    id: O02
+    routing: staged
+    provenance: ai-suggested
+    summary: "Teacher multi-start results are upper bounds, not certified ell-star values."
+  - turn: 1
+    type: observation
+    id: O03
+    routing: staged
+    provenance: ai-suggested
+    summary: "A dedicated V100-compatible training environment is required."
+  - turn: 2
+    type: decision
+    id: N03
+    routing: direct
+    provenance: user
+    summary: "Execute the supplied 3D coverage experiment milestones sequentially."
+  - turn: 2
+    type: experiment
+    id: N04
+    routing: direct
+    provenance: ai-executed
+    summary: "M0 passed 14 tests and analytic mesh-resolution convergence checks."
+  - turn: 2
+    type: observation
+    id: O01
+    routing: crystallized
+    provenance: ai-suggested
+    summary: "A01 crystallized via artifact commitment: separate surface planning and exact IK completion."
+  - turn: 2
+    type: observation
+    id: O04
+    routing: crystallized
+    provenance: ai-suggested
+    summary: "H01 crystallized via artifact commitment: topology-preserving path resampling."
+  - turn: 3
+    type: experiment
+    id: N05
+    routing: direct
+    provenance: ai-executed
+    summary: "M1 passed 19 tests and produced feasible candidates on all five target surface families."
+  - turn: 3
+    type: dead_end
+    id: N06
+    routing: direct
+    provenance: ai-executed
+    summary: "Rejected the initial writer behavior that admitted infeasible teacher targets."
+  - turn: 3
+    type: pivot
+    id: N07
+    routing: direct
+    provenance: ai-executed
+    summary: "Advanced from validated M1 teacher generation to M2 fixed-r, k=1 Flow Matching."
+  - turn: 3
+    type: observation
+    id: O05
+    routing: staged
+    provenance: ai-suggested
+    summary: "Teacher feasibility across five coarse-mesh surface families remains staged pending researcher comment."
+  - turn: 3
+    type: observation
+    id: O06
+    routing: staged
+    provenance: ai-suggested
+    summary: "Mesh-edge length anisotropy limits frontier claims, especially on torus."
+  - turn: 3
+    type: observation
+    id: O07
+    routing: crystallized
+    provenance: ai-suggested
+    summary: "H02 crystallized via artifact commitment: refuse infeasible training targets."
+
+ai_actions:
+  - turn: 1
+    action: "Inspected repository structure, compute hardware, Python environments, dependencies, and CUDA kernel compatibility."
+    provenance: ai-executed
+    files_changed:
+      - "ara/"
+  - turn: 2
+    action: "Implemented and validated M0 surface geometry, projection, geodesic approximation, finite-footprint evaluation, and convergence benchmarks."
+    provenance: ai-executed
+    files_changed:
+      - "src/diffusion_coverage/surface/"
+      - "src/diffusion_coverage/coverage/"
+      - "tests/test_surface_geometry.py"
+      - "scripts/benchmark_surface_m0.py"
+      - "scripts/benchmark_surface_convergence.py"
+  - turn: 3
+    action: "Implemented analytic raster/spiral proposals, constrained multi-start teacher refinement, random surface generation, safe dataset serialization, tests, and raw M1 benchmarks."
+    provenance: ai-executed
+    files_changed:
+      - "src/diffusion_coverage/coverage/patterns.py"
+      - "src/diffusion_coverage/coverage/teacher.py"
+      - "src/diffusion_coverage/coverage/dataset.py"
+      - "src/diffusion_coverage/surface/random_generator.py"
+      - "src/diffusion_coverage/surface/projection.py"
+      - "tests/test_teacher_planner.py"
+      - "scripts/benchmark_teacher_m1.py"
+      - "scripts/generate_surface_teacher_dataset.py"
+      - "results/teacher_m1_benchmark.json"
+      - "results/teacher_m1_smoke_v2/"
+
+claims_touched:
+  - id: A01
+    action: crystallized
+    turn: 2
+  - id: H01
+    action: crystallized
+    turn: 2
+  - id: H02
+    action: crystallized
+    turn: 3
+logic_revisions: []
+
+key_context:
+  - turn: 1
+    excerpt: "The project should be designed around 3D surface coverage from the beginning; M2 is the first go/no-go point."
+  - turn: 2
+    excerpt: "Complete the supplied experimental setting sequentially."
+
+open_threads:
+  - "Create and validate a dedicated V100-compatible research environment."
+  - "Implement global fixed-M teacher resampling and PyTorch batching for M2."
+  - "Replace or calibrate mesh-edge geodesic length before coverage-frontier experiments."
+  - "Implement and test the fixed-r, k=1 conditional Flow Matching model."
+
+ai_suggestions_pending:
+  - "Preserve the existing graph solver as a later exact IK-sheet completion layer."
+  - "Call the teacher-derived length curve an empirical upper frontier unless a lower bound is added."
+  - "Treat mesh-edge Dijkstra as a topology-safe smoke backend, not the final length evaluator."

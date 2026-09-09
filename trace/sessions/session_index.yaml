@@ -1,0 +1,29 @@
+sessions:
+  - id: "2026-08-23_001"
+    date: "2026-08-23"
+    summary: "Completed M1 with feasible five-surface teacher data and advanced to M2."
+    turn_count: 3
+    events_count: 15
+    claims_touched: [A01, H01, H02]
+    open_threads: 3
+  - id: "2026-08-24_001"
+    date: "2026-08-24"
+    summary: "Implemented five-mode structured Flow Matching; best-of-8 recovered 74.8% of held-out modes, so stabilization precedes C-space expansion."
+    turn_count: 7
+    events_count: 57
+    claims_touched: [A01, A02, E00, E01, E02, E03, H03, H04, H05, H06, H07, H08]
+    open_threads: 17
+  - id: "2026-08-30_001"
+    date: "2026-08-30"
+    summary: "Corrected strict q-space continuity, validated witness-based teachers, and identified cylinder fragmentation as the current bottleneck."
+    turn_count: 7
+    events_count: 101
+    claims_touched: [E03, E04, E05, H09, H10, H11, H12, H13, H14, H15, H16, H17, H18, H19, H20, H21, H22, H23, H24]
+    open_threads: 6
+  - id: "2026-09-09_001"
+    date: "2026-09-09"
+    summary: "Published the tested experiment code while retaining the ARA locally for a separate repository."
+    turn_count: 3
+    events_count: 4
+    claims_touched: []
+    open_threads: 4

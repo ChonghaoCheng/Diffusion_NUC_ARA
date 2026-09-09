@@ -1,0 +1,868 @@
+observations:
+  - id: O01
+    timestamp: "2026-08-23T23:12"
+    provenance: ai-suggested
+    content: >
+      Keep continuous 3D surface coverage and discrete maximal-continuity graph solving
+      as separate modules; later convert path samples to IK candidates and use the existing
+      exact graph solver as the robot-realizability and IK-sheet completion layer.
+    context: "Architecture assessment for the proposed 3D Flow Matching research plan."
+    potential_type: architecture
+    bound_to: [N01, N02]
+    promoted: true
+    promoted_to: "logic/solution/architecture.md:A01"
+    crystallized_via: artifact-commitment
+    stale: false
+  - id: O02
+    timestamp: "2026-08-23T23:12"
+    provenance: ai-suggested
+    content: >
+      Multi-start trajectory optimization supplies an empirical upper frontier, not a
+      certified value of the global optimum ell-star(k); optimality language requires a
+      lower bound or an exact certificate.
+    context: "Rigor check of the proposed teacher and evaluation claims."
+    potential_type: constraint
+    bound_to: [N01]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+  - id: O03
+    timestamp: "2026-08-23T23:12"
+    provenance: ai-suggested
+    content: >
+      The available hardware is sufficient for fixed-size waypoint Flow Matching, but a
+      dedicated environment with a V100-compatible PyTorch build and geometry dependencies
+      is required before GPU training.
+    context: "Interpretation of the environment smoke test."
+    potential_type: constraint
+    bound_to: [N02]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+  - id: O04
+    timestamp: "2026-08-23T23:26"
+    provenance: ai-suggested
+    content: >
+      Resample finite-footprint path sources along a topology-preserving mesh shortest
+      polyline rather than by projecting points sampled on the ambient-space chord, which
+      can cross to a different surface sheet on curved or multiply connected geometry.
+    context: "M0 numerical audit found and corrected a path resampling topology risk."
+    potential_type: heuristic
+    bound_to: [N04]
+    promoted: true
+    promoted_to: "logic/solution/heuristics.md:H01"
+    crystallized_via: artifact-commitment
+    stale: false
+  - id: O05
+    timestamp: "2026-08-23T23:45"
+    provenance: ai-suggested
+    content: >
+      At the tested coarse-mesh M1 settings, multi-start raster, spiral, and local
+      refinement produced at least one candidate below the missed-coverage tolerance on
+      each of cylinder, hemisphere, saddle, torus, and free-form patch.
+    context: "Interpretation of the five-surface M1 teacher benchmark."
+    potential_type: claim
+    bound_to: [N05]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+  - id: O06
+    timestamp: "2026-08-23T23:45"
+    provenance: ai-suggested
+    content: >
+      The mesh-edge Dijkstra backend is adequate for topology-safe M1 smoke evaluation
+      but can inflate path length through directional anisotropy, especially on the torus;
+      it is not yet adequate evidence for a coverage-length frontier.
+    context: "Numerical diagnosis of the M1 path-length table."
+    potential_type: constraint
+    bound_to: [N05]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+  - id: O07
+    timestamp: "2026-08-23T23:45"
+    provenance: ai-suggested
+    content: >
+      Learned-planner datasets must contain only teacher candidates that satisfy the
+      configured missed-coverage constraint; an instance with no feasible candidate must
+      fail generation rather than silently becoming an invalid training target.
+    context: "M1 dataset smoke exposed infeasible candidates at low mesh resolution."
+    potential_type: heuristic
+    bound_to: [N06]
+    promoted: true
+    promoted_to: "logic/solution/heuristics.md:H02"
+    crystallized_via: artifact-commitment
+    stale: false
+  - id: O08
+    timestamp: "2026-08-24T00:46"
+    provenance: ai-suggested
+    content: >
+      Direct conditional Flow Matching on fixed waypoint indices is sensitive to target
+      correspondence when one conditioning instance mixes spiral, orthogonal raster,
+      reversed, and phase-shifted coverage paths; limited data can yield an averaged path
+      that omits required coverage bands.
+    context: "Diagnosis of the failed fixed-radius M2 go/no-go runs."
+    potential_type: claim
+    bound_to: [N09, N10]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+  - id: O09
+    timestamp: "2026-08-24T00:46"
+    provenance: ai-suggested
+    content: >
+      Matching the Flow Matching base distribution to path continuity through correlated
+      waypoint noise reduces high-frequency geometric disorder, but smoothness alone does
+      not guarantee finite-footprint coverage of closed surfaces.
+    context: "Comparison of iid-base and smooth-base M2 runs."
+    potential_type: claim
+    bound_to: [N10]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+  - id: O10
+    timestamp: "2026-08-24T00:46"
+    provenance: ai-suggested
+    content: >
+      Farthest-uncovered-point insertion is a useful feasibility diagnostic and can repair
+      modest missed regions, but it should not be treated as evidence of a good learned
+      proposal when many insertions and large path-length increases are required.
+    context: "Interpretation of the 12-step post-projection repair ablation."
+    potential_type: heuristic
+    bound_to: [N10]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+  - id: O11
+    timestamp: "2026-08-24T10:44:12+10:00"
+    provenance: ai-suggested
+    content: >
+      Workspace-first liftability failure is strongly surface-dependent in the current
+      UR5e benchmark: long cylinder and hemisphere plans expose a large gap, while the
+      tested saddle and free-form plans do not. The robotics motivation should therefore
+      be scoped to geometry and placement regimes that induce difficult global continuation.
+    context: "Interpretation of the 200-instance pre-FM UR5e motivation audit."
+    potential_type: claim
+    bound_to: [N15, N16]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+  - id: O12
+    timestamp: "2026-08-24T10:44:12+10:00"
+    provenance: ai-suggested
+    content: >
+      A finite-beam numerical IK continuation failure is evidence that a workspace-first
+      plan is difficult to lift under the tested solver budget, but it is not a certificate
+      that configuration-space colour components are topologically disconnected.
+    context: "Rigor boundary exposed while interpreting the UR5e liftability audit."
+    potential_type: constraint
+    bound_to: [N15, N16]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+  - id: O13
+    timestamp: "2026-08-24T13:20:28+10:00"
+    provenance: ai-suggested
+    content: >
+      A learned-planner benchmark must restore the teacher's exact evaluation quadrature
+      and hard-check the serialized model-input roundtrip; otherwise discretization and
+      dtype changes can silently alter feasibility labels.
+    context: "The original Stage 1 archive reconstruction changed hard coverage values."
+    potential_type: heuristic
+    bound_to: [N17, N18]
+    promoted: true
+    promoted_to: "logic/solution/heuristics.md:H03"
+    crystallized_via: artifact-commitment
+    stale: false
+  - id: O14
+    timestamp: "2026-08-24T13:20:28+10:00"
+    provenance: ai-suggested
+    content: >
+      Variable-token surface paths should be resampled within each source segment while
+      preserving all segment boundaries; global resampling can shortcut intentional turns,
+      while repeated-point padding corrupts geometric token weighting.
+    context: "Representation ablations isolated two distinct path-semantic failures."
+    potential_type: heuristic
+    bound_to: [N20]
+    promoted: true
+    promoted_to: "logic/solution/heuristics.md:H04"
+    crystallized_via: artifact-commitment
+    stale: false
+  - id: O15
+    timestamp: "2026-08-24T13:20:28+10:00"
+    provenance: ai-suggested
+    content: >
+      Increasing base-path correlation can improve finite-footprint feasibility while
+      worsening path over-travel; proposal feasibility alone is therefore insufficient
+      for selecting a Flow Matching base process.
+    context: "Corrected Stage 1 smooth-base ablation improved feasibility but failed length quality."
+    potential_type: claim
+    bound_to: [N21, N22]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+  - id: O16
+    timestamp: "2026-08-24T13:56:05+10:00"
+    provenance: user-revised
+    content: >
+      Coverage-plan selection must minimize path length among hard-feasible candidates;
+      using missed fraction as an additional feasible-set objective biases targets toward
+      over-coverage and longer travel.
+    context: "A sanitizer ranking audit found that the implementation contradicted the registered constrained objective."
+    potential_type: heuristic
+    bound_to: [N23, N24]
+    promoted: true
+    promoted_to: "logic/solution/heuristics.md:H05"
+    crystallized_via: artifact-commitment
+    stale: false
+  - id: O17
+    timestamp: "2026-08-24T13:56:05+10:00"
+    provenance: ai-suggested
+    content: >
+      Under the current conditional vector field, warm-starting and a correlated base
+      recover hard coverage mainly by adding travel, while fresh training produces shorter
+      but less feasible plans; flow validation loss does not identify the constrained
+      shortest-path frontier.
+    context: "Controlled fresh and warm retraining on objective-corrected targets."
+    potential_type: claim
+    bound_to: [N25, N26]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+  - id: O18
+    timestamp: "2026-08-24T15:13:13+10:00"
+    provenance: ai-suggested
+    content: >
+      Restricting supervision to one exact raster family and phase improves correspondence
+      relative to mixed-family targets, but residual Stage 1 failures show that target-mode
+      ambiguity was not the only limitation of the raw XYZ planner.
+    context: "Comparison of mixed-target and canonical single-family Flow Matching runs."
+    potential_type: claim
+    bound_to: [N29, N30]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+  - id: O19
+    timestamp: "2026-08-24T15:13:13+10:00"
+    provenance: ai-suggested
+    content: >
+      Under raw dense XYZ supervision, scalar coverage and regularity losses mainly move
+      the feasibility-versus-travel trade-off and do not reliably repair sweep ordering or
+      connector topology.
+    context: "Interpretation of five objective-aware loss ablations and the proposal oracle."
+    potential_type: claim
+    bound_to: [N29, N30]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+  - id: O20
+    timestamp: "2026-08-24T15:13:13+10:00"
+    provenance: ai-suggested
+    content: >
+      Candidate-family filtering must occur before instance splitting and each selected
+      candidate must survive the complete learning coordinate and dtype roundtrip before
+      entering a formal learned-planner benchmark.
+    context: "The first single-family cohort retained three validation targets that failed after model-input reconstruction."
+    potential_type: heuristic
+    bound_to: [N27, N28]
+    promoted: true
+    promoted_to: "logic/solution/heuristics.md:H06"
+    crystallized_via: artifact-commitment
+    stale: false
+  - id: O21
+    timestamp: "2026-08-24T15:13:13+10:00"
+    provenance: ai-suggested
+    content: >
+      Analytic intrinsic coordinates remove off-surface degrees of freedom and post-hoc
+      projection from learned output, but generation quality remains unestablished until
+      the interrupted K=8 hard-checker evaluation is completed.
+    context: "Analytic-UV training and target audit completed; generated-plan evaluation did not."
+    potential_type: claim
+    bound_to: [N31, N32]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+  - id: O22
+    timestamp: "2026-08-24T22:40:00+10:00"
+    provenance: ai-suggested
+    content: >
+      Dense waypoint Flow Matching entangles discrete coverage-stroke count and ordering
+      with local curve geometry; length regularization can shorten outputs by deleting
+      required strokes rather than by removing only redundant travel.
+    context: "Dense UV baseline and length/tangent ablation produced opposite feasibility-length extremes."
+    potential_type: claim
+    bound_to: [N33, N34]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+  - id: O23
+    timestamp: "2026-08-24T22:40:00+10:00"
+    provenance: ai-suggested
+    content: >
+      For raster-like finite-footprint coverage, generate topology-bearing stroke controls
+      and decode them into dense 3D paths using known task geometry; do not require the
+      neural vector field to reproduce redundant along-stroke samples.
+    context: "Structured controls reduced path tokens and passed the restricted Stage 1 gate."
+    potential_type: heuristic
+    bound_to: [N36, N37, N38]
+    promoted: true
+    promoted_to: "logic/solution/heuristics.md:H07"
+    crystallized_via: artifact-commitment
+    stale: false
+  - id: O24
+    timestamp: "2026-08-24T22:40:00+10:00"
+    provenance: ai-suggested
+    content: >
+      Passing the point-estimate gate on one unrepaired raster family establishes the
+      structured Flow Matching infrastructure but does not establish multimodal coverage,
+      repaired-path handling, or general surface-path generation.
+    context: "Scope interpretation of the 31/33 structured-control result."
+    potential_type: constraint
+    bound_to: [N38, N39]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+  - id: O25
+    timestamp: "2026-08-24T23:20:00+10:00"
+    provenance: ai-suggested
+    content: >
+      When coverage topology is represented by a small known pattern vocabulary, separate
+      the discrete family/axis/phase choice from continuous path controls and condition one
+      balanced continuous generator on the explicit mode.
+    context: "The five-mode structured dataset and conditioned vector field were implemented and evaluated."
+    potential_type: heuristic
+    bound_to: [N41, N42, N43]
+    promoted: true
+    promoted_to: "logic/solution/heuristics.md:H08"
+    crystallized_via: artifact-commitment
+    stale: false
+  - id: O26
+    timestamp: "2026-08-24T23:20:00+10:00"
+    provenance: ai-suggested
+    content: >
+      Under the current mode-conditioned structured generator, stochastic best-of-K
+      sampling materially increases mode recovery, but low per-sample feasibility means
+      sampling is compensating for an unstable conditional generator rather than only
+      exposing legitimate within-mode diversity.
+    context: "Mode recovery increased monotonically from K=1 through K=8 while candidate feasibility remained low."
+    potential_type: claim
+    bound_to: [N43, N44]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+  - id: O27
+    timestamp: "2026-08-24T23:20:00+10:00"
+    provenance: ai-suggested
+    content: >
+      Explicit enumeration of teacher-supported pattern modes evaluates conditional mode
+      realization and expert-mode coverage, but cannot support a claim that the model has
+      learned a categorical prior or autonomously discovered planning modes.
+    context: "Interpretation boundary for the Stage 2 evaluator and report."
+    potential_type: constraint
+    bound_to: [N41, N43]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+  - id: O28
+    timestamp: "2026-08-30T01:00:00+10:00"
+    provenance: ai-suggested
+    content: >
+      The current structured surface tasks possess meaningful hard-feasible continuous
+      within-mode freedom, but the former analytic teacher did not sample that freedom.
+    context: "Deterministic-template audit followed by the multi-start teacher pilot and admitted v4 dataset."
+    potential_type: claim
+    bound_to: [N46, N48, N50]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+  - id: O29
+    timestamp: "2026-08-30T01:00:00+10:00"
+    provenance: ai-suggested
+    content: >
+      Archive original model-space optimization variables rather than inverse-recovering
+      them from dense paths, and hard-check them after conversion to the model input dtype.
+    context: "Hemisphere inverse-chart failures and one float32 threshold-fragile candidate were removed by the v4 data contract."
+    potential_type: heuristic
+    bound_to: [N49, N50]
+    promoted: true
+    promoted_to: "logic/solution/heuristics.md:H09"
+    crystallized_via: artifact-commitment
+    stale: false
+  - id: O30
+    timestamp: "2026-08-30T01:00:00+10:00"
+    provenance: ai-suggested
+    content: >
+      Standard independently coupled conditional Flow Matching is seed-sensitive and does
+      not pass the corrected Stage 2 multimodality gate on the current pilot cohort.
+    context: "Fixed-split three-seed replication on the v4 multi-start dataset."
+    potential_type: claim
+    bound_to: [N51, N52]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+  - id: O31
+    timestamp: "2026-08-30T15:30:00+10:00"
+    provenance: ai-suggested
+    content: >
+      Use multiple GPUs primarily for parallel seeds and ablations; increase batch size
+      only with separately controlled optimizer-update and sample-exposure budgets.
+    context: "GPU throughput and hard-checker batch/update ablation."
+    potential_type: heuristic
+    bound_to: [N53, N54, N55]
+    promoted: true
+    promoted_to: "logic/solution/heuristics.md:H10"
+    crystallized_via: artifact-commitment
+    stale: false
+  - id: O32
+    timestamp: "2026-08-30T15:30:00+10:00"
+    provenance: ai-suggested
+    content: >
+      Grouped minibatch OT over matching mode and token count reduces hard feasibility
+      relative to independent coupling on the current corrected Stage 2 cohort.
+    context: "Matched 700-update and 5,000-update hard-checker comparisons."
+    potential_type: claim
+    bound_to: [N56]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+  - id: O33
+    timestamp: "2026-08-30T15:30:00+10:00"
+    provenance: ai-suggested
+    content: >
+      Current hard-planning quality is more sensitive to optimizer-update count than to
+      raw sample throughput, while remaining failures are mode and surface dependent.
+    context: "Batch/update controls and by-mode/by-surface hard metrics."
+    potential_type: claim
+    bound_to: [N55, N57]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+  - id: O34
+    timestamp: "2026-08-30T16:37:00+10:00"
+    provenance: ai-suggested
+    content: >
+      For structured coverage families, learn footprint-normalized physical residuals
+      around a deterministic mode-specific template instead of relearning the complete
+      absolute control geometry.
+    context: "The residual representation reversed the admitted absolute-UV Stage 2 no-go and was committed throughout training and evaluation."
+    potential_type: heuristic
+    bound_to: [N58, N60, N64]
+    promoted: true
+    promoted_to: "logic/solution/heuristics.md:H11"
+    crystallized_via: artifact-commitment
+    stale: false
+  - id: O35
+    timestamp: "2026-08-30T16:37:00+10:00"
+    provenance: ai-suggested
+    content: >
+      Template residual coordinates make the current mode-conditioned surface planner
+      reliable under best-of-eight hard checking on the expanded cohort, while single-sample
+      feasibility remains seed-sensitive.
+    context: "Formal 160-instance, three-seed residual evaluation."
+    potential_type: claim
+    bound_to: [N64]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+  - id: O36
+    timestamp: "2026-08-30T16:37:00+10:00"
+    provenance: ai-suggested
+    content: >
+      Audit learned-target coordinate transforms on the complete dataset split and remove
+      threshold-fragile candidates at candidate granularity before admitting a training corpus.
+    context: "One of 2,056 v5 candidates failed the residual roundtrip; v6 retained its instance and all remaining modes."
+    potential_type: heuristic
+    bound_to: [N61, N62]
+    promoted: true
+    promoted_to: "logic/solution/heuristics.md:H12"
+    crystallized_via: artifact-commitment
+    stale: false
+  - id: O37
+    timestamp: "2026-08-30T16:37:00+10:00"
+    provenance: ai-suggested
+    content: >
+      Exact generated-to-teacher point coverage at one small residual threshold is not a
+      valid standalone mode-collapse diagnostic when finite teacher alternatives have even
+      lower leave-one-out coverage.
+    context: "Residual-control threshold sweep and teacher self-coverage calibration."
+    potential_type: constraint
+    bound_to: [N65]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+  - id: O38
+    timestamp: "2026-08-30T16:37:00+10:00"
+    provenance: ai-suggested
+    content: >
+      Best-of-eight hard checking currently compensates for substantial checkpoint-seed
+      variance in single-sample feasibility; top-K curves must accompany saturated K=8 recovery.
+    context: "All three expanded seeds reached 100 percent K=8 recovery despite an 11.15-point feasibility range."
+    potential_type: claim
+    bound_to: [N64]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+  - id: O39
+    timestamp: "2026-08-30T16:50:00+10:00"
+    provenance: ai-suggested
+    content: >
+      Synthetic liftability evidence should bind colour availability to actual 3D surface
+      position and use exact fixed-path colour completion; geometry-independent random
+      graphs are useful solver tests but not evidence about workspace coverage liftability.
+    context: "Implemented surface-chart colour fields and exact dynamic-program completion."
+    potential_type: heuristic
+    bound_to: [N67, N68]
+    promoted: true
+    promoted_to: "logic/solution/heuristics.md:H13"
+    crystallized_via: artifact-commitment
+    stale: false
+  - id: O40
+    timestamp: "2026-08-30T16:50:00+10:00"
+    provenance: ai-suggested
+    content: >
+      Repeated synthetic fields on one surface instance must be retained as a cluster in
+      uncertainty estimation; resampling fields as independent observations would
+      overstate the effective sample size.
+    context: "Implemented instance-cluster bootstrap for the full synthetic benchmark."
+    potential_type: heuristic
+    bound_to: [N70, N71]
+    promoted: true
+    promoted_to: "logic/solution/heuristics.md:H14"
+    crystallized_via: artifact-commitment
+    stale: false
+  - id: O41
+    timestamp: "2026-08-30T16:50:00+10:00"
+    provenance: ai-suggested
+    content: >
+      Workspace-shortest and robot-liftable coverage plans are measurably different
+      objects under spatially fragmented colour availability: alternate coverage modes
+      recover a substantial fraction of fixed-budget failures at modest added length.
+    context: "Full 160-instance paired synthetic benchmark and cluster bootstrap."
+    potential_type: claim
+    bound_to: [N70, N71]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+  - id: O42
+    timestamp: "2026-08-30T16:50:00+10:00"
+    provenance: ai-suggested
+    content: >
+      In the current 3D synthetic benchmark, most colour-aware rescues arise by changing
+      raster orientation to align long coverage strokes with colour regions.
+    context: "Mode-transition counts at easy k=4, medium k=16, and hard k=32."
+    potential_type: claim
+    bound_to: [N70, N73]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+  - id: O43
+    timestamp: "2026-08-30T16:50:00+10:00"
+    provenance: ai-suggested
+    content: >
+      Exact colour completion of fixed paths plus exact selection from a finite candidate
+      library does not certify the global continuous-path segment-budget length frontier.
+    context: "Interpretation boundary after the successful synthetic go/no-go."
+    potential_type: constraint
+    bound_to: [N70, N74]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+  - id: O44
+    timestamp: "2026-08-30T18:05:00+10:00"
+    provenance: ai-suggested
+    content: >
+      At the matched workspace-teacher compute budget, colour-aware local search improves
+      secondary path length but does not reliably cross discrete segment-budget feasibility
+      boundaries; substantially stronger targeted search can cross selected near-boundary cases.
+    context: "Matched 60-task pilot and targeted four-task strong-search comparison."
+    potential_type: claim
+    bound_to: [N76, N77]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+  - id: O45
+    timestamp: "2026-08-30T18:05:00+10:00"
+    provenance: ai-suggested
+    content: >
+      Diagnose missing discrete proposal families before spending substantially more compute
+      on local continuous refinement; local search cannot efficiently invent an absent sweep
+      orientation when the segment objective changes discontinuously.
+    context: "Cross-axis audit, generator expansion, and revised synthetic frontier."
+    potential_type: heuristic
+    bound_to: [N76, N77, N78, N79, N85]
+    promoted: true
+    promoted_to: "logic/solution/heuristics.md:H15"
+    crystallized_via: artifact-commitment
+    stale: false
+  - id: O46
+    timestamp: "2026-08-30T18:05:00+10:00"
+    provenance: ai-suggested
+    content: >
+      An analytic construction is not exempt from target admission: serialize it through
+      the model-space dtype and require the unchanged hard checker before adding it to an
+      optimization result or learning corpus.
+    context: "v8 rejected 14 float32-infeasible hemisphere templates; teacher admission changed."
+    potential_type: heuristic
+    bound_to: [N81, N82, N84]
+    promoted: true
+    promoted_to: "logic/solution/heuristics.md:H16"
+    crystallized_via: artifact-commitment
+    stale: false
+  - id: O47
+    timestamp: "2026-08-30T18:05:00+10:00"
+    provenance: ai-suggested
+    content: >
+      At coordinate singularities, construct known structured templates directly in the
+      analytic chart and fix undefined endpoint gauges deterministically; inverse recovery
+      plus numerical simplification can change token topology across identical reads.
+    context: "v9 hemisphere pole token nondeterminism and canonical v10 fix."
+    potential_type: heuristic
+    bound_to: [N83, N84]
+    promoted: true
+    promoted_to: "logic/solution/heuristics.md:H17"
+    crystallized_via: artifact-commitment
+    stale: false
+  - id: O48
+    timestamp: "2026-08-30T18:05:00+10:00"
+    provenance: ai-suggested
+    content: >
+      Expanding the conditioned proposal vocabulary from 93 to 109 held-out instance-mode
+      tasks preserves near-complete best-of-eight recovery and approximately four-percent
+      same-mode teacher length overhead, but two seeds retain one failed mode.
+    context: "Canonical v10 three-seed training and hard evaluation."
+    potential_type: claim
+    bound_to: [N84, N86]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+  - id: O49
+    timestamp: "2026-08-30T18:05:00+10:00"
+    provenance: ai-suggested
+    content: >
+      The revised synthetic rescue is proposal-vocabulary sensitive: adding the missing
+      cross-axis family approximately doubles easy and medium aggregate paired rescue while
+      leaving the hard operating point unchanged.
+    context: "Same-seed v1 versus canonical v3 frontier comparison."
+    potential_type: claim
+    bound_to: [N70, N78, N85]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+  - id: O50
+    timestamp: "2026-08-30T18:05:00+10:00"
+    provenance: ai-suggested
+    content: >
+      Before attributing the real UR5e liftability gap to the absence of direct C-space
+      generation, hold base placement and continuation settings fixed and measure how much
+      best-of-mode workspace proposals rescue over the geometry-shortest path.
+    context: "Reconciliation of the prior UR5e gate with the new cross-axis result."
+    potential_type: constraint
+    bound_to: [N15, N16, N85, N87]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+  - id: O51
+    timestamp: "2026-08-30T20:01:47+10:00"
+    provenance: ai-suggested
+    content: >
+      Under fixed placement and continuation settings, exhausting the expanded hard-feasible
+      workspace proposal library recovers only a small fraction of difficult periodic-surface
+      liftability failures, so missing workspace vocabulary is not the dominant explanation.
+    context: "80-instance all-candidate oracle and stronger verification of apparent rescues."
+    potential_type: claim
+    bound_to: [N89, N90, N91, N92]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+  - id: O52
+    timestamp: "2026-08-30T20:01:47+10:00"
+    provenance: ai-suggested
+    content: >
+      In paired stochastic solver comparisons, reuse the same instance-level random stream
+      across proposals so proposal geometry is not confounded with a luckier IK restart sequence.
+    context: "Fixed-placement workspace-mode benchmark implementation."
+    potential_type: heuristic
+    bound_to: [N88, N89, N90]
+    promoted: true
+    promoted_to: "logic/solution/heuristics.md:H18"
+    crystallized_via: artifact-commitment
+    stale: false
+  - id: O53
+    timestamp: "2026-08-30T20:01:47+10:00"
+    provenance: ai-suggested
+    content: >
+      When process-level parallelism already occupies the available CPU cores, cap BLAS and
+      OpenMP thread pools per worker to prevent hidden oversubscription and distorted runtimes.
+    context: "All-candidate UR5e benchmark was stabilized after an oversubscribed diagnostic run."
+    potential_type: heuristic
+    bound_to: [N90]
+    promoted: true
+    promoted_to: "logic/solution/heuristics.md:H19"
+    crystallized_via: artifact-commitment
+    stale: false
+  - id: O54
+    timestamp: "2026-08-30T20:01:47+10:00"
+    provenance: ai-suggested
+    content: >
+      On the current fixed-placement coarse UR5e graphs, wider tool-axis tolerance can merge
+      numerical IK connectivity enough to substantially lower the exact component segment frontier,
+      with a larger effect on cylinders than hemispheres.
+    context: "Forty-instance nested orientation-cone frontier."
+    potential_type: claim
+    bound_to: [N95, N96]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+  - id: O55
+    timestamp: "2026-08-30T20:01:47+10:00"
+    provenance: ai-suggested
+    content: >
+      A finite candidate grid and checked neighbour transitions provide a numerical IK-component
+      approximation, not a topological certificate of the robot configuration space.
+    context: "Interpretation boundary for the real IK-component graph."
+    potential_type: constraint
+    bound_to: [N93, N96]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+  - id: O56
+    timestamp: "2026-08-30T20:01:47+10:00"
+    provenance: ai-suggested
+    content: >
+      Treat orientation tolerance as a feasible cone that must be sampled or optimized over;
+      changing only an inverse-kinematics stopping threshold does not expose the added freedom.
+    context: "Center-axis-only comparison produced identical three- and ten-degree graphs."
+    potential_type: heuristic
+    bound_to: [N94, N95]
+    promoted: true
+    promoted_to: "logic/solution/heuristics.md:H20"
+    crystallized_via: artifact-commitment
+    stale: false
+  - id: O57
+    timestamp: "2026-08-30T20:01:47+10:00"
+    provenance: ai-suggested
+    content: >
+      Test tolerance monotonicity with nested candidate enumeration: retain the complete
+      inner-tolerance candidate budget before appending outer-cone candidates.
+    context: "Independent cone samples confounded physical tolerance with candidate replacement."
+    potential_type: heuristic
+    bound_to: [N95, N96]
+    promoted: true
+    promoted_to: "logic/solution/heuristics.md:H21"
+    crystallized_via: artifact-commitment
+    stale: false
+  - id: O58
+    timestamp: "2026-08-30T20:01:47+10:00"
+    provenance: ai-suggested
+    content: >
+      Coarse component maximum coverage is too easy to justify a learned proposal model in the
+      current corpus; learning should target continuous path construction and motion quality
+      inside selected real IK components instead.
+    context: "GPU MPNN lost to component size and marginal greedy baselines."
+    potential_type: heuristic
+    bound_to: [N97, N98]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+  - id: O59
+    timestamp: "2026-08-30T22:20:00+10:00"
+    provenance: ai-suggested
+    content: "Under the strict 24x8 contract, hemisphere coverage is near useful while cylinder coverage remains dominated by continuation fragmentation."
+    context: "Two-surface strict witness pilot."
+    potential_type: claim
+    bound_to: [N105]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+  - id: O60
+    timestamp: "2026-08-30T22:20:00+10:00"
+    provenance: ai-suggested
+    content: "Carry the exact float64 numerical continuation witness on every compatibility edge and reuse it in teacher construction and hard checking."
+    context: "Graph serialization and strict teacher correction."
+    potential_type: heuristic
+    bound_to: [N103, N104]
+    promoted: true
+    promoted_to: "logic/solution/heuristics.md:H22"
+    crystallized_via: artifact-commitment
+    stale: false
+  - id: O61
+    timestamp: "2026-08-30T22:20:00+10:00"
+    provenance: ai-suggested
+    content: "Use stricter construction tolerances than final admission and independently densify q-space transitions in the hard checker."
+    context: "Dense interpolation refuted the old teacher labels."
+    potential_type: heuristic
+    bound_to: [N101, N102]
+    promoted: true
+    promoted_to: "logic/solution/heuristics.md:H23"
+    crystallized_via: artifact-commitment
+    stale: false
+  - id: O62
+    timestamp: "2026-08-30T22:20:00+10:00"
+    provenance: ai-suggested
+    content: "Represent corrected q-space plans with adaptive variable-length tokens and hard-audit every simplification."
+    context: "Corrected 16x6 representation audit."
+    potential_type: heuristic
+    bound_to: [N106]
+    promoted: true
+    promoted_to: "logic/solution/heuristics.md:H24"
+    crystallized_via: artifact-commitment
+    stale: false
+  - id: O63
+    timestamp: "2026-08-30T22:20:00+10:00"
+    provenance: ai-suggested
+    content: "The available dual RTX A5500 setup has ample memory headroom for the planned six-DoF variable-token FM model."
+    context: "Synthetic throughput benchmark; not a trained-model result."
+    potential_type: claim
+    bound_to: [N107]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+  - id: O64
+    timestamp: "2026-08-30T22:20:00+10:00"
+    provenance: ai-suggested
+    content: "The legacy 20-instance q-space corpus is diagnostic only because its feasible labels fail the corrected dense continuous checker."
+    context: "Training-data admission boundary."
+    potential_type: constraint
+    bound_to: [N101, N108]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false

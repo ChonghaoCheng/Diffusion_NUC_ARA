@@ -1,0 +1,1644 @@
+tree:
+  - id: N01
+    type: decision
+    title: "Start from three-dimensional surface coverage"
+    provenance: user
+    timestamp: "2026-08-23T23:12"
+    choice: >
+      Design the coverage research around cylinder, hemisphere, and free-form
+      three-dimensional patches from the outset; retain planar cases only for debugging.
+      Use fixed-footprint, single-segment Flow Matching on 3D surfaces as the first
+      go/no-go experiment before adding manipulator constraints or execution.
+    alternatives:
+      - "Develop a two-dimensional toy problem first and extend it later"
+      - "Begin immediately with IK, MuJoCo, or physical execution"
+    evidence:
+      - "user direction in session 2026-08-23_001"
+    status: resolved
+    also_depends_on: []
+  - id: N02
+    type: experiment
+    title: "Audit local compute and geometry-learning environment"
+    provenance: ai-executed
+    timestamp: "2026-08-23T23:12"
+    result: >
+      Two 32 GB V100 GPUs, 187 GiB host RAM, and ample workspace storage are present.
+      The current torch 2.11.0+cu128 wheel cannot execute on V100 compute capability 7.0,
+      and the active environment lacks the mesh, geodesic, scientific-computing, and
+      plotting dependencies needed for M0-M2.
+    evidence:
+      - "ara/evidence/environment_probe_2026-08-23.md"
+    status: resolved
+    also_depends_on:
+      - N01
+  - id: N03
+    type: decision
+    title: "Execute the research milestones sequentially"
+    provenance: user
+    timestamp: "2026-08-23T23:26"
+    choice: >
+      Implement and verify the supplied experimental program milestone by milestone,
+      completing M0 before M1 and retaining M2 as the first Flow Matching go/no-go gate.
+    alternatives:
+      - "Skip directly to Flow Matching implementation"
+      - "Combine surface geometry, manipulator constraints, and execution in one stage"
+    evidence:
+      - "user direction in session 2026-08-23_001 turn 2"
+    status: resolved
+    also_depends_on:
+      - N01
+  - id: N04
+    type: experiment
+    title: "Validate M0 surface geometry and finite-footprint evaluation"
+    provenance: ai-executed
+    timestamp: "2026-08-23T23:26"
+    result: >
+      Fourteen direct regression tests passed. Cylinder area and half-circumference
+      mesh-geodesic relative errors decreased monotonically from 1.138407e-02 at 12
+      azimuth divisions to 1.784772e-04 at 96 divisions. The planar finite-footprint
+      covered-fraction absolute error was 7.422e-03 on a 32 by 32 mesh. Five 3D surface
+      families completed smoke evaluation in 0.0908 to 0.2176 seconds per instance.
+    evidence:
+      - "ara/evidence/m0_validation_2026-08-23.md"
+    status: resolved
+    also_depends_on:
+      - N03
+  - id: N05
+    type: experiment
+    title: "Validate the M1 classical coverage teacher"
+    provenance: ai-executed
+    timestamp: "2026-08-23T23:45"
+    result: >
+      Nineteen direct tests passed. At footprint radius 0.2 and missed-coverage tolerance
+      0.05, the best teacher candidate had missed fractions 0.017578 on cylinder, 0.040203
+      on hemisphere, 0.004047 on saddle, 0.008169 on torus, and 0.0 on free-form patch.
+      The numeric-only smoke dataset contains five instances and 29 feasible candidates.
+    evidence:
+      - "ara/evidence/m1_teacher_validation_2026-08-23.md"
+      - "results/teacher_m1_benchmark.json"
+      - "results/teacher_m1_smoke_v2/manifest.jsonl"
+    status: resolved
+    also_depends_on:
+      - N04
+  - id: N06
+    type: dead_end
+    title: "Do not serialize infeasible teacher proposals as targets"
+    provenance: ai-executed
+    timestamp: "2026-08-23T23:45"
+    hypothesis: >
+      Serializing every ranked teacher proposal is acceptable because generation settings
+      should normally produce feasible paths.
+    failure_mode: >
+      A low-resolution smoke run produced cylinder and hemisphere instances with no
+      candidate below the configured tolerance, yet the first writer implementation saved
+      those candidates as if they were valid targets.
+    lesson: >
+      Filter candidates through the exact coverage evaluator at write time, fail when none
+      are feasible, and optionally rerun generation with denser track spacing.
+    status: resolved
+    evidence:
+      - "ara/evidence/m1_teacher_validation_2026-08-23.md"
+    also_depends_on:
+      - N05
+  - id: N07
+    type: pivot
+    title: "Advance from M1 teacher generation to M2 Flow Matching"
+    provenance: ai-executed
+    timestamp: "2026-08-23T23:45"
+    from: "M1 classical teacher planning and dataset generation"
+    to: "M2 fixed-footprint single-segment conditional Flow Matching"
+    trigger: >
+      Five target 3D surface families produced feasible teacher candidates, the dataset
+      round trip passed without pickle, and invalid-target admission was closed.
+    status: resolved
+    also_depends_on:
+      - N05
+      - N06
+  - id: N08
+    type: experiment
+    title: "Implement and validate the fixed-radius M2 Flow Matching pipeline"
+    provenance: ai-executed
+    timestamp: "2026-08-24T00:46"
+    result: >
+      Built fixed-waypoint topology-safe targets, stratified PyTorch datasets, a PointNet
+      conditional path velocity field, conditional Flow Matching loss, Heun sampling,
+      exact mesh projection, and coverage evaluation. The merged dataset contains 50
+      instances and 279 feasible candidates; the full regression suite passed 25 tests.
+    evidence:
+      - "ara/evidence/m2_flow_matching_go_no_go_2026-08-24.md"
+      - "results/teacher_m2_fixed_r_k1_50/manifest.jsonl"
+    status: resolved
+    also_depends_on:
+      - N07
+  - id: N09
+    type: dead_end
+    title: "Reject raw fixed-index M2 Flow Matching at the go/no-go gate"
+    provenance: ai-executed
+    timestamp: "2026-08-24T00:46"
+    hypothesis: >
+      A fixed-radius, single-segment conditional Flow Matching model trained on the
+      multi-solution teacher set can reliably generate low-miss 3D coverage paths on
+      held-out instances from all five surface families.
+    failure_mode: >
+      Top-8 raw generation achieved only 10 percent feasibility on ten stratified held-out
+      instances. Generated cylinder and torus paths omitted coverage bands; iid base noise
+      also produced high-frequency path disorder.
+    lesson: >
+      Do not proceed to broader conditioning or manipulator integration. First resolve
+      waypoint correspondence across spiral, orthogonal raster, direction, and phase modes,
+      and improve closed-surface coverage generation.
+    status: resolved
+    evidence:
+      - "ara/evidence/m2_flow_matching_go_no_go_2026-08-24.md"
+      - "results/flow_matching_m2_fixed_r_k1_run1/eval_k8/metrics.json"
+    also_depends_on:
+      - N08
+  - id: N10
+    type: experiment
+    title: "Ablate smooth base noise and short coverage repair"
+    provenance: ai-executed
+    timestamp: "2026-08-24T00:46"
+    result: >
+      Correlated path noise visibly removed much of the high-frequency disorder but did
+      not improve raw feasibility, which remained 10 percent. A maximum 12-step insertion
+      repair increased feasibility to 60 percent, repairing free-form, hemisphere, and
+      saddle cases while both cylinder and both torus cases remained infeasible.
+    evidence:
+      - "ara/evidence/m2_flow_matching_go_no_go_2026-08-24.md"
+      - "results/flow_matching_m2_fixed_r_k1_run2_smooth_base/eval_k8_refined/metrics.json"
+    status: resolved
+    also_depends_on:
+      - N09
+  - id: N11
+    type: pivot
+    title: "Stop expansion at M2 and return to path representation"
+    provenance: ai-executed
+    timestamp: "2026-08-24T00:46"
+    from: "M2 fixed-radius single-segment Flow Matching rollout"
+    to: "Sequence-alignment and closed-surface mode diagnosis"
+    trigger: >
+      Raw FM failed the stated stability gate and short refinement left all held-out
+      cylinder and torus instances infeasible.
+    status: resolved
+    also_depends_on:
+      - N09
+      - N10
+  - id: N12
+    type: pivot
+    title: "Reframe the paper around direct robot-liftable coverage generation"
+    provenance: user-revised
+    timestamp: "2026-08-24T10:44:12+10:00"
+    from: "Flow Matching generation of surface-only three-dimensional coverage paths"
+    to: "Amortized direct generation of finite-footprint, segment-budgeted, robot-liftable configuration-space plans"
+    trigger: >
+      The researcher accepted the representation and robotics criticisms, corrected the
+      interpretation of ell-star(k) and rho-star, and made workspace-first versus direct
+      C-space liftability the central comparison.
+    status: resolved
+    also_depends_on:
+      - N11
+  - id: N13
+    type: experiment
+    title: "Reject fixed-control-point path compression in Stage 0"
+    provenance: ai-executed
+    timestamp: "2026-08-24T10:44:12+10:00"
+    result: >
+      Audited 200 expert paths over four 3D surface families and varying footprint radii.
+      At 128 B-spline control points, p95 normalized geometry error was 0.3290 and p95
+      absolute missed-coverage change was 0.04962, both above the registered limits.
+    evidence:
+      - "ara/evidence/stage0_representation_audit_2026-08-24.md"
+      - "results/stage0_representation_audit_200/summary.json"
+    status: resolved
+    also_depends_on:
+      - N12
+  - id: N14
+    type: decision
+    title: "Adopt canonical padded variable-token paths"
+    provenance: user
+    timestamp: "2026-08-24T10:44:12+10:00"
+    choice: >
+      Determine token count from known surface area and footprint radius, use uniform
+      arclength parameterization with deterministic gauge fixing, and pad plus mask within
+      batches while preserving genuine planning modes.
+    alternatives:
+      - "Use one fixed waypoint or B-spline control-point count for every instance"
+      - "Predict discrete trajectory length with the neural model"
+    evidence:
+      - N13
+      - "src/diffusion_coverage/representation/variable_token.py"
+    status: resolved
+    also_depends_on:
+      - N13
+  - id: N15
+    type: experiment
+    title: "Measure the pre-training UR5e workspace-first liftability gap"
+    provenance: ai-executed
+    timestamp: "2026-08-24T10:44:12+10:00"
+    result: >
+      Evaluated 200 classical plans with a MuJoCo UR5e numerical continuation checker.
+      Overall lift success was 52.0 percent and was 53.3 percent among 195 fully
+      posewise-calibrated cases. Success was 2 percent on cylinders, 6 percent on
+      hemispheres, and 100 percent on saddle and free-form patches.
+    evidence:
+      - "ara/evidence/ur5e_liftability_gate_2026-08-24.md"
+      - "results/ur5e_liftability_200/summary.json"
+    status: resolved
+    also_depends_on:
+      - N12
+      - N14
+  - id: N16
+    type: experiment
+    title: "Stress-test difficult liftability failures"
+    provenance: ai-executed
+    timestamp: "2026-08-24T10:44:12+10:00"
+    result: >
+      Reused identical base transforms for five cylinder and five hemisphere failures,
+      halved pose spacing to 2.5 mm, doubled beam width to 24, and doubled random restarts
+      to 32. All ten remained non-liftable, although detailed failure labels changed.
+    evidence:
+      - "ara/evidence/ur5e_liftability_gate_2026-08-24.md"
+      - "results/ur5e_liftability_sensitivity_10/summary.json"
+    status: resolved
+    also_depends_on:
+      - N15
+  - id: N17
+    type: dead_end
+    title: "Invalidate Stage 1 results built on a reconstructed quadrature"
+    provenance: ai-executed
+    timestamp: "2026-08-24T13:20:28+10:00"
+    hypothesis: >
+      Reconstructing archived meshes with a fresh one-sample-per-face quadrature and
+      float32 waypoints preserves the teacher and evaluation contract closely enough.
+    failure_mode: >
+      The reconstructed quadrature changed hard missed-coverage values, and float32
+      serialization moved threshold-tight paths across the feasibility boundary.
+    lesson: >
+      Archive the exact quadrature, store paths in float64, and hard-check the complete
+      learning roundtrip before treating any model benchmark as formal evidence.
+    status: resolved
+    evidence:
+      - "ara/evidence/stage1_corrected_go_no_go_2026-08-24.md"
+    also_depends_on: [N13]
+  - id: N18
+    type: decision
+    title: "Adopt a robust serialized teacher contract"
+    provenance: ai-executed
+    timestamp: "2026-08-24T13:20:28+10:00"
+    choice: >
+      Restore exact archived quadrature, hard-recheck serialized candidates, require a
+      missed-coverage margin, and reject or repair candidates that do not survive the
+      model-input roundtrip.
+    alternatives:
+      - "Continue using newly sampled quadrature at load time"
+      - "Treat threshold flips as harmless floating-point noise"
+    evidence:
+      - "results/stage1_robust_200/audit_segment_preserving_density23_validation.json"
+    status: resolved
+    also_depends_on: [N17]
+  - id: N19
+    type: experiment
+    title: "Repeat Stage 0 under the corrected data contract"
+    provenance: ai-executed
+    timestamp: "2026-08-24T13:20:28+10:00"
+    result: >
+      Re-audited 200 expert plans. At 128 B-spline control points, p95 normalized
+      geometry error was 0.329126, p95 absolute missed-fraction change was 0.025391,
+      and p95 absolute relative-length change was 0.038799. No tested fixed count
+      passed all thresholds, so the variable-token decision remains valid.
+    evidence:
+      - "ara/evidence/stage1_corrected_go_no_go_2026-08-24.md"
+      - "results/stage0_representation_audit_corrected/summary.json"
+    status: resolved
+    also_depends_on: [N18]
+  - id: N20
+    type: dead_end
+    title: "Reject global path resampling and repeated-token preservation"
+    provenance: ai-executed
+    timestamp: "2026-08-24T13:20:28+10:00"
+    hypothesis: >
+      A global intrinsic resample or repeated source waypoints can provide a robust
+      variable-token learning target without changing path semantics.
+    failure_mode: >
+      Global resampling shortcut source turns and reduced mean length, while repeated
+      tokens distorted arclength weighting and produced excessive generated travel.
+    lesson: >
+      Allocate samples within each original source segment and retain every segment
+      boundary; use actual normalized intrinsic arclength for model positions.
+    status: resolved
+    evidence:
+      - "results/stage1_robust_200/audit_uniform_policy_validation.json"
+      - "results/stage1_robust_200/audit_segment_preserving_density23_validation.json"
+    also_depends_on: [N19]
+  - id: N21
+    type: experiment
+    title: "Evaluate contract-corrected variable-token surface Flow Matching"
+    provenance: ai-executed
+    timestamp: "2026-08-24T13:20:28+10:00"
+    result: >
+      On 40 held-out instances, K=8 feasibility increased from 22.5 percent for the
+      3.2k-update segment-preserving model to 32.5 percent with longer training and
+      50.0 percent with a 10-percent-correlated base path. The last model required
+      1.635 times teacher path length on average and therefore failed the joint gate.
+    evidence:
+      - "ara/evidence/stage1_corrected_go_no_go_2026-08-24.md"
+      - "results/stage1_corrected_summary/report.md"
+    status: resolved
+    also_depends_on: [N20]
+  - id: N22
+    type: pivot
+    title: "Stop at the corrected Stage 1 no-go gate"
+    provenance: ai-executed
+    timestamp: "2026-08-24T13:20:28+10:00"
+    from: "Stage 1 variable-token surface Flow Matching"
+    to: "Resolve surface-planner underfitting and over-travel before multimodality or C-space FM"
+    trigger: >
+      The best corrected run reached only 50 percent feasibility and 1.635 times teacher
+      length, below the registered 90-percent and 1.10-times gate.
+    status: resolved
+    also_depends_on: [N21]
+  - id: N23
+    type: dead_end
+    title: "Reject missed-fraction-first teacher ranking"
+    provenance: ai-executed
+    timestamp: "2026-08-24T13:56:05+10:00"
+    hypothesis: >
+      Sorting robust-feasible candidates by missed fraction and then path length is an
+      acceptable implementation of the registered surface-planning objective.
+    failure_mode: >
+      The ordering changed 152 of 200 selected targets and made the previous targets
+      1.0708 times longer on average than constrained-shortest targets.
+    lesson: >
+      Treat missed coverage as a hard constraint and share one constrained length key
+      across teacher generation, sanitization, and evaluation.
+    status: resolved
+    evidence:
+      - "ara/evidence/stage1_objective_corrected_go_no_go_2026-08-24.md"
+    also_depends_on: [N22]
+  - id: N24
+    type: decision
+    title: "Adopt one constrained coverage objective helper"
+    provenance: user-revised
+    timestamp: "2026-08-24T13:56:05+10:00"
+    choice: >
+      Rank candidates by feasibility violation first and path quality second, so every
+      hard-feasible plan is ordered by length rather than excess coverage.
+    alternatives:
+      - "Continue lexicographically minimizing missed fraction and length"
+      - "Use a weighted scalar coverage-length objective"
+    evidence:
+      - "src/diffusion_coverage/coverage/objective.py"
+      - "ara/evidence/stage1_objective_corrected_go_no_go_2026-08-24.md"
+    status: resolved
+    also_depends_on: [N23]
+  - id: N25
+    type: experiment
+    title: "Retrain Stage 1 on objective-corrected targets"
+    provenance: ai-executed
+    timestamp: "2026-08-24T13:56:05+10:00"
+    result: >
+      The learning-target roundtrip was 100 percent hard-feasible with a 1.0022 mean
+      length ratio. Fresh 5k-step training reached 32.5 percent K=8 feasibility and
+      1.614 times teacher length; warm 3k-step training reached 72.5 percent feasibility
+      and 1.772 times teacher length. All 41 tests passed.
+    evidence:
+      - "ara/evidence/stage1_objective_corrected_go_no_go_2026-08-24.md"
+      - "results/stage1_objective_corrected_summary/report.md"
+    status: resolved
+    also_depends_on: [N24]
+  - id: N26
+    type: pivot
+    title: "Retain the Stage 1 no-go after objective correction"
+    provenance: ai-executed
+    timestamp: "2026-08-24T13:56:05+10:00"
+    from: "Objective-corrected surface Flow Matching"
+    to: "Resolve coverage-versus-travel coupling before Stage 2 or C-space Flow Matching"
+    trigger: >
+      The strongest corrected-target run remained below 90 percent feasibility and above
+      1.10 times teacher length, reaching 72.5 percent and 1.772 times respectively.
+    status: resolved
+    also_depends_on: [N25]
+  - id: N27
+    type: dead_end
+    title: "Reject candidate-family datasets without full learning roundtrip admission"
+    provenance: ai-executed
+    timestamp: "2026-08-24T15:13:13+10:00"
+    hypothesis: >
+      Selecting one canonical proposal name from the serialized archive is sufficient to
+      define a clean single-family learning cohort.
+    failure_mode: >
+      The first cohort contained 187 instances, but only 91.9 percent of its validation
+      targets remained hard-feasible after the actual float32 model-input roundtrip; three
+      of 37 validation cylinder targets failed.
+    lesson: >
+      Candidate-name filtering must precede the split and every retained candidate must
+      pass the exact coordinate, dtype, and reconstruction path used by learning.
+    status: resolved
+    evidence: ["ara/evidence/stage1_single_family_uv_2026-08-24.md"]
+    also_depends_on: [N26]
+  - id: N28
+    type: decision
+    title: "Adopt candidate-specific full-roundtrip target admission"
+    provenance: ai-executed
+    timestamp: "2026-08-24T15:13:13+10:00"
+    choice: >
+      Filter by exact canonical candidate family before dataset splitting, then retain an
+      instance only when that candidate survives the complete learning-input roundtrip and
+      unchanged hard checker.
+    alternatives:
+      - "Filter only at sample retrieval time"
+      - "Accept archive-feasible candidates without model-input reconstruction"
+    evidence:
+      - "src/diffusion_coverage/learning/teacher_dataset.py"
+      - "scripts/sanitize_teacher_dataset.py"
+      - "ara/evidence/stage1_single_family_uv_2026-08-24.md"
+    status: resolved
+    also_depends_on: [N27]
+  - id: N29
+    type: experiment
+    title: "Ablate single-family XYZ supervision and objective-aware losses"
+    provenance: ai-executed
+    timestamp: "2026-08-24T15:13:13+10:00"
+    result: >
+      On the same 35 validation instances, velocity-only single-family training reached
+      57.1 percent feasibility and 1.363 times teacher length. Coverage-heavy and balanced
+      variants reached 74.3 percent feasibility but required 1.839 and 1.440 times teacher
+      length. Tangent and surface-consistency variants reached 65.7 and 60.0 percent
+      feasibility at 1.348 and 1.359 times teacher length. No variant passed the joint gate.
+    evidence:
+      - "ara/evidence/stage1_single_family_uv_2026-08-24.md"
+      - "results/stage1_single_family_summary/report.md"
+      - "results/stage1_single_family_summary/single_family_objective_ablation.png"
+    status: resolved
+    also_depends_on: [N28]
+  - id: N30
+    type: dead_end
+    title: "Stop scalar-loss tuning on raw dense XYZ trajectories"
+    provenance: ai-executed
+    timestamp: "2026-08-24T15:13:13+10:00"
+    hypothesis: >
+      Coverage, excess-length, tangent, or surface-consistency penalties on the raw XYZ
+      vector field are sufficient to meet the Stage 1 feasibility-quality gate.
+    failure_mode: >
+      The losses moved the feasibility-versus-travel operating point but retained local
+      reversals, cross-band connectors, repeated loops, and shared hard failures; a
+      multi-checkpoint proposal oracle did not exceed 74.3 percent feasibility.
+    lesson: >
+      Change trajectory representation or coupling before further scalar-weight scans.
+    status: resolved
+    evidence:
+      - "ara/evidence/stage1_single_family_uv_2026-08-24.md"
+      - "results/stage1_single_family_summary/report.md"
+    also_depends_on: [N29]
+  - id: N31
+    type: pivot
+    title: "Move Stage 1 generation from ambient XYZ to analytic surface charts"
+    provenance: ai-executed
+    timestamp: "2026-08-24T15:13:13+10:00"
+    from: "Raw dense three-dimensional waypoint generation with post-hoc projection"
+    to: "Intrinsic analytic UV generation followed by exact surface mapping and the same 3D hard checker"
+    trigger: >
+      Raw XYZ samples showed large post-hoc projection displacement and persistent
+      sweep-order failures after single-family and loss ablations.
+    status: resolved
+    also_depends_on: [N30]
+  - id: N32
+    type: experiment
+    title: "Implement and train the analytic-UV Stage 1 ablation"
+    provenance: ai-executed
+    timestamp: "2026-08-24T15:13:13+10:00"
+    result: >
+      Added analytic parameter inversion and two-dimensional path support across the
+      dataset, model, noise, sampling, training, audit, and evaluation stack. All 35 UV
+      validation targets passed the unchanged hard checker with a 0.99835 mean length
+      ratio. Training completed 5,000 steps with best validation loss 0.04142; the
+      interrupted K=8 evaluation produced no result and remains pending.
+    evidence:
+      - "ara/evidence/stage1_single_family_uv_2026-08-24.md"
+      - "results/flow_matching_stage1_single_family_uv_run1/target_audit_validation.json"
+      - "results/flow_matching_stage1_single_family_uv_run1/history.json"
+      - "results/flow_matching_stage1_single_family_uv_run1/best.pt"
+    status: resolved
+    also_depends_on: [N31]
+  - id: N33
+    type: experiment
+    title: "Complete dense analytic-UV K=8 evaluation"
+    provenance: ai-executed
+    timestamp: "2026-08-24T22:40:00+10:00"
+    result: >
+      Dense analytic UV reached 77.1 percent hard feasibility and 1.536 times teacher
+      length on 35 validation instances. It improved feasibility over every dense XYZ
+      variant but still failed both registered thresholds.
+    evidence:
+      - "ara/evidence/stage1_structured_control_gate_2026-08-24.md"
+      - "results/flow_matching_stage1_single_family_uv_run1/eval_k8/metrics.json"
+    status: resolved
+    also_depends_on: [N32]
+  - id: N34
+    type: dead_end
+    title: "Reject scalar intrinsic-length fine-tuning as a joint solution"
+    provenance: ai-executed
+    timestamp: "2026-08-24T22:40:00+10:00"
+    hypothesis: >
+      Excess-length and tangent losses in analytic UV can remove redundant travel while
+      preserving the dense UV model's coverage.
+    failure_mode: >
+      Mean length reached 1.079 times teacher but hard feasibility collapsed to 17.1
+      percent. Its six feasible instances added no new success beyond dense UV.
+    lesson: >
+      Explicitly represent coverage-stroke count and ordering; scalar path length cannot
+      distinguish redundant loops from required coverage bands.
+    status: resolved
+    evidence:
+      - "ara/evidence/stage1_structured_control_gate_2026-08-24.md"
+    also_depends_on: [N33]
+  - id: N35
+    type: dead_end
+    title: "Reject control extraction after mesh-geodesic resampling"
+    provenance: ai-executed
+    timestamp: "2026-08-24T22:40:00+10:00"
+    hypothesis: >
+      Ramer-Douglas-Peucker simplification after mesh-geodesic canonicalization recovers
+      the original analytic raster controls.
+    failure_mode: >
+      Mesh-induced micro-turns survived simplification, producing 96 to 1,384 controls
+      instead of the geometry-derived 10 to 32.
+    lesson: >
+      Extract analytic controls from original teacher waypoints before mesh resampling,
+      and keep repaired candidates outside the fixed-structure cohort.
+    status: resolved
+    evidence:
+      - "ara/evidence/stage1_structured_control_gate_2026-08-24.md"
+    also_depends_on: [N34]
+  - id: N36
+    type: decision
+    title: "Adopt geometry-derived raster stroke controls"
+    provenance: ai-executed
+    timestamp: "2026-08-24T22:40:00+10:00"
+    choice: >
+      Represent an unrepaired raster as alternating stroke endpoints in unwrapped UV,
+      derive token count from task geometry, densify only stroke segments at decode time,
+      and retain direct connectors.
+    alternatives:
+      - "Continue dense UV waypoint generation"
+      - "Use post-hoc shortcutting as the primary planner"
+      - "Include sanitizer repair insertions in the same fixed structure"
+    evidence:
+      - "src/diffusion_coverage/coverage/patterns.py"
+      - "ara/evidence/stage1_structured_control_gate_2026-08-24.md"
+    status: resolved
+    also_depends_on: [N35]
+  - id: N37
+    type: experiment
+    title: "Validate raster control-token data and decode contracts"
+    provenance: ai-executed
+    timestamp: "2026-08-24T22:40:00+10:00"
+    result: >
+      All 163 unrepaired instances matched geometry-derived token counts between 10 and
+      32 and remained hard-feasible after structured decode. Mean decoded/source length
+      ratio was 0.9966. All 33 validation targets were feasible at 0.9979 mean ratio.
+    evidence:
+      - "ara/evidence/stage1_structured_control_gate_2026-08-24.md"
+      - "results/flow_matching_stage1_raster_control_run1/target_audit_validation.json"
+    status: resolved
+    also_depends_on: [N36]
+  - id: N38
+    type: experiment
+    title: "Pass the restricted Stage 1 point-estimate gate with structured controls"
+    provenance: ai-executed
+    timestamp: "2026-08-24T22:40:00+10:00"
+    result: >
+      K=8 structured-control Flow Matching produced 31 feasible plans on 33 held-out
+      instances, or 93.9 percent, with 0.927 mean length relative to teacher and 0.931
+      among feasible instances. Forty-eight regression tests passed.
+    evidence:
+      - "ara/evidence/stage1_structured_control_gate_2026-08-24.md"
+      - "results/stage1_structured_summary/report.md"
+    status: resolved
+    also_depends_on: [N37]
+  - id: N39
+    type: pivot
+    title: "Advance from restricted Stage 1 to structured multimodality"
+    provenance: ai-executed
+    timestamp: "2026-08-24T22:40:00+10:00"
+    from: "Single-family surface Flow Matching representation diagnosis"
+    to: "Stage 2 multimodal pattern-family and phase generation with explicit structure"
+    trigger: >
+      The structured raster-control model passed the registered point-estimate gate while
+      exposing a clear scope boundary: one unrepaired raster family and a 33-instance
+      validation cohort whose confidence lower bound remains below the feasibility gate.
+    status: resolved
+    also_depends_on: [N38]
+  - id: N40
+    type: dead_end
+    title: "Reject implicit repaired-candidate exclusion"
+    provenance: ai-executed
+    timestamp: "2026-08-24T23:20:00+10:00"
+    hypothesis: >
+      Requesting all candidates with repaired paths disabled already excludes sanitizer
+      repair suffixes from multimodal audits and training cohorts.
+    failure_mode: >
+      The null candidate selector returned every archive index regardless of the repair
+      flag, so the first 544-candidate audit silently included 52 repaired paths.
+    lesson: >
+      Candidate eligibility must apply repair provenance independently of whether a
+      specific family name is selected, and the behavior needs a direct regression test.
+    status: resolved
+    evidence:
+      - "src/diffusion_coverage/learning/teacher_dataset.py"
+      - "tests/test_learning_dataset.py"
+    also_depends_on: [N39]
+  - id: N41
+    type: decision
+    title: "Factor structured multimodality into discrete modes and continuous controls"
+    provenance: ai-executed
+    timestamp: "2026-08-24T23:20:00+10:00"
+    choice: >
+      Represent pattern family, sweep axis, and phase as one of five explicit modes, then
+      train one mode-conditioned Flow Matching field over variable-length structured UV
+      controls with inverse-frequency mode balancing.
+    alternatives:
+      - "Regress mixed dense paths without mode labels"
+      - "Train one independent vector field per mode"
+      - "Claim a learned categorical mode prior before continuous generation is stable"
+    evidence:
+      - "src/diffusion_coverage/coverage/patterns.py"
+      - "src/diffusion_coverage/learning/teacher_dataset.py"
+      - "scripts/train_flow_matching.py"
+    status: resolved
+    also_depends_on: [N40]
+  - id: N42
+    type: experiment
+    title: "Build a hard-checked five-mode structured dataset"
+    provenance: ai-executed
+    timestamp: "2026-08-24T23:20:00+10:00"
+    result: >
+      From 200 source instances, the sanitizer retained 187 instances and 491 raw
+      structured candidates across five modes. It excluded 52 repairs, one hard-infeasible
+      roundtrip, and 13 resulting empty instances. Every admitted mode had maximum
+      decoded/source length ratio at most 1.0228.
+    evidence:
+      - "ara/evidence/stage2_structured_multimodality_2026-08-24.md"
+      - "results/stage2_structured_multimodal_200/summary.json"
+    status: resolved
+    also_depends_on: [N41]
+  - id: N43
+    type: experiment
+    title: "Evaluate mode-conditioned structured Flow Matching"
+    provenance: ai-executed
+    timestamp: "2026-08-24T23:20:00+10:00"
+    result: >
+      After 5,000 training steps, target roundtrips were 100 percent hard-feasible on 38
+      validation instances. Across 103 held-out instance-mode tasks and 824 candidates,
+      per-sample feasibility was 32.4 percent and best-of-8 mode recovery was 74.8 percent;
+      all expert modes were recovered on 44.7 percent of instances. Mode recovery rose
+      monotonically from 33.0 percent at K=1 to 74.8 percent at K=8. All 49 tests passed.
+    evidence:
+      - "ara/evidence/stage2_structured_multimodality_2026-08-24.md"
+      - "results/flow_matching_stage2_mode_conditioned_run1/eval_validation_k8/metrics.json"
+      - "results/flow_matching_stage2_mode_conditioned_run1/eval_validation_k8/report.md"
+    status: resolved
+    also_depends_on: [N42]
+  - id: N44
+    type: pivot
+    title: "Hold C-space expansion for multimodal stabilization"
+    provenance: ai-executed
+    timestamp: "2026-08-24T23:20:00+10:00"
+    from: "Initial structured multimodality implementation"
+    to: "Periodic-mode stabilization, seed replication, and larger Stage 1 confirmation"
+    trigger: >
+      Best-of-8 recovered only 77 of 103 requested expert modes, single-sample feasibility
+      was 32.4 percent, and only 17 of 38 instances recovered all available expert modes.
+    status: resolved
+    also_depends_on: [N43]
+  - id: N45
+    type: question
+    title: "Audit genuine within-mode continuous freedom"
+    provenance: ai-suggested
+    timestamp: "2026-08-30T00:00:00+10:00"
+    description: >
+      Determine whether the five-mode structured dataset contains meaningful continuous
+      solution variation after conditioning on surface geometry, footprint, overlap, and
+      mode, or whether the controls are largely reconstructible from the analytic pattern
+      template. Quantify target residuals to deterministic templates before interpreting
+      conditional mode recovery as generative multimodality.
+    status: open
+    also_depends_on: [N41, N42, N43]
+  - id: N46
+    type: experiment
+    title: "Audit deterministic template replay in the former Stage 2 dataset"
+    provenance: ai-executed
+    timestamp: "2026-08-30T01:00:00+10:00"
+    result: >
+      Audited 491 candidates from 187 instances. Every archived refinement count was
+      zero, 94.1 percent matched the analytic template within 1e-6 footprint radii,
+      no control differed by more than 0.01 radii, and the deterministic template was
+      hard-feasible on every case.
+    evidence:
+      - "ara/evidence/stage2_multistart_correction_2026-08-30.md"
+      - "results/stage2_structured_mode_freedom_audit/metrics.json"
+    status: resolved
+    also_depends_on: [N45]
+  - id: N47
+    type: dead_end
+    title: "Reject the former Stage 2 multimodality interpretation"
+    provenance: ai-executed
+    timestamp: "2026-08-30T01:00:00+10:00"
+    hypothesis: >
+      The five-mode analytic-template dataset tests generation of meaningful continuous
+      within-mode alternatives.
+    failure_mode: >
+      The targets contained negligible within-mode variation, and a no-learning analytic
+      template achieved 100 percent hard feasibility, exceeding the learned generator.
+    lesson: >
+      Audit conditional target freedom and compare against the deterministic conditional
+      template before interpreting stochastic samples as planning multimodality.
+    status: resolved
+    evidence:
+      - "ara/evidence/stage2_multistart_correction_2026-08-30.md"
+    also_depends_on: [N46]
+  - id: N48
+    type: decision
+    title: "Adopt a hard-checked multi-start structured teacher"
+    provenance: ai-executed
+    timestamp: "2026-08-30T01:00:00+10:00"
+    choice: >
+      Generate continuous within-mode alternatives by derivative-free multi-start search,
+      retain only hard-feasible and control-space-diverse candidates, and preserve the
+      original optimized controls.
+    alternatives:
+      - "Continue training on deterministic analytic templates"
+      - "Tune the former independently coupled model without changing its data"
+    evidence:
+      - "src/diffusion_coverage/coverage/structured_teacher.py"
+      - "results/stage2_multistart_teacher_pilot/metrics.json"
+    status: resolved
+    also_depends_on: [N47]
+  - id: N49
+    type: dead_end
+    title: "Reject recovering optimized controls from dense hemisphere paths"
+    provenance: ai-executed
+    timestamp: "2026-08-30T01:00:00+10:00"
+    hypothesis: >
+      Dense decoded paths can be inverted back to the optimized structured controls
+      without changing hard feasibility.
+    failure_mode: >
+      Chart wrapping and pole ambiguity caused eight hemisphere roundtrip failures,
+      including a severe missed-coverage failure.
+    lesson: >
+      Archive the original model-space optimization variables and validate them after
+      conversion to the model input dtype.
+    status: resolved
+    evidence:
+      - "ara/evidence/stage2_multistart_correction_2026-08-30.md"
+    also_depends_on: [N48]
+  - id: N50
+    type: experiment
+    title: "Build a corrected float32-contract multi-start dataset"
+    provenance: ai-executed
+    timestamp: "2026-08-30T01:00:00+10:00"
+    result: >
+      The admitted v4 dataset contains 40 balanced instances, 503 hard-feasible
+      candidates, and 5,406 explicit evaluations. All 503 candidates remained feasible
+      through the complete model-input roundtrip with unchanged missed coverage.
+    evidence:
+      - "ara/evidence/stage2_multistart_correction_2026-08-30.md"
+      - "results/stage2_multistart_structured_40_v4/summary.json"
+      - "results/stage2_multistart_structured_40_v4/roundtrip_audit.json"
+    status: resolved
+    also_depends_on: [N48, N49]
+  - id: N51
+    type: experiment
+    title: "Replicate corrected Stage 2 Flow Matching across three seeds"
+    provenance: ai-executed
+    timestamp: "2026-08-30T01:00:00+10:00"
+    result: >
+      With a fixed 32/8 split, 5,000 training steps, 32 Heun steps, and K=8, mean
+      per-sample feasibility was 21.0 percent and mean mode recovery was 47.0 percent.
+      Seed mode recovery ranged from 27.3 to 59.1 percent; the deterministic template
+      baseline remained 100 percent feasible. Fifty-one tests passed.
+    evidence:
+      - "ara/evidence/stage2_multistart_correction_2026-08-30.md"
+      - "results/stage2_multistart_summary/summary.json"
+      - "results/stage2_multistart_summary/report.md"
+    status: resolved
+    also_depends_on: [N50]
+  - id: N52
+    type: pivot
+    title: "Stop standard independent-coupling Flow Matching at the corrected Stage 2 gate"
+    provenance: ai-executed
+    timestamp: "2026-08-30T01:00:00+10:00"
+    from: "Standard independently coupled conditional Flow Matching on analytic template data"
+    to: "Coupling-aware or improved conditional representations on genuine multi-start data"
+    trigger: >
+      Three-seed evaluation was unstable, recovered less than half of held-out modes on
+      average at K=8, and did not outperform the hard-feasible deterministic template.
+    status: resolved
+    also_depends_on: [N51]
+  - id: N53
+    type: decision
+    title: "Adopt parallel hypothesis-driven experiment execution"
+    provenance: user
+    timestamp: "2026-08-30T15:30:00+10:00"
+    choice: >
+      Maintain multiple falsifiable hypotheses concurrently, overlap GPU runs with code
+      implementation and diagnosis, and update the next hypotheses while experiments run.
+    alternatives:
+      - "Execute one experiment at a time and wait before forming the next hypothesis"
+    status: resolved
+    also_depends_on: [N52]
+  - id: N54
+    type: experiment
+    title: "Measure Stage 2 GPU throughput scaling"
+    provenance: ai-executed
+    timestamp: "2026-08-30T15:30:00+10:00"
+    result: >
+      Two 24-GiB RTX A5500 GPUs were available. Batch 64 and 256 increased measured
+      sample throughput by 6.97 and 10.44 times relative to batch 8. Dynamic compilation
+      was dominated by startup and left the GPU idle for this workload.
+    evidence:
+      - "ara/evidence/stage2_gpu_coupling_ablation_2026-08-30.md"
+      - "results/gpu_throughput_audit_2026-08-30/metrics.json"
+    status: resolved
+    also_depends_on: [N53]
+  - id: N55
+    type: dead_end
+    title: "Reject replacing optimizer updates with a larger batch"
+    provenance: ai-executed
+    timestamp: "2026-08-30T15:30:00+10:00"
+    hypothesis: >
+      Holding epoch-level sample exposure fixed while increasing batch from 8 to 64
+      preserves hard planning quality at substantially lower runtime.
+    failure_mode: >
+      Reducing optimizer updates from 5,000 to 700 collapsed K=8 mode recovery from
+      54.5 to 9.1 percent. Linear learning-rate scaling recovered only 22.7 percent.
+    lesson: >
+      Treat update count, sample exposure, and batch size as separate budgets; exploit
+      additional GPUs through parallel controlled runs and larger cohorts.
+    evidence:
+      - "ara/evidence/stage2_gpu_coupling_ablation_2026-08-30.md"
+    status: resolved
+    also_depends_on: [N54]
+  - id: N56
+    type: experiment
+    title: "Test mode-and-token-grouped minibatch OT coupling"
+    provenance: ai-executed
+    timestamp: "2026-08-30T15:30:00+10:00"
+    result: >
+      At batch 64 and 5,000 updates, independent coupling achieved 45.5 percent K=8
+      mode recovery and 23.3 percent candidate feasibility; minibatch OT achieved
+      36.4 and 9.1 percent. OT also underperformed at the 700-update budget.
+    evidence:
+      - "ara/evidence/stage2_gpu_coupling_ablation_2026-08-30.md"
+      - "results/stage2_gpu_coupling_ablation/summary.json"
+    status: resolved
+    also_depends_on: [N53, N55]
+  - id: N57
+    type: pivot
+    title: "Move from undirected compute and tested OT to representation-specific failures"
+    provenance: ai-executed
+    timestamp: "2026-08-30T15:30:00+10:00"
+    from: "Batch scaling and mode-token minibatch OT coupling"
+    to: "Raster-v, spiral, and free-form conditional representation ablations"
+    trigger: >
+      Full-update large-batch training did not exceed the original control and the tested
+      OT coupling reduced hard feasibility; failures remained concentrated in specific
+      modes and free-form surfaces.
+    status: resolved
+    also_depends_on: [N56]
+  - id: N58
+    type: decision
+    title: "Generate footprint-normalized residuals around structured templates"
+    provenance: ai-executed
+    timestamp: "2026-08-30T16:37:00+10:00"
+    choice: >
+      Represent each structured control as its displacement from the deterministic
+      mode-specific template, scale intrinsic UV axes into footprint-radius units, and
+      decode by the exact inverse before the unchanged hard checker.
+    alternatives:
+      - "Continue absolute analytic-UV generation"
+      - "Add more compute without changing coordinates"
+    evidence:
+      - "src/diffusion_coverage/coverage/patterns.py"
+      - "ara/evidence/stage2_template_residual_2026-08-30.md"
+    status: resolved
+    also_depends_on: [N57]
+  - id: N59
+    type: dead_end
+    title: "Reject residual arithmetic that does not preserve the model-dtype contract"
+    provenance: ai-executed
+    timestamp: "2026-08-30T16:37:00+10:00"
+    hypothesis: >
+      A float64 residual transform and inverse can safely represent targets consumed by
+      the float32 model as long as the nominal formulas are inverse operations.
+    failure_mode: >
+      The first residual audit preserved only 501 of 503 pilot labels because rounding
+      occurred at different points than in model execution.
+    lesson: >
+      Perform the residual transform and inverse in the same float32 arithmetic contract
+      as the learned model, then hard-check the complete dataset.
+    evidence:
+      - "ara/evidence/stage2_template_residual_2026-08-30.md"
+      - "results/stage2_multistart_structured_40_v4/residual_roundtrip_audit_v2.json"
+    status: resolved
+    also_depends_on: [N58]
+  - id: N60
+    type: experiment
+    title: "Validate template residuals on the corrected pilot cohort"
+    provenance: ai-executed
+    timestamp: "2026-08-30T16:37:00+10:00"
+    result: >
+      Three admitted pilot seeds reached 86.9-92.0 percent candidate feasibility and
+      recovered every one of 22 validation modes at K=8. Mean feasible length ratios
+      were 1.0445-1.0461 relative to the best same-mode teacher.
+    evidence:
+      - "ara/evidence/stage2_template_residual_2026-08-30.md"
+      - "results/stage2_residual_v2_summary/residual_diagnosis.json"
+    status: resolved
+    also_depends_on: [N58, N59]
+  - id: N61
+    type: experiment
+    title: "Expand and audit the multi-start teacher cohort"
+    provenance: ai-executed
+    timestamp: "2026-08-30T16:37:00+10:00"
+    result: >
+      Built 160 instances and 2,056 candidates, identified one float32-threshold-fragile
+      candidate through the full residual audit, removed only that candidate, and admitted
+      v6 with all 2,055 remaining candidates hard-feasible after roundtrip.
+    evidence:
+      - "ara/evidence/stage2_template_residual_2026-08-30.md"
+      - "results/stage2_multistart_structured_160_v6/residual_roundtrip_audit.json"
+    status: resolved
+    also_depends_on: [N60]
+  - id: N62
+    type: decision
+    title: "Filter failing candidates without discarding their instances"
+    provenance: ai-executed
+    timestamp: "2026-08-30T16:37:00+10:00"
+    choice: >
+      Apply full-dataset audit results at candidate granularity, preserve every instance
+      and mode that still has an admitted alternative, and train only after a second full
+      roundtrip audit passes.
+    alternatives:
+      - "Drop the complete instance containing a fragile candidate"
+      - "Train on the failed v5 contract"
+    evidence:
+      - "scripts/filter_dataset_by_audit.py"
+      - "results/stage2_multistart_structured_160_v6/residual_roundtrip_audit.json"
+    status: resolved
+    also_depends_on: [N61]
+  - id: N63
+    type: experiment
+    title: "Compare residual training batch and update budgets"
+    provenance: ai-executed
+    timestamp: "2026-08-30T16:37:00+10:00"
+    result: >
+      At approximately equal sample exposure, batch 32 with 5,000 updates trained 3.46
+      times faster than batch 8 with 20,000 updates, achieved higher candidate feasibility,
+      recovered all 93 validation modes at K=8, and incurred a 0.0054 increase in mean
+      teacher-normalized length.
+    evidence:
+      - "ara/evidence/stage2_template_residual_2026-08-30.md"
+      - "results/stage2_residual_160_v6_batch_ablation/report.md"
+    status: resolved
+    also_depends_on: [N61, N62]
+  - id: N64
+    type: experiment
+    title: "Replicate expanded template-residual Stage 2 across three seeds"
+    provenance: ai-executed
+    timestamp: "2026-08-30T16:37:00+10:00"
+    result: >
+      Candidate feasibility was 92.47, 81.32, and 81.32 percent; every seed recovered all
+      93 validation modes at K=8. Mean feasible length ratios were 1.0498, 1.0430, and
+      1.0403 relative to the best same-mode teachers. Fifty-seven tests passed.
+    evidence:
+      - "ara/evidence/stage2_template_residual_2026-08-30.md"
+      - "results/stage2_residual_160_v6_multiseed/report.md"
+      - "results/stage2_residual_160_v6_multiseed/expanded_stage2.png"
+    status: resolved
+    also_depends_on: [N63]
+  - id: N65
+    type: experiment
+    title: "Calibrate control diversity against finite-teacher self coverage"
+    provenance: ai-executed
+    timestamp: "2026-08-30T16:37:00+10:00"
+    result: >
+      The original 0.15-radius exact-match threshold gave low generated-to-teacher
+      coverage, but teacher leave-one-out coverage was lower. At 0.5 radii, seed-0
+      generated-to-teacher coverage was 95.48 percent versus 93.98 percent teacher
+      leave-one-out coverage; nearest-distance and energy metrics remain reported.
+    evidence:
+      - "ara/evidence/stage2_template_residual_2026-08-30.md"
+      - "results/flow_matching_stage2_residual_160_v6_b32_5k_seed0/eval_validation_k8/control_diversity.md"
+    status: resolved
+    also_depends_on: [N64]
+  - id: N66
+    type: pivot
+    title: "Advance from admitted surface residual generation to synthetic 3D liftability"
+    provenance: ai-executed
+    timestamp: "2026-08-30T16:37:00+10:00"
+    from: "Absolute-UV Stage 2 no-go and representation-specific stabilization"
+    to: "3D surface colour availability, continuous lift checks, and segment-budget frontiers"
+    trigger: >
+      The admitted 160-instance residual cohort recovered every validation mode at K=8
+      across three seeds with mean same-mode teacher length overhead near four percent,
+      while preserving a visible single-sample seed-variance diagnostic.
+    status: resolved
+    also_depends_on: [N64, N65]
+  - id: N67
+    type: decision
+    title: "Ground synthetic colours in actual 3D surface charts"
+    provenance: ai-executed
+    timestamp: "2026-08-30T16:50:00+10:00"
+    choice: >
+      Define controlled colour availability on analytic UV coordinates of cylinder,
+      hemisphere, saddle, and free-form surfaces, and evaluate the original 3D paths
+      rather than using geometry-independent random graphs.
+    alternatives:
+      - "Use the existing random maximal-continuity graph generator as liftability evidence"
+      - "Return to a 2D colour toy problem"
+    evidence:
+      - "src/diffusion_coverage/liftability/synthetic_colours.py"
+      - "ara/evidence/synthetic_3d_liftability_2026-08-30.md"
+    status: resolved
+    also_depends_on: [N66]
+  - id: N68
+    type: experiment
+    title: "Verify exact fixed-path colour completion"
+    provenance: ai-executed
+    timestamp: "2026-08-30T16:50:00+10:00"
+    result: >
+      Dynamic-program segment counts matched exhaustive per-sample colour assignment on
+      100 random small masks; colour permutation invariance, missing-IK infeasibility,
+      global-sheet feasibility, and budget monotonicity tests passed.
+    evidence:
+      - "tests/test_synthetic_liftability.py"
+      - "ara/evidence/synthetic_3d_liftability_2026-08-30.md"
+    status: resolved
+    also_depends_on: [N67]
+  - id: N69
+    type: experiment
+    title: "Calibrate nontrivial synthetic colour difficulty"
+    provenance: ai-executed
+    timestamp: "2026-08-30T16:50:00+10:00"
+    result: >
+      The first pilot produced useful rescue at larger budgets but zero success for k=1
+      and k=2. Adding a controlled global-sheet mixture to easy fields produced a second
+      pilot spanning single-segment feasibility, intermediate rescue, and high-budget
+      saturation without changing medium or hard topology.
+    evidence:
+      - "results/synthetic_liftability_pilot_v1/report.md"
+      - "results/synthetic_liftability_pilot_v2/report.md"
+    status: resolved
+    also_depends_on: [N67, N68]
+  - id: N70
+    type: experiment
+    title: "Measure workspace-first failure and colour-aware rescue at full scale"
+    provenance: ai-executed
+    timestamp: "2026-08-30T16:50:00+10:00"
+    result: >
+      Across 160 3D instances and 1,920 colour fields, finite-library colour-aware
+      selection improved success by 19.53 points at easy k=4, 18.28 points at medium
+      k=16, and 17.50 points at hard k=32, with conditional length overhead increasing
+      with difficulty.
+    evidence:
+      - "ara/evidence/synthetic_3d_liftability_2026-08-30.md"
+      - "results/synthetic_liftability_160_v1/report.md"
+      - "results/synthetic_liftability_160_v1/synthetic_liftability.png"
+    status: resolved
+    also_depends_on: [N69]
+  - id: N71
+    type: experiment
+    title: "Cluster-bootstrap paired rescue by 3D instance"
+    provenance: ai-executed
+    timestamp: "2026-08-30T16:50:00+10:00"
+    result: >
+      Instance-clustered 95 percent bootstrap intervals for paired rescue excluded zero
+      at the selected easy, medium, and hard operating points. The corresponding intervals
+      were 15.31-24.06, 14.22-22.50, and 13.44-21.88 percentage points.
+    evidence:
+      - "ara/evidence/synthetic_3d_liftability_2026-08-30.md"
+      - "results/synthetic_liftability_160_v1/cluster_bootstrap.json"
+    status: resolved
+    also_depends_on: [N70]
+  - id: N72
+    type: experiment
+    title: "Audit colour-lift sampling resolution"
+    provenance: ai-executed
+    timestamp: "2026-08-30T16:50:00+10:00"
+    result: >
+      Maximum UV sample steps 0.02, 0.01, and 0.005 gave identical minimum segment
+      counts on all 3,192 matched pilot candidate-field pairs.
+    evidence:
+      - "results/synthetic_liftability_160_v1/resolution_audit.json"
+      - "ara/evidence/synthetic_3d_liftability_2026-08-30.md"
+    status: resolved
+    also_depends_on: [N68, N70]
+  - id: N73
+    type: experiment
+    title: "Visualize a rescued free-form 3D coverage plan"
+    provenance: ai-executed
+    timestamp: "2026-08-30T16:50:00+10:00"
+    result: >
+      On one medium free-form task at k=16, switching from the workspace-shortest
+      raster-v plan to a raster-u plan reduced the exact required colour segments from
+      52 to 6 while increasing path length from 23.5662 to 23.7676.
+    evidence:
+      - "results/synthetic_liftability_160_v1/rescued_example.json"
+      - "results/synthetic_liftability_160_v1/rescued_example.png"
+    status: resolved
+    also_depends_on: [N70, N71]
+  - id: N74
+    type: pivot
+    title: "Move from finite-library rescue to colour-aware multi-start search"
+    provenance: ai-executed
+    timestamp: "2026-08-30T16:50:00+10:00"
+    from: "Post-hoc exact colour completion over existing workspace teacher candidates"
+    to: "Colour segment budget inside multi-start structured path optimization"
+    trigger: >
+      Geometry-grounded colour constraints create a statistically resolved workspace-first
+      failure gap, but the current length frontier is exact only over a finite candidate
+      library and is limited by surface-specific pattern vocabulary.
+    status: resolved
+    also_depends_on: [N70, N71, N72, N73]
+  - id: N75
+    type: decision
+    title: "Use a lexicographic colour-aware structured teacher"
+    provenance: ai-executed
+    timestamp: "2026-08-30T18:05:00+10:00"
+    choice: >
+      Search structured surface controls with hard coverage violation first, segment-budget
+      violation second, and path length third, preserving the finite-footprint planning
+      constraints instead of scalarizing them.
+    alternatives:
+      - "Trade missed coverage against colour segments with one weighted objective"
+      - "Restrict colour-aware planning to post-hoc finite-library selection"
+    evidence:
+      - "src/diffusion_coverage/liftability/colour_aware_teacher.py"
+      - "tests/test_colour_aware_teacher.py"
+    status: resolved
+    also_depends_on: [N74]
+  - id: N76
+    type: experiment
+    title: "Compare matched-budget colour-aware multi-start search"
+    provenance: ai-executed
+    timestamp: "2026-08-30T18:05:00+10:00"
+    result: >
+      On 60 tasks, the matched four-restart, 12-step budget produced no direct feasibility
+      rescue. Adding direct-search candidates to the workspace library reduced feasible
+      path length by 1.62, 1.80, and 4.12 percent on easy, medium, and hard tasks.
+    evidence:
+      - "ara/evidence/colour_aware_cross_axis_v10_2026-08-30.md"
+      - "results/colour_aware_teacher_pilot_v1/summary.json"
+    status: resolved
+    also_depends_on: [N75]
+  - id: N77
+    type: experiment
+    title: "Stress-test near-boundary failures with stronger direct search"
+    provenance: ai-executed
+    timestamp: "2026-08-30T18:05:00+10:00"
+    result: >
+      A targeted 16-restart, 48-step search rescued three of four selected failures,
+      establishing that direct residual search can cross a discrete segment-budget boundary
+      when given substantially more evaluations; the selected sample is not a rate estimate.
+    evidence:
+      - "results/colour_aware_teacher_targeted_v1/summary.json"
+      - "ara/evidence/colour_aware_cross_axis_v10_2026-08-30.md"
+    status: resolved
+    also_depends_on: [N76]
+  - id: N78
+    type: experiment
+    title: "Audit missing cross-axis proposals on periodic surfaces"
+    provenance: ai-executed
+    timestamp: "2026-08-30T18:05:00+10:00"
+    result: >
+      Analytic raster-v proposals raised cylinder finite-library success by 38.12 points
+      at easy difficulty and 29.38 points at medium difficulty. The initial hemisphere
+      chart implementation raised success by 11.88 and 3.75 points respectively.
+    evidence:
+      - "results/periodic_cross_axis_audit_v1/report.md"
+      - "ara/evidence/colour_aware_cross_axis_v10_2026-08-30.md"
+    status: resolved
+    also_depends_on: [N70, N76, N77]
+  - id: N79
+    type: decision
+    title: "Expand periodic-surface proposal vocabulary before increasing search budget"
+    provenance: ai-executed
+    timestamp: "2026-08-30T18:05:00+10:00"
+    choice: >
+      Add raster-v to cylinder and hemisphere proposal generation and rebuild the training
+      corpus, because the controlled audit attributed the dominant easy and medium gap to
+      a missing discrete orientation rather than insufficient local refinement.
+    alternatives:
+      - "Increase local-search restarts on the unchanged proposal vocabulary"
+      - "Proceed directly to a neural C-space planner"
+    evidence:
+      - N78
+      - "src/diffusion_coverage/coverage/patterns.py"
+    status: resolved
+    also_depends_on: [N78]
+  - id: N80
+    type: dead_end
+    title: "Reject v7 cross-axis corpus after proposal-name truncation"
+    provenance: ai-executed
+    timestamp: "2026-08-30T18:05:00+10:00"
+    hypothesis: "The first augmented archive preserves exact proposal identities."
+    outcome: >
+      NumPy fixed-width string construction truncated appended names to one character,
+      invalidating mode conditioning. The run was stopped and retained as diagnostic-only.
+    evidence:
+      - "scripts/augment_periodic_cross_axis_dataset.py"
+    status: resolved
+    also_depends_on: [N79]
+  - id: N81
+    type: dead_end
+    title: "Reject v8 cross-axis corpus after hard-contract failures"
+    provenance: ai-executed
+    timestamp: "2026-08-30T18:05:00+10:00"
+    hypothesis: "Every archived analytic template remains hard feasible after model-control serialization."
+    outcome: >
+      Fourteen hemisphere templates violated the missed-coverage threshold after float32
+      model-control reconstruction because the teacher admitted analytic templates without
+      first applying the unchanged hard checker.
+    evidence:
+      - "ara/evidence/colour_aware_cross_axis_v10_2026-08-30.md"
+      - "src/diffusion_coverage/coverage/structured_teacher.py"
+    status: resolved
+    also_depends_on: [N80]
+  - id: N82
+    type: decision
+    title: "Require hard admission for analytic templates"
+    provenance: ai-executed
+    timestamp: "2026-08-30T18:05:00+10:00"
+    choice: >
+      Admit the deterministic template to a structured-teacher result only when it passes
+      the same hard checker as optimized candidates; no analytic construction is exempt.
+    alternatives:
+      - "Trust analytic feasibility labels"
+      - "Keep invalid templates and mask them only during training"
+    evidence:
+      - N81
+      - "src/diffusion_coverage/coverage/structured_teacher.py"
+    status: resolved
+    also_depends_on: [N81]
+  - id: N83
+    type: dead_end
+    title: "Reject v9 for learning after pole-chart token nondeterminism"
+    provenance: ai-executed
+    timestamp: "2026-08-30T18:05:00+10:00"
+    hypothesis: "A hard-feasible residual audit is sufficient to admit the full training Dataset."
+    outcome: >
+      Although all 2,411 candidates passed residual reconstruction, repeated full Dataset
+      iteration exposed nondeterministic hemisphere raster-v template shapes caused by
+      inverse parameterization and polyline simplification at the azimuth-undefined pole.
+    evidence:
+      - "ara/evidence/colour_aware_cross_axis_v10_2026-08-30.md"
+      - "src/diffusion_coverage/coverage/patterns.py"
+    status: resolved
+    also_depends_on: [N82]
+  - id: N84
+    type: experiment
+    title: "Build and audit canonical cross-axis v10 corpus"
+    provenance: ai-executed
+    timestamp: "2026-08-30T18:05:00+10:00"
+    result: >
+      Direct analytic raster templates and hemisphere pole-gauge fixing produced 2,455
+      candidates across 160 instances. All candidates passed float32 residual reconstruction,
+      all 1,915 train and 540 validation indices were readable, and maximum controls was 92.
+    evidence:
+      - "ara/evidence/colour_aware_cross_axis_v10_2026-08-30.md"
+      - "results/stage2_multistart_structured_160_v10/residual_roundtrip_audit.json"
+    status: resolved
+    also_depends_on: [N79, N82, N83]
+  - id: N85
+    type: experiment
+    title: "Recompute the synthetic frontier with canonical cross-axis modes"
+    provenance: ai-executed
+    timestamp: "2026-08-30T18:05:00+10:00"
+    result: >
+      Paired rescue reached 39.22 points at easy k=4, 33.91 points at medium k=16, and
+      17.50 points at hard k=32. Instance-cluster bootstrap intervals excluded zero at all
+      three operating points; rescued-plan length ratios were 1.1088, 1.1228, and 1.0477.
+    evidence:
+      - "ara/evidence/colour_aware_cross_axis_v10_2026-08-30.md"
+      - "results/synthetic_liftability_160_v3/cluster_bootstrap.md"
+    status: resolved
+    also_depends_on: [N71, N78, N84]
+  - id: N86
+    type: experiment
+    title: "Retrain expanded residual planner across three GPU seeds"
+    provenance: ai-executed
+    timestamp: "2026-08-30T18:05:00+10:00"
+    result: >
+      On 109 validation instance-mode tasks, K=8 recovery was 108, 108, and 109 modes;
+      candidate feasibility was 86.81, 83.72, and 82.91 percent; feasible length ratios
+      were 1.0417, 1.0439, and 1.0413. Sixty-nine tests passed.
+    evidence:
+      - "ara/evidence/colour_aware_cross_axis_v10_2026-08-30.md"
+      - "results/stage2_residual_160_v10_multiseed/report.md"
+      - "results/stage2_residual_160_v10_multiseed/expanded_stage2.png"
+    status: resolved
+    also_depends_on: [N64, N84]
+  - id: N87
+    type: question
+    title: "Can workspace best-of-mode proposals close the UR5e liftability gap?"
+    provenance: ai-suggested
+    timestamp: "2026-08-30T18:05:00+10:00"
+    question: >
+      Under fixed UR5e base placements and the unchanged continuation checker, how much
+      does selecting among expanded workspace modes improve liftability over the
+      geometry-shortest workspace path?
+    evidence:
+      - N15
+      - N16
+      - N85
+    status: active
+    also_depends_on: [N15, N16, N85, N86]
+  - id: N88
+    type: decision
+    title: "Reuse fixed UR5e transforms after mesh provenance check"
+    provenance: ai-executed
+    timestamp: "2026-08-30T20:01:47+10:00"
+    choice: >
+      Reuse the archived fixed base transforms by instance id after confirming that all 160
+      common v10 surface meshes and metadata exactly match the earlier UR5e source archives.
+    alternatives:
+      - "Resample robot/object placement for each proposal family"
+      - "Regenerate a separate surface corpus for the robot gate"
+    evidence:
+      - "ara/evidence/ur5e_workspace_oracle_and_real_colours_2026-08-30.md"
+    status: resolved
+    also_depends_on: [N87]
+  - id: N89
+    type: experiment
+    title: "Evaluate fixed-placement best-per-mode workspace proposals"
+    provenance: ai-executed
+    timestamp: "2026-08-30T20:01:47+10:00"
+    result: >
+      Best-per-mode selection rescued one of 80 difficult periodic instances under the
+      unchanged standard continuation checker while preserving exact fixed placements.
+    evidence:
+      - "results/ur5e_workspace_modes_periodic_80_v2/summary.json"
+    status: resolved
+    also_depends_on: [N87, N88]
+  - id: N90
+    type: experiment
+    title: "Exhaust the hard-feasible workspace candidate library"
+    provenance: ai-executed
+    timestamp: "2026-08-30T20:01:47+10:00"
+    result: >
+      Evaluating all 1,339 candidates over 80 instances produced three apparent paired
+      rescues, so expanded workspace vocabulary recovered only a small portion of the
+      fixed-placement liftability failures.
+    evidence:
+      - "results/ur5e_workspace_modes_periodic_80_all_v2/summary.json"
+      - "ara/evidence/ur5e_workspace_oracle_and_real_colours_2026-08-30.md"
+    status: resolved
+    also_depends_on: [N89]
+  - id: N91
+    type: experiment
+    title: "Verify apparent workspace rescues with a stronger checker"
+    provenance: ai-executed
+    timestamp: "2026-08-30T20:01:47+10:00"
+    result: >
+      The denser 2.5 mm, 32-restart, beam-24 checker confirmed two of the three apparent
+      rescues; finite numerical continuation remains a lower-bound measurement, not a certificate.
+    evidence:
+      - "results/ur5e_workspace_modes_rescue_verify_v1/summary.json"
+    status: resolved
+    also_depends_on: [N90]
+  - id: N92
+    type: pivot
+    title: "Advance from workspace vocabulary to explicit real IK components"
+    provenance: ai-executed
+    timestamp: "2026-08-30T20:01:47+10:00"
+    from: "Best-of-library workspace paths followed by post-hoc continuous IK"
+    to: "Numerically enumerated UR5e IK candidates, transition compatibility, and components over the surface"
+    trigger: >
+      The all-candidate workspace oracle left nearly all difficult fixed-placement failures
+      unresolved, so a representation of configuration-space connectivity became necessary.
+    status: resolved
+    also_depends_on: [N90, N91]
+  - id: N93
+    type: experiment
+    title: "Build coarse real UR5e surface IK-component graphs"
+    provenance: ai-executed
+    timestamp: "2026-08-30T20:01:47+10:00"
+    result: >
+      Added 8x8 fixed-placement graph construction with local IK candidates, checked
+      neighbour transitions, union-find component labels, padded archives, and repeat-seed audits.
+    evidence:
+      - "src/diffusion_coverage/robot/surface_ik_graph.py"
+      - "scripts/benchmark_ur5e_surface_ik_graph.py"
+      - "ara/evidence/ur5e_workspace_oracle_and_real_colours_2026-08-30.md"
+    status: resolved
+    also_depends_on: [N92]
+  - id: N94
+    type: dead_end
+    title: "Reject center-axis-only orientation-tolerance comparison"
+    provenance: ai-executed
+    timestamp: "2026-08-30T20:01:47+10:00"
+    hypothesis: "Changing the IK stopping tolerance from three to ten degrees tests orientation freedom."
+    outcome: >
+      The original enumerator always targeted the center normal, making three- and ten-degree
+      graphs identical. A stopping threshold is not a sample of the feasible orientation cone.
+    evidence:
+      - "src/diffusion_coverage/robot/ur5e_mujoco.py"
+    status: resolved
+    also_depends_on: [N93]
+  - id: N95
+    type: decision
+    title: "Use nested orientation-cone candidate enumeration"
+    provenance: ai-executed
+    timestamp: "2026-08-30T20:01:47+10:00"
+    choice: >
+      Preserve the complete inner-cone candidate budget and append outer-cone candidates so
+      wider-tolerance frontiers have a controlled superset interpretation.
+    alternatives:
+      - "Compare independent cone direction samples"
+      - "Continue treating tolerance as an IK stopping threshold"
+    evidence:
+      - "src/diffusion_coverage/robot/ur5e_mujoco.py"
+      - "tests/test_ur5e_kinematics.py"
+    status: resolved
+    also_depends_on: [N94]
+  - id: N96
+    type: experiment
+    title: "Measure the real orientation-tolerance component frontier"
+    provenance: ai-executed
+    timestamp: "2026-08-30T20:01:47+10:00"
+    result: >
+      Across 40 paired instances, nested ten-degree enumeration increased mean largest-component
+      coverage from 60.94 to 85.16 percent and reduced the exact mean full-cover component count
+      from 7.45 to 2.175; all paired k-frontiers were monotone.
+    evidence:
+      - "ara/evidence/ur5e_workspace_oracle_and_real_colours_2026-08-30.md"
+      - "results/ur5e_component_frontier_40_v1/summary.json"
+    status: resolved
+    also_depends_on: [N93, N95]
+  - id: N97
+    type: dead_end
+    title: "Reject learned component selection on the coarse real graph"
+    provenance: ai-executed
+    timestamp: "2026-08-30T20:01:47+10:00"
+    hypothesis: "A candidate MPNN can provide a useful prior for segment-budget component selection."
+    outcome: >
+      The GPU-trained MPNN reached 89.82 percent of exact held-out coverage, below a 94.58-percent
+      size ordering and a marginal greedy baseline that exactly matched every held-out optimum.
+    evidence:
+      - "results/ur5e_component_gnn_40_seed0_fast/evaluation/summary.json"
+      - "ara/evidence/ur5e_workspace_oracle_and_real_colours_2026-08-30.md"
+    status: resolved
+    also_depends_on: [N96]
+  - id: N98
+    type: pivot
+    title: "Move learning target inside real IK components"
+    provenance: ai-executed
+    timestamp: "2026-08-30T20:01:47+10:00"
+    from: "Predict which coarse IK components cover the most grid nodes"
+    to: "Generate short finite-footprint continuous q-space coverage paths inside selected components"
+    trigger: >
+      Coarse component selection is solved by marginal greedy, while the unresolved planning
+      difficulty lies in path ordering, joint travel, and continuous realization within a component.
+    status: active
+    also_depends_on: [N96, N97]
+  - id: N99
+    type: dead_end
+    title: "Reject non-task-tracking component edges as liftability evidence"
+    provenance: ai-executed
+    timestamp: "2026-08-30T22:20:00+10:00"
+    outcome: "The coarse graph checked endpoint q interpolation without enforcing surface tracking between poses; its component frontier is diagnostic only."
+    status: resolved
+    also_depends_on: [N93, N96]
+  - id: N100
+    type: decision
+    title: "Use task-space IK continuation and exact endpoint candidates"
+    provenance: ai-executed
+    timestamp: "2026-08-30T22:20:00+10:00"
+    choice: "Construct graph transitions through task-space continuation and retain exact endpoint IK candidates."
+    status: resolved
+    also_depends_on: [N99]
+  - id: N101
+    type: dead_end
+    title: "Reject the discrete-sample q-teacher checker"
+    provenance: ai-executed
+    timestamp: "2026-08-30T22:20:00+10:00"
+    outcome: "Dense q interpolation rejected all six old 32x10 feasible labels for surface-tracking error."
+    evidence: ["results/ur5e_qspace_teacher_32x10_continuous_recheck_v1"]
+    status: resolved
+    also_depends_on: [N100]
+  - id: N102
+    type: decision
+    title: "Separate construction tolerance and dense hard admission"
+    provenance: ai-executed
+    timestamp: "2026-08-30T22:20:00+10:00"
+    choice: "Use tighter IK construction tolerance and densify every q-space transition before final task-space admission."
+    status: resolved
+    also_depends_on: [N101]
+  - id: N103
+    type: decision
+    title: "Store float64 graph-edge continuation witnesses"
+    provenance: ai-executed
+    timestamp: "2026-08-30T22:20:00+10:00"
+    choice: "Serialize and reuse the exact continuation witness for every compatible candidate pair."
+    evidence: ["ara/evidence/strict_ur5e_qspace_teacher_2026-08-30.md"]
+    status: resolved
+    also_depends_on: [N102]
+  - id: N104
+    type: experiment
+    title: "Validate strict witness routing on a 5x5 smoke test"
+    provenance: ai-executed
+    timestamp: "2026-08-30T22:20:00+10:00"
+    result: "Compatibility and serialized witness counts matched exactly, and all teacher variants passed continuous checking under a 0.1 rad graph step bound."
+    evidence: ["ara/evidence/strict_ur5e_qspace_teacher_2026-08-30.md"]
+    status: resolved
+    also_depends_on: [N103]
+  - id: N105
+    type: experiment
+    title: "Run the strict 24x8 q-space teacher pilot"
+    provenance: ai-executed
+    timestamp: "2026-08-30T22:20:00+10:00"
+    result: "All six surface/budget variants were continuously feasible; k=16 missed coverage was 40.430 percent on cylinder and 8.798 percent on hemisphere."
+    evidence: ["results/ur5e_qspace_teacher_witness_step01_24x8_pilot_v1/summary.json", "ara/evidence/strict_ur5e_qspace_teacher_2026-08-30.md"]
+    status: resolved
+    also_depends_on: [N103, N104]
+  - id: N106
+    type: experiment
+    title: "Audit adaptive q-space teacher compression"
+    provenance: ai-executed
+    timestamp: "2026-08-30T22:20:00+10:00"
+    result: "A 0.005 rad adaptive simplification preserved hard feasibility on corrected 16x6 cylinder and hemisphere teachers with roughly 3.6-3.8x compression."
+    evidence: ["ara/evidence/strict_ur5e_qspace_teacher_2026-08-30.md"]
+    status: resolved
+    also_depends_on: [N102]
+  - id: N107
+    type: experiment
+    title: "Measure six-DoF Flow Matching GPU capacity"
+    provenance: ai-executed
+    timestamp: "2026-08-30T22:20:00+10:00"
+    result: "Synthetic throughput tests show batch 128 is conservative on each 24 GiB RTX A5500; no C-space model was trained."
+    evidence: ["ara/evidence/strict_ur5e_qspace_teacher_2026-08-30.md"]
+    status: resolved
+    also_depends_on: [N106]
+  - id: N108
+    type: pivot
+    title: "Calibrate strict cylinder connectivity before corpus training"
+    provenance: ai-executed
+    timestamp: "2026-08-30T22:20:00+10:00"
+    from: "Train from the provisional q-space teacher corpus"
+    to: "Improve strict cylinder continuation, then build a hard-audited teacher corpus before direct C-space FM"
+    trigger: "The strict hemisphere pilot is near useful coverage, but the cylinder remains highly fragmented and the legacy corpus labels are invalid."
+    status: active
+    also_depends_on: [N105, N106, N107]
+  - id: N109
+    type: experiment
+    title: "Revalidate repository state before progress briefing"
+    provenance: ai-executed
+    timestamp: "2026-09-09T18:15:00+10:00"
+    result: >
+      The complete test suite passed with 84 tests and 14 dependency deprecation warnings;
+      no q-space, UR5e benchmark, component-GNN, or Flow Matching process was active.
+    evidence:
+      - "pytest -q terminal output, 2026-09-09"
+      - "process-list terminal output, 2026-09-09"
+    status: resolved
+    also_depends_on: [N108]
+  - id: N110
+    type: decision
+    title: "Restrict all project writes to /data"
+    provenance: user
+    timestamp: "2026-09-09T18:40:00+10:00"
+    choice: "Do not write project, Git, SSH, or temporary support files outside /data."
+    alternatives: []
+    evidence:
+      - "User directive in 2026-09-09_001#2"
+    status: resolved
+    also_depends_on: [N109]
+  - id: N111
+    type: decision
+    title: "Separate experiment code and ARA repositories"
+    provenance: user
+    timestamp: "2026-09-09T19:05:00+10:00"
+    choice: "Publish experiment code to Diffusion_NUC and retain ara/ locally for a separate research-record repository."
+    alternatives:
+      - "Store code and ARA on separate branches of one repository"
+      - "Track code and ARA together on main"
+    evidence:
+      - "User directive in 2026-09-09_001#3"
+    status: resolved
+    also_depends_on: [N110]
+  - id: N112
+    type: experiment
+    title: "Publish the audited code-only repository"
+    provenance: ai-executed
+    timestamp: "2026-09-09T19:05:00+10:00"
+    result: >
+      Created a code-only root commit, preserved ara/ locally as ignored content, passed
+      the complete test suite, and pushed main to ChonghaoCheng/Diffusion_NUC over the
+      project-specific SSH identity stored under /data.
+    evidence:
+      - "git commit bd860e3"
+      - "git push origin main terminal output, 2026-09-09"
+      - "pytest -q terminal output, 2026-09-09"
+    status: resolved
+    also_depends_on: [N111]
