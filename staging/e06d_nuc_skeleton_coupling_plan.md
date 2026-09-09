@@ -96,4 +96,10 @@ E06, introduce a replacement planner, run E07, or change the frozen admission co
 
 ## Strong-search selected IDs
 
-Pending default-trace analysis. This section must be completed before strong replay.
+Frozen 2026-09-10 after the complete default trace and before strong replay:
+
+- P_mid: `S15` geometry baseline, `S19` earliest, `S08` lower-median, `S17` latest.
+- P_hard: `S15` geometry baseline, `S17` earliest, `S13` lower-median, `S16` latest.
+
+No IDs were selected using strong-search outcomes. The machine-readable selection is
+`results/nuc_robot_coupling_diagnosis_v1/d4_continuation/strong_search_selection.json`.
