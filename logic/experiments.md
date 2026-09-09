@@ -77,3 +77,17 @@ feasibility, frozen NUC equivalence, positive task-singularity margin, then witn
 
 **Status (2026-09-09):** blocked pending E06. E07 must not run unless both preregistered E06
 mechanism gates pass.
+
+## E06-D: NUC skeleton coupling mechanism diagnosis
+
+Post-process the registered E06 skeletons and float64 continuation witnesses to diagnose why
+legal expansion-order choices changed robot-dependent ranking but produced only a sub-1.1%
+execution-cost spread. Measure exact transition-set and ordered geometric variability, attribute
+actual witness `L_q` to canonical skeleton transitions, and test whether the normalized 5D local
+task metric predicts witness motion. Replay the 40 archived hemisphere P_mid/P_hard failures under
+the unchanged E06 contract to localize candidate, safety, transition, or finite-search exhaustion;
+then rerun only a deterministically selected diagnostic subset under the preregistered stronger
+search budget.
+
+**Status (2026-09-10):** registered and active. This is a diagnosis of the failed E06 mechanism,
+not a new planner or a revision of the E06 NO-GO. E07 remains blocked and must not run.
