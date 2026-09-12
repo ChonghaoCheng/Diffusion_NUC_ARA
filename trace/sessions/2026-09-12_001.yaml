@@ -2,9 +2,9 @@ session:
   id: "2026-09-12_001"
   date: "2026-09-12"
   started: "2026-09-12T15:36:47+10:00"
-  last_turn: "2026-09-12T17:31:11+10:00"
-  turn_count: 4
-  summary: "Completed E06-R through E06-G: local robot geometry predicts direction, but tested local optimization and frozen global root/remesh NUC families did not expose material admitted planning capacity."
+  last_turn: "2026-09-12T18:18:28+10:00"
+  turn_count: 5
+  summary: "Completed E06-R through E06-G2: exact-symmetry coverage contracts passed and saddle orientation effects appeared, but failed analytical-path qualification left the primary hemisphere mechanism unobserved and the gate NO-GO."
 
 events_logged:
   - {turn: 1, type: question, id: N133, routing: direct, provenance: user, summary: "Opened a causal directional utility test at shared contact states."}
@@ -77,8 +77,29 @@ events_logged:
       - "tests/test_global_layout.py"
       - "results/global_layout_capacity_gate_v1/"
       - "evidence/global_layout_capacity_gate_2026-09-12.md"
+  - {turn: 5, type: question, id: N157, routing: direct, provenance: user, summary: "Opened an exact-self-isometry global-orientation capacity test."}
+  - {turn: 5, type: decision, id: N158, routing: direct, provenance: ai-executed, summary: "Preregistered and froze exact hemisphere and saddle symmetry orbits before robot outcomes."}
+  - {turn: 5, type: dead_end, id: N159, routing: direct, provenance: ai-executed, summary: "Rejected independent shortest-path reevaluation because vertex-ID tie breaking violated symmetry."}
+  - {turn: 5, type: experiment, id: N160, routing: direct, provenance: ai-executed, summary: "Validated all twenty-eight orbit members under exact geometry and transported temporal-coverage contracts."}
+  - {turn: 5, type: experiment, id: N161, routing: direct, provenance: ai-executed, summary: "Ran eighty-four strict full-path symmetry cases and obtained twelve saddle witnesses but no hemisphere witnesses."}
+  - {turn: 5, type: dead_end, id: N162, routing: direct, provenance: ai-executed, summary: "Rejected automatic transfer of coarse-mesh lift qualification after analytical path normalization."}
+  - {turn: 5, type: decision, id: N163, routing: direct, provenance: ai-executed, summary: "Applied the E06-G2 NO-GO and blocked Riemannian Stage D while qualifying the hemisphere result as unobserved."}
+  - {turn: 5, type: experiment, id: N164, routing: direct, provenance: ai-executed, summary: "Published matching E06-G2 code and evidence branches."}
+  - {turn: 5, observation: O75, routing: staged, provenance: ai-suggested}
+  - turn: 5
+    action: "Created code/ARA branches; preregistered E06-G2; implemented analytical symmetry orbits, automorphism-aware temporal coverage transport, independent full-path continuation, summaries, plots and guards; froze twenty-eight paths; executed eighty-four cases; stored twelve strict witnesses; ran 162 tests; archived and pushed a qualified NO-GO without running Riemannian Stage D."
+    provenance: ai-executed
+    files_changed:
+      - "configs/symmetry_preserving_global_layout_v1.json"
+      - "src/diffusion_coverage/diagnostics/symmetry_layout.py"
+      - "scripts/freeze_symmetry_layout_library.py"
+      - "scripts/run_symmetry_layout_capacity_gate.py"
+      - "scripts/summarize_symmetry_layout_capacity_gate.py"
+      - "tests/test_symmetry_layout.py"
+      - "results/symmetry_preserving_global_layout_v1/"
+      - "evidence/symmetry_preserving_global_layout_2026-09-12.md"
 
-claims_touched: [C01, E06-R, E06-R2, E06-J, E06-G, E07]
+claims_touched: [C01, E06-R, E06-R2, E06-J, E06-G, E06-G2, E07]
 logic_revisions:
   - turn: 1
     target: "logic/claims.md:C01"
@@ -105,6 +126,11 @@ logic_revisions:
     from: "REGISTERED / NOT RUN"
     to: "COMPLETED / NO-GO; G1 NOT AUTHORIZED"
     trigger: "The frozen equivalent-layout library produced neither the preregistered cost spread nor a strong-confirmed feasibility rescue."
+  - turn: 5
+    target: "logic/experiments.md:E06-G2"
+    from: "REGISTERED / NOT RUN"
+    to: "COMPLETED / NO-GO; RIEMANNIAN DIAGNOSTIC NOT AUTHORIZED"
+    trigger: "The primary hemisphere cost gate was not evaluable after analytical normalization invalidated inherited lift qualification, and no mixed-orbit feasibility gate passed."
 
 key_context:
   - turn: 1
@@ -113,14 +139,17 @@ key_context:
     excerpt: "E06-J is about deciding what space we should plan in; it is not about tuning the previous Riemannian deformation method."
   - turn: 4
     excerpt: "E06-G asks whether a worthwhile global planning problem exists; it does not build the planner."
+  - turn: 5
+    excerpt: "E06-G2 must isolate global robot preference while keeping coverage geometry equivalent; representation correction cannot be treated as inherited robot qualification."
 
 open_threads:
   - "Obtain a closer-to-isotropic negative-control scene; current low scenes retain median R_G near 1.33."
   - "Do not generalize local directional utility to full NUC planning benefit without equal-budget deformation evidence."
-  - "Reconsider the NUC/path family or identify a coverage-preserving global degree of freedom before registering another robot-aware planner gate."
+  - "Before another symmetry-orbit gate, independently qualify an exact analytical canonical path or adopt a physical representation whose symmetry preserves the qualified trace."
 
 ai_suggestions_pending:
   - "Use anchor-clustered statistics and retain matched-length/shared-q controls in E06-R2."
   - "Before any future planner registration, isolate fine-scale L_G versus L_q ranking residuals without changing the failed E06-R2 bounds or budget."
   - "Do not make the surface--configuration manifold the central planning formulation from E06-J; the tested incremental coupling benefit is negligible."
   - "Do not interpret raw non-equivalent E06-G cost spread as planning headroom; first preserve the frozen finite-footprint coverage contract."
+  - "Do not infer a small hemisphere orientation effect from E06-G2; its primary orbit had no verified witness after analytical normalization."

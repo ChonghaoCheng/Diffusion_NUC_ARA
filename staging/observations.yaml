@@ -980,3 +980,17 @@ observations:
     promoted_to: null
     crystallized_via: null
     stale: false
+  - id: O75
+    timestamp: "2026-09-12T18:18:28+10:00"
+    provenance: ai-suggested
+    content: >
+      A symmetry-orbit mechanism test requires the exact analytical path representation itself
+      to be independently robot-qualified before orbit freezing; qualification of a nearby
+      coarse-mesh trace may not survive analytical normalization.
+    context: "E06-G2 exact analytical projection displaced the inherited hemisphere trace enough that no frozen orbit member completed dense continuation, leaving the primary orientation-cost mechanism unobserved."
+    potential_type: constraint
+    bound_to: [N160, N161, N162, N163]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false

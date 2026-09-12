@@ -2069,3 +2069,80 @@ tree:
     evidence: ["code commit c0b29be", "ARA commit 24cc227"]
     status: resolved
     also_depends_on: [N155]
+  - id: N157
+    type: question
+    title: "Test pure global orientation under exact coverage symmetry"
+    provenance: user
+    timestamp: "2026-09-12T18:18:28+10:00"
+    description: "When one qualified coverage path is transformed only by exact object-surface self-isometries, does its orientation relative to a fixed UR5e materially change verified full-path joint cost or numerical liftability?"
+    status: resolved
+    also_depends_on: [N153, N154, N155]
+  - id: N158
+    type: decision
+    title: "Freeze exact symmetry orbits before robot execution"
+    provenance: ai-executed
+    timestamp: "2026-09-12T18:18:28+10:00"
+    choice: "Use the inherited upstream-first path provenance, freeze twenty-four analytical hemisphere rotations and four validated bounded-saddle symmetries, preserve every robot threshold, and block Riemannian scoring unless the capacity gate passes."
+    alternatives: ["Regenerate one NUC path per angle", "Vary remeshing or local refinement", "Inspect robot outcomes before freezing the orbit"]
+    evidence: ["staging/e06g2_symmetry_preserving_global_layout_plan.md", "code commit b1cf145"]
+    status: resolved
+    also_depends_on: [N157]
+  - id: N159
+    type: dead_end
+    title: "Reject independent shortest-path reevaluation for exact symmetry metrics"
+    provenance: ai-executed
+    timestamp: "2026-09-12T18:18:28+10:00"
+    hypothesis: "Applying exact mesh automorphisms and independently rerunning the existing per-edge shortest-path evaluator preserves temporal NUC metrics to the frozen numerical tolerance."
+    failure_mode: "Equal shortest paths were resolved through vertex-ID-dependent tie breaking, so symmetry-related edges could acquire different ordered footprint traces."
+    lesson: "For a proved discrete symmetry, evaluate the canonical ordered trace once and transport temporal footprint membership through the verified sample permutation; do not let arbitrary shortest-path tie breaking redefine an equivalent orbit member."
+    evidence: ["evidence/symmetry_preserving_global_layout_2026-09-12.md", "code commit b1cf145"]
+    status: resolved
+    also_depends_on: [N158]
+  - id: N160
+    type: experiment
+    title: "Validate and freeze coverage-invariant symmetry orbits"
+    provenance: ai-executed
+    timestamp: "2026-09-12T18:18:28+10:00"
+    result: "All twenty-eight transformed paths passed analytical surface, normal, topology, ordering, activity, segment-length, total-length and transported finite-footprint invariance checks under the preregistered tolerance."
+    evidence: ["evidence/symmetry_preserving_global_layout_2026-09-12.md", "results/symmetry_preserving_global_layout_v1/geometry_invariance.csv"]
+    status: resolved
+    also_depends_on: [N158, N159]
+  - id: N161
+    type: experiment
+    title: "Run E06-G2 full-path symmetry capacity sweep"
+    provenance: ai-executed
+    timestamp: "2026-09-12T18:18:28+10:00"
+    result: "Evaluated eighty-four frozen scene-orbit pairs. Twelve saddle cases passed strict verification; one saddle placement showed material orbit spread, but all seventy-two hemisphere cases failed dense full-path continuation and no mixed-success scene triggered strong sensitivity."
+    evidence: ["evidence/symmetry_preserving_global_layout_2026-09-12.md", "results/symmetry_preserving_global_layout_v1/execution_results.csv", "results/symmetry_preserving_global_layout_v1/scene_summary.csv"]
+    status: resolved
+    also_depends_on: [N160]
+  - id: N162
+    type: dead_end
+    title: "Reject transfer of old hemisphere qualification after analytical normalization"
+    provenance: ai-executed
+    timestamp: "2026-09-12T18:18:28+10:00"
+    hypothesis: "The coarse-mesh E06-R canonical hemisphere path remains a qualified full-lift baseline after the analytical projection needed to form an exact rotational orbit."
+    failure_mode: "Analytical normalization moved the inherited hemisphere trace by a material amount relative to the strict task tolerance, and none of its frozen rotations completed dense continuation in the six-scene sweep."
+    lesson: "An exact-symmetry capacity test must qualify the canonical analytical representation before orbit freezing; qualification on a nearby coarse mesh does not automatically transfer."
+    evidence: ["evidence/symmetry_preserving_global_layout_2026-09-12.md"]
+    status: resolved
+    also_depends_on: [N160, N161]
+  - id: N163
+    type: decision
+    title: "Stop E06-G2 without Riemannian diagnostic"
+    provenance: ai-executed
+    timestamp: "2026-09-12T18:18:28+10:00"
+    choice: "Apply the frozen NO-GO, do not run Stage D or build a planner, and report the primary hemisphere orientation mechanism as unobserved rather than small because the inherited qualification assumption failed."
+    alternatives: ["Repair or replace the canonical path after seeing outcomes", "Run Riemannian scoring despite the blocked gate", "Call numerical continuation failure disconnection"]
+    evidence: ["evidence/symmetry_preserving_global_layout_2026-09-12.md", "logic/experiments.md"]
+    status: resolved
+    also_depends_on: [N161, N162]
+  - id: N164
+    type: experiment
+    title: "Publish E06-G2 code and evidence branches"
+    provenance: ai-executed
+    timestamp: "2026-09-12T18:18:28+10:00"
+    result: "Pushed matching exp/symmetry-preserving-global-layout-v1 branches with frozen symmetry artifacts, implementation, eighty-four execution rows, strict witnesses, figures, tests, and bounded evidence."
+    evidence: ["code commit ad1696b", "ARA commit 0b5f07f"]
+    status: resolved
+    also_depends_on: [N163]

@@ -36,8 +36,8 @@ sessions:
     open_threads: 3
   - id: "2026-09-12_001"
     date: "2026-09-12"
-    summary: "Completed E06-R through E06-G; directional prediction passed, while local optimization and the tested global root/remesh NUC family lacked material admitted planning capacity."
-    turn_count: 4
-    events_count: 31
-    claims_touched: [C01, E06-R, E06-R2, E06-J, E06-G, E07]
+    summary: "Completed E06-R through E06-G2; symmetry geometry passed, but analytical-path qualification failure left the primary hemisphere mechanism unobserved and E06-G2 NO-GO."
+    turn_count: 5
+    events_count: 40
+    claims_touched: [C01, E06-R, E06-R2, E06-J, E06-G, E06-G2, E07]
     open_threads: 3

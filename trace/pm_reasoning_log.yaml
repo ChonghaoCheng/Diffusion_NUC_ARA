@@ -180,3 +180,10 @@ entries:
       - "Kept C01 unchanged because E06-G does not test or contradict the local shared-state directional metric result."
       - "Separated coverage-admitted spread from raw all-layout spread; the latter is diagnostic and cannot support the registered planning-capacity claim."
       - "Reconciled E06-G to COMPLETED / NO-GO and did not run G1, widen delta_NUC, expand the candidate family, or introduce a planner or learned model."
+  - turn: "2026-09-12_001#5"
+    notes:
+      - "Recorded the user-directed exact-symmetry question, frozen orbit decision, evaluator tie-breaking dead end, geometry validation, eighty-four-case robot run, failed qualification assumption, stop decision, and publication as N157--N164."
+      - "Staged O75 rather than crystallizing it: the representation-qualification constraint is strongly indicated and artifact-relevant, but the next experiment has not yet committed to one of the two proposed repairs."
+      - "Kept C01 unchanged because E06-G2 did not execute the gated Riemannian diagnostic and therefore neither tests nor contradicts the established local directional claim."
+      - "Qualified the administrative Outcome A: saddle T21 shows material pure-orientation spread, while zero hemisphere witnesses make the primary orientation-cost mechanism unobserved rather than small."
+      - "Reconciled E06-G2 to COMPLETED / NO-GO, did not run Stage D, and did not repair the canonical path after robot outcomes."
