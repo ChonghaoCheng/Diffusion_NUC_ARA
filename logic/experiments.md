@@ -215,7 +215,7 @@ continuation contracts. See `evidence/global_layout_capacity_gate_2026-09-12.md`
 
 Registered: 2026-09-12
 
-Status: REGISTERED / NOT RUN.
+Status: COMPLETED / NO-GO (2026-09-12); RIEMANNIAN DIAGNOSTIC NOT AUTHORIZED.
 
 E06-G2 isolates pure robot-induced global orientation preference by applying exact object-frame
 self-isometries to one frozen upstream/default NUC path per surface. Hemisphere uses a 24-member
@@ -225,3 +225,12 @@ finite-footprint metrics must remain invariant before robot execution. The six E
 strict 5D robot contract remain fixed. A secondary `G_exec` diagnostic is blocked unless the
 preregistered symmetry-orbit cost or strong-search feasibility gate passes. See
 `staging/e06g2_symmetry_preserving_global_layout_plan.md`.
+
+Result: all 28 symmetry members passed the frozen geometry/coverage invariance contract. The robot
+sweep produced 12 strict witnesses from 84 cases, all on saddle. Saddle low/mid/high `S_sym` was
+`1.98%/22.43%/3.65%`, but canonical gains were only `1.94%/0.15%/0.48%`. All 72 hemisphere cases
+failed dense continuation despite six admissible start candidates each. Analytical normalization
+had moved the inherited coarse-mesh hemisphere trace by up to `6.179 mm`, invalidating the assumed
+transfer of E06-R full-lift qualification. Thus the frozen capacity gate is NO-GO and Stage D was
+not run, but the primary hemisphere orientation-cost mechanism remains unobserved rather than
+shown to be small. See `evidence/symmetry_preserving_global_layout_2026-09-12.md`.
