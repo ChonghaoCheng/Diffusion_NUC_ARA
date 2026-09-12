@@ -125,3 +125,15 @@ E06-G cannot establish continuous global optimality, C-space connectivity/discon
 physical NUC contact equivalence, hardware performance, cross-robot generality, planner
 superiority, or Flow Matching/diffusion benefit. A finite library and finite continuation budget
 bound every conclusion.
+
+## Stage A pre-result tolerance correction
+
+Before any robot execution or complete library freeze, the initial remesh contract test showed that
+the canonical E06 hemisphere mesh `M00` itself has maximum projection discrepancy
+`0.0060700861 m` against the newly densified common reference surface. All four hemisphere
+realizations had the same discrepancy within `1e-14 m`; saddle discrepancies were
+`0.0005224118 m`. Therefore the provisional `0.006 m` absolute ceiling incorrectly rejected M00
+without distinguishing remesh quality. The ceiling is corrected once to `0.0061 m` before Stage A
+smoke completion and before any `J_q`/lift result. Root mapping, relative edge statistics, physical
+boundary, and every robot/coverage threshold remain unchanged. No further adjustment is allowed
+after smoke execution.
