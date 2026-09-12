@@ -2,9 +2,9 @@ session:
   id: "2026-09-12_001"
   date: "2026-09-12"
   started: "2026-09-12T15:36:47+10:00"
-  last_turn: "2026-09-12T16:51:23+10:00"
-  turn_count: 3
-  summary: "Completed E06-R, E06-R2, and E06-J: local robot geometry predicts direction, but neither metric-only deformation nor explicit local x--q coupling showed material planning benefit."
+  last_turn: "2026-09-12T17:31:11+10:00"
+  turn_count: 4
+  summary: "Completed E06-R through E06-G: local robot geometry predicts direction, but tested local optimization and frozen global root/remesh NUC families did not expose material admitted planning capacity."
 
 events_logged:
   - {turn: 1, type: question, id: N133, routing: direct, provenance: user, summary: "Opened a causal directional utility test at shared contact states."}
@@ -56,8 +56,29 @@ events_logged:
       - "tests/test_surface_configuration_coupling.py"
       - "results/surface_configuration_coupling_gate_v1/"
       - "evidence/surface_configuration_coupling_gate_2026-09-12.md"
+  - {turn: 4, type: question, id: N149, routing: direct, provenance: user, summary: "Opened a global root/remesh coverage-layout capacity gate."}
+  - {turn: 4, type: decision, id: N150, routing: direct, provenance: ai-executed, summary: "Preregistered the factorial layout library and unchanged admission before robot results."}
+  - {turn: 4, type: decision, id: N151, routing: direct, provenance: ai-executed, summary: "Corrected only the common-reference mesh tolerance before Stage-A completion."}
+  - {turn: 4, type: experiment, id: N152, routing: direct, provenance: ai-executed, summary: "Validated and froze sixty-four physically diverse layouts."}
+  - {turn: 4, type: experiment, id: N153, routing: direct, provenance: ai-executed, summary: "Ran 192 G0 scene-layout executions and retained 107 strict witnesses."}
+  - {turn: 4, type: dead_end, id: N154, routing: direct, provenance: ai-executed, summary: "Rejected useful admitted root/remesh capacity under the frozen gate."}
+  - {turn: 4, type: decision, id: N155, routing: direct, provenance: ai-executed, summary: "Stopped after G0 NO-GO and blocked G1/planner development."}
+  - {turn: 4, type: experiment, id: N156, routing: direct, provenance: ai-executed, summary: "Published matching E06-G code and ARA branches."}
+  - {turn: 4, observation: O74, routing: staged, provenance: ai-suggested}
+  - turn: 4
+    action: "Created code/ARA branches; preregistered E06-G; implemented and smoke-tested physical roots, deterministic remeshes, common-reference evaluation, shared full-path continuation, G0 analysis, guards and plots; froze 64 layouts; executed 192 cases; stored 107 witnesses; ran 154 tests; archived and pushed a NO-GO result without running G1."
+    provenance: ai-executed
+    files_changed:
+      - "configs/global_layout_capacity_gate_v1.json"
+      - "src/diffusion_coverage/diagnostics/global_layout.py"
+      - "scripts/freeze_global_layout_library.py"
+      - "scripts/run_global_layout_capacity_gate.py"
+      - "scripts/summarize_global_layout_capacity_gate.py"
+      - "tests/test_global_layout.py"
+      - "results/global_layout_capacity_gate_v1/"
+      - "evidence/global_layout_capacity_gate_2026-09-12.md"
 
-claims_touched: [C01, E06-R, E06-R2, E06-J, E07]
+claims_touched: [C01, E06-R, E06-R2, E06-J, E06-G, E07]
 logic_revisions:
   - turn: 1
     target: "logic/claims.md:C01"
@@ -79,20 +100,27 @@ logic_revisions:
     from: "REGISTERED / NOT RUN"
     to: "COMPLETED / NO-GO"
     trigger: "The paired sixty-window formulation comparison failed every preregistered coupling-capacity gate."
+  - turn: 4
+    target: "logic/experiments.md:E06-G"
+    from: "REGISTERED / NOT RUN"
+    to: "COMPLETED / NO-GO; G1 NOT AUTHORIZED"
+    trigger: "The frozen equivalent-layout library produced neither the preregistered cost spread nor a strong-confirmed feasibility rescue."
 
 key_context:
   - turn: 1
     excerpt: "E06-R only tests whether the induced metric eigenstructure contains a causally exploitable directional planning signal."
   - turn: 3
     excerpt: "E06-J is about deciding what space we should plan in; it is not about tuning the previous Riemannian deformation method."
+  - turn: 4
+    excerpt: "E06-G asks whether a worthwhile global planning problem exists; it does not build the planner."
 
 open_threads:
-  - "Write a separate E06-R2 preregistration before any fixed-topology deformation run."
   - "Obtain a closer-to-isotropic negative-control scene; current low scenes retain median R_G near 1.33."
   - "Do not generalize local directional utility to full NUC planning benefit without equal-budget deformation evidence."
-  - "Register a non-learned global path/layout capacity gate before designing another planner; candidate freedoms include root, entry/exit, sweep orientation, remeshing realization, and path family/topology."
+  - "Reconsider the NUC/path family or identify a coverage-preserving global degree of freedom before registering another robot-aware planner gate."
 
 ai_suggestions_pending:
   - "Use anchor-clustered statistics and retain matched-length/shared-q controls in E06-R2."
   - "Before any future planner registration, isolate fine-scale L_G versus L_q ranking residuals without changing the failed E06-R2 bounds or budget."
   - "Do not make the surface--configuration manifold the central planning formulation from E06-J; the tested incremental coupling benefit is negligible."
+  - "Do not interpret raw non-equivalent E06-G cost spread as planning headroom; first preserve the frozen finite-footprint coverage contract."

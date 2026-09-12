@@ -1993,3 +1993,79 @@ tree:
     evidence: ["evidence/surface_configuration_coupling_gate_2026-09-12.md", "logic/experiments.md"]
     status: resolved
     also_depends_on: [N147]
+  - id: N149
+    type: question
+    title: "Test global root/remesh layout capacity"
+    provenance: user
+    timestamp: "2026-09-12T17:31:11+10:00"
+    description: "Do physically distinct, coverage-equivalent NUC layouts created only by root location and same-surface remeshing materially change verified UR5e joint cost or numerical full-path liftability?"
+    status: resolved
+    also_depends_on: [N147, N148]
+  - id: N150
+    type: decision
+    title: "Freeze a factorial global-layout capacity gate"
+    provenance: ai-executed
+    timestamp: "2026-09-12T17:31:11+10:00"
+    choice: "Reuse six E06-R scenes; freeze eight physical roots, four deterministic remeshes, upstream-first expansion, a common evaluation surface, unchanged admission, and G0 thresholds before robot evaluation."
+    alternatives: ["Tune local E06-R2/E06-J methods", "Vary expansion order again", "Build a global planner before measuring capacity"]
+    evidence: ["staging/e06g_global_layout_capacity_plan.md", "code commit 4bdbaa1"]
+    status: resolved
+    also_depends_on: [N149]
+  - id: N151
+    type: decision
+    title: "Correct common-reference tolerance before layout freeze"
+    provenance: ai-executed
+    timestamp: "2026-09-12T17:31:11+10:00"
+    choice: "Raise only the provisional mesh/reference discrepancy ceiling from 0.006 m to 0.0061 m before Stage-A completion because canonical hemisphere M00 measured 0.0060700861 m; leave every coverage and robot threshold unchanged."
+    alternatives: ["Reject the canonical parent mesh", "Inspect robot results before correction", "Relax coverage or safety admission"]
+    evidence: ["staging/e06g_global_layout_capacity_plan.md", "code commit 7c98c13"]
+    status: resolved
+    also_depends_on: [N150]
+  - id: N152
+    type: experiment
+    title: "Validate and freeze the global physical layout library"
+    provenance: ai-executed
+    timestamp: "2026-09-12T17:31:11+10:00"
+    result: "The 2x2 smoke contract passed; sixty-four object-frame layouts were frozen. Pairwise physical distances and tangent disagreement rejected candidate-family collapse, but the frozen NUC band admitted only one saddle layout and eight hemisphere layouts."
+    evidence: ["evidence/global_layout_capacity_gate_2026-09-12.md", "results/global_layout_capacity_gate_v1/layout_diversity.csv", "results/global_layout_capacity_gate_v1/geometry_results.csv"]
+    status: resolved
+    also_depends_on: [N150, N151]
+  - id: N153
+    type: experiment
+    title: "Run E06-G G0 global capacity evaluation"
+    provenance: ai-executed
+    timestamp: "2026-09-12T17:31:11+10:00"
+    result: "Evaluated 192 frozen scene-layout pairs and stored 107 strict float64 witnesses. No scene had an evaluable equivalent-layout ten-percent spread, geometry-baseline median oracle gain was zero, and no qualifying liftability rescue triggered strong sensitivity."
+    evidence: ["evidence/global_layout_capacity_gate_2026-09-12.md", "results/global_layout_capacity_gate_v1/G0_summary.json", "results/global_layout_capacity_gate_v1/execution_results.csv"]
+    status: resolved
+    also_depends_on: [N152]
+  - id: N154
+    type: dead_end
+    title: "Reject useful admitted capacity from the tested root/remesh NUC family"
+    provenance: ai-executed
+    timestamp: "2026-09-12T17:31:11+10:00"
+    hypothesis: "The frozen root/remesh family contains coverage-equivalent layouts with material verified joint-cost spread or robust numerical liftability rescue in enough scenes to justify global robot-aware planning."
+    failure_mode: "Saddle equivalent sets were singleton, hemisphere equivalent sets had no verified witness, all cost thresholds failed, and no default rescue pair existed."
+    lesson: "Raw global layout diversity is insufficient when remeshing also changes NUC quality enough to exclude robot-diverse layouts; reconsider the NUC/path family or coverage-preserving global degree of freedom before planner development."
+    evidence: ["evidence/global_layout_capacity_gate_2026-09-12.md"]
+    status: resolved
+    also_depends_on: [N153]
+  - id: N155
+    type: decision
+    title: "Stop E06-G after G0 NO-GO"
+    provenance: ai-executed
+    timestamp: "2026-09-12T17:31:11+10:00"
+    choice: "Do not run G1 or design a global robot-aware planner; classify the result as no demonstrated admitted headroom in the frozen family and preserve the non-equivalent variation only as bounded diagnostic evidence."
+    alternatives: ["Widen delta_NUC post hoc", "Expand the layout family post hoc", "Run G1 despite the blocked gate", "Introduce learning"]
+    evidence: ["evidence/global_layout_capacity_gate_2026-09-12.md", "logic/experiments.md"]
+    status: resolved
+    also_depends_on: [N154]
+  - id: N156
+    type: experiment
+    title: "Publish E06-G code and ARA branches"
+    provenance: ai-executed
+    timestamp: "2026-09-12T17:31:11+10:00"
+    result: "Pushed matching exp/global-layout-capacity-gate-v1 branches with frozen inputs, implementation, 192 raw execution rows, 107 witnesses, figures, tests, and bounded evidence."
+    evidence: ["code commit c0b29be", "ARA commit 24cc227"]
+    status: resolved
+    also_depends_on: [N155]

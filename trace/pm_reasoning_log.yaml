@@ -173,3 +173,10 @@ entries:
       - "Left supported C01 unchanged because E06-J does not contradict the local directional prediction established by shared-state E06-R probes."
       - "Classified the result as Outcome D rather than surface dominated: F2 gains remained below five percent and F3 added essentially zero beyond F2."
       - "Reconciled E06-J to COMPLETED / NO-GO without modifying E06, E06-D, E06-R, E06-R2, or historical E07 evidence."
+  - turn: "2026-09-12_001#4"
+    notes:
+      - "Recorded the user-directed global layout question, factorial freeze, pre-result tolerance correction, physical-library validation, full G0 run, failed capacity gate, stop decision, and publication as N149--N156."
+      - "Staged O74 rather than crystallizing it: E06-G resolves the frozen root/remesh library, but the researcher has not yet affirmed the broader admission-capacity interpretation."
+      - "Kept C01 unchanged because E06-G does not test or contradict the local shared-state directional metric result."
+      - "Separated coverage-admitted spread from raw all-layout spread; the latter is diagnostic and cannot support the registered planning-capacity claim."
+      - "Reconciled E06-G to COMPLETED / NO-GO and did not run G1, widen delta_NUC, expand the candidate family, or introduce a planner or learned model."

@@ -965,3 +965,18 @@ observations:
     promoted_to: null
     crystallized_via: null
     stale: false
+  - id: O74
+    timestamp: "2026-09-12T17:31:11+10:00"
+    provenance: ai-suggested
+    content: >
+      A globally diverse finite path library can show substantial raw robot-cost and numerical
+      liftability variation yet expose no usable robot-aware planning capacity when the same
+      design variable changes finite-footprint coverage enough to collapse the admissible
+      coverage-equivalent set.
+    context: "E06-G root/remesh layouts were physically diverse and raw saddle J_q spread was material, but saddle equivalence sets were singleton and hemisphere equivalent sets had no verified witnesses."
+    potential_type: claim
+    bound_to: [N152, N153, N154]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
