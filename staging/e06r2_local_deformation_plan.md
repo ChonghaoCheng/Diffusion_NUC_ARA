@@ -107,3 +107,19 @@ E06-R2 can support only a tested local, fixed-topology, matched-contract increme
 claim. It cannot establish whole-surface NUC planner superiority, global optimality, hardware
 performance, Flow Matching benefit, cross-robot generality, or C-space connectivity. A NO-GO
 will not trigger post-hoc increases in radius, budget, or relaxed admission thresholds.
+
+## Frozen windows
+
+Frozen before any deformation evaluation at code commit `56af57a`. Machine-readable source:
+`results/riemannian_local_deformation_v1/frozen_windows.json`; content hash
+`9bd7673f4de735ea5e0aedd985e753145741f402f4f9912497815110e11065c5`.
+
+- Saddle uses anchors `A00,A02,A03,A05,A06,A08,A09,A11,A12,A14` for every placement.
+- Hemisphere uses anchors `A01,A02,A04,A05,A06,A08,A09,A10,A12,A13` for every placement.
+- Hemisphere endpoint anchors `A00/A14` were excluded because a centered `0.048 m` interval did
+  not exist. All remaining exclusions were the preregistered uniform-arclength subselection.
+- Every scene has exactly ten windows; all 60 passed the pre-result extent, control-sample,
+  positive joint-margin, and sampled `sigma_safe` eligibility checks.
+
+No M1/M2 candidate, objective change, or deformation outcome existed when this freeze was
+committed.
