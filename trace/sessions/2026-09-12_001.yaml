@@ -1,0 +1,51 @@
+session:
+  id: "2026-09-12_001"
+  date: "2026-09-12"
+  started: "2026-09-12T15:36:47+10:00"
+  last_turn: "2026-09-12T15:36:47+10:00"
+  turn_count: 1
+  summary: "Completed E06-R, established a strong local directional metric signal, and registered but did not run fixed-topology deformation validation."
+
+events_logged:
+  - {turn: 1, type: question, id: N133, routing: direct, provenance: user, summary: "Opened a causal directional utility test at shared contact states."}
+  - {turn: 1, type: decision, id: N134, routing: direct, provenance: ai-executed, summary: "Corrected probe lengths before any result table was written."}
+  - {turn: 1, type: experiment, id: N135, routing: direct, provenance: ai-executed, summary: "Calibrated and froze fully liftable low/mid/high anisotropy scenes."}
+  - {turn: 1, type: experiment, id: N136, routing: direct, provenance: ai-executed, summary: "Ran strict shared-q directional probes and passed the preregistered gate."}
+  - {turn: 1, type: decision, id: N137, routing: direct, provenance: ai-executed, summary: "Registered E06-R2 without running deformation and retained the historical E07 block."}
+  - {turn: 1, type: experiment, id: N138, routing: direct, provenance: ai-executed, summary: "Published matching code and ARA branches."}
+  - {turn: 1, observation: O71, routing: staged_then_crystallized, provenance: ai-suggested}
+  - turn: 1
+    action: "Implemented and validated B_h/G_exec, calibrated 72 placements, froze 90 anchors, ran 720 probes, generated ten plots, ran 131 tests, and archived/pushed results."
+    provenance: ai-executed
+    files_changed:
+      - "src/diffusion_coverage/geometry/"
+      - "src/diffusion_coverage/diagnostics/anisotropy.py"
+      - "scripts/calibrate_riemannian_anisotropy_scenes.py"
+      - "scripts/run_riemannian_directional_probe.py"
+      - "scripts/summarize_riemannian_anisotropy_utility.py"
+      - "tests/test_robot_surface_metric.py"
+
+claims_touched: [C01, E06-R, E06-R2, E07]
+logic_revisions:
+  - turn: 1
+    target: "logic/claims.md:C01"
+    from: "staged observation O71"
+    to: "supported local directional metric claim"
+    trigger: "Artifact commitment: E06-R2 registration depends on the completed E06-R mechanism gate."
+  - turn: 1
+    target: "logic/experiments.md:E06-R"
+    from: "registered/running"
+    to: "GO with explicit local-only boundaries"
+    trigger: "All preregistered gate conditions passed."
+
+key_context:
+  - turn: 1
+    excerpt: "E06-R only tests whether the induced metric eigenstructure contains a causally exploitable directional planning signal."
+
+open_threads:
+  - "Write a separate E06-R2 preregistration before any fixed-topology deformation run."
+  - "Obtain a closer-to-isotropic negative-control scene; current low scenes retain median R_G near 1.33."
+  - "Do not generalize local directional utility to full NUC planning benefit without equal-budget deformation evidence."
+
+ai_suggestions_pending:
+  - "Use anchor-clustered statistics and retain matched-length/shared-q controls in E06-R2."

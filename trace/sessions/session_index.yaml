@@ -34,3 +34,10 @@ sessions:
     events_count: 11
     claims_touched: [E06-D, E07]
     open_threads: 3
+  - id: "2026-09-12_001"
+    date: "2026-09-12"
+    summary: "Completed E06-R, established a strong local directional metric signal, and registered but did not run fixed-topology deformation validation."
+    turn_count: 1
+    events_count: 7
+    claims_touched: [C01, E06-R, E06-R2, E07]
+    open_threads: 3

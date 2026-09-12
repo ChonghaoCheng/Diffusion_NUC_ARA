@@ -1842,3 +1842,58 @@ tree:
     evidence: ["evidence/nuc_robot_coupling_diagnosis_2026-09-10.md"]
     status: resolved
     also_depends_on: [N127, N128, N131]
+  - id: N133
+    type: question
+    title: "Test directional planning utility of the induced metric"
+    provenance: user
+    timestamp: "2026-09-12T15:36:47+10:00"
+    description: "At shared feasible contact states, do equal surface probes along high-cost metric eigenvectors require more actual continuous joint travel than probes along low-cost eigenvectors?"
+    status: resolved
+    also_depends_on: [N128, N132]
+  - id: N134
+    type: decision
+    title: "Correct probe lengths before result materialization"
+    provenance: ai-executed
+    timestamp: "2026-09-12T15:36:47+10:00"
+    choice: "Interrupt the incomplete run before it writes a result table; replace the two-millimetre probe with four/eight-millimetre probes and refreeze boundary-qualified anchors."
+    alternatives: ["Retain a probe only twice the internal IK stopping tolerance", "Inspect incomplete directional costs before changing the contract"]
+    evidence: ["staging/e06r_riemannian_anisotropy_utility_plan.md", "evidence/riemannian_anisotropy_utility_2026-09-12.md"]
+    status: resolved
+    also_depends_on: [N133]
+  - id: N135
+    type: experiment
+    title: "Calibrate fully liftable anisotropy scenes"
+    provenance: ai-executed
+    timestamp: "2026-09-12T15:36:47+10:00"
+    result: "Evaluated seventy-two deterministic rigid placements; forty-eight passed complete continuation, strict admission, singularity safety, and interior joint-margin gates, then froze low/mid/high scenes independently of directional outcomes."
+    evidence: ["evidence/riemannian_anisotropy_utility_2026-09-12.md", "evidence/runs/riemannian_anisotropy_utility_v1/r0_scene_calibration/candidate_placements.csv"]
+    status: resolved
+    also_depends_on: [N133, N134]
+  - id: N136
+    type: experiment
+    title: "Run shared-state directional eigenvector probes"
+    provenance: ai-executed
+    timestamp: "2026-09-12T15:36:47+10:00"
+    result: "All signed probes passed strict kinematics; independent-anchor aggregation showed strong predicted-versus-actual directional rank consistency, high medium/high expensive-direction win rate, and persistence after removing the lowest-sigma quartile."
+    evidence: ["evidence/riemannian_anisotropy_utility_2026-09-12.md", "evidence/runs/riemannian_anisotropy_utility_v1/summary.json"]
+    status: resolved
+    also_depends_on: [N134, N135]
+  - id: N137
+    type: decision
+    title: "Pass E06-R and register deformation validation without running it"
+    provenance: ai-executed
+    timestamp: "2026-09-12T15:36:47+10:00"
+    choice: "Classify E06-R as GO for a local directional signal, register E06-R2 as not run, preserve the historical E07 block, and make no full-path benefit claim."
+    alternatives: ["Run deformation immediately", "Treat the local result as full NUC planning improvement", "Stop the Riemannian line despite the passed gate"]
+    evidence: ["evidence/riemannian_anisotropy_utility_2026-09-12.md", "logic/experiments.md"]
+    status: resolved
+    also_depends_on: [N136]
+  - id: N138
+    type: experiment
+    title: "Publish E06-R code and evidence branches"
+    provenance: ai-executed
+    timestamp: "2026-09-12T15:36:47+10:00"
+    result: "Pushed matching exp/riemannian-anisotropy-utility-v1 branches with implementation, frozen configurations, raw tables, figures, and bounded evidence."
+    evidence: ["code commit 50aca4c", "ARA commit c910696"]
+    status: resolved
+    also_depends_on: [N137]

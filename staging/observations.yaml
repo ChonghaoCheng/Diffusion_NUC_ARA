@@ -932,3 +932,14 @@ observations:
     promoted_to: null
     crystallized_via: null
     stale: false
+  - id: O71
+    timestamp: "2026-09-12T15:36:47+10:00"
+    provenance: ai-suggested
+    content: "At safely admitted shared contact states, the normalized 5D robot-induced surface metric eigenstructure predicts which equal-length local surface directions require more continuous UR5e joint travel."
+    context: "E06-R shared-q, sign-paired directional probes across frozen saddle and hemisphere scenes."
+    potential_type: claim
+    bound_to: [N133, N135, N136]
+    promoted: true
+    promoted_to: "logic/claims.md:C01"
+    crystallized_via: artifact-commitment
+    stale: false
