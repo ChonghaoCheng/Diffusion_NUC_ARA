@@ -186,3 +186,18 @@ q realizations differed by less than `0.1%` of F0 cost. The result is Outcome D:
 headroom. It does not justify making the surface--configuration manifold the central planning
 space under this local fixed-topology parameterization. See
 `evidence/surface_configuration_coupling_gate_2026-09-12.md`.
+
+# E06-G: Global Coverage-Layout Capacity Gate
+
+Registered: 2026-09-12
+
+Status: REGISTERED / NOT RUN.
+
+E06-G moves from failed local fixed-topology optimization to a finite global-layout capacity test.
+It reuses the six qualified E06-R scenes and varies only eight physical root locations and four
+same-surface planning-remesh realizations while fixing `upstream_first`, refinement, robot, NUC
+evaluation, and strict execution contracts. All 32 layouts per surface are evaluated on one common
+physical reference mesh, then under three frozen placements. G0 measures verified `J_q`, `C_q`,
+length-controlled headroom, numerical liftability, and root/remesh effects. G1 is blocked unless
+the preregistered G0 cost or strong-confirmed feasibility gate passes. Full definitions and
+non-claims are frozen in `staging/e06g_global_layout_capacity_plan.md`.
