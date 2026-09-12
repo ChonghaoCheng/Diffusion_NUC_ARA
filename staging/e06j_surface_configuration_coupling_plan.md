@@ -88,3 +88,14 @@ reproduction commands under `results/surface_configuration_coupling_gate_v1/`.
 
 E06-J cannot establish global optimality, full NUC planning improvement, hardware performance,
 cross-robot generality, C-space topology, Riemannian optimizer benefit, or learned-planner benefit.
+
+## Frozen numerical inputs
+
+Frozen before F3 execution at code commit `27c3f1c`. The inherited 60-window hash remains
+`9bd7673f4de735ea5e0aedd985e753145741f402f4f9912497815110e11065c5`. The shared 24-candidate
+scrambled-Sobol surface bank has content hash
+`4833ab735eff5786c801704c9f8e0700714bf6227d7f484f01236fd738e8709c` and is stored in
+`results/surface_configuration_coupling_gate_v1/frozen_surface_candidates.json`.
+
+The implementation and eight new contract tests were committed before any F3 result. At this
+freeze the complete suite reported `147 passed`; no formulation outcome had been generated.
