@@ -943,3 +943,14 @@ observations:
     promoted_to: "logic/claims.md:C01"
     crystallized_via: artifact-commitment
     stale: false
+  - id: O72
+    timestamp: "2026-09-12T16:10:01+10:00"
+    provenance: ai-suggested
+    content: "High aggregate correlation between an induced local execution metric and strict witness cost does not by itself imply useful fine-scale optimization ranking under tightly bounded, fixed-endpoint, near-equal-length deformation freedom."
+    context: "E06-R2 retained high admitted-candidate L_G/L_q correlation but failed every practical incremental-benefit gate except the small positive anisotropy regression slope."
+    potential_type: claim
+    bound_to: [N141, N142, N143]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false

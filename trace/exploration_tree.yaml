@@ -1897,3 +1897,51 @@ tree:
     evidence: ["code commit 50aca4c", "ARA commit c910696"]
     status: resolved
     also_depends_on: [N137]
+  - id: N139
+    type: question
+    title: "Test fixed-topology local metric-guided deformation"
+    provenance: user
+    timestamp: "2026-09-12T16:10:01+10:00"
+    description: "Can robot-induced Riemannian deformation reduce actual continuous witness joint motion beyond an equal-budget intrinsic-geometry deformation while topology, length, coverage, endpoints, and safety remain matched?"
+    status: resolved
+    also_depends_on: [N136, N137]
+  - id: N140
+    type: decision
+    title: "Freeze E06-R2 scenes windows and equal optimization budget"
+    provenance: ai-executed
+    timestamp: "2026-09-12T16:10:01+10:00"
+    choice: "Reuse six E06-R scenes; freeze sixty local windows, seven-control fixed-topology parameterization, two-millimetre displacement bound, and equal sixty-candidate M1/M2 searches before deformation execution."
+    alternatives: ["Tune windows or budgets after inspecting deformation outcomes", "Optimize complete NUC paths"]
+    evidence: ["staging/e06r2_local_deformation_plan.md", "code commit 56af57a"]
+    status: resolved
+    also_depends_on: [N139]
+  - id: N141
+    type: experiment
+    title: "Run paired local Euclidean and Riemannian deformation"
+    provenance: ai-executed
+    timestamp: "2026-09-12T16:10:01+10:00"
+    result: "Executed M0/M1/M2 on sixty windows with 3,600 candidate evaluations per active method; strict baseline replay was exact and every selected result stayed inside frozen length, NUC, splice, singularity, and joint-limit contracts."
+    evidence: ["evidence/riemannian_local_deformation_2026-09-12.md", "results/riemannian_local_deformation_v1/"]
+    status: resolved
+    also_depends_on: [N140]
+  - id: N142
+    type: dead_end
+    title: "Reject practical incremental benefit from the tested Riemannian deformation"
+    provenance: ai-executed
+    timestamp: "2026-09-12T16:10:01+10:00"
+    hypothesis: "At matched local geometry and strict robot contracts, M2 materially and consistently lowers actual witness joint travel beyond M1, especially in medium/high-anisotropy windows."
+    failure_mode: "Medium/high M2 win rate, median incremental benefit, and median baseline improvement all missed their frozen practical gates; the one-percent length sensitivity removed the already tiny median advantage."
+    lesson: "A strongly predictive local directional metric need not provide enough fine-ranking leverage inside a narrow fixed-topology, fixed-endpoint deformation family."
+    evidence: ["evidence/riemannian_local_deformation_2026-09-12.md"]
+    status: resolved
+    also_depends_on: [N141]
+  - id: N143
+    type: decision
+    title: "Stop metric-only deformation development after E06-R2"
+    provenance: ai-executed
+    timestamp: "2026-09-12T16:10:01+10:00"
+    choice: "Classify E06-R2 as NO-GO, retain the induced metric as a local diagnostic/cost model, do not authorize a larger NUC-constrained planner, and keep historical E07 blocked."
+    alternatives: ["Increase deformation radius post hoc", "Increase optimizer budget post hoc", "Proceed to full NUC deformation", "Introduce a learned planner"]
+    evidence: ["evidence/riemannian_local_deformation_2026-09-12.md", "logic/experiments.md"]
+    status: resolved
+    also_depends_on: [N142]

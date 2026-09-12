@@ -2,9 +2,9 @@ session:
   id: "2026-09-12_001"
   date: "2026-09-12"
   started: "2026-09-12T15:36:47+10:00"
-  last_turn: "2026-09-12T15:36:47+10:00"
-  turn_count: 1
-  summary: "Completed E06-R, established a strong local directional metric signal, and registered but did not run fixed-topology deformation validation."
+  last_turn: "2026-09-12T16:10:01+10:00"
+  turn_count: 2
+  summary: "Completed E06-R and E06-R2: the local directional signal remained predictive, but equal-budget fixed-topology metric-guided deformation failed its practical incremental-benefit gate."
 
 events_logged:
   - {turn: 1, type: question, id: N133, routing: direct, provenance: user, summary: "Opened a causal directional utility test at shared contact states."}
@@ -24,6 +24,22 @@ events_logged:
       - "scripts/run_riemannian_directional_probe.py"
       - "scripts/summarize_riemannian_anisotropy_utility.py"
       - "tests/test_robot_surface_metric.py"
+  - {turn: 2, type: question, id: N139, routing: direct, provenance: user, summary: "Opened equal-budget fixed-topology local deformation validation."}
+  - {turn: 2, type: decision, id: N140, routing: direct, provenance: ai-executed, summary: "Preregistered and froze sixty windows before result execution."}
+  - {turn: 2, type: experiment, id: N141, routing: direct, provenance: ai-executed, summary: "Ran paired M1/M2 deformation with strict matched contracts."}
+  - {turn: 2, type: dead_end, id: N142, routing: direct, provenance: ai-executed, summary: "Rejected practical incremental metric-guided deformation benefit under the frozen design."}
+  - {turn: 2, type: decision, id: N143, routing: direct, provenance: ai-executed, summary: "Stopped metric-only deformation expansion and retained historical E07 block."}
+  - {turn: 2, observation: O72, routing: staged, provenance: ai-suggested}
+  - turn: 2
+    action: "Created new code/ARA branches; preregistered E06-R2; froze sixty windows; implemented equal-budget M1/M2 deformation, strict admission, summaries and plots; ran 7,200 candidate evaluations and 139 tests; archived a NO-GO result."
+    provenance: ai-executed
+    files_changed:
+      - "src/diffusion_coverage/diagnostics/local_deformation.py"
+      - "scripts/run_riemannian_local_deformation.py"
+      - "scripts/summarize_riemannian_local_deformation.py"
+      - "tests/test_local_deformation.py"
+      - "results/riemannian_local_deformation_v1/"
+      - "evidence/riemannian_local_deformation_2026-09-12.md"
 
 claims_touched: [C01, E06-R, E06-R2, E07]
 logic_revisions:
@@ -37,6 +53,11 @@ logic_revisions:
     from: "registered/running"
     to: "GO with explicit local-only boundaries"
     trigger: "All preregistered gate conditions passed."
+  - turn: 2
+    target: "logic/experiments.md:E06-R2"
+    from: "REGISTERED / NOT RUN"
+    to: "COMPLETED / NO-GO"
+    trigger: "The paired sixty-window experiment failed the preregistered practical-benefit gate."
 
 key_context:
   - turn: 1
@@ -49,3 +70,4 @@ open_threads:
 
 ai_suggestions_pending:
   - "Use anchor-clustered statistics and retain matched-length/shared-q controls in E06-R2."
+  - "Before any future planner registration, isolate fine-scale L_G versus L_q ranking residuals without changing the failed E06-R2 bounds or budget."

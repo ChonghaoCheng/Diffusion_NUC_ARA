@@ -159,3 +159,10 @@ entries:
       - "Crystallized O71 to C01 through artifact commitment because newly registered E06-R2 explicitly depends on the completed local mechanism gate."
       - "Kept the claim local to tested numerical surfaces and noted that the low-anisotropy control remains meaningfully anisotropic."
       - "Did not revise E06/E06-D, run E07, optimize a full path, or introduce a learned planner."
+  - turn: "2026-09-12_001#2"
+    notes:
+      - "Recorded the user-directed E06-R2 question, pre-result freeze, paired experiment, failed mechanism gate, and stop decision as N139-N143."
+      - "Staged O72 rather than crystallizing it: E06-R2 empirically resolves the tested contract, but the researcher has not yet adopted the broader correlation-versus-optimization interpretation."
+      - "Left supported C01 unchanged because E06-R2 preserves high candidate-level metric/cost correlation and does not contradict the shared-state directional probe result."
+      - "Recorded archived-index window lengths of 0.046395-0.049888 m as a protocol discretization limitation instead of refreezing after outcome inspection."
+      - "Reconciled E06-R2 to COMPLETED / NO-GO; did not alter E06, E06-D, E06-R, or historical E07 evidence."

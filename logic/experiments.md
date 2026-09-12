@@ -145,8 +145,8 @@ the status of the historical E07.
 
 Registered: 2026-09-12
 
-Status: REGISTERED / NOT RUN. This is not the previously blocked E07. The full pre-result
-contract is frozen in `staging/e06r2_local_deformation_plan.md`.
+Status: COMPLETED / NO-GO (2026-09-12). This is not the previously blocked E07. The full
+pre-result contract is frozen in `staging/e06r2_local_deformation_plan.md`.
 
 Motivation: E06-R passed its directional planning-utility gate. A subsequent experiment may now
 compare fixed-surface refinement, isotropic tangent proposals, and metric-guided tangent proposals
@@ -156,3 +156,10 @@ deformation was run in E06-R. E06-R2 freezes the six E06-R scenes, 60 determinis
 `0.048 m` window length, seven controls with three free interior controls, `0.002 m` displacement
 bound, equal 60-proposal M1/M2 budgets, unchanged strict task contract, matched length/coverage
 admission, paired outcomes, and the GO/NO-GO gate before generating deformation results.
+
+Result: the metric-guided deformation did not provide a practically meaningful incremental
+benefit. In 40 medium/high windows, M2 beat M1 in `52.5%`, median `A_R` was `0.0040%`, and median
+M2 improvement over M0 was `2.3349%`, against frozen gates of `75%`, `5%`, and `8%`. The metric
+still tracked candidate cost (`Spearman=0.9858` over admitted M2 candidates), but this fine-scale
+ranking did not improve the selected local deformation enough. A larger NUC-constrained planner
+is not authorized by E06-R2. See `evidence/riemannian_local_deformation_2026-09-12.md`.
