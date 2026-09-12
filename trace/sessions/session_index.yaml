@@ -36,8 +36,8 @@ sessions:
     open_threads: 3
   - id: "2026-09-12_001"
     date: "2026-09-12"
-    summary: "Completed E06-R and E06-R2; directional prediction passed, but fixed-topology metric-guided deformation failed its incremental-benefit gate."
-    turn_count: 2
-    events_count: 14
-    claims_touched: [C01, E06-R, E06-R2, E07]
-    open_threads: 2
+    summary: "Completed E06-R, E06-R2, and E06-J; directional prediction passed, but both metric-only deformation and explicit local coupling lacked material planning benefit."
+    turn_count: 3
+    events_count: 21
+    claims_touched: [C01, E06-R, E06-R2, E06-J, E07]
+    open_threads: 3

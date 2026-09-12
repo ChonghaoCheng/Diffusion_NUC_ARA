@@ -2,9 +2,9 @@ session:
   id: "2026-09-12_001"
   date: "2026-09-12"
   started: "2026-09-12T15:36:47+10:00"
-  last_turn: "2026-09-12T16:10:01+10:00"
-  turn_count: 2
-  summary: "Completed E06-R and E06-R2: the local directional signal remained predictive, but equal-budget fixed-topology metric-guided deformation failed its practical incremental-benefit gate."
+  last_turn: "2026-09-12T16:51:23+10:00"
+  turn_count: 3
+  summary: "Completed E06-R, E06-R2, and E06-J: local robot geometry predicts direction, but neither metric-only deformation nor explicit local x--q coupling showed material planning benefit."
 
 events_logged:
   - {turn: 1, type: question, id: N133, routing: direct, provenance: user, summary: "Opened a causal directional utility test at shared contact states."}
@@ -40,8 +40,24 @@ events_logged:
       - "tests/test_local_deformation.py"
       - "results/riemannian_local_deformation_v1/"
       - "evidence/riemannian_local_deformation_2026-09-12.md"
+  - {turn: 3, type: question, id: N144, routing: direct, provenance: user, summary: "Opened a local coupled-manifold formulation-capacity gate."}
+  - {turn: 3, type: decision, id: N145, routing: direct, provenance: ai-executed, summary: "Preregistered and froze shared surface and q-search budgets before F3 results."}
+  - {turn: 3, type: experiment, id: N146, routing: direct, provenance: ai-executed, summary: "Ran paired F0--F3 comparisons across all sixty inherited windows."}
+  - {turn: 3, type: dead_end, id: N147, routing: direct, provenance: ai-executed, summary: "Rejected material local fixed-topology coupling capacity under the frozen gate."}
+  - {turn: 3, type: decision, id: N148, routing: direct, provenance: ai-executed, summary: "Kept coupled-manifold planning from becoming the central project formulation."}
+  - {turn: 3, observation: O73, routing: staged, provenance: ai-suggested}
+  - turn: 3
+    action: "Created code/ARA branches; preregistered E06-J; implemented F0--F3 formulation solvers, shared candidate bank, strict verification, summaries and plots; executed 2,940 formulation attempts; ran 147 tests; archived a NO-GO / Outcome D result."
+    provenance: ai-executed
+    files_changed:
+      - "src/diffusion_coverage/diagnostics/surface_configuration_coupling.py"
+      - "scripts/run_surface_configuration_coupling_gate.py"
+      - "scripts/summarize_surface_configuration_coupling_gate.py"
+      - "tests/test_surface_configuration_coupling.py"
+      - "results/surface_configuration_coupling_gate_v1/"
+      - "evidence/surface_configuration_coupling_gate_2026-09-12.md"
 
-claims_touched: [C01, E06-R, E06-R2, E07]
+claims_touched: [C01, E06-R, E06-R2, E06-J, E07]
 logic_revisions:
   - turn: 1
     target: "logic/claims.md:C01"
@@ -58,16 +74,25 @@ logic_revisions:
     from: "REGISTERED / NOT RUN"
     to: "COMPLETED / NO-GO"
     trigger: "The paired sixty-window experiment failed the preregistered practical-benefit gate."
+  - turn: 3
+    target: "logic/experiments.md:E06-J"
+    from: "REGISTERED / NOT RUN"
+    to: "COMPLETED / NO-GO"
+    trigger: "The paired sixty-window formulation comparison failed every preregistered coupling-capacity gate."
 
 key_context:
   - turn: 1
     excerpt: "E06-R only tests whether the induced metric eigenstructure contains a causally exploitable directional planning signal."
+  - turn: 3
+    excerpt: "E06-J is about deciding what space we should plan in; it is not about tuning the previous Riemannian deformation method."
 
 open_threads:
   - "Write a separate E06-R2 preregistration before any fixed-topology deformation run."
   - "Obtain a closer-to-isotropic negative-control scene; current low scenes retain median R_G near 1.33."
   - "Do not generalize local directional utility to full NUC planning benefit without equal-budget deformation evidence."
+  - "Register a non-learned global path/layout capacity gate before designing another planner; candidate freedoms include root, entry/exit, sweep orientation, remeshing realization, and path family/topology."
 
 ai_suggestions_pending:
   - "Use anchor-clustered statistics and retain matched-length/shared-q controls in E06-R2."
   - "Before any future planner registration, isolate fine-scale L_G versus L_q ranking residuals without changing the failed E06-R2 bounds or budget."
+  - "Do not make the surface--configuration manifold the central planning formulation from E06-J; the tested incremental coupling benefit is negligible."

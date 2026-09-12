@@ -1945,3 +1945,51 @@ tree:
     evidence: ["evidence/riemannian_local_deformation_2026-09-12.md", "logic/experiments.md"]
     status: resolved
     also_depends_on: [N142]
+  - id: N144
+    type: question
+    title: "Test local surface--configuration formulation capacity"
+    provenance: user
+    timestamp: "2026-09-12T16:51:23+10:00"
+    description: "Does direct optimization over a coupled surface--configuration representation materially reduce verified joint travel beyond configuration-only and true-witness-ranked surface-only formulations on the same frozen local windows?"
+    status: resolved
+    also_depends_on: [N142, N143]
+  - id: N145
+    type: decision
+    title: "Freeze E06-J formulations and shared numerical budgets"
+    provenance: ai-executed
+    timestamp: "2026-09-12T16:51:23+10:00"
+    choice: "Reuse all sixty E06-R2 windows; freeze one shared twenty-four-candidate surface bank, one layered-q beam contract, unchanged admission thresholds, and a medium/high practical coupling gate before generating F3 results."
+    alternatives: ["Tune the failed E06-R2 metric deformation", "Select new favourable windows", "Change safety or coverage thresholds"]
+    evidence: ["staging/e06j_surface_configuration_coupling_plan.md", "code commit 27c3f1c"]
+    status: resolved
+    also_depends_on: [N144]
+  - id: N146
+    type: experiment
+    title: "Run paired F0--F3 formulation capacity comparison"
+    provenance: ai-executed
+    timestamp: "2026-09-12T16:51:23+10:00"
+    result: "Executed fixed, configuration-only, surface-only, and coupled numerical formulations on sixty windows; all baselines replayed exactly and every selected output remained inside the frozen strict contract."
+    evidence: ["evidence/surface_configuration_coupling_gate_2026-09-12.md", "results/surface_configuration_coupling_gate_v1/"]
+    status: resolved
+    also_depends_on: [N145]
+  - id: N147
+    type: dead_end
+    title: "Reject material local fixed-topology coupling capacity"
+    provenance: ai-executed
+    timestamp: "2026-09-12T16:51:23+10:00"
+    hypothesis: "Explicit local surface--configuration optimization materially outperforms both q-only realization and true-witness-ranked surface-only optimization under the frozen contract."
+    failure_mode: "The coupled formulation selected the same surface candidate as the surface-only formulation in every window, had zero median incremental benefit in medium/high scenes, and beat both decoupled formulations in fewer than half of those windows."
+    lesson: "The tested local fixed-topology representation exposes surface-path gains but essentially no extra capacity from independently optimizing the q realization."
+    evidence: ["evidence/surface_configuration_coupling_gate_2026-09-12.md"]
+    status: resolved
+    also_depends_on: [N146]
+  - id: N148
+    type: decision
+    title: "Do not centralize the project on local coupled-manifold planning"
+    provenance: ai-executed
+    timestamp: "2026-09-12T16:51:23+10:00"
+    choice: "Classify E06-J as NO-GO / Outcome D, close the tested local fixed-topology coupling branch, and require a new non-learned capacity gate over global path/layout freedoms before building another planner."
+    alternatives: ["Increase local deformation freedom post hoc", "Adopt the coupled manifold as the central space", "Introduce Flow Matching"]
+    evidence: ["evidence/surface_configuration_coupling_gate_2026-09-12.md", "logic/experiments.md"]
+    status: resolved
+    also_depends_on: [N147]

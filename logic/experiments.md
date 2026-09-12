@@ -168,7 +168,7 @@ is not authorized by E06-R2. See `evidence/riemannian_local_deformation_2026-09-
 
 Registered: 2026-09-12
 
-Status: REGISTERED / NOT RUN.
+Status: COMPLETED / NO-GO (2026-09-12).
 
 E06-J reuses the 60 frozen E06-R2 windows but asks a different formulation question. It compares
 fixed F0, configuration-only F1, true-witness-ranked surface-only F2, and joint surface--q F3.
@@ -177,3 +177,12 @@ one frozen surface candidate bank, while F1/F3 share one frozen layered-q solver
 pre-result contract and practical gate are recorded in
 `staging/e06j_surface_configuration_coupling_plan.md`. E06-R2 remains NO-GO and historical E07
 remains blocked.
+
+Result: all 60 F0 witnesses replayed exactly. In the 40 medium/high-anisotropy windows, median
+`Delta_conf=0`, median `Delta_surface=1.7162%`, median `Delta_joint=1.6605%`, and median
+`B_joint=0`. F3 beat both decoupled formulations in only `45%` of windows; all frozen gates
+failed. F2 and F3 selected the same surface candidate in all 60 windows, while their independent
+q realizations differed by less than `0.1%` of F0 cost. The result is Outcome D: low local
+headroom. It does not justify making the surface--configuration manifold the central planning
+space under this local fixed-topology parameterization. See
+`evidence/surface_configuration_coupling_gate_2026-09-12.md`.

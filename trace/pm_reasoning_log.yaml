@@ -166,3 +166,10 @@ entries:
       - "Left supported C01 unchanged because E06-R2 preserves high candidate-level metric/cost correlation and does not contradict the shared-state directional probe result."
       - "Recorded archived-index window lengths of 0.046395-0.049888 m as a protocol discretization limitation instead of refreezing after outcome inspection."
       - "Reconciled E06-R2 to COMPLETED / NO-GO; did not alter E06, E06-D, E06-R, or historical E07 evidence."
+  - turn: "2026-09-12_001#3"
+    notes:
+      - "Recorded the user-directed formulation question, pre-result shared-bank freeze, paired F0--F3 run, failed capacity gate, and stop decision as N144--N148."
+      - "Staged O73 rather than crystallizing it: the numerical result resolves the tested local contract, but the researcher has not yet affirmed the broader coupling-capacity interpretation."
+      - "Left supported C01 unchanged because E06-J does not contradict the local directional prediction established by shared-state E06-R probes."
+      - "Classified the result as Outcome D rather than surface dominated: F2 gains remained below five percent and F3 added essentially zero beyond F2."
+      - "Reconciled E06-J to COMPLETED / NO-GO without modifying E06, E06-D, E06-R, E06-R2, or historical E07 evidence."
