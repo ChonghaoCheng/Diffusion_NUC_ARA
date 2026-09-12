@@ -137,3 +137,19 @@ without distinguishing remesh quality. The ceiling is corrected once to `0.0061 
 smoke completion and before any `J_q`/lift result. Root mapping, relative edge statistics, physical
 boundary, and every robot/coverage threshold remain unchanged. No further adjustment is allowed
 after smoke execution.
+
+## Frozen Stage B artifacts
+
+Stage A passed all canonical-path, physical-root, reference-surface, fixed-policy, mapping, and
+structural checks. Stage B was frozen at code commit `4bdbaa1` before any robot execution. Artifact
+hashes are: roots `8547418f72c3a46e08f70bfaa06378ac1f8ea884e20801ccd29f6f352ad003dd`,
+remeshes `3bb2170272191537772602724db94c3d587c0c55f460d43c46d76cf6783b99b7`, and 64-layout
+library `ad897a3249e4f39aaac606812e4501ecc7f28046475763b1075c472d94b6bc09`.
+
+The median ordered-path distance/tangent disagreement is `0.129189 m / 89.959 deg` for saddle and
+`0.146989 m / 89.849 deg` for hemisphere, so the preregistered diversity-failure criterion does
+not fire. Geometry-only baselines are saddle `R01_M03` and hemisphere `R00_M03`. Under the frozen
+`delta_NUC`, saddle has one coverage-equivalent layout and hemisphere has eight. This means the
+cost-spread gate cannot reach four scenes from the admitted library, but the library and threshold
+remain unchanged; Stage C is retained to measure numerical liftability and feasibility-rescue
+evidence under the frozen rule.
