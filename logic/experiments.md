@@ -163,3 +163,17 @@ M2 improvement over M0 was `2.3349%`, against frozen gates of `75%`, `5%`, and `
 still tracked candidate cost (`Spearman=0.9858` over admitted M2 candidates), but this fine-scale
 ranking did not improve the selected local deformation enough. A larger NUC-constrained planner
 is not authorized by E06-R2. See `evidence/riemannian_local_deformation_2026-09-12.md`.
+
+# E06-J: Surface--Configuration Coupling Capacity Gate
+
+Registered: 2026-09-12
+
+Status: REGISTERED / NOT RUN.
+
+E06-J reuses the 60 frozen E06-R2 windows but asks a different formulation question. It compares
+fixed F0, configuration-only F1, true-witness-ranked surface-only F2, and joint surface--q F3.
+Every optimized method minimizes actual verified `J_q`; `G_exec` is diagnostic only. F2/F3 share
+one frozen surface candidate bank, while F1/F3 share one frozen layered-q solver. The complete
+pre-result contract and practical gate are recorded in
+`staging/e06j_surface_configuration_coupling_plan.md`. E06-R2 remains NO-GO and historical E07
+remains blocked.
