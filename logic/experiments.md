@@ -145,11 +145,14 @@ the status of the historical E07.
 
 Registered: 2026-09-12
 
-Status: REGISTERED / NOT RUN. This is not the previously blocked E07.
+Status: REGISTERED / NOT RUN. This is not the previously blocked E07. The full pre-result
+contract is frozen in `staging/e06r2_local_deformation_plan.md`.
 
 Motivation: E06-R passed its directional planning-utility gate. A subsequent experiment may now
 compare fixed-surface refinement, isotropic tangent proposals, and metric-guided tangent proposals
 from identical path/witness initializations, equal proposal budgets, the same strict checker, and
 the frozen NUC-equivalence constraint. Registration does not establish full-path benefit and no
-deformation was run in E06-R. A separate preregistration must freeze scenes, proposal budgets,
-acceptance logic, and primary effect size before E06-R2 execution.
+deformation was run in E06-R. E06-R2 freezes the six E06-R scenes, 60 deterministic windows,
+`0.048 m` window length, seven controls with three free interior controls, `0.002 m` displacement
+bound, equal 60-proposal M1/M2 budgets, unchanged strict task contract, matched length/coverage
+admission, paired outcomes, and the GO/NO-GO gate before generating deformation results.
