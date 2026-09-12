@@ -210,3 +210,18 @@ hemisphere. Consequently no scene had an evaluable coverage-equivalent `S_q>=10%
 run. Non-equivalent layouts did show substantial raw robot-cost and liftability variation, so this
 result closes only the tested root/remesh NUC family under the frozen NUC-equivalence and numerical
 continuation contracts. See `evidence/global_layout_capacity_gate_2026-09-12.md`.
+
+# E06-G2: Symmetry-Preserving Global Layout Gate
+
+Registered: 2026-09-12
+
+Status: REGISTERED / NOT RUN.
+
+E06-G2 isolates pure robot-induced global orientation preference by applying exact object-frame
+self-isometries to one frozen upstream/default NUC path per surface. Hemisphere uses a 24-member
+15-degree rotational orbit; saddle admits only analytically and numerically validated bounded-domain
+symmetries. Path order, topology, activity, intrinsic segment lengths, total length and temporal
+finite-footprint metrics must remain invariant before robot execution. The six E06-R placements and
+strict 5D robot contract remain fixed. A secondary `G_exec` diagnostic is blocked unless the
+preregistered symmetry-orbit cost or strong-search feasibility gate passes. See
+`staging/e06g2_symmetry_preserving_global_layout_plan.md`.
