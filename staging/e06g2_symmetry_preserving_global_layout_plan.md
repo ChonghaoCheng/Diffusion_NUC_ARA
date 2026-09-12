@@ -88,3 +88,34 @@ E06-G2 cannot establish global path or q-space optimality, C-space connectivity/
 hardware performance, general non-symmetric-surface parameterization, planner superiority,
 cross-robot generality or Flow Matching/diffusion benefit. It tests one finite exact symmetry orbit
 under finite deterministic numerical continuation budgets.
+
+## Frozen Stage A/B artifacts
+
+Stage A initially exposed a representation defect before robot execution: independently asking the
+mesh backend for a shortest polyline between every adjacent source point selected different
+equal-length routes at symmetry-related mesh ties, changing temporal revisit counts. The finalized
+evaluator representation densifies the canonical analytical path once at the frozen `0.002 m`
+spacing, evaluates its ordered footprint membership once with the same mesh-edge geodesic disk
+backend, verifies that each symmetry is a mesh/sample/weight automorphism, and transports that
+membership over the verified permutation. This removes vertex-ID tie breaking without widening the
+coverage criterion or changing path order.
+
+The symmetry orbit was frozen at code commit `b1cf1458ec85b9ce5c393d2faab24d5a9cd43711`.
+The orbit hash is `479f4e0497e4ddd771ab7f445c3505aaaa5da4543895cc82296110abbfc4fdd1` and the
+pre-robot invariance tolerance is `1e-12`. All 28 members have identical `E_miss`, `E_rep`,
+`E_NUC`, total discrete physical length, ordered segment-length sequence, sample count/activity,
+and topology within that tolerance.
+
+Saddle `Gamma_0` comes from 3,171 E06 S00 source samples; analytical projection moves a point by at
+most `0.00020390625 m`, preserves 3,171 samples, and yields path hash
+`dfd59b447091aeaff80631c22c8666107b122dd297597c00c927793677f70da0`. Hemisphere starts from
+5,597 source samples; analytical projection plus deterministic spacing densification gives 6,340
+samples, maximum source projection `0.00617877480 m`, and path hash
+`989323dd6ebdd3206fcad6f593ad0404d7075517abc48dbe00fc29dfed5b360c`. These displacements are
+an explicit limitation: E06-G2 uses an analytically normalized derivative of the E06-R path, not a
+byte-identical replay of its coarse-mesh target trace.
+
+The frozen E06-G2 geometry values are saddle `E_NUC=0.7565340822`, `L_S=6.0139313520 m` and
+hemisphere `E_NUC=0.4033100677`, `L_S=10.4904846652 m`. They must not be substituted for historical
+E06 metrics because the common symmetry-compatible evaluator representation differs. Robot Stage C
+had not run when these artifacts and values were committed.
