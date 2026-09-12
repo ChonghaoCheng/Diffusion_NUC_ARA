@@ -103,3 +103,53 @@ costs cancel at plan level. Default hemisphere replay reproduced all forty E06 f
 search recovered two of four P_mid cases, delayed two others, and recovered zero of four P_hard
 cases. Legal expansion-order selection is closed as a useful optimization degree of freedom;
 the Riemannian line is retained only as a diagnostic. E07 remains blocked and was not run.
+# E06-R: Riemannian Anisotropy Planning-Utility Gate
+
+Registered: 2026-09-12
+
+Status: REGISTERED / RUNNING. E07 remains BLOCKED / NOT RUN.
+
+Parent evidence: `evidence/nuc_robot_coupling_diagnosis_2026-09-10.md`
+
+E06-R tests directional planning utility without optimizing a coverage path. At the same
+admitted contact state `(x,q)`, it compares equal-intrinsic-length surface probes along both
+signs of the minimum- and maximum-cost eigenvectors of the normalized 5D robot-induced surface
+metric. R0 selects low/mid/high-anisotropy, fully liftable scenes without observing directional
+probe outcomes; R1 then measures the sign-averaged actual joint-length ratio `R_q` against the
+local prediction `R_G0`.
+
+The frozen robot contract remains `L_c=0.1 m`, `sigma_safe=0.0723741717`, `W=I`, maximum dense
+q interpolation step `0.05 rad`, the E06 position/tool-axis tolerances, float64 witnesses, the
+same MuJoCo UR5e model, `attachment_site`, and tool-axis index/sign. Before any probe table was
+written, the requested numerical-resolution audit rejected `0.002 m` because it was only twice
+the internal `0.001 m` IK stopping tolerance. Probe lengths are therefore frozen at `0.004 m`
+and `0.008 m` (`0.50` and `1.00` times the frozen tool radius).
+
+The preregistered GO gate requires pooled Spearman correlation at least `0.70`, at least `0.80`
+of eligible medium/high-anisotropy anchors with `R_q>1`, high-anisotropy median `R_q>=1.20`,
+matched intrinsic lengths, and persistence after removing the lowest-sigma anchor quartile.
+Passing only authorizes registration of a separate fixed-topology local-deformation experiment;
+it does not run E07 or path deformation.
+
+Detailed frozen hypotheses, selection rules, metrics, controls, and non-claims are in
+`staging/e06r_riemannian_anisotropy_utility_plan.md`.
+
+Result: GO. Across 90 frozen independent anchors, the sign- and length-aggregated directional
+ratio had pooled `Spearman(log R_G0,log R_q)=0.9471`; medium/high scenes placed the predicted
+expensive direction above the cheap direction at `96.67%` of anchors, and the high-level median
+was `R_q=1.7157`. All 720 signed probes passed the unchanged strict kinematic checker. See
+`evidence/riemannian_anisotropy_utility_2026-09-12.md`. This result changes neither E06/E06-D nor
+the status of the historical E07.
+
+# E06-R2: Fixed-topology local Riemannian deformation validation
+
+Registered: 2026-09-12
+
+Status: REGISTERED / NOT RUN. This is not the previously blocked E07.
+
+Motivation: E06-R passed its directional planning-utility gate. A subsequent experiment may now
+compare fixed-surface refinement, isotropic tangent proposals, and metric-guided tangent proposals
+from identical path/witness initializations, equal proposal budgets, the same strict checker, and
+the frozen NUC-equivalence constraint. Registration does not establish full-path benefit and no
+deformation was run in E06-R. A separate preregistration must freeze scenes, proposal budgets,
+acceptance logic, and primary effect size before E06-R2 execution.

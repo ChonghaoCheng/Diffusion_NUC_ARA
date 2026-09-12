@@ -1,0 +1,6 @@
+PYTHONPATH=src python scripts/calibrate_riemannian_anisotropy_scenes.py --workers 8
+PYTHONPATH=src python scripts/run_riemannian_directional_probe.py --stage freeze-anchors
+# append frozen anchor IDs/hash to ARA before the next command
+PYTHONPATH=src python scripts/run_riemannian_directional_probe.py --stage run
+PYTHONPATH=src python scripts/summarize_riemannian_anisotropy_utility.py
+pytest -q

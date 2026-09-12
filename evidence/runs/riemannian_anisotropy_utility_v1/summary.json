@@ -1,0 +1,208 @@
+{
+  "experiment": "E06-R: Riemannian Anisotropy Planning-Utility Gate",
+  "R0": {
+    "candidate_count": 72,
+    "admissible_count": 48,
+    "selected": {
+      "saddle": {
+        "P_low": {
+          "candidate_id": "T17",
+          "median_log_kappa_R": 0.569837085743434,
+          "median_R_G": 1.3296537139369042,
+          "min_sigma_min_5": 0.5875553784659437
+        },
+        "P_mid": {
+          "candidate_id": "T21",
+          "median_log_kappa_R": 1.2189204595016774,
+          "median_R_G": 1.8394382567253331,
+          "min_sigma_min_5": 0.30829603407154976
+        },
+        "P_high": {
+          "candidate_id": "T10",
+          "median_log_kappa_R": 1.5731051967610639,
+          "median_R_G": 2.1958135120330944,
+          "min_sigma_min_5": 0.4018776254982965
+        }
+      },
+      "hemisphere": {
+        "P_low": {
+          "candidate_id": "T30",
+          "median_log_kappa_R": 0.5744428132214499,
+          "median_R_G": 1.3327192536655483,
+          "min_sigma_min_5": 0.17540986421151197
+        },
+        "P_mid": {
+          "candidate_id": "T27",
+          "median_log_kappa_R": 1.0475606316411947,
+          "median_R_G": 1.688398279342966,
+          "min_sigma_min_5": 0.2025774493986393
+        },
+        "P_high": {
+          "candidate_id": "T33",
+          "median_log_kappa_R": 1.2122541804370863,
+          "median_R_G": 1.8333173589246794,
+          "min_sigma_min_5": 0.13134088258019552
+        }
+      }
+    }
+  },
+  "R1": {
+    "frozen_anchor_count": 90,
+    "probe_count": 720,
+    "successful_probes": 720,
+    "eligible_anchor_length_pairs": 180,
+    "eligible_anchors": 90,
+    "directional_win_fraction": 0.8888888888888888,
+    "medium_high_win_fraction": 0.9666666666666667,
+    "pooled_spearman_log": 0.9470881178746346,
+    "by_level": {
+      "P_low": {
+        "count": 30,
+        "median": 1.1921489644236911,
+        "q25": 0.9988862015285358,
+        "q75": 1.330010429829732,
+        "fraction_gt_1": 0.7333333333333333,
+        "fraction_gt_1p1": 0.6333333333333333,
+        "fraction_gt_1p2": 0.5
+      },
+      "P_mid": {
+        "count": 30,
+        "median": 1.703447837876793,
+        "q25": 1.4065553706709788,
+        "q75": 2.0669619525145624,
+        "fraction_gt_1": 0.9333333333333333,
+        "fraction_gt_1p1": 0.9333333333333333,
+        "fraction_gt_1p2": 0.9333333333333333
+      },
+      "P_high": {
+        "count": 30,
+        "median": 1.7157418607307036,
+        "q25": 1.6106103519662218,
+        "q75": 1.9975065729602572,
+        "fraction_gt_1": 1.0,
+        "fraction_gt_1p1": 0.9666666666666667,
+        "fraction_gt_1p2": 0.9666666666666667
+      }
+    },
+    "by_scene": {
+      "saddle/P_low": {
+        "count": 15,
+        "median": 1.2049188370152286,
+        "q25": 1.007165387734461,
+        "q75": 1.289478284554204,
+        "fraction_gt_1": 0.7333333333333333,
+        "fraction_gt_1p1": 0.6666666666666666,
+        "fraction_gt_1p2": 0.5333333333333333
+      },
+      "saddle/P_mid": {
+        "count": 15,
+        "median": 1.691926337531924,
+        "q25": 1.369980236484801,
+        "q75": 1.7445643419253019,
+        "fraction_gt_1": 0.9333333333333333,
+        "fraction_gt_1p1": 0.9333333333333333,
+        "fraction_gt_1p2": 0.9333333333333333
+      },
+      "saddle/P_high": {
+        "count": 15,
+        "median": 1.8240605158006142,
+        "q25": 1.6293266933056791,
+        "q75": 2.0678251682775803,
+        "fraction_gt_1": 1.0,
+        "fraction_gt_1p1": 1.0,
+        "fraction_gt_1p2": 1.0
+      },
+      "hemisphere/P_low": {
+        "count": 15,
+        "median": 1.1453044032109923,
+        "q25": 1.004135705966494,
+        "q75": 1.367728718473102,
+        "fraction_gt_1": 0.7333333333333333,
+        "fraction_gt_1p1": 0.6,
+        "fraction_gt_1p2": 0.4666666666666667
+      },
+      "hemisphere/P_mid": {
+        "count": 15,
+        "median": 1.763276578611907,
+        "q25": 1.426389396413687,
+        "q75": 2.4362283754806136,
+        "fraction_gt_1": 0.9333333333333333,
+        "fraction_gt_1p1": 0.9333333333333333,
+        "fraction_gt_1p2": 0.9333333333333333
+      },
+      "hemisphere/P_high": {
+        "count": 15,
+        "median": 1.6996249702832646,
+        "q25": 1.5722893959436912,
+        "q75": 1.842388746695788,
+        "fraction_gt_1": 1.0,
+        "fraction_gt_1p1": 0.9333333333333333,
+        "fraction_gt_1p2": 0.9333333333333333
+      }
+    },
+    "maximum_relative_paired_length_mismatch": 0.0002606595080820173,
+    "median_sign_asymmetry": 0.04939141830096445,
+    "sigma_low_quartile_cut": 0.6186304882505018,
+    "spearman_after_low_sigma_removal": 0.9487987868145903,
+    "controls": {
+      "log_ratio_residual_vs_sigma_pearson": -0.210114134460765,
+      "log_ratio_residual_vs_sigma_spearman": -0.23608675968226525,
+      "log_ratio_residual_vs_joint_margin_pearson": -0.16564590300330997,
+      "log_ratio_residual_vs_joint_margin_spearman": -0.08268510515701526,
+      "integrated_LG_vs_actual_Lq_pearson": 0.9872210968192914,
+      "integrated_LG_vs_actual_Lq_spearman": 0.9870347293622607,
+      "median_actual_over_integrated_LG": 1.0136068172037325
+    },
+    "probe_length": {
+      "0.004": {
+        "count": 90,
+        "median": 1.538309048453126,
+        "q25": 1.2436912111463627,
+        "q75": 1.83780958047315,
+        "fraction_gt_1": 0.9111111111111111,
+        "fraction_gt_1p1": 0.8333333333333334,
+        "fraction_gt_1p2": 0.8
+      },
+      "0.008": {
+        "count": 90,
+        "median": 1.5258873451529253,
+        "q25": 1.226887294853368,
+        "q75": 1.8853259975647574,
+        "fraction_gt_1": 0.8888888888888888,
+        "fraction_gt_1p1": 0.8333333333333334,
+        "fraction_gt_1p2": 0.7777777777777778
+      }
+    },
+    "regression": {
+      "a": -0.06277223773178536,
+      "b": 0.9002149842205257,
+      "a_95ci": [
+        -0.10048569224275616,
+        -0.025058783220814562
+      ],
+      "b_95ci": [
+        0.8478072497530191,
+        0.9526227186880323
+      ],
+      "R2": 0.9279562473829163
+    }
+  },
+  "gate": {
+    "conditions": {
+      "pooled_spearman": true,
+      "medium_high_win_fraction": true,
+      "high_median_R_q": true,
+      "intrinsic_length_match": true,
+      "lowest_sigma_quartile_robustness": true
+    },
+    "decision": "GO",
+    "thresholds": {
+      "minimum_pooled_spearman": 0.7,
+      "minimum_medium_high_win_fraction": 0.8,
+      "minimum_high_median_R_q": 1.2,
+      "maximum_relative_paired_length_mismatch": 0.02,
+      "require_lowest_sigma_quartile_robustness": true
+    }
+  },
+  "interpretation": "E06-R measures local directional utility only; no full-path optimization or deformation was performed."
+}
