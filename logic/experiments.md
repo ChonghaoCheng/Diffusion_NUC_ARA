@@ -191,7 +191,7 @@ space under this local fixed-topology parameterization. See
 
 Registered: 2026-09-12
 
-Status: REGISTERED / NOT RUN.
+Status: COMPLETED / NO-GO (G0); G1 NOT AUTHORIZED.
 
 E06-G moves from failed local fixed-topology optimization to a finite global-layout capacity test.
 It reuses the six qualified E06-R scenes and varies only eight physical root locations and four
@@ -201,3 +201,12 @@ physical reference mesh, then under three frozen placements. G0 measures verifie
 length-controlled headroom, numerical liftability, and root/remesh effects. G1 is blocked unless
 the preregistered G0 cost or strong-confirmed feasibility gate passes. Full definitions and
 non-claims are frozen in `staging/e06g_global_layout_capacity_plan.md`.
+
+Result: the frozen library contained 64 geometrically distinct object-frame layouts and produced
+107 verified strict witnesses across 192 scene-layout evaluations. The coverage-equivalent set
+collapsed to one layout for saddle and contained eight layouts but zero verified witnesses for
+hemisphere. Consequently no scene had an evaluable coverage-equivalent `S_q>=10%`, median
+`Delta_global=0`, and no strong-confirmed feasibility rescue existed. G0 is NO-GO and G1 was not
+run. Non-equivalent layouts did show substantial raw robot-cost and liftability variation, so this
+result closes only the tested root/remesh NUC family under the frozen NUC-equivalence and numerical
+continuation contracts. See `evidence/global_layout_capacity_gate_2026-09-12.md`.
