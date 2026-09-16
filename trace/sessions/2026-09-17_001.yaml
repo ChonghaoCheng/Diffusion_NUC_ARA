@@ -2,9 +2,9 @@ session:
   id: "2026-09-17_001"
   date: "2026-09-17"
   started: "2026-09-17T00:15:00+10:00"
-  last_turn: "2026-09-17T02:30:00+10:00"
-  turn_count: 1
-  summary: "Repaired synchronized global connections, built three multi-state graphs, ran 24 cells, accepted one T27 fixed-route witness, and found no accepted global-recombination or net bound benefit."
+  last_turn: "2026-09-17T04:34:00+10:00"
+  turn_count: 2
+  summary: "Completed E10 on frozen E09-R1 graphs: accepted global recombinations at T30/T33, retained the T27 fallback, and found no paired runtime benefit from source-run proposals."
 
 events_logged:
   - {turn: 1, type: question, id: N186, routing: direct, provenance: user, summary: "Requested corrected complete-surface multi-state routing and refined validation."}
@@ -17,6 +17,14 @@ events_logged:
   - {turn: 1, observation: O83, routing: staged, provenance: ai-suggested}
   - {turn: 1, observation: O84, routing: staged, provenance: ai-suggested}
   - {turn: 1, observation: O85, routing: staged, provenance: ai-suggested}
+  - {turn: 2, type: question, id: N193, routing: direct, provenance: user, summary: "Requested bounded structured global search on the frozen E09-R1 graphs."}
+  - {turn: 2, type: decision, id: N194, routing: direct, provenance: ai-executed, summary: "Froze F/A/B isolation, common prefix archive, fallback retention, and exact source-run actions."}
+  - {turn: 2, type: experiment, id: N195, routing: direct, provenance: ai-executed, summary: "Ran all 18 cells; A/B found T30/T33 candidates and retained T27 F."}
+  - {turn: 2, type: experiment, id: N196, routing: direct, provenance: ai-executed, summary: "Accepted T30/T33 recombinations and T27 fallback under refined sampled validation."}
+  - {turn: 2, type: decision, id: N197, routing: direct, provenance: ai-executed, summary: "Accepted bounded global capability and withheld completeness/source-run benefit claims."}
+  - {turn: 2, observation: O86, routing: staged, provenance: ai-suggested}
+  - {turn: 2, observation: O87, routing: staged, provenance: ai-suggested}
+  - {turn: 2, observation: O88, routing: staged, provenance: ai-suggested}
 
 ai_actions:
   - turn: 1
@@ -34,9 +42,22 @@ ai_actions:
       - "results/e09_continuous_routing_repair_v1/"
       - "staging/e09_continuous_routing_repair_v1_plan.md"
       - "evidence/e09_continuous_routing_repair_v1_2026-09-17.md"
+  - turn: 2
+    action: "Reused verified E09-R1 graph archives; implemented and tested F-prefix initialization, bounded A/B search, exact source runs, screening and fallback retention; executed 18 cells and refined validation; committed Code result defd63315996bceb113a06a57a295b8eaec9a635."
+    provenance: ai-executed
+    files_changed:
+      - "configs/e10_structured_anytime_routing_v1.json"
+      - "src/diffusion_coverage/solvers/structured_routing.py"
+      - "scripts/e10_runner_support.py"
+      - "scripts/run_e10_structured_anytime_routing_v1.py"
+      - "tests/test_structured_routing.py"
+      - "results/e10_structured_anytime_routing_v1/"
+      - "staging/e10_structured_anytime_routing_v1_plan.md"
+      - "evidence/e10_structured_anytime_routing_v1_2026-09-17.md"
 
 claims_touched:
   - {id: E09-R1, action: created, turn: 1}
+  - {id: E10, action: created, turn: 2}
 
 logic_revisions:
   - turn: 1
@@ -47,12 +68,20 @@ logic_revisions:
     signal: empirical-resolution
     provenance: ai-executed
     note: "Synchronized graphs were usable, but only the T27 fixed-route witness passed all refined sampled checks."
+  - turn: 2
+    entry: E10
+    field: experiment registry
+    before: "absent"
+    after: "COMPLETED / ACCEPTED GLOBAL RECOMBINATIONS AT T30 AND T33; F FALLBACK RETAINED AT T27; SOURCE-RUN NET BENEFIT NOT ESTABLISHED"
+    signal: empirical-resolution
+    provenance: ai-executed
+    note: "A/B returned accepted cross-family routes where F had no graph goal; B was slower in every paired cell."
 
 open_threads:
-  - "No accepted globally recombined witness was produced within the frozen search and validation budgets."
-  - "State multiplicity was available but not used by returned routes, so its planning value remains unresolved."
-  - "The prospective bound needs a cheaper implementation before another paired runtime experiment would be justified."
+  - "The accepted recombinations are development-task finite-sampled results; separate frozen placements/surfaces remain untested."
+  - "Source-run proposals supplied no paired runtime saving under the fixed first implementation."
+  - "Online-screen rejection/resumption was implemented and tested synthetically but not naturally exercised by the 17 measured screens."
 
 ai_suggestions_pending:
-  - "Keep O83 scoped to this frozen geometry/model until synchronization is tested elsewhere."
-  - "Do not treat the T27 fixed-route capability result as evidence for global recombination."
+  - "Keep O86 scoped to the three frozen development graphs until separately frozen tasks are tested."
+  - "Do not interpret fallback retention as a global-routing advantage."

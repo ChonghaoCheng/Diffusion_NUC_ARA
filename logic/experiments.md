@@ -330,3 +330,25 @@ All selected routes used rank 0, so retained state multiplicity showed no measur
 G1 made 7,772 prospective prunes but spent 97.1% of its 1,800.7 search seconds in the bound and
 did not save net computation. See
 `evidence/e09_continuous_routing_repair_v1_2026-09-17.md`.
+
+# E10: Structured anytime global coverage routing
+
+Registered: 2026-09-17
+
+Status: COMPLETED / ACCEPTED GLOBAL RECOMBINATIONS AT T30 AND T33; F FALLBACK RETAINED AT T27;
+SOURCE-RUN NET BENEFIT NOT ESTABLISHED.
+
+E10 reuses the frozen E09-R1 graphs and replaces cumulative-admission shutdown with bounded
+progress/segment OPEN buckets, exact-history Pareto records, shared ancestry, retained F prefixes,
+and independently validated fallback handling. A uses atomic edges. B differs only by adding exact
+source-run actions composed from existing source edges. See the frozen contract in
+`staging/e10_structured_anytime_routing_v1_plan.md`.
+
+Result: all 18 F/A/B cells ran. Exhausted F retained the accepted T27 spiral prefix and returned no
+T30/T33 graph goal. A and B returned refined-sampled accepted, one-ON-segment cross-family routes
+at T30 and T33. The selected T30/T27/T33 plans have Jq 96.949149/90.011360/96.153376 and T1/Q4a
+miss/repeat 0.015433/0.046278, 0.018332/0.019571, and 0.018369/0.037363. All A/B cells stopped at
+the truthful 30,000 retained-record safeguard, so no completeness or optimality claim is made. B
+was slower than A in every paired cell; its sole objective difference was a lower-Jq retained route
+at T33/k=2. All 17 online Q3 screens passed, so recovery after an online screen failure was not
+naturally exercised. See `evidence/e10_structured_anytime_routing_v1_2026-09-17.md`.

@@ -1134,3 +1134,44 @@ observations:
     promoted_to: null
     crystallized_via: null
     stale: false
+  - id: O86
+    timestamp: "2026-09-17T04:34:00+10:00"
+    provenance: ai-suggested
+    content: >
+      On a frozen robot-motion graph with usable cross-port ON edges, bounded exact-history search
+      can recover refined-sampled accepted recombinations even when exhaustive fixed-template
+      search has no graph-feasible route.
+    context: "E10 accepted cross-family one-segment routes at T30 and T33 while F exhausted without a graph goal at those placements."
+    potential_type: claim
+    bound_to: [N195, N196, N197]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+  - id: O87
+    timestamp: "2026-09-17T04:34:00+10:00"
+    provenance: ai-suggested
+    content: >
+      Exact multi-edge sweep proposals do not automatically reduce practical search cost when
+      their additional branching and summary work outweigh any reduction in macro-level depth.
+    context: "E10 B was slower than atomic A in every paired cell and evaluated substantially more atomic-equivalent work."
+    potential_type: heuristic
+    bound_to: [N195, N197]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+  - id: O88
+    timestamp: "2026-09-17T04:34:00+10:00"
+    provenance: ai-suggested
+    content: >
+      Keeping independently validated incumbents separate from graph goals provides a practical
+      no-regression guarantee for approximate global searches, but retention alone is not evidence
+      of a global routing improvement.
+    context: "E10 A/B retained the accepted T27 F trajectory while finding no lexicographically better validated T27 candidate."
+    potential_type: constraint
+    bound_to: [N194, N195, N197]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false

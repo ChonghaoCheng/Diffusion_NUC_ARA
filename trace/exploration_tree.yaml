@@ -2499,3 +2499,66 @@ tree:
     evidence: ["Code commit 31c6bb2068c789205924aacd3bab6dba5d8bebbf", "ARA commit 9e64c448161b644a91cfcfcfdda86613577153ee"]
     status: resolved
     also_depends_on: [N191]
+  - id: N193
+    type: question
+    title: "Test bounded structured anytime routing on the frozen E09-R1 graphs"
+    provenance: user
+    timestamp: "2026-09-17T03:20:00+10:00"
+    description: >
+      Determine whether a retained fixed-route fallback, bounded exact-history frontier, candidate
+      screening, and optional coherent source-run actions can produce accepted full-hemisphere
+      recombinations without rebuilding robot graphs.
+    status: resolved
+    also_depends_on: [N188, N190, N191]
+  - id: N194
+    type: decision
+    title: "Freeze E10 graph reuse and three-method isolation"
+    provenance: ai-executed
+    timestamp: "2026-09-17T03:31:00+10:00"
+    choice: >
+      Reuse the three exact E09-R1 graph archives, run F/A/B on all six tasks, give A and B the
+      same exact F-prefix archive and validated fallback, and let B differ only by exact source-run
+      proposals while keeping every atomic edge.
+    alternatives: ["Rebuild IK graphs", "Repeat G1", "Import the failed T30 global route as a seed"]
+    evidence: ["staging/e10_structured_anytime_routing_v1_plan.md", "Code commit 1ffe168"]
+    status: resolved
+    also_depends_on: [N193]
+  - id: N195
+    type: experiment
+    title: "Run eighteen bounded F/A/B search cells"
+    provenance: ai-executed
+    timestamp: "2026-09-17T04:12:00+10:00"
+    result: >
+      F exhausted with the accepted T27 spiral prefix and no T30/T33 graph goal. A and B produced
+      Q2/Q3 candidates at T30 and T33, retained the T27 fallback, and stopped at the explicit
+      30000 ancestry-plus-Pareto-record safeguard in every global cell. B was slower in every
+      paired cell despite evaluating 859891 source-run actions.
+    evidence: ["evidence/e10_structured_anytime_routing_v1_2026-09-17.md", "Code global_results.csv"]
+    status: resolved
+    also_depends_on: [N194]
+  - id: N196
+    type: experiment
+    title: "Validate E10 global candidates through refined sampled checks"
+    provenance: ai-executed
+    timestamp: "2026-09-17T04:25:00+10:00"
+    result: >
+      Selected T30 and T33 cross-family ON recombinations and the T27 fixed fallback passed exact
+      same-sample composition, Q3/Q4 temporal and antithetic coverage checks, sampled task and
+      sigma requirements, joint limits, modeled collisions, activity budget, and Jq replay. The
+      six tasks reduce to three best unique one-ON-segment trajectories.
+    evidence: ["evidence/e10_structured_anytime_routing_v1_2026-09-17.md", "Code final_validation.csv"]
+    status: resolved
+    also_depends_on: [N195]
+  - id: N197
+    type: decision
+    title: "Accept bounded global capability and withhold source-run advantage"
+    provenance: ai-executed
+    timestamp: "2026-09-17T04:34:00+10:00"
+    choice: >
+      Record accepted finite-graph global recombinations at T30 and T33 and no-regression fallback
+      at T27; do not claim completeness, optimality, continuous certification, or a general
+      source-run benefit because all global searches were beam/record limited and B was slower.
+    alternatives: ["Treat Q2 as final", "Claim speedup from fewer macro expansions", "Tune beam widths after outcomes"]
+    evidence: ["evidence/e10_structured_anytime_routing_v1_2026-09-17.md", "Code commit defd63315996bceb113a06a57a295b8eaec9a635"]
+    status: resolved
+    also_depends_on: [N195, N196]
