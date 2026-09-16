@@ -1,7 +1,9 @@
 # E09: full-surface robot-aware coverage routing
 
-Date: 2026-09-16  
-Status: COMPLETED / NUMERICALLY UNRESOLVED CAPABILITY; RECOMBINATION LIMITED; BOUND INFORMATIVE BUT SLOWER  
+Date: 2026-09-16
+
+Status: COMPLETED / NUMERICALLY UNRESOLVED CAPABILITY; RECOMBINATION LIMITED; BOUND INFORMATIVE BUT SLOWER
+
 Code result: `a401dbc7e3bdadea7af2d9420bc090b64b3dfb09` on `exp/e09-global-surface-routing-v1`
 
 ## Contract and implementation

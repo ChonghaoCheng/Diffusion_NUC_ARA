@@ -206,3 +206,7 @@ entries:
       - "Reconciled E09 in logic/experiments.md as numerically unresolved capability, recombination limited, and bound informative but slower; historical E08 and E08-R1 evidence was preserved."
       - "Separated the T30/T33 routing signal from accepted execution and separated G1's genuine pruning information from net runtime benefit."
       - "Did not run a saddle campaign, hardware, Flow Matching, post-result graph expansion, or unauthorized numerical refinement."
+  - turn: "2026-09-16_001#4"
+    notes:
+      - "Recorded publication of the matching E09 Code result and ARA evidence branches as N185."
+      - "Publication changed artifact availability only; no scientific interpretation or experiment result was revised."

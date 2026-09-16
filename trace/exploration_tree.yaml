@@ -2399,3 +2399,16 @@ tree:
     evidence: ["evidence/e09_global_surface_routing_v1_2026-09-16.md", "Code final_validation.csv"]
     status: resolved
     also_depends_on: [N182, N183]
+  - id: N185
+    type: experiment
+    title: "Publish E09 code, results, and ARA evidence branches"
+    provenance: ai-executed
+    timestamp: "2026-09-16T23:59:00+10:00"
+    result: >
+      Pushed the dedicated Code branch through result commit
+      a401dbc7e3bdadea7af2d9420bc090b64b3dfb09 and the ARA evidence branch through initial
+      evidence commit ab9b3bcd1956e05e1e64ca223507521fab37c64a without force. Direct remote-head
+      verification is recorded in the task completion response.
+    evidence: ["Code commit a401dbc7e3bdadea7af2d9420bc090b64b3dfb09", "ARA evidence commit ab9b3bcd1956e05e1e64ca223507521fab37c64a"]
+    status: resolved
+    also_depends_on: [N184]
