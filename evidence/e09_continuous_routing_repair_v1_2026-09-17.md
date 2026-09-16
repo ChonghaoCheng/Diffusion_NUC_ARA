@@ -2,7 +2,7 @@
 
 Date: 2026-09-17 (Australia/Sydney)
 
-Code result: `31c6bb24c031b75dd729ac894d71225a3d60e449` on
+Code result: `31c6bb2068c789205924aacd3bab6dba5d8bebbf` on
 `exp/e09-continuous-routing-repair-v1`.
 
 ## Scope and implementation

@@ -2483,6 +2483,6 @@ tree:
       coverage failure, treat multi-state benefit as unexercised, and report the repeat bound as
       informative but not a net time saving because it consumed 97.1 percent of G1 search time.
     alternatives: ["Accept T30 from Q2", "Compare against buggy E09", "Tune the bound after outcomes"]
-    evidence: ["evidence/e09_continuous_routing_repair_v1_2026-09-17.md", "Code commit 31c6bb24c031b75dd729ac894d71225a3d60e449"]
+    evidence: ["evidence/e09_continuous_routing_repair_v1_2026-09-17.md", "Code commit 31c6bb2068c789205924aacd3bab6dba5d8bebbf"]
     status: resolved
     also_depends_on: [N188, N189, N190]
