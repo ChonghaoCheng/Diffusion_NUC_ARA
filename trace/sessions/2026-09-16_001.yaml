@@ -2,9 +2,9 @@ session:
   id: "2026-09-16_001"
   date: "2026-09-16"
   started: "2026-09-16T23:00:00+10:00"
-  last_turn: "2026-09-16T18:51:38+10:00"
-  turn_count: 3
-  summary: "Published E08, then opened E08-R1 path-semantics repair; preflight and deterministic readiness fixes began while the detailed attachment remained unavailable."
+  last_turn: "2026-09-16T19:46:00+10:00"
+  turn_count: 4
+  summary: "Published E08, then completed the bounded E08-R1 path-semantics replay: three hemisphere geometries passed reference checks and five cases remained resolution-unresolved."
 
 events_logged:
   - {turn: 1, type: question, id: N165, routing: direct, provenance: user, summary: "Opened a matched finite-graph completion-bound experiment after separating the IK implementation issue."}
@@ -20,6 +20,9 @@ events_logged:
   - {turn: 2, type: experiment, id: N172, routing: direct, provenance: ai-executed, summary: "Committed and pushed matching E08 code/results and ARA evidence branches."}
   - {turn: 3, type: question, id: N173, routing: direct, provenance: user, summary: "Opened an eight-candidate audit separating legacy path reconstruction, reference footprint geometry, genuine defects, and uncertainty."}
   - {turn: 3, type: decision, id: N174, routing: direct, provenance: ai-executed, summary: "Deferred measured replay rather than invent attachment-specific saddle bounds, quadrature definitions, or decision rules."}
+  - {turn: 4, type: decision, id: N175, routing: direct, provenance: user-revised, summary: "Froze the restored eight-candidate L/P/R analytical-reference contract before outcomes."}
+  - {turn: 4, type: experiment, id: N176, routing: direct, provenance: ai-executed, summary: "Replayed all eight candidates; three hemisphere geometries were accepted and five cases were resolution-unresolved."}
+  - {turn: 4, type: decision, id: N177, routing: direct, provenance: ai-executed, summary: "Stopped without treating geometry acceptance as robot qualification or resuming real planning/FM."}
 
 ai_actions:
   - turn: 1
@@ -48,9 +51,23 @@ ai_actions:
       - "src/diffusion_coverage/solvers/history_search.py"
       - "scripts/run_global_completion_v1.py"
       - "tests/test_history_search.py"
+  - turn: 4
+    action: "Implemented the ordered-trace evaluator and analytical references, froze candidate/quadrature hashes, ran the bounded replay, corrected IK status semantics and shared reachability, generated compact evidence, and committed Code result cc98cdc8117c7a170e2e03a08fee620f45cd7c30."
+    provenance: ai-executed
+    files_changed:
+      - "configs/e08_path_semantics_v1.json"
+      - "src/diffusion_coverage/coverage/ordered_trace_evaluator.py"
+      - "src/diffusion_coverage/solvers/history_search.py"
+      - "scripts/audit_e08_path_semantics.py"
+      - "tests/test_ordered_trace_evaluator.py"
+      - "tests/test_history_search.py"
+      - "results/e08_path_semantics_v1/"
+      - "staging/e08_path_semantics_v1_plan.md"
+      - "evidence/e08_path_semantics_v1_2026-09-16.md"
 
 claims_touched:
   - {id: E08, action: created, turn: 1}
+  - {id: E08-R1, action: created, turn: 4}
 
 logic_revisions:
   - turn: 1
@@ -71,7 +88,7 @@ key_context:
 open_threads:
   - "A future real-surface completion-bound comparison requires an independently preregistered path family that first meets the unchanged P coverage semantics."
   - "The finite-graph bound has zero observed false prunes here, but its net runtime and information gain on a qualified real motion graph remain unknown."
-  - "E08-R1 measured replay requires the missing Codex_E08_R1_path_semantics_repair.md definitions before its reference evaluator and frozen convergence contract can be implemented."
+  - "The four saddle candidates and hemisphere raster-v remain unresolved under the bounded reference schedule; no additional refinement is authorized by E08-R1."
 
 ai_suggestions_pending:
   - "Keep O76 as implementation-specific until the researcher confirms the interpretation or another robot/tool geometry is tested."

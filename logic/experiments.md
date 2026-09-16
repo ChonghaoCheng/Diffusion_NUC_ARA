@@ -260,3 +260,28 @@ surface motion graph was admitted and the S0/S1 real-surface comparison and fina
 had zero runs. This is a premise failure for the registered prototype, not evidence for or against
 completion-bound runtime benefit on qualified full-surface graphs. See
 `evidence/global_completion_bound_v1_2026-09-16.md`.
+
+# E08-R1: Path-semantics repair and frozen-candidate replay
+
+Registered: 2026-09-16
+
+Status: COMPLETED / THREE GEOMETRIES ACCEPTED, FIVE NUMERICALLY UNRESOLVED; ROBOT REQUALIFICATION NOT RUN.
+
+E08-R1 audits exactly the eight distinct geometries used by E08. It separates legacy mesh
+shortest-path reconstruction (L), prescribed path semantics under the same approximate footprint
+backend (P), and a prescribed-path analytical-surface reference (R). The reference uses exact
+spherical angular distance and chord/straight-chart intrinsic bounds with an uncertainty-aware
+episode dynamic program on the saddle. It preserves the 0.008 m footprint and 0.02/0.10
+miss/repeat limits and runs only the preregistered five-setting convergence schedule.
+
+Result: all eight legacy rows replayed exactly within the registered 1e-8 warning threshold.
+Removing implicit route reconstruction reduced every candidate's path length and repeat error,
+establishing a material evaluator artifact. Under R, both hemisphere raster-u phases and the
+hemisphere spiral were stable `accepted_under_reference_checks`. Hemisphere raster-v retained a
+large repeat error, while all saddle candidates retained miss lower bounds above the contract;
+those five cases remain `unresolved` because their final Q1/Q2 changes exceeded 0.002. No stable
+reference rejection was issued. Geometry acceptance is not robot qualification. Historical T30
+and T33 pointwise IK rows fail the frozen sampled singularity threshold, and dense transition,
+coverage, and overall execution checks remain NOT_RUN. The earlier E08 real-surface planning
+hypothesis remains untested: no real graph, real S0/S1 run, or FM run occurred. See
+`evidence/e08_path_semantics_v1_2026-09-16.md`.

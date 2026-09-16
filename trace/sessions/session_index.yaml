@@ -43,8 +43,8 @@ sessions:
     open_threads: 3
   - id: "2026-09-16_001"
     date: "2026-09-16"
-    summary: "Published E08, then opened E08-R1 path-semantics repair; preflight and deterministic readiness fixes began while the detailed attachment remained unavailable."
-    turn_count: 3
-    events_count: 13
-    claims_touched: [E08]
+    summary: "Published E08, then completed the bounded E08-R1 path-semantics replay: three hemisphere geometries passed reference checks and five cases remained resolution-unresolved."
+    turn_count: 4
+    events_count: 16
+    claims_touched: [E08, E08-R1]
     open_threads: 3

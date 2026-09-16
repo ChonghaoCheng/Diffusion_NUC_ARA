@@ -2275,3 +2275,42 @@ tree:
     evidence: ["code worktree exp/e08-path-semantics-repair-v1"]
     status: active
     also_depends_on: [N173]
+  - id: N175
+    type: decision
+    title: "Freeze the restored E08-R1 analytical reference contract"
+    provenance: user-revised
+    timestamp: "2026-09-16T19:00:00+10:00"
+    choice: >
+      After the missing task text was supplied, freeze exactly eight candidates, three L/P/R
+      conditions, nested Q0/Q1/Q2 analytical quadrature, saddle membership uncertainty DP, and the
+      final 0.002 stability rule before reading candidate outcomes.
+    alternatives: ["Infer missing rules", "Tune paths", "Add further refinement after outcomes"]
+    evidence: ["staging/e08_path_semantics_v1_plan.md", "Code config configs/e08_path_semantics_v1.json"]
+    status: resolved
+    also_depends_on: [N173, N174]
+  - id: N176
+    type: experiment
+    title: "Replay eight E08 geometries under L/P/R path semantics"
+    provenance: ai-executed
+    timestamp: "2026-09-16T19:46:00+10:00"
+    result: >
+      All legacy rows replayed without warnings. Path preservation reduced length and repeat for
+      every candidate. The analytical reference stably accepted three hemisphere geometries;
+      hemisphere raster-v and all saddle geometries remained unresolved under the frozen final
+      resolution rule.
+    evidence: ["evidence/e08_path_semantics_v1_2026-09-16.md", "Code commit cc98cdc8117c7a170e2e03a08fee620f45cd7c30"]
+    status: resolved
+    also_depends_on: [N175]
+  - id: N177
+    type: decision
+    title: "Retain planning benefit as untested after geometry repair"
+    provenance: ai-executed
+    timestamp: "2026-09-16T19:46:00+10:00"
+    choice: >
+      Record geometry acceptance separately from robot execution, correct IK and search readiness
+      semantics, and stop without robot requalification, real graph construction, S0/S1 search, or
+      Flow Matching.
+    alternatives: ["Treat accepted geometry as robot qualification", "Resume E08 planning", "Add refinement to resolve saddle"]
+    evidence: ["evidence/e08_path_semantics_v1_2026-09-16.md"]
+    status: resolved
+    also_depends_on: [N176]
