@@ -24,7 +24,7 @@ sessions:
     date: "2026-09-09"
     summary: "Implemented and calibrated E06, ran 120 candidate executions, and stopped at the preregistered no-go for E07."
     turn_count: 5
-    events_count: 16
+    events_count: 17
     claims_touched: [A03, E06, E07, H25]
     open_threads: 4
   - id: "2026-09-10_001"

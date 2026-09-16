@@ -1036,3 +1036,31 @@ observations:
     promoted_to: null
     crystallized_via: null
     stale: false
+  - id: O79
+    timestamp: "2026-09-16T19:55:00+10:00"
+    provenance: ai-suggested
+    content: >
+      Implicit mesh-shortest-path reconstruction inside a coverage evaluator can materially change
+      both the length and temporal episode count of a prescribed surface trajectory, even when the
+      footprint backend and area samples are held fixed.
+    context: "E08-R1 L/P isolation reduced path length and repeat error for all eight frozen candidates."
+    potential_type: constraint
+    bound_to: [N176]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+  - id: O80
+    timestamp: "2026-09-16T19:55:00+10:00"
+    provenance: ai-suggested
+    content: >
+      On the frozen hemisphere paths, retaining the old mesh footprint approximation after fixing
+      trace semantics can still produce large false missed-coverage estimates relative to exact
+      analytical spherical distance and area quadrature.
+    context: "E08-R1 P/R comparison; three hemisphere geometries passed stable reference checks after P still reported large miss fractions."
+    potential_type: claim
+    bound_to: [N176]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false

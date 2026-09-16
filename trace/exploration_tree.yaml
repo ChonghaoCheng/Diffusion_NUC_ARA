@@ -2314,3 +2314,15 @@ tree:
     evidence: ["evidence/e08_path_semantics_v1_2026-09-16.md"]
     status: resolved
     also_depends_on: [N176]
+  - id: N178
+    type: experiment
+    title: "Publish E08-R1 code, compact results, and research evidence"
+    provenance: ai-executed
+    timestamp: "2026-09-16T19:55:00+10:00"
+    result: >
+      Pushed the dedicated Code and ARA branches without force. Server-side ls-remote checks
+      matched local Code result commit cc98cdc8117c7a170e2e03a08fee620f45cd7c30 and the initial
+      ARA evidence commit da5ca2a48f61348d64e80e27c7e82cf8b0437ea3.
+    evidence: ["Code commit cc98cdc8117c7a170e2e03a08fee620f45cd7c30", "ARA commit da5ca2a48f61348d64e80e27c7e82cf8b0437ea3"]
+    status: resolved
+    also_depends_on: [N177]

@@ -23,6 +23,7 @@ events_logged:
   - {turn: 4, type: decision, id: N175, routing: direct, provenance: user-revised, summary: "Froze the restored eight-candidate L/P/R analytical-reference contract before outcomes."}
   - {turn: 4, type: experiment, id: N176, routing: direct, provenance: ai-executed, summary: "Replayed all eight candidates; three hemisphere geometries were accepted and five cases were resolution-unresolved."}
   - {turn: 4, type: decision, id: N177, routing: direct, provenance: ai-executed, summary: "Stopped without treating geometry acceptance as robot qualification or resuming real planning/FM."}
+  - {turn: 4, type: experiment, id: N178, routing: direct, provenance: ai-executed, summary: "Pushed and independently verified the dedicated E08-R1 Code and ARA branches."}
 
 ai_actions:
   - turn: 1
@@ -64,6 +65,10 @@ ai_actions:
       - "results/e08_path_semantics_v1/"
       - "staging/e08_path_semantics_v1_plan.md"
       - "evidence/e08_path_semantics_v1_2026-09-16.md"
+  - turn: 4
+    action: "Pushed both dedicated branches and verified each server ref with ls-remote against its local HEAD."
+    provenance: ai-executed
+    files_changed: []
 
 claims_touched:
   - {id: E08, action: created, turn: 1}
