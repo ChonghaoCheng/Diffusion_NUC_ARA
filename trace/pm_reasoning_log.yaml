@@ -194,3 +194,8 @@ entries:
       - "Added E08 to logic/experiments.md as completed with premise failure before real comparison; this is an experiment-registry reconciliation, not a new supported planning claim."
       - "Kept C01 unchanged because E08 did not test or contradict the established local directional metric claim."
       - "Did not treat empty real S0/S1 tables as negative completion-bound evidence and did not authorize Flow Matching."
+  - turn: "2026-09-16_001#2"
+    notes:
+      - "Recorded the user-authorized publication of both matching E08 branches as N172."
+      - "Made no logic-layer revision: publication changes artifact availability, not the bounded experimental interpretation."
+      - "No observation was staged because the turn introduced no new scientific interpretation."

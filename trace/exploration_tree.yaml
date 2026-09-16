@@ -2238,3 +2238,15 @@ tree:
     evidence: ["evidence/global_completion_bound_v1_2026-09-16.md", "logic/experiments.md"]
     status: resolved
     also_depends_on: [N170]
+  - id: N172
+    type: experiment
+    title: "Publish E08 code, results, and ARA evidence branches"
+    provenance: ai-executed
+    timestamp: "2026-09-16T23:30:00+10:00"
+    result: >
+      Committed and pushed the matching exp/global-completion-bound-v1 branches. The code branch
+      contains the implementation, tests, frozen manifests, and complete bounded result set at
+      commit 14c7fbd; the ARA evidence branch was first published at commit c6ee1c7.
+    evidence: ["code commit 14c7fbd", "ARA commit c6ee1c7"]
+    status: resolved
+    also_depends_on: [N171]
