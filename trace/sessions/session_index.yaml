@@ -41,3 +41,10 @@ sessions:
     events_count: 40
     claims_touched: [C01, E06-R, E06-R2, E06-J, E06-G, E06-G2, E07]
     open_threads: 3
+  - id: "2026-09-16_001"
+    date: "2026-09-16"
+    summary: "Implemented E08 and validated its finite-graph mathematics, but strict reference qualification failed before any real-surface S0/S1 comparison."
+    turn_count: 1
+    events_count: 10
+    claims_touched: [E08]
+    open_threads: 2

@@ -2146,3 +2146,95 @@ tree:
     evidence: ["code commit ad1696b", "ARA commit 0b5f07f"]
     status: resolved
     also_depends_on: [N163]
+  - id: N165
+    type: question
+    title: "Test a prefix-conditioned completion bound on a verified finite motion graph"
+    provenance: user
+    timestamp: "2026-09-16T23:00:00+10:00"
+    description: >
+      After separating the free-tool-roll IK implementation issue, can an admissible lower bound
+      on unavoidable future repeat action reject doomed history-bearing prefixes early enough to
+      reduce complete-surface planning work on the same frozen kinematic graph?
+    status: resolved
+    also_depends_on: [N161, N162, N163]
+  - id: N166
+    type: decision
+    title: "Freeze E08 before planner outcomes"
+    provenance: ai-executed
+    timestamp: "2026-09-16T23:00:00+10:00"
+    choice: >
+      Create isolated code and ARA worktrees, freeze the strict P task, four candidate families per
+      surface, finite-graph limits, exact S0/S1 difference, oracle gate, and sampled verification
+      contract before qualification or search results.
+    alternatives: ["Tune candidate families after qualification", "Reuse historical loose tolerances", "Compare different graph libraries", "Start Flow Matching"]
+    evidence: ["staging/global_completion_bound_v1_plan.md", "configs/global_completion_bound_v1.json"]
+    status: resolved
+    also_depends_on: [N165]
+  - id: N167
+    type: experiment
+    title: "Audit free-roll kinematics and compare six-row versus five-row IK"
+    provenance: ai-executed
+    timestamp: "2026-09-16T23:00:00+10:00"
+    result: >
+      The real XML and twenty-one resolved model resources were hashed. Forty-eight configuration
+      checks identified q6 as the sampled 5D task null direction without modeled collision changes.
+      Both backends completed all six canonical lifts; the five-row backend removed nearly all q6
+      accumulation and reduced aggregate joint path length for both surfaces.
+    evidence: ["evidence/global_completion_bound_v1_2026-09-16.md", "results/global_completion_bound_v1/preflight.json", "results/global_completion_bound_v1/ik_comparison.csv"]
+    status: resolved
+    also_depends_on: [N166]
+  - id: N168
+    type: experiment
+    title: "Run strict full-surface reference qualification"
+    provenance: ai-executed
+    timestamp: "2026-09-16T23:00:00+10:00"
+    result: >
+      Evaluated all twenty-four frozen scene-family pairs. None met the P finite-footprint miss and
+      repeat limits before IK, so no scene supplied a qualified complete reference and no real
+      finite motion graph was admitted.
+    evidence: ["evidence/global_completion_bound_v1_2026-09-16.md", "results/global_completion_bound_v1/canonical_qualification.csv"]
+    status: resolved
+    also_depends_on: [N166, N167]
+  - id: N169
+    type: experiment
+    title: "Validate coverage summaries and the completion bound against an independent oracle"
+    provenance: ai-executed
+    timestamp: "2026-09-16T23:00:00+10:00"
+    result: >
+      Thirty-two deterministic integer-weighted graphs produced 3,079 checked prefixes and 2,912
+      completable prefixes with zero compressed-state mismatches, inadmissible bounds, false
+      prunes, or search-objective mismatches. Thirty-six focused and inherited tests passed.
+    evidence: ["evidence/global_completion_bound_v1_2026-09-16.md", "results/global_completion_bound_v1/bound_validation.json"]
+    status: resolved
+    also_depends_on: [N166]
+  - id: N170
+    type: dead_end
+    title: "Real-surface S0/S1 comparison blocked by reference qualification"
+    provenance: ai-executed
+    timestamp: "2026-09-16T23:00:00+10:00"
+    hypothesis: >
+      At least one saddle and one hemisphere scene from the frozen candidate families will provide
+      a strict complete P reference from which to build matched real-surface graphs.
+    failure_mode: >
+      Every preregistered family violated the new coverage contract before IK; the smallest missed
+      fraction occurred on hemisphere raster-v, but its repeat action was far above budget.
+    lesson: >
+      A correct finite-graph completion bound can be validated independently, but its real-surface
+      computational utility remains untested until a complete reference is qualified under the
+      same strict footprint semantics without post-result family tuning.
+    evidence: ["evidence/global_completion_bound_v1_2026-09-16.md"]
+    status: resolved
+    also_depends_on: [N168, N169]
+  - id: N171
+    type: decision
+    title: "Stop E08 without real search or Flow Matching"
+    provenance: ai-executed
+    timestamp: "2026-09-16T23:00:00+10:00"
+    choice: >
+      Record all six scenes as not qualified, produce zero real S0/S1 runs, retain the mathematical
+      prototype as small-graph evidence only, and stop without changing thresholds, adding families,
+      sweeping symmetry, or starting Flow Matching.
+    alternatives: ["Relax repeat tolerance", "Add candidate families after observing failure", "Use the tiny graphs as a substitute for full-surface evidence", "Start Flow Matching"]
+    evidence: ["evidence/global_completion_bound_v1_2026-09-16.md", "logic/experiments.md"]
+    status: resolved
+    also_depends_on: [N170]

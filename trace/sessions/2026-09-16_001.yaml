@@ -1,0 +1,63 @@
+session:
+  id: "2026-09-16_001"
+  date: "2026-09-16"
+  started: "2026-09-16T23:00:00+10:00"
+  last_turn: "2026-09-16T23:00:00+10:00"
+  turn_count: 1
+  summary: "Implemented E08 and validated its finite-graph mathematics, but strict reference qualification failed before any real-surface S0/S1 comparison."
+
+events_logged:
+  - {turn: 1, type: question, id: N165, routing: direct, provenance: user, summary: "Opened a matched finite-graph completion-bound experiment after separating the IK implementation issue."}
+  - {turn: 1, type: decision, id: N166, routing: direct, provenance: ai-executed, summary: "Froze P, candidate families, graph limits, oracle gate, and S0/S1 comparison before outcomes."}
+  - {turn: 1, type: experiment, id: N167, routing: direct, provenance: ai-executed, summary: "Audited the real XML/q6 structure and completed the six-scene legacy6/task5 comparison."}
+  - {turn: 1, type: experiment, id: N168, routing: direct, provenance: ai-executed, summary: "Ran twenty-four strict full-surface reference qualifications; none met P coverage."}
+  - {turn: 1, type: experiment, id: N169, routing: direct, provenance: ai-executed, summary: "Validated summaries, bound admissibility, false pruning, and compressed search against an independent oracle."}
+  - {turn: 1, type: dead_end, id: N170, routing: direct, provenance: ai-executed, summary: "Real-surface S0/S1 comparison was blocked by the empty qualified reference set."}
+  - {turn: 1, type: decision, id: N171, routing: direct, provenance: ai-executed, summary: "Stopped without post-result tuning, real search claims, or Flow Matching."}
+  - {turn: 1, observation: O76, routing: staged, provenance: ai-suggested}
+  - {turn: 1, observation: O77, routing: staged, provenance: ai-suggested}
+  - {turn: 1, observation: O78, routing: staged, provenance: ai-suggested}
+
+ai_actions:
+  - turn: 1
+    action: "Created isolated code/ARA worktrees; froze E08; implemented explicit task5 IK, exact episode summaries, completion bound, one history search, staged CLI, oracle tests, manifests, reports, and append-only ARA evidence; executed all gated stages without real search after qualification failure."
+    provenance: ai-executed
+    files_changed:
+      - "configs/global_completion_bound_v1.json"
+      - "src/diffusion_coverage/robot/ur5e_mujoco.py"
+      - "src/diffusion_coverage/coverage/episode_summary.py"
+      - "src/diffusion_coverage/solvers/completion_bound.py"
+      - "src/diffusion_coverage/solvers/history_search.py"
+      - "scripts/run_global_completion_v1.py"
+      - "scripts/summarize_global_completion_v1.py"
+      - "tests/test_completion_bound.py"
+      - "results/global_completion_bound_v1/"
+      - "staging/global_completion_bound_v1_plan.md"
+      - "evidence/global_completion_bound_v1_2026-09-16.md"
+
+claims_touched:
+  - {id: E08, action: created, turn: 1}
+
+logic_revisions:
+  - turn: 1
+    entry: E08
+    field: experiment registry
+    before: "absent"
+    after: "COMPLETED / PREMISE FAILURE BEFORE REAL-SURFACE COMPARISON"
+    signal: empirical-resolution
+    provenance: ai-executed
+    note: "The frozen qualification gate admitted no scene; finite-graph correctness passed but real utility was not tested."
+
+key_context:
+  - turn: 1
+    excerpt: "The purpose is to separate the free-roll IK implementation diagnosis from independent planning benefit on the same verified finite graph."
+  - turn: 1
+    excerpt: "No complete reference means qualification failure must be reported without loosening thresholds, cropping surfaces, or substituting a tiny graph for the real comparison."
+
+open_threads:
+  - "A future real-surface completion-bound comparison requires an independently preregistered path family that first meets the unchanged P coverage semantics."
+  - "The finite-graph bound has zero observed false prunes here, but its net runtime and information gain on a qualified real motion graph remain unknown."
+
+ai_suggestions_pending:
+  - "Keep O76 as implementation-specific until the researcher confirms the interpretation or another robot/tool geometry is tested."
+  - "Do not promote O77 into a real-planning benefit claim without a qualified frozen full-surface graph."

@@ -234,3 +234,29 @@ had moved the inherited coarse-mesh hemisphere trace by up to `6.179 mm`, invali
 transfer of E06-R full-lift qualification. Thus the frozen capacity gate is NO-GO and Stage D was
 not run, but the primary hemisphere orientation-cost mechanism remains unobserved rather than
 shown to be small. See `evidence/symmetry_preserving_global_layout_2026-09-12.md`.
+
+# E08: Global coverage completion-bound prototype
+
+Registered: 2026-09-16
+
+Status: COMPLETED / PREMISE FAILURE BEFORE REAL-SURFACE COMPARISON.
+
+E08 separates a free-tool-roll IK correction from a finite-graph planning test. The diagnostic
+keeps the historical six-row DLS backend and adds an explicit five-row position/tool-axis backend.
+The planner represents ordered finite-footprint episodes exactly on a frozen membership graph and
+compares the same history-aware label search without (S0) or with (S1) an admissible,
+prefix-conditioned lower bound on future repeat action. The full pre-result contract is frozen in
+`staging/global_completion_bound_v1_plan.md`.
+
+Result: the actual XML audit confirmed q6 as the numerical 5D task null direction under the sampled
+task, joint-range, and modeled-collision checks. Both backends completed all six historical
+canonical lifts, while the five-row backend removed the large unnecessary q6 accumulation and
+reduced joint-path length; this remains an implementation diagnosis. The coverage summary and
+completion bound matched an independent full visit-count oracle on 32 deterministic random graphs,
+3,079 prefixes, and 2,912 completable prefixes, with zero state mismatches, inadmissible bounds,
+false prunes, or search-objective mismatches. However, none of the 24 preregistered full-surface
+candidate/placement pairs met the new P coverage contract even before IK. Consequently no real
+surface motion graph was admitted and the S0/S1 real-surface comparison and final plan verification
+had zero runs. This is a premise failure for the registered prototype, not evidence for or against
+completion-bound runtime benefit on qualified full-surface graphs. See
+`evidence/global_completion_bound_v1_2026-09-16.md`.

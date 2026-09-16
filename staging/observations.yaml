@@ -994,3 +994,45 @@ observations:
     promoted_to: null
     crystallized_via: null
     stale: false
+  - id: O76
+    timestamp: "2026-09-16T23:00:00+10:00"
+    provenance: ai-suggested
+    content: >
+      For the sampled real UR5e free-tool-roll task, projecting DLS to the five controlled task
+      coordinates removes unnecessary wrist-3 motion and lowers complete canonical joint-path
+      length without changing the task singularity measure.
+    context: "E08 A1/A2 XML audit and matched six-scene legacy6/task5 comparison; treated as an implementation diagnosis rather than planning novelty."
+    potential_type: claim
+    bound_to: [N167]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+  - id: O77
+    timestamp: "2026-09-16T23:00:00+10:00"
+    provenance: ai-suggested
+    content: >
+      Prefix-frozen optimistic repeat distances and their area-weighted completion quantile are
+      admissible for the tested finite membership graphs, including unequal area, shared
+      bottlenecks, and OFF reconfiguration, but their real-surface search utility remains untested.
+    context: "E08 deterministic full-visit oracle validation passed, while the real qualification set was empty."
+    potential_type: claim
+    bound_to: [N169, N170]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+  - id: O78
+    timestamp: "2026-09-16T23:00:00+10:00"
+    provenance: ai-suggested
+    content: >
+      Failure of the four preregistered candidate families to meet the strict P coverage budget is
+      a reference-qualification failure and does not decide whether the completion bound would help
+      on another independently qualified full-surface finite graph.
+    context: "E08 stopped before real graph construction rather than tuning families or thresholds after outcomes."
+    potential_type: constraint
+    bound_to: [N168, N170, N171]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
