@@ -43,8 +43,8 @@ sessions:
     open_threads: 3
   - id: "2026-09-16_001"
     date: "2026-09-16"
-    summary: "Implemented and published E08 with validated finite-graph mathematics; strict reference qualification failed before any real-surface S0/S1 comparison."
-    turn_count: 2
-    events_count: 11
+    summary: "Published E08, then opened E08-R1 path-semantics repair; preflight and deterministic readiness fixes began while the detailed attachment remained unavailable."
+    turn_count: 3
+    events_count: 13
     claims_touched: [E08]
-    open_threads: 2
+    open_threads: 3

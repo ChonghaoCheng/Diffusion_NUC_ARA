@@ -2250,3 +2250,28 @@ tree:
     evidence: ["code commit 14c7fbd", "ARA commit c6ee1c7"]
     status: resolved
     also_depends_on: [N171]
+  - id: N173
+    type: question
+    title: "Audit E08 qualification under path-preserving coverage semantics"
+    provenance: user
+    timestamp: "2026-09-16T18:51:38+10:00"
+    description: >
+      For the eight frozen E08 geometric candidates, separate the contribution of legacy
+      shortest-path trajectory reconstruction, footprint or surface approximation, genuine
+      coverage defects, and remaining numerical uncertainty without changing the paths or
+      coverage budget.
+    status: active
+    also_depends_on: [N168, N170]
+  - id: N174
+    type: decision
+    title: "Do not invent missing E08-R1 reference definitions"
+    provenance: ai-executed
+    timestamp: "2026-09-16T18:51:38+10:00"
+    choice: >
+      Complete repository preflight and deterministic graph-readiness repairs, but defer the
+      measured geometry replay until the missing attachment restores the specified saddle
+      intrinsic bounds, uncertainty dynamic program, Q0/Q1/Q2 definitions, and decision rules.
+    alternatives: ["Infer an unregistered reference evaluator", "Run the candidates before freezing the missing definitions"]
+    evidence: ["code worktree exp/e08-path-semantics-repair-v1"]
+    status: active
+    also_depends_on: [N173]
