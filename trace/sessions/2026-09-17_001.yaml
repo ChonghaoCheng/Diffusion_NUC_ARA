@@ -13,6 +13,7 @@ events_logged:
   - {turn: 1, type: experiment, id: N189, routing: direct, provenance: ai-executed, summary: "Ran all 24 cold search cells; three rows returned two unique graph witnesses."}
   - {turn: 1, type: experiment, id: N190, routing: direct, provenance: ai-executed, summary: "Accepted the T27 fixed route and rejected the T30 global route under refined sampled checks."}
   - {turn: 1, type: decision, id: N191, routing: direct, provenance: ai-executed, summary: "Withheld global-routing and state-multiplicity benefit; recorded the bound as informative but slower."}
+  - {turn: 1, type: experiment, id: N192, routing: direct, provenance: ai-executed, summary: "Pushed both dedicated branches and verified their server refs with ls-remote."}
   - {turn: 1, observation: O83, routing: staged, provenance: ai-suggested}
   - {turn: 1, observation: O84, routing: staged, provenance: ai-suggested}
   - {turn: 1, observation: O85, routing: staged, provenance: ai-suggested}

@@ -2486,3 +2486,16 @@ tree:
     evidence: ["evidence/e09_continuous_routing_repair_v1_2026-09-17.md", "Code commit 31c6bb2068c789205924aacd3bab6dba5d8bebbf"]
     status: resolved
     also_depends_on: [N188, N189, N190]
+  - id: N192
+    type: experiment
+    title: "Publish E09-R1 Code results and ARA evidence branches"
+    provenance: ai-executed
+    timestamp: "2026-09-17T03:00:00+10:00"
+    result: >
+      Pushed the dedicated Code branch through result commit
+      31c6bb2068c789205924aacd3bab6dba5d8bebbf and the ARA evidence branch through corrected
+      evidence commit 9e64c448161b644a91cfcfcfdda86613577153ee without force. Direct server-side
+      ls-remote checks matched both local commits at the time of verification.
+    evidence: ["Code commit 31c6bb2068c789205924aacd3bab6dba5d8bebbf", "ARA commit 9e64c448161b644a91cfcfcfdda86613577153ee"]
+    status: resolved
+    also_depends_on: [N191]
