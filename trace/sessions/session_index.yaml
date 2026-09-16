@@ -48,3 +48,10 @@ sessions:
     events_count: 16
     claims_touched: [E08, E08-R1]
     open_threads: 3
+  - id: "2026-09-17_001"
+    date: "2026-09-17"
+    summary: "Repaired synchronized global connections, built three multi-state graphs, ran 24 cells, accepted one T27 fixed-route witness, and found no accepted global-recombination or net bound benefit."
+    turn_count: 1
+    events_count: 9
+    claims_touched: [E09-R1]
+    open_threads: 3

@@ -307,3 +307,26 @@ executions. T30/T33 k=2 show a finite-graph direction-reversal plus OFF-reconfig
 signal relative to exhausted F, but no validated global-recombination advantage. G1 made 255
 genuine prospective-repeat prunes and reduced expansions, while its 98.68 seconds of bound work
 made it slower overall. See `evidence/e09_global_surface_routing_v1_2026-09-16.md`.
+
+# E09-R1: Synchronized continuous connections and multi-state routing
+
+Registered: 2026-09-17
+
+Status: COMPLETED / ONE FIXED-ROUTE WITNESS ACCEPTED; GLOBAL RECOMBINATION UNACCEPTED;
+MULTI-STATE EFFECT UNRESOLVED; PROSPECTIVE BOUND SLOWER.
+
+E09-R1 repairs synchronized endpoint-targeted traces, enumerates all eight scheduled port seeds,
+retains up to four effective IK states, corrects F's repeat/Jq Pareto and OFF-progress semantics,
+and runs F/G0/G1/S on three repaired frozen graphs. The geometry bank, placements, thresholds,
+starts, and construction/search limits are inherited unchanged from E09. See
+`staging/e09_continuous_routing_repair_v1_plan.md`.
+
+Result: T30/T27/T33 graphs contain 1,529/1,573/1,622 accepted cross-port ON edges and multiple
+effective states at 237/238/238 ports. All 24 cells ran. F exhaustively found one shared T27
+spiral-prefix witness for k=1/2; it passes the Q3/Q4, temporal, antithetic phase, sampled robot,
+activity, and composition checks. G1 found one cross-family T30 route, but its stable Q3 missed
+coverage exceeds 0.02. No other graph plans were returned within the resident-label/time limits.
+All selected routes used rank 0, so retained state multiplicity showed no measured route benefit.
+G1 made 7,772 prospective prunes but spent 97.1% of its 1,800.7 search seconds in the bound and
+did not save net computation. See
+`evidence/e09_continuous_routing_repair_v1_2026-09-17.md`.

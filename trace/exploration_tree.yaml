@@ -2412,3 +2412,77 @@ tree:
     evidence: ["Code commit a401dbc7e3bdadea7af2d9420bc090b64b3dfb09", "ARA evidence commit ab9b3bcd1956e05e1e64ca223507521fab37c64a"]
     status: resolved
     also_depends_on: [N184]
+  - id: N186
+    type: question
+    title: "Repair continuous connection semantics and test multi-state global routing"
+    provenance: user
+    timestamp: "2026-09-17T00:15:00+10:00"
+    description: >
+      Determine whether synchronized endpoint-targeted ON witnesses and actual multi-state port
+      retention enable accepted complete-hemisphere routing, improve the fixed-route baseline,
+      change the result relative to an induced single-state graph, or make the repeat bound useful.
+    status: resolved
+    also_depends_on: [N181, N182, N184]
+  - id: N187
+    type: decision
+    title: "Freeze E09-R1 geometry, starts, four methods, and refined validation"
+    provenance: ai-executed
+    timestamp: "2026-09-17T00:25:00+10:00"
+    choice: >
+      Preserve the E09 geometry hash, starts, thresholds and budgets; introduce synchronized
+      traces, enumerate all eight seeds, derive a one-state induced subgraph, run cold F/G0/G1/S,
+      and validate fixed witnesses through Q4 and one antithetic phase check.
+    alternatives: ["Tune connector geometry", "Choose new common starts", "Accept Q2 alone"]
+    evidence: ["staging/e09_continuous_routing_repair_v1_plan.md", "Code commit 6b990e0555e1a56aa441a95cccfb818de74c702f"]
+    status: resolved
+    also_depends_on: [N186]
+  - id: N188
+    type: experiment
+    title: "Construct synchronized multi-state graphs with usable cross-port ON edges"
+    provenance: ai-executed
+    timestamp: "2026-09-17T01:10:00+10:00"
+    result: >
+      T30/T27/T33 retained 865/897/724 states, multiple effective states at 237/238/238 ports,
+      and 1529/1573/1622 accepted cross-port ON edges. At least 1118 cross-port connections per
+      graph were root-reachable. The zero-cross-ON E09 representation defect was removed.
+    evidence: ["evidence/e09_continuous_routing_repair_v1_2026-09-17.md", "Code graph_manifest.json"]
+    status: resolved
+    also_depends_on: [N187]
+  - id: N189
+    type: experiment
+    title: "Run twenty-four cold F/G0/G1/S search cells"
+    provenance: ai-executed
+    timestamp: "2026-09-17T02:00:00+10:00"
+    result: >
+      F exhausted with one T27 spiral-prefix plan at both budgets. G1 returned one cross-family
+      T30/k1 graph plan. All G0 and S cells hit the resident-label safeguard without a plan; the
+      other G1 cells hit 300 seconds. Returned routes used only rank-0 states.
+    evidence: ["evidence/e09_continuous_routing_repair_v1_2026-09-17.md", "Code global_results.csv"]
+    status: resolved
+    also_depends_on: [N188]
+  - id: N190
+    type: experiment
+    title: "Apply exact composition and refined whole-plan validation"
+    provenance: ai-executed
+    timestamp: "2026-09-17T02:18:00+10:00"
+    result: >
+      Same-sample edge composition matched pointwise for both unique new witnesses. The T27 fixed
+      spiral prefix passed motion and Q3/Q4/T1/Q4a sampled coverage checks. The T30 global route
+      passed motion but failed stable Q3 missed coverage at 0.020274. Three parent E09 witnesses
+      remained numerically unresolved under the antithetic phase check.
+    evidence: ["evidence/e09_continuous_routing_repair_v1_2026-09-17.md", "Code final_validation.csv"]
+    status: resolved
+    also_depends_on: [N189]
+  - id: N191
+    type: decision
+    title: "Accept placement-conditional fixed-route capability and withhold global benefit claims"
+    provenance: ai-executed
+    timestamp: "2026-09-17T02:30:00+10:00"
+    choice: >
+      Record T27 as accepted under refined sampled checks, retain T30 global recombination as a
+      coverage failure, treat multi-state benefit as unexercised, and report the repeat bound as
+      informative but not a net time saving because it consumed 97.1 percent of G1 search time.
+    alternatives: ["Accept T30 from Q2", "Compare against buggy E09", "Tune the bound after outcomes"]
+    evidence: ["evidence/e09_continuous_routing_repair_v1_2026-09-17.md", "Code commit 31c6bb24c031b75dd729ac894d71225a3d60e449"]
+    status: resolved
+    also_depends_on: [N188, N189, N190]

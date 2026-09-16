@@ -210,3 +210,10 @@ entries:
     notes:
       - "Recorded publication of the matching E09 Code result and ARA evidence branches as N185."
       - "Publication changed artifact availability only; no scientific interpretation or experiment result was revised."
+  - turn: "2026-09-17_001#1"
+    notes:
+      - "Recorded the user-directed E09-R1 repair, frozen comparison, repaired graph construction, all twenty-four search cells, refined validation, and bounded interpretation as N186-N191."
+      - "Reconciled E09-R1 in logic/experiments.md without changing the historical E09 result; the buggy E09 graph was treated only as diagnostic context."
+      - "Staged O83-O85: synchronized traces repaired graph representation, retained states did not demonstrate route-level benefit, and the repeat bound supplied valid information at prohibitive runtime cost."
+      - "Kept the T27 accepted sampled witness separate from global-recombination evidence and retained the T30 cross-family route as a stable coverage-contract failure."
+      - "Recorded the literal suite as dependency-limited, preserved the three parent E09 witnesses as retrospective diagnostics, and did not run hardware, Flow Matching, Q5, or a saddle campaign."

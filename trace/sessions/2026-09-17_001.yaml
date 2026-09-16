@@ -1,0 +1,57 @@
+session:
+  id: "2026-09-17_001"
+  date: "2026-09-17"
+  started: "2026-09-17T00:15:00+10:00"
+  last_turn: "2026-09-17T02:30:00+10:00"
+  turn_count: 1
+  summary: "Repaired synchronized global connections, built three multi-state graphs, ran 24 cells, accepted one T27 fixed-route witness, and found no accepted global-recombination or net bound benefit."
+
+events_logged:
+  - {turn: 1, type: question, id: N186, routing: direct, provenance: user, summary: "Requested corrected complete-surface multi-state routing and refined validation."}
+  - {turn: 1, type: decision, id: N187, routing: direct, provenance: ai-executed, summary: "Froze inherited geometry/tasks and the synchronized F/G0/G1/S comparison."}
+  - {turn: 1, type: experiment, id: N188, routing: direct, provenance: ai-executed, summary: "Constructed three repaired graphs with 1529-1622 accepted cross-port ON edges."}
+  - {turn: 1, type: experiment, id: N189, routing: direct, provenance: ai-executed, summary: "Ran all 24 cold search cells; three rows returned two unique graph witnesses."}
+  - {turn: 1, type: experiment, id: N190, routing: direct, provenance: ai-executed, summary: "Accepted the T27 fixed route and rejected the T30 global route under refined sampled checks."}
+  - {turn: 1, type: decision, id: N191, routing: direct, provenance: ai-executed, summary: "Withheld global-routing and state-multiplicity benefit; recorded the bound as informative but slower."}
+  - {turn: 1, observation: O83, routing: staged, provenance: ai-suggested}
+  - {turn: 1, observation: O84, routing: staged, provenance: ai-suggested}
+  - {turn: 1, observation: O85, routing: staged, provenance: ai-suggested}
+
+ai_actions:
+  - turn: 1
+    action: "Created isolated worktrees; implemented synchronized traces, multi-state enumeration, corrected F and validation; executed build/search/verification; committed compact Code evidence and appended ARA records."
+    provenance: ai-executed
+    files_changed:
+      - "configs/e09_continuous_routing_repair_v1.json"
+      - "src/diffusion_coverage/robot/synchronized_motion.py"
+      - "src/diffusion_coverage/robot/e09_execution.py"
+      - "src/diffusion_coverage/solvers/history_search.py"
+      - "scripts/run_e09_continuous_routing_repair_v1.py"
+      - "scripts/e09r1_runner_support.py"
+      - "tests/test_e09_synchronized_motion.py"
+      - "tests/test_e09r1_search.py"
+      - "results/e09_continuous_routing_repair_v1/"
+      - "staging/e09_continuous_routing_repair_v1_plan.md"
+      - "evidence/e09_continuous_routing_repair_v1_2026-09-17.md"
+
+claims_touched:
+  - {id: E09-R1, action: created, turn: 1}
+
+logic_revisions:
+  - turn: 1
+    entry: E09-R1
+    field: experiment registry
+    before: "absent"
+    after: "COMPLETED / ONE FIXED-ROUTE WITNESS ACCEPTED; GLOBAL RECOMBINATION UNACCEPTED; MULTI-STATE EFFECT UNRESOLVED; PROSPECTIVE BOUND SLOWER"
+    signal: empirical-resolution
+    provenance: ai-executed
+    note: "Synchronized graphs were usable, but only the T27 fixed-route witness passed all refined sampled checks."
+
+open_threads:
+  - "No accepted globally recombined witness was produced within the frozen search and validation budgets."
+  - "State multiplicity was available but not used by returned routes, so its planning value remains unresolved."
+  - "The prospective bound needs a cheaper implementation before another paired runtime experiment would be justified."
+
+ai_suggestions_pending:
+  - "Keep O83 scoped to this frozen geometry/model until synchronization is tested elsewhere."
+  - "Do not treat the T27 fixed-route capability result as evidence for global recombination."

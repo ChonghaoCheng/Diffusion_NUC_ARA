@@ -1092,3 +1092,45 @@ observations:
     promoted_to: null
     crystallized_via: null
     stale: false
+  - id: O83
+    timestamp: "2026-09-17T02:30:00+10:00"
+    provenance: ai-suggested
+    content: >
+      Explicit path-parameter synchronization can change a global robot graph from having no
+      admitted cross-port ON connections to having many checked connections without changing the
+      frozen surface geometry bank.
+    context: "E09-R1 retained the E09 geometry hash but admitted 1529--1622 cross-port ON edges per placement."
+    potential_type: constraint
+    bound_to: [N188]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+  - id: O84
+    timestamp: "2026-09-17T02:30:00+10:00"
+    provenance: ai-suggested
+    content: >
+      Retaining multiple IK states at nearly every surface port does not by itself establish a
+      state-multiplicity benefit when all returned routes use the canonical rank and paired
+      single-/multi-state searches terminate at resource limits.
+    context: "E09-R1 found multi-state candidates at 237--238 ports, but every selected witness used rank 0."
+    potential_type: constraint
+    bound_to: [N188, N189, N191]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+  - id: O85
+    timestamp: "2026-09-17T02:30:00+10:00"
+    provenance: ai-suggested
+    content: >
+      A prospective repeat-action bound may produce thousands of valid finite-graph prunes yet be
+      operationally unusable when prefix-conditioned shortest paths consume almost the entire
+      paired search budget.
+    context: "E09-R1 recorded 7772 prospective prunes and 97.1 percent of G1 search time inside the bound."
+    potential_type: claim
+    bound_to: [N189, N191]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
