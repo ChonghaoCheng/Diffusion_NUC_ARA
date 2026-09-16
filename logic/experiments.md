@@ -285,3 +285,25 @@ and T33 pointwise IK rows fail the frozen sampled singularity threshold, and den
 coverage, and overall execution checks remain NOT_RUN. The earlier E08 real-surface planning
 hypothesis remains untested: no real graph, real S0/S1 run, or FM run occurred. See
 `evidence/e08_path_semantics_v1_2026-09-16.md`.
+
+# E09: Full-surface robot-aware coverage routing
+
+Registered: 2026-09-16
+
+Status: COMPLETED / NUMERICALLY UNRESOLVED CAPABILITY; RECOMBINATION LIMITED; BOUND INFORMATIVE BUT SLOWER.
+
+E09 constructs one frozen robot-state graph for each of the three hemisphere placements and runs
+all 18 scheduled F/G0/G1 cells for ON-segment budgets one and two. F optimizes IK states along a
+fixed template; G0 searches the full history-aware primitive graph; G1 differs from G0 only by the
+prospective repeat-action lower bound. All methods share the common checked start, graph,
+initializer, ordinary segment-budget reachability, ordering, and resource limits. See the frozen
+contract in `staging/e09_global_surface_routing_v1_plan.md`.
+
+Result: the three graphs had 238--242 states and 1,423--1,431 verified edges, but zero accepted
+cross-port ON connections, so all are recombination-limited. Exhausted global search found Q2
+graph-feasible plans for T27 at both budgets and T30/T33 at k=2. Every returned plan passed denser
+sampled robot checks, but Q1/Q2 coverage changes exceeded 0.002; therefore zero plans are accepted
+executions. T30/T33 k=2 show a finite-graph direction-reversal plus OFF-reconfiguration routing
+signal relative to exhausted F, but no validated global-recombination advantage. G1 made 255
+genuine prospective-repeat prunes and reduced expansions, while its 98.68 seconds of bound work
+made it slower overall. See `evidence/e09_global_surface_routing_v1_2026-09-16.md`.

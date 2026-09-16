@@ -1064,3 +1064,31 @@ observations:
     promoted_to: null
     crystallized_via: null
     stale: false
+  - id: O81
+    timestamp: "2026-09-16T23:55:00+10:00"
+    provenance: ai-suggested
+    content: >
+      A finite robot-state graph can support within-family reversal and explicit OFF
+      reconfiguration while still failing to instantiate the intended global ON-routing
+      mechanism when all sampled cross-port ON connections are rejected.
+    context: "E09 found T30/T33 k=2 graph plans, but all three frozen graphs had zero verified cross-port ON edges and were classified recombination_limited."
+    potential_type: constraint
+    bound_to: [N181, N182, N183]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+  - id: O82
+    timestamp: "2026-09-16T23:55:00+10:00"
+    provenance: ai-suggested
+    content: >
+      On the tested real-surface finite graphs, a prospective repeat-action bound can supply
+      admissible information beyond ordinary reachability and past-repeat pruning yet increase
+      total search time when each prefix-conditioned distance computation is expensive.
+    context: "E09 G1 made 255 genuine prospective-repeat prunes and expanded fewer labels, but spent 98.68 seconds in the bound and was slower than G0 in every informative cell."
+    potential_type: claim
+    bound_to: [N183, N184]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false

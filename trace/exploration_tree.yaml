@@ -2326,3 +2326,76 @@ tree:
     evidence: ["Code commit cc98cdc8117c7a170e2e03a08fee620f45cd7c30", "ARA commit da5ca2a48f61348d64e80e27c7e82cf8b0437ea3"]
     status: resolved
     also_depends_on: [N177]
+  - id: N179
+    type: question
+    title: "Test integrated full-hemisphere robot-aware global routing"
+    provenance: user
+    timestamp: "2026-09-16T20:30:00+10:00"
+    description: >
+      Determine whether a frozen recombinable primitive graph can produce complete robot-feasible
+      hemisphere coverage, outperform a strong fixed-template baseline, and expose net benefit
+      from the prospective repeat-action bound across T30, T27, and T33 at k=1 and k=2.
+    status: resolved
+    also_depends_on: [N176, N177]
+  - id: N180
+    type: decision
+    title: "Freeze E09 bank, graph schedule, and paired comparison"
+    provenance: ai-executed
+    timestamp: "2026-09-16T21:49:41+10:00"
+    choice: >
+      Use only the three accepted E08-R1 hemisphere paths, one common start per placement,
+      task5 throughout, explicit OFF retreat connectors, one frozen graph per placement, and
+      matched F/G0/G1 search and validation budgets before robot outcomes.
+    alternatives: ["Gate construction on a complete template lift", "Tune connector radius after outcomes", "Give global search a different start or graph"]
+    evidence: ["staging/e09_global_surface_routing_v1_plan.md", "Code commit 600e72f07f336b29c7b9b76861a259e72b160468"]
+    status: resolved
+    also_depends_on: [N179]
+  - id: N181
+    type: experiment
+    title: "Construct three frozen hemisphere robot-state graphs"
+    provenance: ai-executed
+    timestamp: "2026-09-16T23:20:00+10:00"
+    result: >
+      T30/T27/T33 produced 241/238/242 states and 1429/1423/1431 verified edges. Explicit OFF
+      reconfigurations numbered 964/952/968, but all three graphs had zero verified cross-port ON
+      edges and were marked recombination_limited. Endpoint membership mismatches were rejected.
+    evidence: ["evidence/e09_global_surface_routing_v1_2026-09-16.md", "Code graph_manifest.json"]
+    status: resolved
+    also_depends_on: [N180]
+  - id: N182
+    type: experiment
+    title: "Exhaust all eighteen E09 finite-graph planner cells"
+    provenance: ai-executed
+    timestamp: "2026-09-16T23:40:00+10:00"
+    result: >
+      Every cell exhausted its finite queue. T27 yielded the same raster-u prefix for F/G0/G1 at
+      both budgets. At T30/T33 k=2, G0/G1 found identical direction-reversal plus OFF relocation
+      plans while F found none. No k=1 plan existed in the T30 or T33 frozen graph.
+    evidence: ["evidence/e09_global_surface_routing_v1_2026-09-16.md", "Code commit a401dbc7e3bdadea7af2d9420bc090b64b3dfb09"]
+    status: resolved
+    also_depends_on: [N181]
+  - id: N183
+    type: experiment
+    title: "Measure prospective repeat-bound information and overhead"
+    provenance: ai-executed
+    timestamp: "2026-09-16T23:45:00+10:00"
+    result: >
+      G1 matched every exhausted G0 graph outcome, made 255 finite prospective-repeat prunes, and
+      expanded fewer labels where active. Its 1627 calls consumed 98.68 seconds and made every
+      informative cell slower. A natural T30/k2 prefix supplied a concrete positive-bound witness.
+    evidence: ["evidence/e09_global_surface_routing_v1_2026-09-16.md", "Code mechanism_example.json"]
+    status: resolved
+    also_depends_on: [N182]
+  - id: N184
+    type: decision
+    title: "Withhold full-surface capability acceptance after Q1/Q2 validation"
+    provenance: ai-executed
+    timestamp: "2026-09-16T23:55:00+10:00"
+    choice: >
+      Keep all ten graph-plan rows as numerically_unresolved because their Q1/Q2 changes exceed
+      0.002, report the routing signal and bound behavior only within the frozen graph, and stop
+      without extra refinement, graph tuning, saddle work, hardware, or Flow Matching.
+    alternatives: ["Accept raw Q2 threshold passes", "Run an unauthorized finer quadrature", "Treat absent sampled connectors as physical infeasibility"]
+    evidence: ["evidence/e09_global_surface_routing_v1_2026-09-16.md", "Code final_validation.csv"]
+    status: resolved
+    also_depends_on: [N182, N183]
