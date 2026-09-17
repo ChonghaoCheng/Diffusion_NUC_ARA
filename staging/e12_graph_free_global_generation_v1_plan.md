@@ -47,3 +47,22 @@ independent training jobs use deterministic NumPy `SeedSequence([0, model_order_
 and at most two GPU workers, followed by a hash-checked manifest merge. GPU ownership and running
 processes are checked again immediately before launch. This schedule was frozen before any E12
 model training or validation output.
+
+## User-authorized training expansion (2026-09-18 00:55 Australia/Sydney)
+
+Before any validation-pilot candidate generation or sealed-test output, the user explicitly asked
+to increase both the training sample count and the number of training updates. The registered
+TRAIN set is therefore expanded from 20 to 40 attempted poses. The added `TR20`--`TR39` poses use
+an independently fixed PCG64 stream `SeedSequence([20260917, 1204])`, the same anchor cycle and
+the same translation/rotation ranges. The four VALIDATION and eight SEALED_TEST transforms remain
+bitwise unchanged. All added transforms and hashes are committed before their root or graph
+outcomes are computed; failed added tasks will not be replaced.
+
+Categorical, REG, and FM training is increased symmetrically from 5,000 to 15,000 updates with all
+other optimizer, architecture, seed and loss settings unchanged. Two 5,000-update checkpoints
+created before this amendment (categorical and REG) had not been used for validation or sealed
+inference. They are retained and marked invalid rather than used or silently overwritten in the
+evidence chain. All three reported models will be retrained on the expanded frozen corpus. This is
+a prospective protocol amendment authorized by the user, not an outcome-driven hyperparameter
+selection; it weakens comparability to the originally specified small-data budget and will be
+reported explicitly.
