@@ -374,3 +374,19 @@ retained accepted F routes. Five of the six saved E10 cross-port decisions lacke
 fixed-family sampled transition at the actual prefix q; the sixth fixed suffix could cover only
 0.977358 of the surface in the frozen graph. These are finite-graph mechanisms, not physical
 infeasibility proofs. See `evidence/e11_mechanism_placement_transfer_v1_2026-09-17.md`.
+
+# E12: Graph-free global coverage generation
+
+Registered: 2026-09-17 19:30 Australia/Sydney
+
+Status: RUNNING / RESULTS NOT YET CLOSED.
+
+E12 freezes a geometry-only SCAN/VIA/END program interface for the complete hemisphere, checks
+whether accepted E11 geometry can be continuously re-lifted from q0 without a robot graph or
+future teacher q, and then compares RETRIEVE, matched deterministic REG, conditional Euclidean FM,
+on-demand P_lazy, and the offline-graph F+P reference P_graph. The 20/4/8 TRAIN/VALIDATION/
+SEALED_TEST pose splits and all transforms were committed before any new root outcome. The physical
+contract and refined sampled validator are inherited unchanged. One training seed is registered;
+the experiment is a same-hemisphere pose pilot rather than a shape-generalization or novelty test.
+See `staging/e12_graph_free_global_generation_v1_plan.md`. Measured results will be appended after
+the sealed sequence is complete.
