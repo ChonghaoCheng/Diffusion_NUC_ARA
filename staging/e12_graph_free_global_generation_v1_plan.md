@@ -32,3 +32,18 @@ Primary tables retain every attempted task. Root, proposal syntax, lifting, robo
 coverage, numerical-resolution, budget, and dependency failures remain separate. No replacement
 tasks, test-driven tuning, extra seeds, Q5, RFM, hardware, non-spherical geometry, or graph fallback
 inside a graph-free success metric is allowed.
+
+## Resource-scheduling amendment (2026-09-17 22:43 Australia/Sydney)
+
+After measuring a task-owned single teacher worker at a largest observed 6,316,832 KiB RSS,
+the host reported 125 GiB total and 102 GiB available memory with 16 logical CPUs. Teacher
+collection therefore uses the already permitted maximum of four single-thread workers. Scene
+membership and the absolute serial scene-order seed remain unchanged; shards are merged by scene
+ID. This changes scheduling only.
+
+The host exposed two idle NVIDIA RTX A5500 GPUs at the audit. The categorical, REG, and FM models
+remain the registered architectures, root seed 0, datasets, update counts, and objectives. Their
+independent training jobs use deterministic NumPy `SeedSequence([0, model_order_index])` streams
+and at most two GPU workers, followed by a hash-checked manifest merge. GPU ownership and running
+processes are checked again immediately before launch. This schedule was frozen before any E12
+model training or validation output.
