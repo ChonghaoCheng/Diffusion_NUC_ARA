@@ -67,3 +67,14 @@ evidence chain. All three reported models will be retrained on the expanded froz
 a prospective protocol amendment authorized by the user, not an outcome-driven hyperparameter
 selection; it weakens comparability to the originally specified small-data budget and will be
 reported explicitly.
+
+## Expansion cancelled before use (2026-09-18 00:58 Australia/Sydney)
+
+The user subsequently restored the original E12 contract to prioritize completion: 20 TRAIN,
+4 VALIDATION, 8 SEALED_TEST, batch 16, and 5,000 updates for each model. The four expansion
+workers were stopped after roughly five minutes, before any added scene produced a completed
+graph or label. No TR20--TR39 sample, expanded-corpus normalization, or expanded checkpoint is
+used in training, validation, sealed testing, or final conclusions. The already completed original
+categorical and REG checkpoints are restored unchanged; only the missing original FM checkpoint is
+trained. The attempted expansion commits and partial local shard locations remain recorded as an
+aborted protocol branch, preserving the chronology without mixing it into the E12 main result.
