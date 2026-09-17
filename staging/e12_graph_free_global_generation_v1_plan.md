@@ -58,8 +58,9 @@ the same translation/rotation ranges. The four VALIDATION and eight SEALED_TEST 
 bitwise unchanged. All added transforms and hashes are committed before their root or graph
 outcomes are computed; failed added tasks will not be replaced.
 
-Categorical, REG, and FM training is increased symmetrically from 5,000 to 15,000 updates with all
-other optimizer, architecture, seed and loss settings unchanged. Two 5,000-update checkpoints
+Categorical, REG, and FM training is increased symmetrically from 5,000 to 15,000 updates, and the
+batch size is increased from 16 to 128 (1,920,000 sampled examples per model), with all other
+optimizer, architecture, seed and loss settings unchanged. Two 5,000-update checkpoints
 created before this amendment (categorical and REG) had not been used for validation or sealed
 inference. They are retained and marked invalid rather than used or silently overwritten in the
 evidence chain. All three reported models will be retrained on the expanded frozen corpus. This is
