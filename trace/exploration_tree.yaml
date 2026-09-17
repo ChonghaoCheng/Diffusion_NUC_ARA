@@ -2562,3 +2562,16 @@ tree:
     evidence: ["evidence/e10_structured_anytime_routing_v1_2026-09-17.md", "Code commit defd63315996bceb113a06a57a295b8eaec9a635"]
     status: resolved
     also_depends_on: [N195, N196]
+  - id: N198
+    type: experiment
+    title: "Publish E10 Code results and ARA evidence branches"
+    provenance: ai-executed
+    timestamp: "2026-09-17T04:42:00+10:00"
+    result: >
+      Pushed the dedicated Code branch through result commit
+      defd63315996bceb113a06a57a295b8eaec9a635 and the ARA branch through evidence commit
+      4700a273611dfdc2df4d75f0fd3439c9efa6d8d7 without force. Direct server-side ls-remote checks
+      matched both local commits before this append-only publication record was added.
+    evidence: ["Code commit defd63315996bceb113a06a57a295b8eaec9a635", "ARA evidence commit 4700a273611dfdc2df4d75f0fd3439c9efa6d8d7"]
+    status: resolved
+    also_depends_on: [N197]

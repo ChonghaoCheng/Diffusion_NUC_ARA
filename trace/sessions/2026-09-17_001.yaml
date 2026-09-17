@@ -22,6 +22,7 @@ events_logged:
   - {turn: 2, type: experiment, id: N195, routing: direct, provenance: ai-executed, summary: "Ran all 18 cells; A/B found T30/T33 candidates and retained T27 F."}
   - {turn: 2, type: experiment, id: N196, routing: direct, provenance: ai-executed, summary: "Accepted T30/T33 recombinations and T27 fallback under refined sampled validation."}
   - {turn: 2, type: decision, id: N197, routing: direct, provenance: ai-executed, summary: "Accepted bounded global capability and withheld completeness/source-run benefit claims."}
+  - {turn: 2, type: experiment, id: N198, routing: direct, provenance: ai-executed, summary: "Pushed both E10 branches and directly verified their remote heads."}
   - {turn: 2, observation: O86, routing: staged, provenance: ai-suggested}
   - {turn: 2, observation: O87, routing: staged, provenance: ai-suggested}
   - {turn: 2, observation: O88, routing: staged, provenance: ai-suggested}

@@ -52,6 +52,6 @@ sessions:
     date: "2026-09-17"
     summary: "Completed E10 on frozen E09-R1 graphs: accepted global recombinations at T30/T33, retained the T27 fallback, and found no paired runtime benefit from source-run proposals."
     turn_count: 2
-    events_count: 18
+    events_count: 19
     claims_touched: [E09-R1, E10]
     open_threads: 3
