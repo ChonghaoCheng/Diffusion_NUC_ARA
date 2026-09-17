@@ -2649,3 +2649,16 @@ tree:
     evidence: ["evidence/e11_mechanism_placement_transfer_v1_2026-09-17.md", "Code commit 14dcaaab6e0fd8d2514af1d2d5eb4bb7eb7c4fb9"]
     status: resolved
     also_depends_on: [N201, N202, N203]
+  - id: N205
+    type: experiment
+    title: "Publish E11 Code results and ARA evidence branches"
+    provenance: ai-executed
+    timestamp: "2026-09-17T19:10:00+10:00"
+    result: >
+      Pushed the dedicated Code branch through result commit
+      14dcaaab6e0fd8d2514af1d2d5eb4bb7eb7c4fb9 and the ARA branch through evidence commit
+      2eeaa67de290c72d9b225f28d67f65a74ca3ed5c without force. Direct server-side ls-remote
+      checks matched both local commits at the time of verification.
+    evidence: ["Code commit 14dcaaab6e0fd8d2514af1d2d5eb4bb7eb7c4fb9", "ARA evidence commit 2eeaa67de290c72d9b225f28d67f65a74ca3ed5c"]
+    status: resolved
+    also_depends_on: [N204]

@@ -50,8 +50,8 @@ sessions:
     open_threads: 3
   - id: "2026-09-17_001"
     date: "2026-09-17"
-    summary: "Completed E10 on frozen E09-R1 graphs: accepted global recombinations at T30/T33, retained the T27 fallback, and found no paired runtime benefit from source-run proposals."
-    turn_count: 2
-    events_count: 19
-    claims_touched: [E09-R1, E10]
+    summary: "Completed E11: prefix-guided greedy recombination explained the DEV successes, and frozen A supplied accepted global benefit on four of six transfer placements."
+    turn_count: 3
+    events_count: 29
+    claims_touched: [E09-R1, E10, E11]
     open_threads: 3

@@ -2,9 +2,9 @@ session:
   id: "2026-09-17_001"
   date: "2026-09-17"
   started: "2026-09-17T00:15:00+10:00"
-  last_turn: "2026-09-17T04:34:00+10:00"
-  turn_count: 2
-  summary: "Completed E10 on frozen E09-R1 graphs: accepted global recombinations at T30/T33, retained the T27 fallback, and found no paired runtime benefit from source-run proposals."
+  last_turn: "2026-09-17T19:10:00+10:00"
+  turn_count: 3
+  summary: "Completed E11: prefix-guided greedy recombination explained the DEV successes, and frozen A supplied accepted global benefit on four of six transfer placements."
 
 events_logged:
   - {turn: 1, type: question, id: N186, routing: direct, provenance: user, summary: "Requested corrected complete-surface multi-state routing and refined validation."}
@@ -26,6 +26,16 @@ events_logged:
   - {turn: 2, observation: O86, routing: staged, provenance: ai-suggested}
   - {turn: 2, observation: O87, routing: staged, provenance: ai-suggested}
   - {turn: 2, observation: O88, routing: staged, provenance: ai-suggested}
+  - {turn: 3, type: question, id: N199, routing: direct, provenance: user, summary: "Requested mechanism attribution and frozen-policy placement transfer."}
+  - {turn: 3, type: decision, id: N200, routing: direct, provenance: ai-executed, summary: "Froze DEV controls, six transforms, graph construction, F/P/A, and validation before transfer outcomes."}
+  - {turn: 3, type: experiment, id: N201, routing: direct, provenance: ai-executed, summary: "A beat A_root at DEV T30/T33 while greedy P matched A's exact accepted witnesses."}
+  - {turn: 3, type: experiment, id: N202, routing: direct, provenance: ai-executed, summary: "Diagnosed five missing sampled transitions and one remaining-coverage-limited fixed suffix."}
+  - {turn: 3, type: experiment, id: N203, routing: direct, provenance: ai-executed, summary: "Built six frozen graphs and ran all 36 transfer cells; A benefited four placements."}
+  - {turn: 3, type: decision, id: N204, routing: direct, provenance: ai-executed, summary: "Preferred the simpler supported prefix-guided mechanism and bounded the transfer claim."}
+  - {turn: 3, type: experiment, id: N205, routing: direct, provenance: ai-executed, summary: "Pushed both E11 branches and directly verified their remote heads."}
+  - {turn: 3, observation: O89, routing: staged, provenance: ai-suggested}
+  - {turn: 3, observation: O90, routing: staged, provenance: ai-suggested}
+  - {turn: 3, observation: O91, routing: staged, provenance: ai-suggested}
 
 ai_actions:
   - turn: 1
@@ -55,10 +65,24 @@ ai_actions:
       - "results/e10_structured_anytime_routing_v1/"
       - "staging/e10_structured_anytime_routing_v1_plan.md"
       - "evidence/e10_structured_anytime_routing_v1_2026-09-17.md"
+  - turn: 3
+    action: "Implemented and tested A_root, greedy P, append-only event logging and transfer adapters; executed DEV, six mechanism diagnostics, six graph builds, 36 transfer cells, refined validation, compact reporting, publication, and direct remote verification."
+    provenance: ai-executed
+    files_changed:
+      - "configs/e11_mechanism_placement_transfer_v1.json"
+      - "configs/e11_transfer_scenes_v1.json"
+      - "src/diffusion_coverage/solvers/structured_routing.py"
+      - "scripts/run_e11_mechanism_placement_transfer_v1.py"
+      - "scripts/e11_runner_support.py"
+      - "tests/test_e11_mechanism_transfer.py"
+      - "results/e11_mechanism_placement_transfer_v1/"
+      - "staging/e11_mechanism_placement_transfer_v1_plan.md"
+      - "evidence/e11_mechanism_placement_transfer_v1_2026-09-17.md"
 
 claims_touched:
   - {id: E09-R1, action: created, turn: 1}
   - {id: E10, action: created, turn: 2}
+  - {id: E11, action: created, turn: 3}
 
 logic_revisions:
   - turn: 1
@@ -77,12 +101,21 @@ logic_revisions:
     signal: empirical-resolution
     provenance: ai-executed
     note: "A/B returned accepted cross-family routes where F had no graph goal; B was slower in every paired cell."
+  - turn: 3
+    entry: E11
+    field: experiment registry
+    before: "absent"
+    after: "COMPLETED / PREFIX-GUIDED GREEDY MECHANISM SUPPORTED ON DEV; ACCEPTED GLOBAL BENEFIT ON FOUR OF SIX FROZEN TRANSFER PLACEMENTS"
+    signal: empirical-resolution
+    provenance: ai-executed
+    note: "A beat A_root on DEV, P matched A more cheaply, and frozen A benefited four transfer placements."
 
 open_threads:
-  - "The accepted recombinations are development-task finite-sampled results; separate frozen placements/surfaces remain untested."
-  - "Source-run proposals supplied no paired runtime saving under the fixed first implementation."
-  - "Online-screen rejection/resumption was implemented and tested synthetically but not naturally exercised by the 17 measured screens."
+  - "E11 remains same-hemisphere pose transfer; non-spherical surfaces and independently frozen geometry families remain untested."
+  - "F remains an internal fixed-library baseline rather than a faithful published-planner comparison."
+  - "Accepted plans remain refined sampled simulation results without continuous certificates or hardware contact validation."
 
 ai_suggestions_pending:
-  - "Keep O86 scoped to the three frozen development graphs until separately frozen tasks are tested."
-  - "Do not interpret fallback retention as a global-routing advantage."
+  - "Keep O89 scoped to the two positive DEV graphs; P matching A does not prove greedy completion is generally sufficient."
+  - "Keep O90 scoped to deterministic pose perturbations of the same hemisphere."
+  - "Do not interpret missing sampled graph transitions as physical infeasibility."

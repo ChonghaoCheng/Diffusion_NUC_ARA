@@ -1175,3 +1175,44 @@ observations:
     promoted_to: null
     crystallized_via: null
     stale: false
+  - id: O89
+    timestamp: "2026-09-17T18:41:00+10:00"
+    provenance: ai-suggested
+    content: >
+      Exact fixed-route prefix information can materially enable global recombination while a
+      one-continuation greedy control may recover the same accepted routes more cheaply than a
+      multi-label frontier on the tested development graphs.
+    context: "E11 A succeeded where A_root did not at T30/T33, while P matched A's exact witnesses with far fewer expansions."
+    potential_type: claim
+    bound_to: [N201, N204]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+  - id: O90
+    timestamp: "2026-09-17T18:41:00+10:00"
+    provenance: ai-suggested
+    content: >
+      Frozen atomic global routing can retain accepted fixed-order plans and also supply accepted
+      non-template improvements across deterministic pose perturbations of the same hemisphere.
+    context: "E11 A supplied accepted global benefit on H00, H01, H02 and H04 and retained F on H03/H05."
+    potential_type: claim
+    bound_to: [N203, N204]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+  - id: O91
+    timestamp: "2026-09-17T18:41:00+10:00"
+    provenance: ai-suggested
+    content: >
+      A selected cross-port switch may compensate for missing sampled state connections or a
+      remaining-coverage obstruction in a finite graph without proving the corresponding physical
+      continuation impossible.
+    context: "Five E11 diagnostics lacked the exact sampled next transition; one fixed suffix stopped below the coverage requirement."
+    potential_type: constraint
+    bound_to: [N202, N204]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
