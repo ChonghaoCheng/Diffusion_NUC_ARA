@@ -352,3 +352,25 @@ the truthful 30,000 retained-record safeguard, so no completeness or optimality 
 was slower than A in every paired cell; its sole objective difference was a lower-Jq retained route
 at T33/k=2. All 17 online Q3 screens passed, so recovery after an online screen failure was not
 naturally exercised. See `evidence/e10_structured_anytime_routing_v1_2026-09-17.md`.
+
+# E11: Mechanism attribution and frozen-policy placement transfer
+
+Registered: 2026-09-17
+
+Status: COMPLETED / PREFIX-GUIDED GREEDY MECHANISM SUPPORTED ON DEV; ACCEPTED GLOBAL BENEFIT ON
+FOUR OF SIX FROZEN TRANSFER PLACEMENTS.
+
+E11 preserves E10 atomic method A and its physical/refined-sampled contract. DEV compares F, A,
+A_root without nonempty initializer prefixes, and an equally informed one-continuation greedy
+control P on the exact T30/T27/T33 graphs at k=1. TRANSFER freezes six pose perturbations before
+robot outcomes, builds one checked graph per placement, and compares F/P/A at k=1/2. See
+`staging/e11_mechanism_placement_transfer_v1_plan.md`.
+
+Result: A succeeded at DEV T30/T33 while A_root did not, so F-prefix information helped on those
+cases. P reproduced A's exact accepted routes with far fewer expansions, so the experiment does
+not support the necessity of retaining multiple competing continuations. On TRANSFER, A produced
+accepted global benefit at H00, H01, H02, and H04; P did so at H00, H02, and H04. H03/H05 only
+retained accepted F routes. Five of the six saved E10 cross-port decisions lacked an exact next
+fixed-family sampled transition at the actual prefix q; the sixth fixed suffix could cover only
+0.977358 of the surface in the frozen graph. These are finite-graph mechanisms, not physical
+infeasibility proofs. See `evidence/e11_mechanism_placement_transfer_v1_2026-09-17.md`.

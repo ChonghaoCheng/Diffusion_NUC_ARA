@@ -2575,3 +2575,77 @@ tree:
     evidence: ["Code commit defd63315996bceb113a06a57a295b8eaec9a635", "ARA evidence commit 4700a273611dfdc2df4d75f0fd3439c9efa6d8d7"]
     status: resolved
     also_depends_on: [N197]
+  - id: N199
+    type: question
+    title: "Attribute E10's global-routing mechanism and test frozen placement transfer"
+    provenance: user
+    timestamp: "2026-09-17T05:03:00+10:00"
+    description: >
+      Separate F-prefix information from A's remaining search complexity, challenge A with an
+      equally informed greedy completion control, explain six saved route switches, and test
+      frozen F/P/A on six prospectively registered hemisphere placements.
+    status: resolved
+    also_depends_on: [N195, N196, N197]
+  - id: N200
+    type: decision
+    title: "Freeze E11 attribution controls and six transfer poses"
+    provenance: ai-executed
+    timestamp: "2026-09-17T05:20:00+10:00"
+    choice: >
+      Preserve E10 A and validation, compare A_root and one-continuation greedy P on exact DEV
+      graphs, then freeze H00--H05 transforms, seed order, graph policy, and F/P/A before any
+      transfer root or graph outcome.
+    alternatives: ["Retune A", "Select placements using IK outcomes", "Add source-run B or G1"]
+    evidence: ["staging/e11_mechanism_placement_transfer_v1_plan.md", "Code commits b46bf1f and 6760957"]
+    status: resolved
+    also_depends_on: [N199]
+  - id: N201
+    type: experiment
+    title: "Run DEV prefix and greedy-control attribution"
+    provenance: ai-executed
+    timestamp: "2026-09-17T08:10:00+10:00"
+    result: >
+      At T30/T33, A returned the accepted E10 witnesses while A_root returned no accepted plan,
+      supporting prefix information. P returned the exact same accepted witnesses using 677/735
+      expansions versus A's 36910/34705. At T27 all global arms retained the accepted F fallback.
+    evidence: ["evidence/e11_mechanism_placement_transfer_v1_2026-09-17.md", "Code dev_results.csv"]
+    status: resolved
+    also_depends_on: [N200]
+  - id: N202
+    type: experiment
+    title: "Diagnose six saved E10 cross-port route decisions"
+    provenance: ai-executed
+    timestamp: "2026-09-17T09:00:00+10:00"
+    result: >
+      Five decisions lacked the exact next fixed-family sampled transition from the actual prefix
+      q state. The sixth fixed-family suffix exhausted after six labels at maximum covered fraction
+      0.9773576546. The result identifies finite-graph connection/coverage mechanisms without
+      claiming physical infeasibility.
+    evidence: ["evidence/e11_mechanism_placement_transfer_v1_2026-09-17.md", "Code mechanism_diagnostics.csv"]
+    status: resolved
+    also_depends_on: [N201]
+  - id: N203
+    type: experiment
+    title: "Build six frozen transfer graphs and run thirty-six F/P/A cells"
+    provenance: ai-executed
+    timestamp: "2026-09-17T18:20:00+10:00"
+    result: >
+      All six roots and graphs were admitted under the frozen policy. A returned independently
+      accepted global benefit on H00, H01, H02, and H04; P did so on H00, H02, and H04. H03/H05
+      retained F. All accepted outputs passed the inherited refined sampled and robot checks.
+    evidence: ["evidence/e11_mechanism_placement_transfer_v1_2026-09-17.md", "Code transfer_results.csv", "Code final_validation.csv"]
+    status: resolved
+    also_depends_on: [N200, N201]
+  - id: N204
+    type: decision
+    title: "Prefer the smallest supported mechanism and bound transfer claims"
+    provenance: ai-executed
+    timestamp: "2026-09-17T18:41:00+10:00"
+    choice: >
+      Record prefix-guided greedy recombination as the smallest supported DEV mechanism, retain A
+      as the frozen transfer reference, and interpret four-placement A benefit as same-hemisphere
+      pose transfer rather than cross-surface or population-level generalization.
+    alternatives: ["Claim A's multi-label complexity is necessary", "Pool k rows as independent successes", "Infer physical infeasibility from missing graph edges"]
+    evidence: ["evidence/e11_mechanism_placement_transfer_v1_2026-09-17.md", "Code commit 14dcaaab6e0fd8d2514af1d2d5eb4bb7eb7c4fb9"]
+    status: resolved
+    also_depends_on: [N201, N202, N203]
