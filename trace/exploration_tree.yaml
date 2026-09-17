@@ -2662,3 +2662,27 @@ tree:
     evidence: ["Code commit 14dcaaab6e0fd8d2514af1d2d5eb4bb7eb7c4fb9", "ARA evidence commit 2eeaa67de290c72d9b225f28d67f65a74ca3ed5c"]
     status: resolved
     also_depends_on: [N204]
+  - id: N206
+    type: question
+    title: "Test graph-free route generation and candidate-only execution"
+    provenance: user
+    timestamp: "2026-09-17T19:30:00+10:00"
+    description: >
+      Determine whether source-frame route programs can be autonomously generated and continuously
+      lifted from q0, and compare FM against retrieval, deterministic regression, and lazy
+      nonlearning construction without mandatory full graph preprocessing.
+    status: open
+    also_depends_on: [N201, N203, N204]
+  - id: N207
+    type: decision
+    title: "Freeze E12 program grammar, pose splits, learning recipe, and sealed order"
+    provenance: ai-executed
+    timestamp: "2026-09-17T19:35:00+10:00"
+    choice: >
+      Freeze the 32 PCG64 pose transforms, SCAN/VIA/END program interface, q0-only task5 lifter,
+      single-seed REG/FM recipe, RETRIEVE/P_lazy/P_graph controls, and require graph-free sealed
+      outputs before test graph references.
+    alternatives: ["Reuse future teacher q", "Tune on sealed tests", "Skip oracle interface qualification"]
+    evidence: ["staging/e12_graph_free_global_generation_v1_plan.md", "Code configs/e12_pose_splits_v1.json"]
+    status: resolved
+    also_depends_on: [N206]
