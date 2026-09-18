@@ -2686,3 +2686,76 @@ tree:
     evidence: ["staging/e12_graph_free_global_generation_v1_plan.md", "Code configs/e12_pose_splits_v1.json"]
     status: resolved
     also_depends_on: [N206]
+  - id: N208
+    type: decision
+    title: "Restore the original frozen E12 corpus and training schedule"
+    provenance: user-revised
+    timestamp: "2026-09-18T09:20:00+10:00"
+    choice: >
+      Stop the proposed teacher expansion before any added scene completed, retain its launcher and
+      resource audit as an unused aborted amendment, and finish E12 with the registered 20/4/8
+      pose split and 5000 updates per model.
+    alternatives: ["Continue collecting twenty extra teachers", "Mix partial expansion artifacts into training"]
+    evidence: ["Code results/e12_graph_free_global_generation_v1/aborted_training_expansion.json", "Code commit de19868"]
+    status: resolved
+    also_depends_on: [N207]
+  - id: N209
+    type: experiment
+    title: "Qualify the graph-free program interface and train the frozen E12 models"
+    provenance: ai-executed
+    timestamp: "2026-09-18T10:10:00+10:00"
+    result: >
+      Twelve of twelve eligible single-ON E11 programs passed independent q0-only re-lift. Teacher
+      collection qualified 27 labels from 14 of 24 TRAIN/VALIDATION tasks. Categorical, REG, and FM
+      completed 5000 updates each under one root training seed.
+    evidence: ["evidence/e12_graph_free_global_generation_v1_2026-09-18.md", "Code oracle_relift.csv", "Code training_manifest.json"]
+    status: resolved
+    also_depends_on: [N207, N208]
+  - id: N210
+    type: experiment
+    title: "Run the frozen validation pilot and graph-free sealed deployment"
+    provenance: ai-executed
+    timestamp: "2026-09-18T12:20:00+10:00"
+    result: >
+      On four validation poses RETRIEVE accepted two tasks and REG/FM accepted none. On eight sealed
+      poses, accepted counts were RETRIEVE six, REG one, FM one, and P_lazy four. Accepted routes
+      passed the inherited refined sampled robot and coverage checks.
+    evidence: ["evidence/e12_graph_free_global_generation_v1_2026-09-18.md", "Code sealed_test_main_results.csv", "Code accepted_route_metrics.csv"]
+    status: resolved
+    also_depends_on: [N209]
+  - id: N211
+    type: experiment
+    title: "Build post-freeze P_graph controls and replay selected witnesses"
+    provenance: ai-executed
+    timestamp: "2026-09-18T13:25:00+10:00"
+    result: >
+      P_graph built eight ready test graphs and accepted TE01, TE02, TE03, and TE07, exactly the
+      accepted-task set of P_lazy. Independent replay of all four selected graph witnesses again
+      passed exact composition and the full refined sampled validation schedule.
+    evidence: ["evidence/e12_graph_free_global_generation_v1_2026-09-18.md", "Code test_graph_reference_results.csv", "Code p_graph_validation_details.json"]
+    status: resolved
+    also_depends_on: [N210]
+  - id: N212
+    type: decision
+    title: "Attribute E12 savings to reuse or lazy construction, not FM"
+    provenance: ai-executed
+    timestamp: "2026-09-18T13:40:00+10:00"
+    choice: >
+      Record the graph-free interface and measured cold-start saving as supported within the finite
+      hemisphere vocabulary; withhold incremental FM benefit because FM matched REG at one accepted
+      sealed task and trailed RETRIEVE and P_lazy.
+    alternatives: ["Credit all graph-free savings to FM", "Report only teacher-known-feasible tasks", "Treat sampled failures as physical infeasibility"]
+    evidence: ["evidence/e12_graph_free_global_generation_v1_2026-09-18.md", "Code commit 2cff766da6a58468afbdb7471e656930a2a8850d"]
+    status: resolved
+    also_depends_on: [N209, N210, N211]
+  - id: N213
+    type: experiment
+    title: "Publish the E12 Code result branch"
+    provenance: ai-executed
+    timestamp: "2026-09-18T13:48:00+10:00"
+    result: >
+      Pushed Code result commit 2cff766da6a58468afbdb7471e656930a2a8850d to the dedicated E12
+      branch without force. A direct server-side ls-remote check matched the local commit.
+    evidence: ["Code commit 2cff766da6a58468afbdb7471e656930a2a8850d"]
+    status: resolved
+    also_depends_on: [N212]

@@ -379,7 +379,8 @@ infeasibility proofs. See `evidence/e11_mechanism_placement_transfer_v1_2026-09-
 
 Registered: 2026-09-17 19:30 Australia/Sydney
 
-Status: RUNNING / RESULTS NOT YET CLOSED.
+Status: COMPLETED / GRAPH-FREE INTERFACE AND COLD-COST BENEFIT SUPPORTED; FM INCREMENTAL VALUE NOT
+SUPPORTED IN THIS PILOT.
 
 E12 freezes a geometry-only SCAN/VIA/END program interface for the complete hemisphere, checks
 whether accepted E11 geometry can be continuously re-lifted from q0 without a robot graph or
@@ -388,5 +389,10 @@ on-demand P_lazy, and the offline-graph F+P reference P_graph. The 20/4/8 TRAIN/
 SEALED_TEST pose splits and all transforms were committed before any new root outcome. The physical
 contract and refined sampled validator are inherited unchanged. One training seed is registered;
 the experiment is a same-hemisphere pose pilot rather than a shape-generalization or novelty test.
-See `staging/e12_graph_free_global_generation_v1_plan.md`. Measured results will be appended after
-the sealed sequence is complete.
+Result: all 12 eligible E11 single-ON geometries passed independent q0-only re-lift. On eight
+sealed poses, accepted task counts were RETRIEVE 6, REG 1, FM 1, P_lazy 4, and P_graph 4. P_lazy
+matched the P_graph accepted-task set while measured cold time was about 6.96 times lower, because
+complete graph preprocessing was avoided. FM produced one accepted route but matched REG and was
+weaker than retrieval and P_lazy, so stochastic continuous generation supplied no measured
+incremental advantage in this one-seed pilot. See
+`evidence/e12_graph_free_global_generation_v1_2026-09-18.md`.

@@ -1,0 +1,99 @@
+session:
+  id: "2026-09-18_001"
+  date: "2026-09-18"
+  started: "2026-09-18T09:20:00+10:00"
+  last_turn: "2026-09-18T13:48:00+10:00"
+  turn_count: 1
+  summary: "Completed E12: graph-free execution worked, retrieval led learned methods, and P_lazy matched P_graph at far lower measured cold cost."
+
+events_logged:
+  - turn: 1
+    type: decision
+    id: N208
+    routing: direct
+    provenance: user-revised
+    summary: "Cancelled unused expansion and restored the registered 20/4/8, 5000-update contract."
+  - turn: 1
+    type: experiment
+    id: N209
+    routing: direct
+    provenance: ai-executed
+    summary: "Passed the oracle interface gate, collected 27 labels, and completed frozen training."
+  - turn: 1
+    type: experiment
+    id: N210
+    routing: direct
+    provenance: ai-executed
+    summary: "Completed validation and all 32 graph-free sealed method cells."
+  - turn: 1
+    type: experiment
+    id: N211
+    routing: direct
+    provenance: ai-executed
+    summary: "Completed eight P_graph controls and independent replay of four accepted graph witnesses."
+  - turn: 1
+    type: decision
+    id: N212
+    routing: direct
+    provenance: ai-executed
+    summary: "Supported graph-free/lazy savings and withheld incremental FM value."
+  - turn: 1
+    type: experiment
+    id: N213
+    routing: direct
+    provenance: ai-executed
+    summary: "Published and remotely verified the Code result commit."
+  - turn: 1
+    type: observation
+    id: O92
+    routing: staged
+    provenance: ai-suggested
+    summary: "Geometry programs may support q0-only realization without runtime robot graphs."
+  - turn: 1
+    type: observation
+    id: O93
+    routing: staged
+    provenance: ai-suggested
+    summary: "Lazy kinematics may preserve graph-control capability at lower cold cost."
+  - turn: 1
+    type: observation
+    id: O94
+    routing: staged
+    provenance: ai-suggested
+    summary: "FM supplied no incremental value over matched controls in this pilot."
+
+ai_actions:
+  - turn: 1
+    action: "Implemented, tested, trained, executed, validated, reported, committed, and published the bounded E12 experiment."
+    provenance: ai-executed
+    files_changed:
+      - "evidence/e12_graph_free_global_generation_v1_2026-09-18.md"
+      - "logic/experiments.md"
+      - "trace/exploration_tree.yaml"
+      - "staging/observations.yaml"
+
+claims_touched:
+  - id: E12
+    action: confirmed
+    turn: 1
+
+logic_revisions:
+  - turn: 1
+    entry: E12
+    field: Status and result
+    before: "RUNNING / RESULTS NOT YET CLOSED; measured results pending."
+    after: "COMPLETED / graph-free interface and cold-cost benefit supported; FM incremental value not supported in this pilot."
+    signal: empirical-resolution
+    provenance: ai-suggested
+    note: "All frozen stages and controls completed under Code result commit 2cff766da6a58468afbdb7471e656930a2a8850d."
+
+key_context:
+  - turn: 1
+    excerpt: "The user explicitly restored the original frozen corpus and asked to finish E12 quickly rather than continue an expansion."
+
+open_threads:
+  - "Test graph-free generation on non-spherical geometry under a separately frozen evaluator."
+  - "Use more than one training seed before drawing a learning-method conclusion."
+  - "Compare FM under fixed information/output interfaces only after retrieval and P_lazy controls remain competitive."
+
+ai_suggestions_pending: []

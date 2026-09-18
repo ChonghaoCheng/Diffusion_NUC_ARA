@@ -55,3 +55,10 @@ sessions:
     events_count: 29
     claims_touched: [E09-R1, E10, E11]
     open_threads: 3
+  - id: "2026-09-18_001"
+    date: "2026-09-18"
+    summary: "Completed E12: graph-free execution worked, retrieval led learned methods, and P_lazy matched P_graph at far lower measured cold cost."
+    turn_count: 1
+    events_count: 9
+    claims_touched: [E12]
+    open_threads: 3

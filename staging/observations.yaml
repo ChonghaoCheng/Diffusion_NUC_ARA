@@ -1216,3 +1216,43 @@ observations:
     promoted_to: null
     crystallized_via: null
     stale: false
+  - id: O92
+    timestamp: "2026-09-18T13:40:00+10:00"
+    provenance: ai-suggested
+    content: >
+      A source-frame route program can preserve enough complete-route geometry for continuous
+      q0-only realization without runtime access to a prebuilt robot-state graph or future teacher q.
+    context: "All 12 eligible stored geometries passed oracle re-lift and graph-free methods produced accepted sealed routes."
+    potential_type: claim
+    bound_to: [N209, N210, N212]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+  - id: O93
+    timestamp: "2026-09-18T13:40:00+10:00"
+    provenance: ai-suggested
+    content: >
+      On-demand kinematic construction can retain the accepted-task set of an offline graph control
+      while avoiding its dominant full-graph preprocessing cost on the tested pose tasks.
+    context: "P_lazy and P_graph accepted the same four sealed tasks; measured cold cost differed by about 6.96 times."
+    potential_type: claim
+    bound_to: [N210, N211, N212]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false
+  - id: O94
+    timestamp: "2026-09-18T13:40:00+10:00"
+    provenance: ai-suggested
+    content: >
+      Continuous stochastic flow modeling adds no demonstrated deployment value when matched
+      deterministic regression and stronger retrieval/lazy controls equal or exceed it in a
+      one-seed, small-data pose-transfer pilot.
+    context: "FM and REG each accepted one sealed task, versus six for RETRIEVE and four for P_lazy."
+    potential_type: claim
+    bound_to: [N209, N210, N212]
+    promoted: false
+    promoted_to: null
+    crystallized_via: null
+    stale: false

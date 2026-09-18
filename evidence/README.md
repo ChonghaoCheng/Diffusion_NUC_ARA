@@ -1,5 +1,8 @@
 # Evidence Index
 
+- `e12_graph_free_global_generation_v1_2026-09-18.md` — graph-free route programs, q0-only
+  candidate execution, one-seed REG/FM pilot, lazy/full-graph controls, and sealed-test results.
+
 - `environment_probe_2026-08-23.md`: initial compute and dependency audit.
 - `m0_validation_2026-08-23.md`: M0 regression, convergence, and five-surface smoke results.
 - `m1_teacher_validation_2026-08-23.md`: M1 teacher benchmark, dataset validation, and invalid-target correction.
